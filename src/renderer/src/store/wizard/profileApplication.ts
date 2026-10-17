@@ -126,7 +126,11 @@ function baseLanguageCode(trackKey: string): string {
 	return trackKey.endsWith('-orig') ? trackKey.slice(0, -'-orig'.length) : trackKey
 }
 
-export function profileFromWizard(base: DownloadProfile, snapshot: WizardSettingsSnapshot, formats: readonly FormatOption[], context: SaveProfileContext): DownloadProfile {
+// `formatChanged` false keeps the base profile's media: a concrete stream pick
+// only ever approximates the profile's intent ("up to 1080p" on a video that
+// tops out at 480p, or the best stream standing in for "best"), so it is only
+// turned back into media when the user actually changed the format.
+export function profileFromWizard(base: DownloadProfile, snapshot: WizardSettingsSnapshot, formats: readonly FormatOption[], context: SaveProfileContext, formatChanged = true): DownloadProfile {
 	const languages = [...new Set(snapshot.subtitleLanguages.map(baseLanguageCode))]
 	const pickedAuto = snapshot.subtitleLanguages.some(key => key.endsWith('-orig'))
 	const source = pickedAuto && base.subtitles.source === 'manual-only' ? 'manual-first' : base.subtitles.source
@@ -136,7 +140,7 @@ export function profileFromWizard(base: DownloadProfile, snapshot: WizardSetting
 		name: context.name,
 		icon: base.icon,
 		enabled: true,
-		media: mediaFromWizard(base, snapshot, formats),
+		media: formatChanged ? mediaFromWizard(base, snapshot, formats) : base.media,
 		subtitles: {enabled: languages.length > 0, languages, source, mode: snapshot.subtitleMode, format: snapshot.subtitleFormat},
 		sponsorBlock: {mode: snapshot.sponsorBlockMode, categories: [...snapshot.sponsorBlockCategories]},
 		embed: {...snapshot.embed},

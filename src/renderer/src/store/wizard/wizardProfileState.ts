@@ -79,6 +79,7 @@ function newProfileId(): string {
 // profile it started from (or this isn't a single-video run).
 export function editedProfileDraft(state: AppState, name: string): DownloadProfile | null {
 	const base = state.wizardProfile
-	if (state.wizardMode !== 'single' || !base || wizardChangedAreas(state).length === 0) return null
-	return profileFromWizard(base, wizardSnapshot(state), state.wizardFormats, {id: newProfileId(), name, now: new Date().toISOString(), defaultOutputDir: state.settings?.common?.defaultOutputDir ?? '', globalFilenameTemplate: state.settings?.common?.filenameTemplate})
+	const changed = wizardChangedAreas(state)
+	if (state.wizardMode !== 'single' || !base || changed.length === 0) return null
+	return profileFromWizard(base, wizardSnapshot(state), state.wizardFormats, {id: newProfileId(), name, now: new Date().toISOString(), defaultOutputDir: state.settings?.common?.defaultOutputDir ?? '', globalFilenameTemplate: state.settings?.common?.filenameTemplate}, changed.includes('format'))
 }
