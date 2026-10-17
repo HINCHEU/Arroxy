@@ -2875,7 +2875,7 @@ msgstr "រក្សាទុកប្រវត្តិរូប"
 
 msgctxt "wizard.review.save.description"
 msgid "Keeps these settings as a profile you can pick next time. Your Quick Download profile stays the same."
-msgstr "រក្សាការកំណត់ទាំងនេះជាប្រវត្តិរូបដែលអ្នកអាចជ្រើសរើសនៅលើកក្រោយ។ ប្រវត្តិរូប Quick Download របស់អ្នកនៅដដែល។"
+msgstr "រក្សាការកំណត់ទាំងនេះជាប្រវត្តិរូបដែលអ្នកអាចជ្រើសរើសនៅលើកក្រោយ។ ប្រវត្តិរូប ទាញយករហ័ស របស់អ្នកនៅដដែល។"
 
 msgctxt "wizard.review.save.failed"
 msgid "Couldn't save the profile."
