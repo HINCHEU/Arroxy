@@ -367,6 +367,10 @@ msgctxt "explore.toolbar.back"
 msgid "Back"
 msgstr "Geri"
 
+msgctxt "explore.toolbar.compactLayout"
+msgid "Compact layout"
+msgstr "Kompakt düzen"
+
 msgctxt "explore.toolbar.downloadWithProfile"
 msgid "Download · {{profileName}}"
 msgstr "İndir · {{profileName}}"
@@ -374,6 +378,10 @@ msgstr "İndir · {{profileName}}"
 msgctxt "explore.toolbar.forward"
 msgid "Forward"
 msgstr "İleri"
+
+msgctxt "explore.toolbar.fullLayout"
+msgid "Show full layout"
+msgstr "Tam düzeni göster"
 
 msgctxt "explore.toolbar.grabUnavailable"
 msgid "Open a video, playlist, or channel to download it"
@@ -384,8 +392,8 @@ msgid "YouTube home"
 msgstr "YouTube ana sayfası"
 
 msgctxt "explore.toolbar.interactiveHint"
-msgid "Choose format, subtitles and more…"
-msgstr "Biçim, altyazı ve daha fazlasını seç…"
+msgid "Interactive Download: choose format, subtitles and more…"
+msgstr "Etkileşimli İndirme: biçim, altyazı ve daha fazlasını seç…"
 
 msgctxt "explore.toolbar.offsiteDownload"
 msgid "Download this link"

@@ -367,6 +367,10 @@ msgctxt "explore.toolbar.back"
 msgid "Back"
 msgstr "Indietro"
 
+msgctxt "explore.toolbar.compactLayout"
+msgid "Compact layout"
+msgstr "Layout compatto"
+
 msgctxt "explore.toolbar.downloadWithProfile"
 msgid "Download · {{profileName}}"
 msgstr "Scarica · {{profileName}}"
@@ -374,6 +378,10 @@ msgstr "Scarica · {{profileName}}"
 msgctxt "explore.toolbar.forward"
 msgid "Forward"
 msgstr "Avanti"
+
+msgctxt "explore.toolbar.fullLayout"
+msgid "Show full layout"
+msgstr "Mostra layout completo"
 
 msgctxt "explore.toolbar.grabUnavailable"
 msgid "Open a video, playlist, or channel to download it"
@@ -384,8 +392,8 @@ msgid "YouTube home"
 msgstr "Home di YouTube"
 
 msgctxt "explore.toolbar.interactiveHint"
-msgid "Choose format, subtitles and more…"
-msgstr "Scegli formato, sottotitoli e altro…"
+msgid "Interactive Download: choose format, subtitles and more…"
+msgstr "Download interattivo: scegli formato, sottotitoli e altro…"
 
 msgctxt "explore.toolbar.offsiteDownload"
 msgid "Download this link"
