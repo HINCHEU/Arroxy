@@ -40,7 +40,7 @@
 	"theme": {"light": "របៀបភ្លឺ", "dark": "របៀបងងឹត", "system": "លំនាំដើមប្រព័ន្ធ"},
 	"language": {"label": "ភាសា"},
 	"wizard": {
-		"steps": {"url": "URL", "playlistItems": "បញ្ជីចាក់", "playlistItemsGeneric": "វីដេអូ", "playlistPresets": "គុណភាព", "playlistProfiles": "ប្រវត្តិរូប", "formats": "ទម្រង់", "subtitles": "អក្សររត់", "sponsorblock": "SponsorBlock", "output": "លទ្ធផល", "folder": "រក្សាទុក", "confirm": "បញ្ជាក់"},
+		"steps": {"url": "URL", "playlistItems": "បញ្ជីចាក់", "playlistItemsGeneric": "វីដេអូ", "playlistPresets": "គុណភាព", "playlistProfiles": "ប្រវត្តិរូប", "formats": "ទម្រង់", "subtitles": "អក្សររត់", "sponsorblock": "SponsorBlock", "output": "លទ្ធផល", "folder": "រក្សាទុក", "confirm": "បញ្ជាក់", "review": "ពិនិត្យ"},
 		"playlistPresets": {"heading": "ជ្រើសរើសគុណភាពសម្រាប់ក្រុមទាំងមូល", "subhead": "វីដេអូនីមួយៗកំណត់កម្រិតដែលបានជ្រើសរើសដោយឯករាជ្យ — បញ្ជីចាក់ចម្រុះដំណើរការបានដោយគ្មានការភ្ញាក់ផ្អើល។", "itemCount_one": "{{count}} ធាតុ", "itemCount_other": "{{count}} ធាតុ"},
 		"playlistProfiles": {
 			"heading": "កំណត់ប្រវត្តិរូបទាញយក",
@@ -316,16 +316,11 @@
 		"subtitles": {
 			"autoBadge": "ស្វ័យប្រវត្តិ",
 			"noLanguages": "គ្មានអក្សររត់សម្រាប់វីដេអូនេះទេ",
-			"skip": "រំលង",
-			"skipSubs": "រំលងសម្រាប់វីដេអូនេះ",
-			"mascot": "ជ្រើសរើសសូន្យ មួយ ឬច្រើន — អាស្រ័យលើអ្នកទាំងស្រុង ✨",
 			"searchPlaceholder": "ស្វែងរកភាសា…",
 			"noMatches": "គ្មានភាសាណាត្រូវគ្នាទេ",
 			"clearAll": "សម្អាតទាំងអស់",
 			"noSelected": "មិនបានជ្រើសរើសអក្សររត់",
 			"removeLanguage": "លុប {{name}}",
-			"selectedNote_one": "អក្សររត់ {{count}} នឹងត្រូវបានទាញយក",
-			"selectedNote_other": "អក្សររត់ {{count}} នឹងត្រូវបានទាញយក",
 			"sectionManual": "ដោយដៃ",
 			"sectionAuto": "បង្កើតដោយស្វ័យប្រវត្តិ",
 			"saveMode": {"heading": "រក្សាទុកជា", "sidecar": "នៅជាប់វីដេអូ", "embed": "បង្កប់ក្នុងវីដេអូ", "subfolder": "ថតរង subtitles/"},
@@ -341,7 +336,17 @@
 			"cat": {"sponsor": "អ្នកឧបត្ថម្ភ", "intro": "ផ្នែកណែនាំ", "outro": "ផ្នែកបញ្ចប់", "selfpromo": "ផ្សព្វផ្សាយខ្លួនឯង", "music_offtopic": "តន្ត្រីក្រៅប្រធានបទ", "preview": "មើលជាមុន", "filler": "ផ្នែកបំពេញ"}
 		},
 		"formats": {
-			"quickPresets": "ការកំណត់ជាមុនរហ័ស",
+			"kind": {"label": "អ្វីដែលត្រូវទាញយក", "video": "វីដេអូ", "audio": "សំឡេង", "subtitles": "តែអក្សររត់"},
+			"profile": {"preselected": "បានជ្រើសរើសជាមុនពី", "tag": "ប្រវត្តិរូប", "closestTag": "ជិតបំផុតនឹងប្រវត្តិរូប", "switchTitle": "ប្តូរប្រវត្តិរូប?", "switchBody": "ការផ្លាស់ប្តូររបស់អ្នកចំពោះការទាញយកនេះនឹងត្រូវបានជំនួសដោយការកំណត់នៃប្រវត្តិរូបដែលអ្នកជ្រើសរើស។", "switchAction": "ប្តូរ"},
+			"fit": {
+				"tierBelow": "ប្រវត្តិរូបរបស់អ្នកស្នើសុំ {{wanted}}p។ វីដេអូនេះមានត្រឹមតែ {{picked}}p ដូច្នេះ {{picked}}p ត្រូវបានជ្រើសរើស។",
+				"tierAbove": "ប្រវត្តិរូបរបស់អ្នកស្នើសុំ {{wanted}}p។ វីដេអូនេះគ្មានគុណភាពតូចប៉ុណ្ណោះទេ ដូច្នេះ {{picked}}p ត្រូវបានជ្រើសរើស។",
+				"mp4Unavailable": "ប្រវត្តិរូបរបស់អ្នកស្នើសុំ MP4 (H.264)។ វីដេអូនេះមិនផ្តល់វាទេ ដូច្នេះស្ទ្រីមដែលជិតបំផុតត្រូវបានជ្រើសរើស។",
+				"noVideo": "តំណនេះគ្មានវីដេអូទេ ដូច្នេះសំឡេងត្រូវបានជ្រើសរើស។",
+				"subtitlesMissing": "ប្រវត្តិរូបរបស់អ្នកស្នើសុំអក្សររត់ជា {{languages}}។ វីដេអូនេះមិនមានវាទេ។"
+			},
+			"summary": {"lead": "ក៏មកពី {{profile}} ផងដែរ៖", "subtitlesOff": "អក្សររត់បិទ", "subtitlesAdd_one": "មាន {{count}} ភាសា បន្ថែម", "subtitlesAdd_other": "មាន {{count}} ភាសា បន្ថែម", "reviewAll": "ពិនិត្យទាំងអស់"},
+			"footer": {"reviewOptions": "ពិនិត្យ និងជម្រើស", "download": "ទាញយក", "moreActions": "ជម្រើសទាញយកបន្ថែម", "addToQueue": "បន្ថែមទៅជួរដោយមិនចាប់ផ្តើម", "subtitlesRequired": "ជ្រើសរើសភាសាអក្សររត់យ៉ាងហោចណាស់មួយ។"},
 			"video": "វីដេអូ",
 			"audio": "សំឡេង",
 			"noAudio": "គ្មានសំឡេង",
@@ -349,8 +354,6 @@
 			"keepAudio": "រក្សាដដែល",
 			"keepAudioMeta": "សំឡេងមានស្រាប់",
 			"audioOnly": "តែសំឡេង",
-			"audioOnlyOption": "តែសំឡេង (គ្មានវីដេអូ)",
-			"mascot": "ល្អបំផុត + ល្អបំផុត = គុណភាពអតិបរមា។ ខ្ញុំនឹងជ្រើសរើសវា!",
 			"sniffing": "កំពុងស្វែងរកទម្រង់ល្អបំផុតសម្រាប់អ្នក…",
 			"loadingHint": "សូមរង់ចាំរហូតដល់ការពិនិត្យបញ្ចប់ — បញ្ជីចាក់ និងការស្វែងរកអាចចំណាយពេលបន្តិច។",
 			"loadingAria": "កំពុងផ្ទុកទម្រង់",
@@ -359,15 +362,7 @@
 			"skipToConfirm": "រំលងទៅការបញ្ជាក់",
 			"skipToConfirmTooltip": "ប្រើចំណូលចិត្តដែលបានរក្សាទុករបស់អ្នកសម្រាប់ជំហានដែលនៅសល់ទាំងអស់។ ដើម្បីប្តូរការកំណត់ សូមបន្តជាជំហានៗជំនួសវិញ — ជម្រើសរបស់អ្នកនឹងត្រូវបានរក្សាទុកសម្រាប់លើកក្រោយ។",
 			"quality": {"high": "គុណភាពខ្ពស់", "medium": "គុណភាពមធ្យម", "low": "គុណភាពទាប"},
-			"convert": {
-				"label": "បម្លែង",
-				"uncompressed": "បម្លែង · មិនបង្ហាប់",
-				"bitrate": "Bitrate",
-				"wavLabel": "WAV (មិនបង្ហាប់)",
-				"lossyLabel": "{{target}} {{bitrate}} kbps",
-				"requiresAudioOnly": "ការបម្លែងសំឡេងតម្រូវឱ្យប្រើរបៀបតែសំឡេង (ដកការជ្រើសរើសវីដេអូចេញ)។",
-				"requiresLossy": "ស្ទ្រីមដើមត្រូវបានជ្រើសរើស — bitrate អនុវត្តតែនៅពេលបម្លែងទៅ mp3, m4a ឬ opus ប៉ុណ្ណោះ។"
-			},
+			"convert": {"label": "បម្លែង", "uncompressed": "បម្លែង · មិនបង្ហាប់", "bitrate": "Bitrate", "wavLabel": "WAV (មិនបង្ហាប់)", "lossyLabel": "{{target}} {{bitrate}} kbps", "requiresLossy": "ស្ទ្រីមដើមត្រូវបានជ្រើសរើស — bitrate អនុវត្តតែនៅពេលបម្លែងទៅ mp3, m4a ឬ opus ប៉ុណ្ណោះ។"},
 			"botWall": {
 				"heading": "ការពិនិត្យត្រូវបានកំណត់",
 				"bodyUnconfigured": "បញ្ជីទម្រង់អាចមិនពេញលេញ។ រៀបចំ cookies ក្នុងការកំណត់កម្រិតខ្ពស់ ឬប្តូរបណ្តាញ ហើយព្យាយាមម្តងទៀត។",
@@ -413,6 +408,20 @@
 			"writeDescription": {"label": "រក្សាទុកការពិពណ៌នា", "description": "រក្សាទុកការពិពណ៌នាវីដេអូជាឯកសារអត្ថបទ .description នៅជាប់ការទាញយក។"},
 			"writeThumbnail": {"label": "រក្សាទុករូបភាពតូច", "description": "រក្សាទុករូបភាពតូចជាឯកសាររូបភាព .jpg នៅជាប់ការទាញយក។"},
 			"writeM3u": {"label": "បង្កើតឯកសារបញ្ជីចាក់ .m3u", "description": "រក្សាទុកបញ្ជីចាក់ .m3u ជាមួយវីដេអូ ដើម្បីឱ្យពួកវាបើកតាមលំដាប់ក្នុងកម្មវិធីចាក់មេឌៀរបស់អ្នក។"}
+		},
+		"review": {
+			"changeFormat": "ប្តូរទម្រង់",
+			"rowsHeading": "អ្វីៗផ្សេងទៀត",
+			"rows": {"subtitles": "អក្សររត់", "sponsorBlock": "SponsorBlock", "extras": "បន្ថែម", "saveTo": "រក្សាទុកទៅ", "fileName": "ឈ្មោះឯកសារ"},
+			"value": {"subtitlesOff": "បិទ", "sponsorBlockOff": "បិទ", "extrasNone": "គ្មាន"},
+			"done": "រួចរាល់",
+			"changed": "បានផ្លាស់ប្តូរពី {{profile}}៖ {{areas}}។ អនុវត្តចំពោះការទាញយកនេះតែប៉ុណ្ណោះ។",
+			"areas": {"format": "ទម្រង់", "subtitles": "អក្សររត់", "sponsorBlock": "SponsorBlock", "extras": "បន្ថែម", "saveTo": "ថត", "fileName": "ឈ្មោះឯកសារ"},
+			"saveAsProfile": "រក្សាទុកជាប្រវត្តិរូប…",
+			"reset": "កំណត់ឡើងវិញ",
+			"save": {"title": "រក្សាទុកជាប្រវត្តិរូប", "description": "រក្សាការកំណត់ទាំងនេះជាប្រវត្តិរូបដែលអ្នកអាចជ្រើសរើសនៅលើកក្រោយ។ ប្រវត្តិរូប Quick Download របស់អ្នកនៅដដែល។", "nameLabel": "ឈ្មោះប្រវត្តិរូប", "action": "រក្សាទុកប្រវត្តិរូប", "saved": "បានរក្សាទុកជាប្រវត្តិរូប “{{name}}”", "failed": "មិនអាចរក្សាទុកប្រវត្តិរូបបានទេ។"},
+			"fileNameHint": "Token៖ {title}, {id}, {uploader}, {date}, {resolution}។ កន្ទុយឯកសារត្រូវបានបន្ថែមជូនអ្នក។",
+			"nextTime": {"title": "ការទាញយកនេះបានប្រើការកំណត់ដែលបានកែសម្រួល។ ប្រើវានៅលើកក្រោយឬ?", "action": "រក្សាទុកជាប្រវត្តិរូប", "defaultName": "{{profile}} (បានកែសម្រួល)"}
 		},
 		"confirm": {
 			"readyHeadline": "រួចរាល់សម្រាប់ទាញយកហើយ!",
@@ -679,13 +688,6 @@
 			"loginRequired": "វីដេអូនេះត្រូវការគណនីដែលបានចូល។",
 			"unknown": "ការទាញយកបានបរាជ័យ។ មើលលទ្ធផលដើមខាងក្រោម។"
 		}
-	},
-	"presets": {
-		"best-quality": {"label": "គុណភាពល្អបំផុត", "desc": "គុណភាពបង្ហាញខ្ពស់បំផុត + សំឡេងល្អបំផុត"},
-		"balanced": {"label": "មានតុល្យភាព", "desc": "អតិបរមា 720p + សំឡេងល្អ"},
-		"audio-only": {"label": "តែសំឡេង", "desc": "គ្មានវីដេអូ សំឡេងល្អបំផុត"},
-		"small-file": {"label": "ឯកសារតូច", "desc": "គុណភាពបង្ហាញទាបបំផុត + សំឡេងទាប"},
-		"subtitle-only": {"label": "តែអក្សររត់", "desc": "គ្មានវីដេអូ គ្មានសំឡេង មានតែអក្សររត់"}
 	},
 	"playlistPresets": {
 		"type": {"video": "វីដេអូ", "audio": "សំឡេង", "subtitles": "អក្សររត់"},

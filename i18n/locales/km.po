@@ -779,46 +779,6 @@ msgctxt "playlistPresets.videoFormatDesc.mp4"
 msgid "Prefer H.264 video + AAC audio in MP4 when possible"
 msgstr "ចូលចិត្តវីដេអូ H.264 + សំឡេង AAC ក្នុង MP4 នៅពេលអាចធ្វើបាន"
 
-msgctxt "presets.audio-only.desc"
-msgid "No video, best audio"
-msgstr "គ្មានវីដេអូ សំឡេងល្អបំផុត"
-
-msgctxt "presets.audio-only.label"
-msgid "Audio only"
-msgstr "តែសំឡេង"
-
-msgctxt "presets.balanced.desc"
-msgid "720p max + good audio"
-msgstr "អតិបរមា 720p + សំឡេងល្អ"
-
-msgctxt "presets.balanced.label"
-msgid "Balanced"
-msgstr "មានតុល្យភាព"
-
-msgctxt "presets.best-quality.desc"
-msgid "Highest resolution + best audio"
-msgstr "គុណភាពបង្ហាញខ្ពស់បំផុត + សំឡេងល្អបំផុត"
-
-msgctxt "presets.best-quality.label"
-msgid "Best quality"
-msgstr "គុណភាពល្អបំផុត"
-
-msgctxt "presets.small-file.desc"
-msgid "Lowest resolution + low audio"
-msgstr "គុណភាពបង្ហាញទាបបំផុត + សំឡេងទាប"
-
-msgctxt "presets.small-file.label"
-msgid "Small file"
-msgstr "ឯកសារតូច"
-
-msgctxt "presets.subtitle-only.desc"
-msgid "No video, no audio, only subtitles"
-msgstr "គ្មានវីដេអូ គ្មានសំឡេង មានតែអក្សររត់"
-
-msgctxt "presets.subtitle-only.label"
-msgid "Subtitles only"
-msgstr "តែអក្សររត់"
-
 msgctxt "queue.artifact.companion"
 msgid "Companion"
 msgstr "ឯកសារភ្ជាប់"
@@ -1709,10 +1669,6 @@ msgctxt "wizard.formats.audioOnly"
 msgid "Audio only"
 msgstr "តែសំឡេង"
 
-msgctxt "wizard.formats.audioOnlyOption"
-msgid "Audio only (no video)"
-msgstr "តែសំឡេង (គ្មានវីដេអូ)"
-
 msgctxt "wizard.formats.botWall.bodyDisabled"
 msgid "Cookies are configured but turned off. Enable them and retry to get the full list, or change network and retry."
 msgstr "Cookies ត្រូវបានកំណត់ ប៉ុន្តែបានបិទ។ បើកវា ហើយព្យាយាមម្តងទៀតដើម្បីទទួលបានបញ្ជីពេញលេញ ឬប្តូរបណ្តាញ ហើយព្យាយាមម្តងទៀត។"
@@ -1752,10 +1708,6 @@ msgstr "បម្លែង"
 msgctxt "wizard.formats.convert.lossyLabel"
 msgid "{{target}} {{bitrate}} kbps"
 msgstr "{{target}} {{bitrate}} kbps"
-
-msgctxt "wizard.formats.convert.requiresAudioOnly"
-msgid "Audio conversion requires audio-only mode (deselect the video pick)."
-msgstr "ការបម្លែងសំឡេងតម្រូវឱ្យប្រើរបៀបតែសំឡេង (ដកការជ្រើសរើសវីដេអូចេញ)។"
 
 msgctxt "wizard.formats.convert.requiresLossy"
 msgid "A native stream is selected — bitrate only applies when converting to mp3, m4a, or opus."
@@ -1893,6 +1845,46 @@ msgctxt "wizard.formats.cookiesError.otherCookiesCta"
 msgid "Use a cookies file or browser instead…"
 msgstr "ប្រើឯកសារ cookies ឬកម្មវិធីរុករកជំនួសវិញ…"
 
+msgctxt "wizard.formats.fit.mp4Unavailable"
+msgid "Your profile asks for MP4 (H.264). This video doesn't offer it, so the closest stream is selected."
+msgstr "ប្រវត្តិរូបរបស់អ្នកស្នើសុំ MP4 (H.264)។ វីដេអូនេះមិនផ្តល់វាទេ ដូច្នេះស្ទ្រីមដែលជិតបំផុតត្រូវបានជ្រើសរើស។"
+
+msgctxt "wizard.formats.fit.noVideo"
+msgid "This link has no video, so audio is selected."
+msgstr "តំណនេះគ្មានវីដេអូទេ ដូច្នេះសំឡេងត្រូវបានជ្រើសរើស។"
+
+msgctxt "wizard.formats.fit.subtitlesMissing"
+msgid "Your profile asks for subtitles in {{languages}}. This video doesn't have them."
+msgstr "ប្រវត្តិរូបរបស់អ្នកស្នើសុំអក្សររត់ជា {{languages}}។ វីដេអូនេះមិនមានវាទេ។"
+
+msgctxt "wizard.formats.fit.tierAbove"
+msgid "Your profile asks for {{wanted}}p. This video has nothing that small, so {{picked}}p is selected."
+msgstr "ប្រវត្តិរូបរបស់អ្នកស្នើសុំ {{wanted}}p។ វីដេអូនេះគ្មានគុណភាពតូចប៉ុណ្ណោះទេ ដូច្នេះ {{picked}}p ត្រូវបានជ្រើសរើស។"
+
+msgctxt "wizard.formats.fit.tierBelow"
+msgid "Your profile asks for {{wanted}}p. This video only goes up to {{picked}}p, so {{picked}}p is selected."
+msgstr "ប្រវត្តិរូបរបស់អ្នកស្នើសុំ {{wanted}}p។ វីដេអូនេះមានត្រឹមតែ {{picked}}p ដូច្នេះ {{picked}}p ត្រូវបានជ្រើសរើស។"
+
+msgctxt "wizard.formats.footer.addToQueue"
+msgid "Add to queue without starting"
+msgstr "បន្ថែមទៅជួរដោយមិនចាប់ផ្តើម"
+
+msgctxt "wizard.formats.footer.download"
+msgid "Download"
+msgstr "ទាញយក"
+
+msgctxt "wizard.formats.footer.moreActions"
+msgid "More download options"
+msgstr "ជម្រើសទាញយកបន្ថែម"
+
+msgctxt "wizard.formats.footer.reviewOptions"
+msgid "Review & options"
+msgstr "ពិនិត្យ និងជម្រើស"
+
+msgctxt "wizard.formats.footer.subtitlesRequired"
+msgid "Choose at least one subtitle language."
+msgstr "ជ្រើសរើសភាសាអក្សររត់យ៉ាងហោចណាស់មួយ។"
+
 msgctxt "wizard.formats.keepAudio"
 msgid "Keep as-is"
 msgstr "រក្សាដដែល"
@@ -1900,6 +1892,22 @@ msgstr "រក្សាដដែល"
 msgctxt "wizard.formats.keepAudioMeta"
 msgid "Built-in audio"
 msgstr "សំឡេងមានស្រាប់"
+
+msgctxt "wizard.formats.kind.audio"
+msgid "Audio"
+msgstr "សំឡេង"
+
+msgctxt "wizard.formats.kind.label"
+msgid "What to download"
+msgstr "អ្វីដែលត្រូវទាញយក"
+
+msgctxt "wizard.formats.kind.subtitles"
+msgid "Subtitles only"
+msgstr "តែអក្សររត់"
+
+msgctxt "wizard.formats.kind.video"
+msgid "Video"
+msgstr "វីដេអូ"
 
 msgctxt "wizard.formats.loadingAria"
 msgid "Loading formats"
@@ -1909,13 +1917,33 @@ msgctxt "wizard.formats.loadingHint"
 msgid "Please wait until probing finishes — playlists and searches can take a while."
 msgstr "សូមរង់ចាំរហូតដល់ការពិនិត្យបញ្ចប់ — បញ្ជីចាក់ និងការស្វែងរកអាចចំណាយពេលបន្តិច។"
 
-msgctxt "wizard.formats.mascot"
-msgid "Best + Best = max quality. I'd pick that!"
-msgstr "ល្អបំផុត + ល្អបំផុត = គុណភាពអតិបរមា។ ខ្ញុំនឹងជ្រើសរើសវា!"
-
 msgctxt "wizard.formats.noAudio"
 msgid "No audio"
 msgstr "គ្មានសំឡេង"
+
+msgctxt "wizard.formats.profile.closestTag"
+msgid "Closest to profile"
+msgstr "ជិតបំផុតនឹងប្រវត្តិរូប"
+
+msgctxt "wizard.formats.profile.preselected"
+msgid "Pre-selected from"
+msgstr "បានជ្រើសរើសជាមុនពី"
+
+msgctxt "wizard.formats.profile.switchAction"
+msgid "Switch"
+msgstr "ប្តូរ"
+
+msgctxt "wizard.formats.profile.switchBody"
+msgid "Your changes to this download will be replaced by the settings of the profile you pick."
+msgstr "ការផ្លាស់ប្តូររបស់អ្នកចំពោះការទាញយកនេះនឹងត្រូវបានជំនួសដោយការកំណត់នៃប្រវត្តិរូបដែលអ្នកជ្រើសរើស។"
+
+msgctxt "wizard.formats.profile.switchTitle"
+msgid "Switch profile?"
+msgstr "ប្តូរប្រវត្តិរូប?"
+
+msgctxt "wizard.formats.profile.tag"
+msgid "Profile"
+msgstr "ប្រវត្តិរូប"
 
 msgctxt "wizard.formats.quality.high"
 msgid "High quality"
@@ -1928,10 +1956,6 @@ msgstr "គុណភាពទាប"
 msgctxt "wizard.formats.quality.medium"
 msgid "Medium quality"
 msgstr "គុណភាពមធ្យម"
-
-msgctxt "wizard.formats.quickPresets"
-msgid "Quick presets"
-msgstr "ការកំណត់ជាមុនរហ័ស"
 
 msgctxt "wizard.formats.sizeUnknown"
 msgid "Size unknown"
@@ -1948,6 +1972,26 @@ msgstr "ប្រើចំណូលចិត្តដែលបានរក្ស
 msgctxt "wizard.formats.sniffing"
 msgid "Sniffing out the best formats for you…"
 msgstr "កំពុងស្វែងរកទម្រង់ល្អបំផុតសម្រាប់អ្នក…"
+
+msgctxt "wizard.formats.summary.lead"
+msgid "Also from {{profile}}:"
+msgstr "ក៏មកពី {{profile}} ផងដែរ៖"
+
+msgctxt "wizard.formats.summary.reviewAll"
+msgid "Review all"
+msgstr "ពិនិត្យទាំងអស់"
+
+msgctxt "wizard.formats.summary.subtitlesAdd_one"
+msgid "{{count}} language available, add"
+msgstr "មាន {{count}} ភាសា បន្ថែម"
+
+msgctxt "wizard.formats.summary.subtitlesAdd_other"
+msgid "{{count}} languages available, add"
+msgstr "មាន {{count}} ភាសា បន្ថែម"
+
+msgctxt "wizard.formats.summary.subtitlesOff"
+msgid "subtitles off"
+msgstr "អក្សររត់បិទ"
 
 msgctxt "wizard.formats.total"
 msgid "Total"
@@ -2745,6 +2789,126 @@ msgctxt "wizard.quickProgress.waitHint"
 msgid "Keep this open while Arroxy prepares the queue."
 msgstr "ទុកផ្ទាំងនេះឱ្យបើក ខណៈពេល Arroxy រៀបចំជួរ។"
 
+msgctxt "wizard.review.areas.extras"
+msgid "extras"
+msgstr "បន្ថែម"
+
+msgctxt "wizard.review.areas.fileName"
+msgid "file name"
+msgstr "ឈ្មោះឯកសារ"
+
+msgctxt "wizard.review.areas.format"
+msgid "format"
+msgstr "ទម្រង់"
+
+msgctxt "wizard.review.areas.saveTo"
+msgid "folder"
+msgstr "ថត"
+
+msgctxt "wizard.review.areas.sponsorBlock"
+msgid "SponsorBlock"
+msgstr "SponsorBlock"
+
+msgctxt "wizard.review.areas.subtitles"
+msgid "subtitles"
+msgstr "អក្សររត់"
+
+msgctxt "wizard.review.changed"
+msgid "Changed from {{profile}}: {{areas}}. Applies to this download only."
+msgstr "បានផ្លាស់ប្តូរពី {{profile}}៖ {{areas}}។ អនុវត្តចំពោះការទាញយកនេះតែប៉ុណ្ណោះ។"
+
+msgctxt "wizard.review.changeFormat"
+msgid "Change format"
+msgstr "ប្តូរទម្រង់"
+
+msgctxt "wizard.review.done"
+msgid "Done"
+msgstr "រួចរាល់"
+
+msgctxt "wizard.review.fileNameHint"
+msgid "Tokens: {title}, {id}, {uploader}, {date}, {resolution}. The extension is added for you."
+msgstr "Token៖ {title}, {id}, {uploader}, {date}, {resolution}។ កន្ទុយឯកសារត្រូវបានបន្ថែមជូនអ្នក។"
+
+msgctxt "wizard.review.nextTime.action"
+msgid "Save as profile"
+msgstr "រក្សាទុកជាប្រវត្តិរូប"
+
+msgctxt "wizard.review.nextTime.defaultName"
+msgid "{{profile}} (edited)"
+msgstr "{{profile}} (បានកែសម្រួល)"
+
+msgctxt "wizard.review.nextTime.title"
+msgid "This download used edited settings. Use them next time?"
+msgstr "ការទាញយកនេះបានប្រើការកំណត់ដែលបានកែសម្រួល។ ប្រើវានៅលើកក្រោយឬ?"
+
+msgctxt "wizard.review.reset"
+msgid "Reset"
+msgstr "កំណត់ឡើងវិញ"
+
+msgctxt "wizard.review.rows.extras"
+msgid "Extras"
+msgstr "បន្ថែម"
+
+msgctxt "wizard.review.rows.fileName"
+msgid "File name"
+msgstr "ឈ្មោះឯកសារ"
+
+msgctxt "wizard.review.rows.saveTo"
+msgid "Save to"
+msgstr "រក្សាទុកទៅ"
+
+msgctxt "wizard.review.rows.sponsorBlock"
+msgid "SponsorBlock"
+msgstr "SponsorBlock"
+
+msgctxt "wizard.review.rows.subtitles"
+msgid "Subtitles"
+msgstr "អក្សររត់"
+
+msgctxt "wizard.review.rowsHeading"
+msgid "Everything else"
+msgstr "អ្វីៗផ្សេងទៀត"
+
+msgctxt "wizard.review.save.action"
+msgid "Save profile"
+msgstr "រក្សាទុកប្រវត្តិរូប"
+
+msgctxt "wizard.review.save.description"
+msgid "Keeps these settings as a profile you can pick next time. Your Quick Download profile stays the same."
+msgstr "រក្សាការកំណត់ទាំងនេះជាប្រវត្តិរូបដែលអ្នកអាចជ្រើសរើសនៅលើកក្រោយ។ ប្រវត្តិរូប Quick Download របស់អ្នកនៅដដែល។"
+
+msgctxt "wizard.review.save.failed"
+msgid "Couldn't save the profile."
+msgstr "មិនអាចរក្សាទុកប្រវត្តិរូបបានទេ។"
+
+msgctxt "wizard.review.save.nameLabel"
+msgid "Profile name"
+msgstr "ឈ្មោះប្រវត្តិរូប"
+
+msgctxt "wizard.review.save.saved"
+msgid "Saved as profile “{{name}}”"
+msgstr "បានរក្សាទុកជាប្រវត្តិរូប “{{name}}”"
+
+msgctxt "wizard.review.save.title"
+msgid "Save as profile"
+msgstr "រក្សាទុកជាប្រវត្តិរូប"
+
+msgctxt "wizard.review.saveAsProfile"
+msgid "Save as profile…"
+msgstr "រក្សាទុកជាប្រវត្តិរូប…"
+
+msgctxt "wizard.review.value.extrasNone"
+msgid "None"
+msgstr "គ្មាន"
+
+msgctxt "wizard.review.value.sponsorBlockOff"
+msgid "Off"
+msgstr "បិទ"
+
+msgctxt "wizard.review.value.subtitlesOff"
+msgid "Off"
+msgstr "បិទ"
+
 msgctxt "wizard.sponsorblock.cat.filler"
 msgid "Filler"
 msgstr "ផ្នែកបំពេញ"
@@ -2837,6 +3001,10 @@ msgctxt "wizard.steps.playlistProfiles"
 msgid "Profiles"
 msgstr "ប្រវត្តិរូប"
 
+msgctxt "wizard.steps.review"
+msgid "Review"
+msgstr "ពិនិត្យ"
+
 msgctxt "wizard.steps.sponsorblock"
 msgid "SponsorBlock"
 msgstr "SponsorBlock"
@@ -2868,10 +3036,6 @@ msgstr "របៀបបង្កប់រក្សាទុកលទ្ធផល
 msgctxt "wizard.subtitles.format.heading"
 msgid "Format"
 msgstr "ទម្រង់"
-
-msgctxt "wizard.subtitles.mascot"
-msgid "Pick zero, one, or many — totally up to you ✨"
-msgstr "ជ្រើសរើសសូន្យ មួយ ឬច្រើន — អាស្រ័យលើអ្នកទាំងស្រុង ✨"
 
 msgctxt "wizard.subtitles.noLanguages"
 msgid "No subtitles available for this video"
@@ -2916,22 +3080,6 @@ msgstr "បង្កើតដោយស្វ័យប្រវត្តិ"
 msgctxt "wizard.subtitles.sectionManual"
 msgid "Manual"
 msgstr "ដោយដៃ"
-
-msgctxt "wizard.subtitles.selectedNote_one"
-msgid "{{count}} subtitle will be downloaded"
-msgstr "អក្សររត់ {{count}} នឹងត្រូវបានទាញយក"
-
-msgctxt "wizard.subtitles.selectedNote_other"
-msgid "{{count}} subtitles will be downloaded"
-msgstr "អក្សររត់ {{count}} នឹងត្រូវបានទាញយក"
-
-msgctxt "wizard.subtitles.skip"
-msgid "Skip"
-msgstr "រំលង"
-
-msgctxt "wizard.subtitles.skipSubs"
-msgid "Skip for this video"
-msgstr "រំលងសម្រាប់វីដេអូនេះ"
 
 msgctxt "wizard.tabsNavAria"
 msgid "Download profile navigation"
