@@ -1979,7 +1979,7 @@ msgstr "ប្រើរបៀបបញ្ជីចាក់របស់ yt-dlp �
 
 msgctxt "wizard.mixedPrompt.quickBody"
 msgid "Download only this video, or queue the whole playlist with your active Quick Download profile."
-msgstr "ទាញយកតែវីដេអូនេះ ឬដាក់បញ្ជីចាក់ទាំងមូលក្នុងជួរជាមួយប្រវត្តិរូប Quick Download សកម្មរបស់អ្នក។"
+msgstr "ទាញយកតែវីដេអូនេះ ឬដាក់បញ្ជីចាក់ទាំងមូលក្នុងជួរជាមួយប្រវត្តិរូប ទាញយករហ័ស សកម្មរបស់អ្នក។"
 
 msgctxt "wizard.mixedPrompt.quickLimitDescription"
 msgid "Maximum entries Arroxy scans before queueing a playlist, channel, or search result."
@@ -1987,7 +1987,7 @@ msgstr "ចំនួនធាតុអតិបរមាដែល Arroxy ស្�
 
 msgctxt "wizard.mixedPrompt.quickPlaylistTooltip"
 msgid "Queues every loaded playlist item with the active Quick Download profile. If the scan hits your limit, Arroxy asks before queueing."
-msgstr "ដាក់ធាតុបញ្ជីចាក់ដែលបានផ្ទុកទាំងអស់ក្នុងជួរជាមួយប្រវត្តិរូប Quick Download សកម្ម។ ប្រសិនបើការស្កេនដល់ដែនកំណត់ Arroxy នឹងសួរមុនពេលដាក់ក្នុងជួរ។"
+msgstr "ដាក់ធាតុបញ្ជីចាក់ដែលបានផ្ទុកទាំងអស់ក្នុងជួរជាមួយប្រវត្តិរូប ទាញយករហ័ស សកម្ម។ ប្រសិនបើការស្កេនដល់ដែនកំណត់ Arroxy នឹងសួរមុនពេលដាក់ក្នុងជួរ។"
 
 msgctxt "wizard.mixedPrompt.quickSingleTooltip"
 msgid "Queues one download and ignores the playlist attached to this URL."
@@ -2443,7 +2443,7 @@ msgstr "ទីតាំងរក្សាទុកចុងក្រោយ"
 
 msgctxt "wizard.profileEditor.dialogDescription"
 msgid "One reusable setup for Quick Download, Bulk URLs, and playlists."
-msgstr "ការកំណត់មួយដែលអាចប្រើឡើងវិញសម្រាប់ Quick Download, URL ច្រើន និងបញ្ជីចាក់។"
+msgstr "ការកំណត់មួយដែលអាចប្រើឡើងវិញសម្រាប់ ទាញយករហ័ស, URL ច្រើន និងបញ្ជីចាក់។"
 
 msgctxt "wizard.profileEditor.dialogTitle"
 msgid "Download Profile"
@@ -2635,7 +2635,7 @@ msgstr "ប្រភេទទាញយក"
 
 msgctxt "wizard.profileEditor.panel.identity.description"
 msgid "Name and icon shown in Quick Download, Bulk URLs, and profile lists."
-msgstr "ឈ្មោះ និងរូបតំណាងដែលបង្ហាញក្នុង Quick Download, URL ច្រើន និងបញ្ជីប្រវត្តិរូប។"
+msgstr "ឈ្មោះ និងរូបតំណាងដែលបង្ហាញក្នុង ទាញយករហ័ស, URL ច្រើន និងបញ្ជីប្រវត្តិរូប។"
 
 msgctxt "wizard.profileEditor.panel.identity.title"
 msgid "Profile identity"
@@ -2739,7 +2739,7 @@ msgstr "កំពុងបន្ថែមទៅជួរ"
 
 msgctxt "wizard.quickProgress.title"
 msgid "Preparing Quick Download"
-msgstr "កំពុងរៀបចំ Quick Download"
+msgstr "កំពុងរៀបចំការទាញយករហ័ស"
 
 msgctxt "wizard.quickProgress.waitHint"
 msgid "Keep this open while Arroxy prepares the queue."
@@ -3515,7 +3515,7 @@ msgstr "គ្រប់គ្រងប្រវត្តិរូប"
 
 msgctxt "wizard.url.profile.menuDescription"
 msgid "Change the active profile for Quick Download, Bulk URLs, and playlists."
-msgstr "ប្តូរប្រវត្តិរូបសកម្មសម្រាប់ Quick Download, URL ច្រើន និងបញ្ជីចាក់។"
+msgstr "ប្តូរប្រវត្តិរូបសកម្មសម្រាប់ ទាញយករហ័ស, URL ច្រើន និងបញ្ជីចាក់។"
 
 msgctxt "wizard.url.profile.menuTitle"
 msgid "Switch profile"
