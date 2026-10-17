@@ -11,7 +11,7 @@ import {
 	type DownloadProfileOutputContext,
 	type ResolvedDownloadProfile
 } from '@shared/downloadProfiles.js'
-import type {DownloadProfile, DownloadProfileRef, JobAuth, NativeAudioPreference, PlaylistEntry, PlaylistSelection, ProbeResult, QueueItem, QueueLane} from '@shared/types.js'
+import type {AudioSelection, DownloadProfile, DownloadProfileRef, JobAuth, NativeAudioPreference, PlaylistEntry, PlaylistSelection, ProbeResult, QueueItem, QueueLane} from '@shared/types.js'
 import type {PreparedJob} from '@shared/preparedJob.js'
 import type {EmbedOptions, SubtitleOptions} from '@shared/preparedJob.js'
 import {prepareJob} from '@shared/prepareJob.js'
@@ -53,8 +53,12 @@ export interface PreparedQueueSubmission {
 function buildSingleQueueItemFromState(state: AppState, lane: QueueLane): QueueItem | null {
 	const {wizardUrl, wizardTitle, wizardThumbnail, wizardOutputDir} = state
 	const {wizardSubfolderEnabled, wizardSubfolderName} = state
-	const {selectedVideoFormatId, audioSelection, activePreset, wizardFormats} = state
-	const template = resolveJobFilenameTemplate(undefined, state.settings?.common?.filenameTemplate)
+	const {audioSelection, wizardMediaKind, wizardFormats} = state
+	// The Video / Audio / Subtitles kind decides what is kept; a stale video id
+	// from an earlier kind never leaks into an audio or subtitles job.
+	const selectedVideoFormatId = wizardMediaKind === 'video' ? state.selectedVideoFormatId : ''
+	const effectiveAudio: AudioSelection = wizardMediaKind === 'subtitles' ? {kind: 'none'} : audioSelection
+	const template = state.wizardFilenameTemplate
 	const templateMeta = singleTemplateMeta(state)
 	// A nesting template renders its directories below the subfolder root; a flat
 	// one leaves the root as-is. The job then carries the filename segment alone,
@@ -65,21 +69,21 @@ function buildSingleQueueItemFromState(state: AppState, lane: QueueLane): QueueI
 	const audioFormats = wizardFormats.filter(f => f.isAudioOnly)
 	const videoResolution = resolveVideoResolution(selectedVideoFormatId, wizardFormats, 'audio-only')
 
-	const formatId = buildFormatId(selectedVideoFormatId, audioSelection)
-	const audioConvert = buildAudioConvertPayload(audioSelection)
-	const formatLabel = buildFormatLabel(selectedVideoFormatId, videoResolution, audioSelection, audioFormats, activePreset)
+	const formatId = wizardMediaKind === 'subtitles' ? undefined : buildFormatId(selectedVideoFormatId, effectiveAudio)
+	const audioConvert = wizardMediaKind === 'subtitles' ? undefined : buildAudioConvertPayload(effectiveAudio)
+	const formatLabel = wizardMediaKind === 'subtitles' ? i18next.t('wizard.formats.kind.subtitles') : buildFormatLabel(selectedVideoFormatId, videoResolution, effectiveAudio, audioFormats)
 
-	const nativeAudioId = audioSelection.kind === 'native' ? audioSelection.formatId : null
+	const nativeAudioId = effectiveAudio.kind === 'native' ? effectiveAudio.formatId : null
 	const selectedIds = [selectedVideoFormatId, nativeAudioId].filter(Boolean) as string[]
 	const selectedSizes = selectedIds.map(id => wizardFormats.find(f => f.formatId === id)?.filesize)
 	const expectedBytes = !audioConvert && selectedIds.length > 0 && selectedSizes.every((s): s is number => s !== undefined) ? selectedSizes.reduce((a, b) => a + b, 0) : undefined
 
-	const subtitleLanguages = state.wizardSubtitleSkipped ? [] : state.wizardSubtitleLanguages
+	const subtitleLanguages = state.wizardSubtitleLanguages
 	const writeAutoSubs = subtitleLanguages.some(l => !!state.wizardAutomaticCaptions[l] && !state.wizardSubtitles[l])
 	const embed: EmbedOptions = {chapters: state.wizardEmbedChapters, metadata: state.wizardEmbedMetadata, thumbnail: state.wizardEmbedThumbnail, description: state.wizardWriteDescription, thumbnailSidecar: state.wizardWriteThumbnail}
 
-	const resolvedContainer = resolveOutputContainer(selectedVideoFormatId, audioSelection, state.wizardSubtitleMode, wizardFormats, activePreset, state.wizardEmbedThumbnail)
-	const {overrides} = sanitizeJobOptions({isSubtitleOnly: activePreset === 'subtitle-only', hasVideoTrack: selectedVideoFormatId !== '', resolvedOutputContainer: resolvedContainer, subtitleMode: state.wizardSubtitleMode, subtitleLanguages, embed, sponsorBlockMode: state.wizardSponsorBlockMode})
+	const resolvedContainer = resolveOutputContainer(selectedVideoFormatId, effectiveAudio, state.wizardSubtitleMode, wizardFormats, wizardMediaKind, state.wizardEmbedThumbnail)
+	const {overrides} = sanitizeJobOptions({isSubtitleOnly: wizardMediaKind === 'subtitles', hasVideoTrack: selectedVideoFormatId !== '', resolvedOutputContainer: resolvedContainer, subtitleMode: state.wizardSubtitleMode, subtitleLanguages, embed, sponsorBlockMode: state.wizardSponsorBlockMode})
 
 	const subtitles: SubtitleOptions | undefined = subtitleLanguages.length > 0 ? {languages: subtitleLanguages, mode: overrides.subtitleMode, format: state.wizardSubtitleFormat, writeAuto: writeAutoSubs} : undefined
 
@@ -89,7 +93,7 @@ function buildSingleQueueItemFromState(state: AppState, lane: QueueLane): QueueI
 		extractorKey: state.wizardExtractorKey,
 		formatId,
 		audioConvert,
-		activePreset,
+		subtitleOnly: wizardMediaKind === 'subtitles',
 		expectedBytes,
 		filenameTemplate,
 		subtitles,
@@ -115,7 +119,7 @@ function buildSingleQueueItemFromState(state: AppState, lane: QueueLane): QueueI
 		addedAt: new Date().toISOString(),
 		finishedAt: null,
 		artifacts: [],
-		writeM3u: state.wizardWriteM3u && canWriteM3u(undefined, state.settings?.common?.filenameTemplate),
+		writeM3u: state.wizardWriteM3u && canWriteM3u(undefined, template),
 		...(state.wizardProbeInfoJsonRef ? {probeInfoJsonRef: state.wizardProbeInfoJsonRef} : {}),
 		...(state.wizardProbeAuth ? {auth: state.wizardProbeAuth} : {}),
 		job
@@ -123,7 +127,7 @@ function buildSingleQueueItemFromState(state: AppState, lane: QueueLane): QueueI
 }
 
 function resolvePlaylistFormatLabel(s: PlaylistSelection): string {
-	if (s.kind === 'subtitles') return [i18next.t('presets.subtitle-only.label'), s.languages.join(', '), s.format.toUpperCase()].join(' · ')
+	if (s.kind === 'subtitles') return [i18next.t('wizard.formats.kind.subtitles'), s.languages.join(', '), s.format.toUpperCase()].join(' · ')
 	if (s.kind === 'audio') {
 		if (s.format === 'best') return i18next.t('playlistPresets.audioFormat.best')
 		return i18next.t('playlistPresets.audioFormatBitrate', {format: s.format.toUpperCase(), kbps: s.bitrateKbps ?? 192})
@@ -320,7 +324,7 @@ function downloadProfileRefLabel(ref: DownloadProfileRef): string {
 
 function profileJob(resolved: ResolvedDownloadProfile, extractor: string, extractorKey: string, filenameTemplate: string, nativeAudioPreference: NativeAudioPreference): PreparedJob {
 	if (resolved.isSubtitleOnly) {
-		return prepareJob({mode: 'single', extractor, extractorKey, activePreset: 'subtitle-only', filenameTemplate, subtitles: resolved.subtitles, sponsorBlockMode: 'off', sponsorBlockCategories: [], embed: resolved.embed})
+		return prepareJob({mode: 'single', extractor, extractorKey, subtitleOnly: true, filenameTemplate, subtitles: resolved.subtitles, sponsorBlockMode: 'off', sponsorBlockCategories: [], embed: resolved.embed})
 	}
 
 	if (!resolved.intent) throw new Error(`download profile media intent missing for ${downloadProfileRefLabel(resolved.ref)}`)

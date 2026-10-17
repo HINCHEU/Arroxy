@@ -58,8 +58,6 @@ const COMMON_FLAT_KEYS = [
 // and the legacy keys are stripped from the persisted shape.
 const LEGACY_COMMON_FLAT_KEYS = ['cookiesEnabled'] as const
 
-const SINGLE_FLAT_KEYS = ['lastPreset', 'lastVideoResolution', 'lastSubtitleLanguages', 'lastSubtitleMode', 'lastSubtitleFormat'] as const
-
 const PLAYLIST_FLAT_KEYS = [] as const
 
 function pickKeys<K extends string>(src: Record<string, unknown>, keys: readonly K[]): Partial<Record<K, unknown>> {
@@ -75,15 +73,14 @@ function isLegacyShape(raw: Record<string, unknown>): boolean {
 	// present even on a fresh install. The signal of legacy data is the
 	// presence of any flat key — those only appear if the on-disk file came
 	// from a pre-nested version.
-	return COMMON_FLAT_KEYS.some(k => k in raw) || LEGACY_COMMON_FLAT_KEYS.some(k => k in raw) || SINGLE_FLAT_KEYS.some(k => k in raw) || PLAYLIST_FLAT_KEYS.some(k => k in raw)
+	return COMMON_FLAT_KEYS.some(k => k in raw) || LEGACY_COMMON_FLAT_KEYS.some(k => k in raw) || PLAYLIST_FLAT_KEYS.some(k => k in raw)
 }
 
 function migrateFlatToNested(raw: Record<string, unknown>, defaults: AppSettings): Record<string, unknown> {
 	const picked = {...pickKeys(raw, COMMON_FLAT_KEYS), ...pickKeys(raw, LEGACY_COMMON_FLAT_KEYS)}
 	const common = {...defaults.common, ...picked}
-	const single = {...defaults.single, ...pickKeys(raw, SINGLE_FLAT_KEYS)}
 	const playlist = {...defaults.playlist, ...pickKeys(raw, PLAYLIST_FLAT_KEYS)}
-	return {common, single, playlist, profiles: defaults.profiles}
+	return {common, playlist, profiles: defaults.profiles}
 }
 
 // Normalize the cookies setting from the pre-radio shape (`cookiesEnabled`
@@ -111,7 +108,7 @@ function stableJson(value: unknown): string {
 	return JSON.stringify(canonicalize(value)) ?? ''
 }
 
-type NestedSettings = AppSettings['common'] | AppSettings['single'] | AppSettings['playlist'] | AppSettings['profiles']
+type NestedSettings = AppSettings['common'] | AppSettings['playlist'] | AppSettings['profiles']
 
 function mergeNested(raw: Record<string, unknown>, key: string, defaults: NestedSettings): unknown {
 	const persisted = raw[key]
@@ -121,7 +118,7 @@ function mergeNested(raw: Record<string, unknown>, key: string, defaults: Nested
 }
 
 function currentShape(raw: Record<string, unknown>, defaults: AppSettings): Record<string, unknown> {
-	return {...defaults, ...raw, common: mergeNested(raw, 'common', defaults.common), single: mergeNested(raw, 'single', defaults.single), playlist: mergeNested(raw, 'playlist', defaults.playlist), profiles: mergeNested(raw, 'profiles', defaults.profiles)}
+	return {...defaults, ...raw, common: mergeNested(raw, 'common', defaults.common), playlist: mergeNested(raw, 'playlist', defaults.playlist), profiles: mergeNested(raw, 'profiles', defaults.profiles)}
 }
 
 function migrateCookiesMode(common: Record<string, unknown>): Record<string, unknown> {
@@ -138,7 +135,7 @@ function migrateCookiesMode(common: Record<string, unknown>): Record<string, unk
 	return {...rest, cookiesMode: mode}
 }
 
-type SettingsSection = 'common' | 'single' | 'playlist'
+type SettingsSection = 'common' | 'playlist'
 
 interface PersistedSettingsLoad {
 	settings: AppSettings
@@ -154,7 +151,6 @@ function normalizeCommon(value: unknown): unknown {
 function parsePersistedSettings(raw: Record<string, unknown>, defaults: AppSettings): PersistedSettingsLoad {
 	const candidate = isLegacyShape(raw) ? migrateFlatToNested(raw, defaults) : currentShape(raw, defaults)
 	const common = appSettingsSchema.shape.common.safeParse(normalizeCommon(candidate.common))
-	const single = appSettingsSchema.shape.single.safeParse(candidate.single)
 	const playlist = appSettingsSchema.shape.playlist.safeParse(candidate.playlist)
 	// Profiles are normalized entry by entry rather than section-parsed: a single
 	// unreadable profile must not take the whole bucket and the active selection
@@ -163,14 +159,13 @@ function parsePersistedSettings(raw: Record<string, unknown>, defaults: AppSetti
 	const profiles = normalizePersistedProfiles(candidate.profiles)
 	const invalidSections: SettingsSection[] = []
 	if (!common.success) invalidSections.push('common')
-	if (!single.success) invalidSections.push('single')
 	if (!playlist.success) invalidSections.push('playlist')
-	const settings: AppSettings = {common: common.success ? common.data : defaults.common, single: single.success ? single.data : defaults.single, playlist: playlist.success ? playlist.data : defaults.playlist, profiles}
+	const settings: AppSettings = {common: common.success ? common.data : defaults.common, playlist: playlist.success ? playlist.data : defaults.playlist, profiles}
 	return {settings, shouldPersist: stableJson(raw) !== stableJson(rawSettings(settings)), invalidSections}
 }
 
 function rawSettings(settings: AppSettings): Record<string, unknown> {
-	return {common: settings.common, single: settings.single, playlist: settings.playlist, profiles: settings.profiles}
+	return {common: settings.common, playlist: settings.playlist, profiles: settings.profiles}
 }
 
 function mergeCommon(base: CommonSettings, patch: Partial<CommonSettings> | undefined): CommonSettings {
@@ -185,7 +180,7 @@ function mergeCommon(base: CommonSettings, patch: Partial<CommonSettings> | unde
 function deepMerge(base: AppSettings, patch: SettingsPatch, defaults: AppSettings): AppSettings {
 	const profileSource = base.profiles ?? defaults.profiles
 	const baseProfiles = {...profileSource, overrides: profileSource.overrides ?? [], enabledOverrides: profileSource.enabledOverrides ?? {}}
-	return {common: mergeCommon(base.common, patch.common), single: {...base.single, ...(patch.single ?? {})}, playlist: {...base.playlist, ...(patch.playlist ?? {})}, profiles: {...baseProfiles, ...(patch.profiles ?? {})}}
+	return {common: mergeCommon(base.common, patch.common), playlist: {...base.playlist, ...(patch.playlist ?? {})}, profiles: {...baseProfiles, ...(patch.profiles ?? {})}}
 }
 
 function profileIdOf(value: unknown): string | null {

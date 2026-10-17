@@ -779,46 +779,6 @@ msgctxt "playlistPresets.videoFormatDesc.mp4"
 msgid "Prefer H.264 video + AAC audio in MP4 when possible"
 msgstr "H.264 + AAC inapendelewa, kontena MP4 · juhudi bora"
 
-msgctxt "presets.audio-only.desc"
-msgid "No video, best audio"
-msgstr "Hakuna video, sauti bora"
-
-msgctxt "presets.audio-only.label"
-msgid "Audio only"
-msgstr "Sauti peke yake"
-
-msgctxt "presets.balanced.desc"
-msgid "720p max + good audio"
-msgstr "720p kiwango cha juu + sauti nzuri"
-
-msgctxt "presets.balanced.label"
-msgid "Balanced"
-msgstr "Uwiano"
-
-msgctxt "presets.best-quality.desc"
-msgid "Highest resolution + best audio"
-msgstr "Azimio la juu zaidi + sauti bora"
-
-msgctxt "presets.best-quality.label"
-msgid "Best quality"
-msgstr "Ubora bora"
-
-msgctxt "presets.small-file.desc"
-msgid "Lowest resolution + low audio"
-msgstr "Azimio la chini + sauti ya chini"
-
-msgctxt "presets.small-file.label"
-msgid "Small file"
-msgstr "Faili ndogo"
-
-msgctxt "presets.subtitle-only.desc"
-msgid "No video, no audio, only subtitles"
-msgstr "Hakuna video, hakuna sauti, manukuu peke yake"
-
-msgctxt "presets.subtitle-only.label"
-msgid "Subtitles only"
-msgstr "Manukuu peke yake"
-
 msgctxt "queue.artifact.companion"
 msgid "Companion"
 msgstr "Faili saidizi"
@@ -1709,10 +1669,6 @@ msgctxt "wizard.formats.audioOnly"
 msgid "Audio only"
 msgstr "Sauti peke yake"
 
-msgctxt "wizard.formats.audioOnlyOption"
-msgid "Audio only (no video)"
-msgstr "Sauti peke yake (bila video)"
-
 msgctxt "wizard.formats.botWall.bodyDisabled"
 msgid "Cookies are configured but turned off. Enable them and retry to get the full list, or change network and retry."
 msgstr "Vidakuzi vimesanidiwa lakini vimezimwa. Viwashe na ujaribu tena kupata orodha kamili, au badilisha mtandao na ujaribu tena."
@@ -1752,10 +1708,6 @@ msgstr "Badilisha"
 msgctxt "wizard.formats.convert.lossyLabel"
 msgid "{{target}} {{bitrate}} kbps"
 msgstr "{{target}} {{bitrate}} kbps"
-
-msgctxt "wizard.formats.convert.requiresAudioOnly"
-msgid "Audio conversion requires audio-only mode (deselect the video pick)."
-msgstr "Ubadilishaji wa sauti unahitaji hali ya sauti peke yake (ondoa chaguo la video)."
 
 msgctxt "wizard.formats.convert.requiresLossy"
 msgid "A native stream is selected — bitrate only applies when converting to mp3, m4a, or opus."
@@ -1893,6 +1845,46 @@ msgctxt "wizard.formats.cookiesError.otherCookiesCta"
 msgid "Use a cookies file or browser instead…"
 msgstr "Tumia faili ya vidakuzi au kivinjari badala yake…"
 
+msgctxt "wizard.formats.fit.mp4Unavailable"
+msgid "Your profile asks for MP4 (H.264). This video doesn't offer it, so the closest stream is selected."
+msgstr "Wasifu wako unaomba MP4 (H.264). Video hii haina, kwa hivyo mtiririko wa karibu zaidi umechaguliwa."
+
+msgctxt "wizard.formats.fit.noVideo"
+msgid "This link has no video, so audio is selected."
+msgstr "Kiungo hiki hakina video, kwa hivyo sauti imechaguliwa."
+
+msgctxt "wizard.formats.fit.subtitlesMissing"
+msgid "Your profile asks for subtitles in {{languages}}. This video doesn't have them."
+msgstr "Wasifu wako unaomba manukuu katika {{languages}}. Video hii haina."
+
+msgctxt "wizard.formats.fit.tierAbove"
+msgid "Your profile asks for {{wanted}}p. This video has nothing that small, so {{picked}}p is selected."
+msgstr "Wasifu wako unaomba {{wanted}}p. Video hii haina kitu kidogo hivyo, kwa hivyo {{picked}}p imechaguliwa."
+
+msgctxt "wizard.formats.fit.tierBelow"
+msgid "Your profile asks for {{wanted}}p. This video only goes up to {{picked}}p, so {{picked}}p is selected."
+msgstr "Wasifu wako unaomba {{wanted}}p. Video hii inafika {{picked}}p tu, kwa hivyo {{picked}}p imechaguliwa."
+
+msgctxt "wizard.formats.footer.addToQueue"
+msgid "Add to queue without starting"
+msgstr "Ongeza kwenye foleni bila kuanza"
+
+msgctxt "wizard.formats.footer.download"
+msgid "Download"
+msgstr "Pakua"
+
+msgctxt "wizard.formats.footer.moreActions"
+msgid "More download options"
+msgstr "Chaguo zaidi za upakuaji"
+
+msgctxt "wizard.formats.footer.reviewOptions"
+msgid "Review & options"
+msgstr "Kagua na chaguo"
+
+msgctxt "wizard.formats.footer.subtitlesRequired"
+msgid "Choose at least one subtitle language."
+msgstr "Chagua angalau lugha moja ya manukuu."
+
 msgctxt "wizard.formats.keepAudio"
 msgid "Keep as-is"
 msgstr "Acha kama ilivyo"
@@ -1900,6 +1892,22 @@ msgstr "Acha kama ilivyo"
 msgctxt "wizard.formats.keepAudioMeta"
 msgid "Built-in audio"
 msgstr "Sauti iliyojengwa ndani"
+
+msgctxt "wizard.formats.kind.audio"
+msgid "Audio"
+msgstr "Sauti"
+
+msgctxt "wizard.formats.kind.label"
+msgid "What to download"
+msgstr "Cha kupakua"
+
+msgctxt "wizard.formats.kind.subtitles"
+msgid "Subtitles only"
+msgstr "Manukuu peke yake"
+
+msgctxt "wizard.formats.kind.video"
+msgid "Video"
+msgstr "Video"
 
 msgctxt "wizard.formats.loadingAria"
 msgid "Loading formats"
@@ -1909,13 +1917,33 @@ msgctxt "wizard.formats.loadingHint"
 msgid "Please wait until probing finishes — playlists and searches can take a while."
 msgstr "Tafadhali subiri hadi uchunguzi ukamilike — orodha za kuimba na utafutaji vinaweza kuchukua muda."
 
-msgctxt "wizard.formats.mascot"
-msgid "Best + Best = max quality. I'd pick that!"
-msgstr "Bora + Bora = ubora wa juu zaidi. Ningechagua hivyo!"
-
 msgctxt "wizard.formats.noAudio"
 msgid "No audio"
 msgstr "Hakuna sauti"
+
+msgctxt "wizard.formats.profile.closestTag"
+msgid "Closest to profile"
+msgstr "Karibu zaidi na wasifu"
+
+msgctxt "wizard.formats.profile.preselected"
+msgid "Pre-selected from"
+msgstr "Imechaguliwa awali kutoka"
+
+msgctxt "wizard.formats.profile.switchAction"
+msgid "Switch"
+msgstr "Badilisha"
+
+msgctxt "wizard.formats.profile.switchBody"
+msgid "Your changes to this download will be replaced by the settings of the profile you pick."
+msgstr "Mabadiliko yako kwenye upakuaji huu yatabadilishwa na mipangilio ya wasifu utakaochagua."
+
+msgctxt "wizard.formats.profile.switchTitle"
+msgid "Switch profile?"
+msgstr "Badilisha wasifu?"
+
+msgctxt "wizard.formats.profile.tag"
+msgid "Profile"
+msgstr "Wasifu"
 
 msgctxt "wizard.formats.quality.high"
 msgid "High quality"
@@ -1928,10 +1956,6 @@ msgstr "Ubora wa chini"
 msgctxt "wizard.formats.quality.medium"
 msgid "Medium quality"
 msgstr "Ubora wa kati"
-
-msgctxt "wizard.formats.quickPresets"
-msgid "Quick presets"
-msgstr "Mipangilio ya haraka"
 
 msgctxt "wizard.formats.sizeUnknown"
 msgid "Size unknown"
@@ -1948,6 +1972,26 @@ msgstr "Inatumia mapendeleo yako yaliyohifadhiwa kwa hatua zote zilizobaki. Ili 
 msgctxt "wizard.formats.sniffing"
 msgid "Sniffing out the best formats for you…"
 msgstr "Natafuta maumbo bora kwako…"
+
+msgctxt "wizard.formats.summary.lead"
+msgid "Also from {{profile}}:"
+msgstr "Pia kutoka {{profile}}:"
+
+msgctxt "wizard.formats.summary.reviewAll"
+msgid "Review all"
+msgstr "Kagua yote"
+
+msgctxt "wizard.formats.summary.subtitlesAdd_one"
+msgid "{{count}} language available, add"
+msgstr "Lugha {{count}} inapatikana, ongeza"
+
+msgctxt "wizard.formats.summary.subtitlesAdd_other"
+msgid "{{count}} languages available, add"
+msgstr "Lugha {{count}} zinapatikana, ongeza"
+
+msgctxt "wizard.formats.summary.subtitlesOff"
+msgid "subtitles off"
+msgstr "manukuu yamezimwa"
 
 msgctxt "wizard.formats.total"
 msgid "Total"
@@ -2745,6 +2789,126 @@ msgctxt "wizard.quickProgress.waitHint"
 msgid "Keep this open while Arroxy prepares the queue."
 msgstr "Acha hii ikiwa wazi wakati Arroxy inaandaa foleni."
 
+msgctxt "wizard.review.areas.extras"
+msgid "extras"
+msgstr "vya ziada"
+
+msgctxt "wizard.review.areas.fileName"
+msgid "file name"
+msgstr "jina la faili"
+
+msgctxt "wizard.review.areas.format"
+msgid "format"
+msgstr "umbizo"
+
+msgctxt "wizard.review.areas.saveTo"
+msgid "folder"
+msgstr "folda"
+
+msgctxt "wizard.review.areas.sponsorBlock"
+msgid "SponsorBlock"
+msgstr "SponsorBlock"
+
+msgctxt "wizard.review.areas.subtitles"
+msgid "subtitles"
+msgstr "manukuu"
+
+msgctxt "wizard.review.changed"
+msgid "Changed from {{profile}}: {{areas}}. Applies to this download only."
+msgstr "Imebadilishwa kutoka {{profile}}: {{areas}}. Inatumika kwa upakuaji huu tu."
+
+msgctxt "wizard.review.changeFormat"
+msgid "Change format"
+msgstr "Badilisha umbizo"
+
+msgctxt "wizard.review.done"
+msgid "Done"
+msgstr "Tayari"
+
+msgctxt "wizard.review.fileNameHint"
+msgid "Tokens: {title}, {id}, {uploader}, {date}, {resolution}. The extension is added for you."
+msgstr "Tokeni: {title}, {id}, {uploader}, {date}, {resolution}. Kiendelezi huongezwa kiotomatiki."
+
+msgctxt "wizard.review.nextTime.action"
+msgid "Save as profile"
+msgstr "Hifadhi kama wasifu"
+
+msgctxt "wizard.review.nextTime.defaultName"
+msgid "{{profile}} (edited)"
+msgstr "{{profile}} (imehaririwa)"
+
+msgctxt "wizard.review.nextTime.title"
+msgid "This download used edited settings. Use them next time?"
+msgstr "Upakuaji huu ulitumia mipangilio iliyohaririwa. Itumike wakati ujao?"
+
+msgctxt "wizard.review.reset"
+msgid "Reset"
+msgstr "Weka upya"
+
+msgctxt "wizard.review.rows.extras"
+msgid "Extras"
+msgstr "Vya ziada"
+
+msgctxt "wizard.review.rows.fileName"
+msgid "File name"
+msgstr "Jina la faili"
+
+msgctxt "wizard.review.rows.saveTo"
+msgid "Save to"
+msgstr "Hifadhi kwenye"
+
+msgctxt "wizard.review.rows.sponsorBlock"
+msgid "SponsorBlock"
+msgstr "SponsorBlock"
+
+msgctxt "wizard.review.rows.subtitles"
+msgid "Subtitles"
+msgstr "Manukuu"
+
+msgctxt "wizard.review.rowsHeading"
+msgid "Everything else"
+msgstr "Mengine yote"
+
+msgctxt "wizard.review.save.action"
+msgid "Save profile"
+msgstr "Hifadhi wasifu"
+
+msgctxt "wizard.review.save.description"
+msgid "Keeps these settings as a profile you can pick next time. Your Quick Download profile stays the same."
+msgstr "Huhifadhi mipangilio hii kama wasifu unaoweza kuchagua wakati ujao. Wasifu wako wa Upakuaji wa haraka hubaki vilevile."
+
+msgctxt "wizard.review.save.failed"
+msgid "Couldn't save the profile."
+msgstr "Imeshindwa kuhifadhi wasifu."
+
+msgctxt "wizard.review.save.nameLabel"
+msgid "Profile name"
+msgstr "Jina la wasifu"
+
+msgctxt "wizard.review.save.saved"
+msgid "Saved as profile “{{name}}”"
+msgstr "Imehifadhiwa kama wasifu “{{name}}”"
+
+msgctxt "wizard.review.save.title"
+msgid "Save as profile"
+msgstr "Hifadhi kama wasifu"
+
+msgctxt "wizard.review.saveAsProfile"
+msgid "Save as profile…"
+msgstr "Hifadhi kama wasifu…"
+
+msgctxt "wizard.review.value.extrasNone"
+msgid "None"
+msgstr "Hakuna"
+
+msgctxt "wizard.review.value.sponsorBlockOff"
+msgid "Off"
+msgstr "Zima"
+
+msgctxt "wizard.review.value.subtitlesOff"
+msgid "Off"
+msgstr "Zima"
+
 msgctxt "wizard.sponsorblock.cat.filler"
 msgid "Filler"
 msgstr "Kijazio"
@@ -2837,6 +3001,10 @@ msgctxt "wizard.steps.playlistProfiles"
 msgid "Profiles"
 msgstr "Wasifu"
 
+msgctxt "wizard.steps.review"
+msgid "Review"
+msgstr "Kagua"
+
 msgctxt "wizard.steps.sponsorblock"
 msgid "SponsorBlock"
 msgstr "SponsorBlock"
@@ -2868,10 +3036,6 @@ msgstr "Hali ya kuingiza inahifadhi matokeo kama .mkv ili nyimbo za manukuu ziin
 msgctxt "wizard.subtitles.format.heading"
 msgid "Format"
 msgstr "Umbizo"
-
-msgctxt "wizard.subtitles.mascot"
-msgid "Pick zero, one, or many — totally up to you ✨"
-msgstr "Chagua sufuri, moja, au mengi — inategemea wewe kabisa ✨"
 
 msgctxt "wizard.subtitles.noLanguages"
 msgid "No subtitles available for this video"
@@ -2916,22 +3080,6 @@ msgstr "Yaliyoundwa otomatiki"
 msgctxt "wizard.subtitles.sectionManual"
 msgid "Manual"
 msgstr "Ya mkono"
-
-msgctxt "wizard.subtitles.selectedNote_one"
-msgid "{{count}} subtitle will be downloaded"
-msgstr "Manukuu {{count}} yatapakiwa"
-
-msgctxt "wizard.subtitles.selectedNote_other"
-msgid "{{count}} subtitles will be downloaded"
-msgstr "Manukuu {{count}} yatapakiwa"
-
-msgctxt "wizard.subtitles.skip"
-msgid "Skip"
-msgstr "Ruka"
-
-msgctxt "wizard.subtitles.skipSubs"
-msgid "Skip for this video"
-msgstr "Ruka kwa video hii"
 
 msgctxt "wizard.tabsNavAria"
 msgid "Download profile navigation"

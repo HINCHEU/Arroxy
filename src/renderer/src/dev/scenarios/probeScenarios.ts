@@ -41,7 +41,11 @@ export function buildProbeResult(scenario: ScenarioLike, params?: ProbeUrlParams
 		case 'probe-audio-stereo':
 			return audioStereoProbe()
 		case 'probe-with-subtitles':
+		case 'single-review-subtitles':
+		case 'single-subtitles-kind':
 			return videoWithSubtitlesProbe()
+		case 'single-profile-misfit':
+			return lowResVideoProbe()
 		case 'probe-no-formats':
 			return noFormatsProbe()
 		case 'probe-live-stream':
@@ -142,6 +146,7 @@ function audioMultilingualProbe(): ProbeResult {
 		title: 'Mock Video - Multilingual Audio Tracks',
 		formats: [
 			{formatId: '137', label: '1080p | mp4 | 30fps | 515.0 MB', ext: 'mp4', resolution: '1080p', fps: 30, filesize: 540_000_000, isVideoOnly: true, isAudioOnly: false},
+			{formatId: '136', label: '720p | mp4 | 30fps | 209.8 MB', ext: 'mp4', resolution: '720p', fps: 30, filesize: 220_000_000, isVideoOnly: true, isAudioOnly: false},
 			{
 				formatId: '140-1',
 				label: 'English original (default) · m4a · AAC · 130 kbps · 1.4 MB',
@@ -203,6 +208,7 @@ function audioSurroundProbe(): ProbeResult {
 		title: 'Mock Video - Surround Audio Available',
 		formats: [
 			{formatId: '137', label: '1080p | mp4 | 30fps | 515.0 MB', ext: 'mp4', resolution: '1080p', fps: 30, filesize: 540_000_000, isVideoOnly: true, isAudioOnly: false},
+			{formatId: '136', label: '720p | mp4 | 30fps | 209.8 MB', ext: 'mp4', resolution: '720p', fps: 30, filesize: 220_000_000, isVideoOnly: true, isAudioOnly: false},
 			{formatId: '380', label: 'm4a · ac-3 · 6ch · 384 kbps · 49.2 MB', ext: 'm4a', resolution: 'audio only', abr: 384, audioCodec: 'ac-3', audioTrackQuality: 'high', filesize: 49_200_000, isVideoOnly: false, isAudioOnly: true},
 			{formatId: '328', label: 'm4a · ec-3 · 6ch · 384 kbps · 49.2 MB', ext: 'm4a', resolution: 'audio only', abr: 384, audioCodec: 'ec-3', audioTrackQuality: 'high', filesize: 49_200_000, isVideoOnly: false, isAudioOnly: true},
 			{formatId: '140', label: 'm4a · AAC · DRC · 129 kbps · 16.6 MB', ext: 'm4a', resolution: 'audio only', abr: 129, audioCodec: 'mp4a.40.2', isDrc: true, audioTrackQuality: 'medium', filesize: 16_600_000, isVideoOnly: false, isAudioOnly: true},
@@ -217,6 +223,7 @@ function audioStereoProbe(): ProbeResult {
 		title: 'Mock Video - Stereo Audio Only',
 		formats: [
 			{formatId: '137', label: '1080p | mp4 | 30fps | 515.0 MB', ext: 'mp4', resolution: '1080p', fps: 30, filesize: 540_000_000, isVideoOnly: true, isAudioOnly: false},
+			{formatId: '136', label: '720p | mp4 | 30fps | 209.8 MB', ext: 'mp4', resolution: '720p', fps: 30, filesize: 220_000_000, isVideoOnly: true, isAudioOnly: false},
 			{formatId: '140', label: 'm4a · AAC · 129 kbps · 4.8 MB', ext: 'm4a', resolution: 'audio only', abr: 129, audioCodec: 'mp4a.40.2', audioTrackQuality: 'medium', filesize: 5_000_000, isVideoOnly: false, isAudioOnly: true},
 			{formatId: '251', label: 'webm · Opus · 122 kbps · 4.6 MB', ext: 'webm', resolution: 'audio only', abr: 122, audioCodec: 'opus', audioTrackQuality: 'medium', filesize: 4_800_000, isVideoOnly: false, isAudioOnly: true},
 			{formatId: '139', label: 'm4a · AAC · 49 kbps · 1.8 MB', ext: 'm4a', resolution: 'audio only', abr: 49, audioCodec: 'mp4a.40.5', audioTrackQuality: 'low', filesize: 1_900_000, isVideoOnly: false, isAudioOnly: true}
@@ -239,6 +246,30 @@ function videoWithSubtitlesProbe(): ProbeResult {
 		subtitles: {en: [{ext: 'vtt', name: 'English'}], es: [{ext: 'vtt', name: 'Espanol'}], fr: [{ext: 'vtt', name: 'Francais'}], de: [{ext: 'vtt', name: 'Deutsch'}], ja: [{ext: 'vtt', name: 'Japanese'}], zh: [{ext: 'vtt', name: 'Chinese'}], ar: [{ext: 'vtt', name: 'Arabic'}]},
 		automaticCaptions: {'en-orig': [{ext: 'vtt', name: 'English (auto)'}], 'es-orig': [{ext: 'vtt', name: 'Espanol (auto)'}]},
 		formats: [...MOCK_FORMATS]
+	}
+}
+
+// An old upload: nothing above 480p and no subtitles, so a Full HD profile with
+// English subtitles can't be honoured and the Format screen says so.
+function lowResVideoProbe(): ProbeResult {
+	return {
+		kind: 'video',
+		extractor: 'youtube',
+		extractorKey: 'Youtube',
+		webpageUrl: 'https://www.youtube.com/watch?v=lowres',
+		isAudioOnlySource: false,
+		isLive: false,
+		hasDrm: false,
+		duration: 291,
+		title: 'Mock Video - Live at the Old Harbour, 2009',
+		thumbnail: 'https://i.ytimg.com/vi/jfKfPfyJRdk/hqdefault.jpg',
+		subtitles: {},
+		automaticCaptions: {},
+		formats: [
+			{formatId: '135', label: '480p | mp4 | 30fps', ext: 'mp4', resolution: '854x480', fps: 30, videoCodec: 'avc1.4d401e', filesize: 38_000_000, isVideoOnly: true, isAudioOnly: false},
+			{formatId: '134', label: '360p | mp4 | 30fps', ext: 'mp4', resolution: '640x360', fps: 30, videoCodec: 'avc1.4d401e', filesize: 22_000_000, isVideoOnly: true, isAudioOnly: false},
+			{formatId: '140', label: 'm4a · AAC · 128 kbps', ext: 'm4a', resolution: 'audio only', abr: 128, audioCodec: 'mp4a.40.2', filesize: 4_400_000, isVideoOnly: false, isAudioOnly: true}
+		]
 	}
 }
 

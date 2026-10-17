@@ -40,7 +40,7 @@
 	"theme": {"light": "โหมดสว่าง", "dark": "โหมดมืด", "system": "ค่าเริ่มต้นของระบบ"},
 	"language": {"label": "ภาษา"},
 	"wizard": {
-		"steps": {"url": "URL", "playlistItems": "เพลย์ลิสต์", "playlistItemsGeneric": "วิดีโอ", "playlistPresets": "คุณภาพ", "playlistProfiles": "โปรไฟล์", "formats": "รูปแบบ", "subtitles": "คำบรรยาย", "sponsorblock": "SponsorBlock", "output": "ผลลัพธ์", "folder": "บันทึก", "confirm": "ยืนยัน"},
+		"steps": {"url": "URL", "playlistItems": "เพลย์ลิสต์", "playlistItemsGeneric": "วิดีโอ", "playlistPresets": "คุณภาพ", "playlistProfiles": "โปรไฟล์", "formats": "รูปแบบ", "subtitles": "คำบรรยาย", "sponsorblock": "SponsorBlock", "output": "ผลลัพธ์", "folder": "บันทึก", "confirm": "ยืนยัน", "review": "ตรวจดู"},
 		"playlistPresets": {"heading": "เลือกคุณภาพสำหรับชุดงาน", "subhead": "แต่ละวิดีโอจะเลือกระดับที่กำหนดแยกกัน — เพลย์ลิสต์ที่หลากหลายจึงทำงานได้ตามคาด", "itemCount_one": "{{count}} รายการ", "itemCount_other": "{{count}} รายการ"},
 		"playlistProfiles": {
 			"heading": "กำหนดโปรไฟล์ดาวน์โหลด",
@@ -316,16 +316,11 @@
 		"subtitles": {
 			"autoBadge": "อัตโนมัติ",
 			"noLanguages": "ไม่มีคำบรรยายสำหรับวิดีโอนี้",
-			"skip": "ข้าม",
-			"skipSubs": "ข้ามสำหรับวิดีโอนี้",
-			"mascot": "เลือกศูนย์ หนึ่ง หรือหลายรายการ — แล้วแต่คุณเลย ✨",
 			"searchPlaceholder": "ค้นหาภาษา…",
 			"noMatches": "ไม่มีภาษาที่ตรงกัน",
 			"clearAll": "ล้างทั้งหมด",
 			"noSelected": "ไม่ได้เลือกคำบรรยาย",
 			"removeLanguage": "นำ {{name}} ออก",
-			"selectedNote_one": "จะดาวน์โหลดคำบรรยาย {{count}} รายการ",
-			"selectedNote_other": "จะดาวน์โหลดคำบรรยาย {{count}} รายการ",
 			"sectionManual": "ทำเอง",
 			"sectionAuto": "สร้างอัตโนมัติ",
 			"saveMode": {"heading": "บันทึกเป็น", "sidecar": "ข้างวิดีโอ", "embed": "ฝังในวิดีโอ", "subfolder": "โฟลเดอร์ย่อย subtitles/"},
@@ -341,7 +336,17 @@
 			"cat": {"sponsor": "สปอนเซอร์", "intro": "อินโทร", "outro": "เอาต์โทร", "selfpromo": "โปรโมตตนเอง", "music_offtopic": "เพลงนอกประเด็น", "preview": "ตัวอย่าง", "filler": "เนื้อหาเติมเวลา"}
 		},
 		"formats": {
-			"quickPresets": "ค่าที่ตั้งไว้ด่วน",
+			"kind": {"label": "สิ่งที่จะดาวน์โหลด", "video": "วิดีโอ", "audio": "เสียง", "subtitles": "เฉพาะคำบรรยาย"},
+			"profile": {"preselected": "เลือกไว้ล่วงหน้าจาก", "tag": "โปรไฟล์", "closestTag": "ใกล้เคียงโปรไฟล์ที่สุด", "switchTitle": "สลับโปรไฟล์ไหม", "switchBody": "การเปลี่ยนแปลงที่คุณทำกับการดาวน์โหลดนี้จะถูกแทนที่ด้วยการตั้งค่าของโปรไฟล์ที่คุณเลือก", "switchAction": "สลับ"},
+			"fit": {
+				"tierBelow": "โปรไฟล์ของคุณต้องการ {{wanted}}p แต่วิดีโอนี้มีสูงสุดเพียง {{picked}}p จึงเลือก {{picked}}p",
+				"tierAbove": "โปรไฟล์ของคุณต้องการ {{wanted}}p แต่วิดีโอนี้ไม่มีความละเอียดที่ต่ำขนาดนั้น จึงเลือก {{picked}}p",
+				"mp4Unavailable": "โปรไฟล์ของคุณต้องการ MP4 (H.264) แต่วิดีโอนี้ไม่มี จึงเลือกสตรีมที่ใกล้เคียงที่สุดให้",
+				"noVideo": "ลิงก์นี้ไม่มีวิดีโอ จึงเลือกเสียงให้",
+				"subtitlesMissing": "โปรไฟล์ของคุณต้องการคำบรรยายภาษา {{languages}} แต่วิดีโอนี้ไม่มี"
+			},
+			"summary": {"lead": "จาก {{profile}} ด้วย:", "subtitlesOff": "ปิดคำบรรยาย", "subtitlesAdd_one": "มี {{count}} ภาษาให้เลือก เพิ่ม", "subtitlesAdd_other": "มี {{count}} ภาษาให้เลือก เพิ่ม", "reviewAll": "ตรวจดูทั้งหมด"},
+			"footer": {"reviewOptions": "ตรวจดูและตัวเลือก", "download": "ดาวน์โหลด", "moreActions": "ตัวเลือกดาวน์โหลดเพิ่มเติม", "addToQueue": "เพิ่มลงคิวโดยไม่เริ่ม", "subtitlesRequired": "เลือกภาษาคำบรรยายอย่างน้อยหนึ่งภาษา"},
 			"video": "วิดีโอ",
 			"audio": "เสียง",
 			"noAudio": "ไม่มีเสียง",
@@ -349,8 +354,6 @@
 			"keepAudio": "คงไว้ตามเดิม",
 			"keepAudioMeta": "เสียงในตัว",
 			"audioOnly": "เฉพาะเสียง",
-			"audioOnlyOption": "เฉพาะเสียง (ไม่มีวิดีโอ)",
-			"mascot": "ดีที่สุด + ดีที่สุด = คุณภาพสูงสุด ฉันแนะนำตัวเลือกนี้!",
 			"sniffing": "กำลังค้นหารูปแบบที่ดีที่สุดให้คุณ…",
 			"loadingHint": "โปรดรอให้การตรวจสอบเสร็จ — เพลย์ลิสต์และการค้นหาอาจใช้เวลาสักครู่",
 			"loadingAria": "กำลังโหลดรูปแบบ",
@@ -359,7 +362,7 @@
 			"skipToConfirm": "ข้ามไปยืนยัน",
 			"skipToConfirmTooltip": "ใช้การตั้งค่าที่บันทึกไว้กับขั้นตอนที่เหลือทั้งหมด หากต้องการเปลี่ยนค่า ให้ทำต่อทีละขั้น — ตัวเลือกของคุณจะถูกบันทึกไว้ใช้ครั้งหน้า",
 			"quality": {"high": "คุณภาพสูง", "medium": "คุณภาพปานกลาง", "low": "คุณภาพต่ำ"},
-			"convert": {"label": "แปลง", "uncompressed": "แปลง · ไม่บีบอัด", "bitrate": "บิตเรต", "wavLabel": "WAV (ไม่บีบอัด)", "lossyLabel": "{{target}} {{bitrate}} kbps", "requiresAudioOnly": "การแปลงเสียงต้องใช้โหมดเฉพาะเสียง (ยกเลิกการเลือกวิดีโอ)", "requiresLossy": "เลือกสตรีมต้นฉบับอยู่ — บิตเรตใช้เฉพาะเมื่อแปลงเป็น mp3, m4a หรือ opus"},
+			"convert": {"label": "แปลง", "uncompressed": "แปลง · ไม่บีบอัด", "bitrate": "บิตเรต", "wavLabel": "WAV (ไม่บีบอัด)", "lossyLabel": "{{target}} {{bitrate}} kbps", "requiresLossy": "เลือกสตรีมต้นฉบับอยู่ — บิตเรตใช้เฉพาะเมื่อแปลงเป็น mp3, m4a หรือ opus"},
 			"botWall": {
 				"heading": "การตรวจสอบถูกจำกัด",
 				"bodyUnconfigured": "รายการรูปแบบอาจไม่ครบ ตั้งค่าคุกกี้ในการตั้งค่าขั้นสูง หรือเปลี่ยนเครือข่ายแล้วลองใหม่",
@@ -405,6 +408,20 @@
 			"writeDescription": {"label": "บันทึกคำอธิบาย", "description": "บันทึกคำอธิบายวิดีโอเป็นไฟล์ข้อความ .description ไว้ข้างไฟล์ดาวน์โหลด"},
 			"writeThumbnail": {"label": "บันทึกภาพขนาดย่อ", "description": "บันทึกภาพขนาดย่อเป็นไฟล์ภาพ .jpg ไว้ข้างไฟล์ดาวน์โหลด"},
 			"writeM3u": {"label": "สร้างไฟล์เพลย์ลิสต์ .m3u", "description": "บันทึกเพลย์ลิสต์ .m3u ไว้ข้างวิดีโอเพื่อให้โปรแกรมเล่นเปิดตามลำดับ"}
+		},
+		"review": {
+			"changeFormat": "เปลี่ยนรูปแบบ",
+			"rowsHeading": "อื่น ๆ ทั้งหมด",
+			"rows": {"subtitles": "คำบรรยาย", "sponsorBlock": "SponsorBlock", "extras": "ส่วนเสริม", "saveTo": "บันทึกไปยัง", "fileName": "ชื่อไฟล์"},
+			"value": {"subtitlesOff": "ปิด", "sponsorBlockOff": "ปิด", "extrasNone": "ไม่มี"},
+			"done": "เสร็จแล้ว",
+			"changed": "เปลี่ยนจาก {{profile}}: {{areas}} ใช้กับการดาวน์โหลดนี้เท่านั้น",
+			"areas": {"format": "รูปแบบ", "subtitles": "คำบรรยาย", "sponsorBlock": "SponsorBlock", "extras": "ส่วนเสริม", "saveTo": "โฟลเดอร์", "fileName": "ชื่อไฟล์"},
+			"saveAsProfile": "บันทึกเป็นโปรไฟล์…",
+			"reset": "รีเซ็ต",
+			"save": {"title": "บันทึกเป็นโปรไฟล์", "description": "บันทึกการตั้งค่าเหล่านี้เป็นโปรไฟล์ที่เลือกใช้ได้ในครั้งหน้า โปรไฟล์ดาวน์โหลดด่วนจะไม่เปลี่ยนแปลง", "nameLabel": "ชื่อโปรไฟล์", "action": "บันทึกโปรไฟล์", "saved": "บันทึกเป็นโปรไฟล์ “{{name}}” แล้ว", "failed": "บันทึกโปรไฟล์ไม่สำเร็จ"},
+			"fileNameHint": "โทเค็นที่ใช้ได้: {title}, {id}, {uploader}, {date}, {resolution} ระบบจะเติมนามสกุลไฟล์ให้เอง",
+			"nextTime": {"title": "การดาวน์โหลดนี้ใช้การตั้งค่าที่แก้ไข ใช้ในครั้งหน้าด้วยไหม", "action": "บันทึกเป็นโปรไฟล์", "defaultName": "{{profile}} (แก้ไขแล้ว)"}
 		},
 		"confirm": {
 			"readyHeadline": "พร้อมดาวน์โหลดแล้ว!",
@@ -671,13 +688,6 @@
 			"loginRequired": "วิดีโอนี้ต้องใช้บัญชีที่เข้าสู่ระบบ",
 			"unknown": "ดาวน์โหลดไม่สำเร็จ ดูผลลัพธ์ดิบด้านล่าง"
 		}
-	},
-	"presets": {
-		"best-quality": {"label": "คุณภาพดีที่สุด", "desc": "ความละเอียดสูงสุด + เสียงดีที่สุด"},
-		"balanced": {"label": "สมดุล", "desc": "สูงสุด 720p + เสียงคุณภาพดี"},
-		"audio-only": {"label": "เฉพาะเสียง", "desc": "ไม่มีวิดีโอ ใช้เสียงดีที่สุด"},
-		"small-file": {"label": "ไฟล์ขนาดเล็ก", "desc": "ความละเอียดต่ำสุด + เสียงคุณภาพต่ำ"},
-		"subtitle-only": {"label": "เฉพาะคำบรรยาย", "desc": "ไม่มีวิดีโอหรือเสียง มีเฉพาะคำบรรยาย"}
 	},
 	"playlistPresets": {
 		"type": {"video": "วิดีโอ", "audio": "เสียง", "subtitles": "คำบรรยาย"},

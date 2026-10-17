@@ -1,5 +1,4 @@
-import type {AudioConvert, FormatOption, LocalizedError, ProbeError, Preset, StatusSnapshot} from '@shared/types.js'
-import {PRESETS} from '@shared/schemas.js'
+import type {AudioConvert, FormatOption, LocalizedError, ProbeError, StatusSnapshot} from '@shared/types.js'
 import {i18next} from '@shared/i18n/index.js'
 import type {AudioSelection} from './types.js'
 
@@ -7,16 +6,7 @@ export interface GroupedVideoFormat {
 	resolution: string
 	formatId: string
 	label: string
-	isAudioOnly: boolean
 	dynamicRange?: string
-}
-
-export function presetLabel(preset: Preset): string {
-	return i18next.t(`presets.${preset}.label` as const)
-}
-
-export function presetOptions(): {value: Preset; label: string; desc: string}[] {
-	return PRESETS.map(value => ({value, label: i18next.t(`presets.${value}.label` as const), desc: i18next.t(`presets.${value}.desc` as const)}))
 }
 
 // Composes the yt-dlp `-f` value for native + video selections. Convert
@@ -58,14 +48,10 @@ export function resolveAudioLabel(audioSelection: AudioSelection, audioFormats: 
 // untranslated sentinel `'audio-only'`; the confirm view shows a translated string.
 export function resolveVideoResolution(selectedVideoFormatId: string, formats: FormatOption[], audioOnlyFallback: string): string {
 	if (selectedVideoFormatId === '') return audioOnlyFallback
-	const grouped = groupVideoFormats(formats).filter(g => !g.isAudioOnly)
-	return grouped.find(g => g.formatId === selectedVideoFormatId)?.resolution ?? selectedVideoFormatId
+	return groupVideoFormats(formats).find(g => g.formatId === selectedVideoFormatId)?.resolution ?? selectedVideoFormatId
 }
 
-export function buildFormatLabel(videoFormatId: string, videoResolution: string, audioSelection: AudioSelection, audioFormats: FormatOption[], preset: Preset | null): string {
-	if (preset) {
-		return i18next.t(`presets.${preset}.label` as const)
-	}
+export function buildFormatLabel(videoFormatId: string, videoResolution: string, audioSelection: AudioSelection, audioFormats: FormatOption[]): string {
 	const audioLabel = resolveAudioLabel(audioSelection, audioFormats)
 	if (videoFormatId === '') return i18next.t('formatLabel.audioOnlyDot', {audio: audioLabel})
 	return i18next.t('formatLabel.videoDot', {resolution: videoResolution, audio: audioLabel})
@@ -80,11 +66,9 @@ export function groupVideoFormats(formats: FormatOption[]): GroupedVideoFormat[]
 		const key = `${f.resolution}|${f.dynamicRange ?? ''}`
 		if (!seen.has(key)) {
 			seen.add(key)
-			grouped.push({resolution: f.resolution, formatId: f.formatId, label: f.label, isAudioOnly: false, dynamicRange: f.dynamicRange})
+			grouped.push({resolution: f.resolution, formatId: f.formatId, label: f.label, dynamicRange: f.dynamicRange})
 		}
 	}
-
-	grouped.push({resolution: i18next.t('wizard.formats.audioOnly'), formatId: '', label: i18next.t('wizard.formats.audioOnlyOption'), isAudioOnly: true})
 
 	return grouped
 }

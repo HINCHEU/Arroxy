@@ -107,28 +107,24 @@ export async function startBulkFromClipboard(page: Page, app: ElectronApplicatio
 	})
 }
 
-export async function prepareSingleConfirm(page: Page, videoId: string, subtitleChoice: 'skip' | 'continue' = 'skip'): Promise<void> {
+// Single video: URL → Format → Review. With `subtitles: 'english'` the user
+// opens the Review's Subtitles row and ticks English, the way a person adds
+// subtitles the active profile leaves off.
+export async function prepareSingleReview(page: Page, videoId: string, subtitles: 'none' | 'english' = 'none'): Promise<void> {
 	await page.locator('[data-testid="profiles-main-input"]').fill(fixtureUrl(videoId))
 	await page.locator('[data-testid="profiles-interactive-download"]').click()
 	await expect(page.locator('[data-testid="step-formats"]')).toBeVisible({timeout: 60_000})
-	await clickContinue(page)
-
-	if (subtitleChoice === 'continue') {
-		const subtitles = page.getByTestId('step-subtitles')
-		await subtitles.waitFor({state: 'visible', timeout: 5_000})
-		await subtitles.getByRole('button', {name: /continue/i}).click()
-	} else {
-		await clickStepButtonIfPresent(page, 'step-subtitles', 'Skip for this video')
+	await page.locator('[data-testid="btn-review-options"]').click()
+	await expect(page.locator('[data-testid="step-review"]')).toBeVisible()
+	if (subtitles === 'english') {
+		await page.locator('[data-testid="review-row-subtitles-toggle"]').click()
+		await page
+			.getByTestId('subtitle-fields')
+			.getByRole('checkbox', {name: /english/i})
+			.first()
+			.click()
+		await page.locator('[data-testid="review-row-subtitles-done"]').click()
 	}
-
-	await clickStepButtonIfPresent(page, 'step-sponsorblock', /continue/i)
-	await clickStepButtonIfPresent(page, 'step-output', /continue/i)
-	await page.waitForSelector('[data-testid="step-folder"]', {timeout: 5_000})
-	await page
-		.getByTestId('step-folder')
-		.getByRole('button', {name: /continue/i})
-		.click()
-	await expect(page.locator('[data-testid="step-confirm"]')).toBeVisible()
 }
 
 export async function preparePlaylistConfirm(page: Page, playlistUrl: string): Promise<void> {

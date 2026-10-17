@@ -49,7 +49,7 @@
 	"theme": {"light": "Modo claro", "dark": "Modo oscuro", "system": "Predeterminado del sistema"},
 	"language": {"label": "Idioma"},
 	"wizard": {
-		"steps": {"url": "URL", "playlistItems": "Lista", "playlistItemsGeneric": "Vídeos", "playlistPresets": "Calidad", "playlistProfiles": "Perfiles", "formats": "Formato", "subtitles": "Subtítulos", "sponsorblock": "SponsorBlock", "output": "Salida", "folder": "Guardar", "confirm": "Confirmar"},
+		"steps": {"url": "URL", "playlistItems": "Lista", "playlistItemsGeneric": "Vídeos", "playlistPresets": "Calidad", "playlistProfiles": "Perfiles", "formats": "Formato", "subtitles": "Subtítulos", "sponsorblock": "SponsorBlock", "output": "Salida", "folder": "Guardar", "confirm": "Confirmar", "review": "Revisar"},
 		"playlistPresets": {"heading": "Elige la calidad para el lote", "subhead": "Cada vídeo resuelve el nivel elegido de forma independiente — las playlists heterogéneas funcionan sin sorpresas.", "itemCount_one": "{{count}} elemento", "itemCount_other": "{{count}} elementos"},
 		"playlistProfiles": {
 			"heading": "Asignar perfiles de descarga",
@@ -330,16 +330,11 @@
 		"subtitles": {
 			"autoBadge": "Auto",
 			"noLanguages": "No hay subtítulos disponibles para este vídeo",
-			"skip": "Omitir",
-			"skipSubs": "Omitir para este video",
-			"mascot": "Elige cero, uno o varios — ¡tú decides! ✨",
 			"searchPlaceholder": "Buscar idiomas…",
 			"noMatches": "No hay idiomas que coincidan",
 			"clearAll": "Eliminar todo",
 			"noSelected": "Sin subtítulos seleccionados",
 			"removeLanguage": "Quitar {{name}}",
-			"selectedNote_one": "Se descargará {{count}} subtítulo",
-			"selectedNote_other": "Se descargarán {{count}} subtítulos",
 			"sectionManual": "Manual",
 			"sectionAuto": "Generado automáticamente",
 			"saveMode": {"heading": "Guardar como", "sidecar": "Junto al vídeo", "embed": "Incrustar en el vídeo", "subfolder": "Subcarpeta subtitles/"},
@@ -355,7 +350,17 @@
 			"cat": {"sponsor": "Patrocinio", "intro": "Intro", "outro": "Outro", "selfpromo": "Autopromoción", "music_offtopic": "Música fuera de tema", "preview": "Vista previa", "filler": "Relleno"}
 		},
 		"formats": {
-			"quickPresets": "Ajustes rápidos",
+			"kind": {"label": "Qué descargar", "video": "Vídeo", "audio": "Audio", "subtitles": "Solo subtítulos"},
+			"profile": {"preselected": "Preseleccionado de", "tag": "Perfil", "closestTag": "Más cercano al perfil", "switchTitle": "¿Cambiar de perfil?", "switchBody": "Tus cambios en esta descarga se sustituirán por los ajustes del perfil que elijas.", "switchAction": "Cambiar"},
+			"fit": {
+				"tierBelow": "Tu perfil pide {{wanted}}p. Este vídeo solo llega a {{picked}}p, así que se selecciona {{picked}}p.",
+				"tierAbove": "Tu perfil pide {{wanted}}p. Este vídeo no tiene nada tan pequeño, así que se selecciona {{picked}}p.",
+				"mp4Unavailable": "Tu perfil pide MP4 (H.264). Este vídeo no lo ofrece, así que se selecciona el flujo más cercano.",
+				"noVideo": "Este enlace no tiene vídeo, así que se selecciona el audio.",
+				"subtitlesMissing": "Tu perfil pide subtítulos en {{languages}}. Este vídeo no los tiene."
+			},
+			"summary": {"lead": "También de {{profile}}:", "subtitlesOff": "subtítulos desactivados", "subtitlesAdd_one": "{{count}} idioma disponible, añadir", "subtitlesAdd_other": "{{count}} idiomas disponibles, añadir", "reviewAll": "Revisar todo"},
+			"footer": {"reviewOptions": "Revisar y opciones", "download": "Descargar", "moreActions": "Más opciones de descarga", "addToQueue": "Añadir a la cola sin iniciar", "subtitlesRequired": "Elige al menos un idioma de subtítulos."},
 			"video": "Vídeo",
 			"audio": "Audio",
 			"noAudio": "Sin audio",
@@ -363,8 +368,6 @@
 			"keepAudio": "Mantener tal cual",
 			"keepAudioMeta": "Audio integrado",
 			"audioOnly": "Solo audio",
-			"audioOnlyOption": "Solo audio (sin vídeo)",
-			"mascot": "Lo mejor + lo mejor = máxima calidad. ¡Yo elegiría eso!",
 			"sniffing": "Buscando los mejores formatos para ti…",
 			"loadingHint": "Espera a que termine el análisis — las listas de reproducción y búsquedas pueden tardar un momento.",
 			"loadingAria": "Cargando formatos",
@@ -373,15 +376,7 @@
 			"skipToConfirm": "Saltar a confirmar",
 			"skipToConfirmTooltip": "Usa tus preferencias guardadas para todos los pasos restantes. Para cambiar una opción, continúa paso a paso — tu elección se guardará para la próxima vez.",
 			"quality": {"high": "Calidad alta", "medium": "Calidad media", "low": "Calidad baja"},
-			"convert": {
-				"label": "Convertir",
-				"uncompressed": "Convertir · sin compresión",
-				"bitrate": "Tasa de bits",
-				"wavLabel": "WAV (uncompressed)",
-				"lossyLabel": "{{target}} {{bitrate}} kbps",
-				"requiresAudioOnly": "La conversión de audio requiere el modo solo audio (deselecciona el vídeo).",
-				"requiresLossy": "Se ha seleccionado una transmisión nativa — la tasa de bits solo se aplica al convertir a mp3, m4a u opus."
-			},
+			"convert": {"label": "Convertir", "uncompressed": "Convertir · sin compresión", "bitrate": "Tasa de bits", "wavLabel": "WAV (uncompressed)", "lossyLabel": "{{target}} {{bitrate}} kbps", "requiresLossy": "Se ha seleccionado una transmisión nativa — la tasa de bits solo se aplica al convertir a mp3, m4a u opus."},
 			"botWall": {
 				"heading": "YouTube ha limitado esta consulta",
 				"bodyUnconfigured": "La lista de formatos puede estar incompleta. Configura las cookies en los ajustes avanzados, o cambia de red e inténtalo de nuevo.",
@@ -438,6 +433,27 @@
 			"writeDescription": {"label": "Guardar descripción", "description": "Guarda la descripción del vídeo como archivo .description junto a la descarga."},
 			"writeThumbnail": {"label": "Guardar miniatura", "description": "Guarda la miniatura como archivo .jpg junto a la descarga."},
 			"writeM3u": {"label": "Generar archivo de playlist .m3u", "description": "Guarda una playlist .m3u junto a los vídeos para abrirlos en orden en tu reproductor."}
+		},
+		"review": {
+			"changeFormat": "Cambiar formato",
+			"rowsHeading": "Todo lo demás",
+			"rows": {"subtitles": "Subtítulos", "sponsorBlock": "SponsorBlock", "extras": "Extras", "saveTo": "Guardar en", "fileName": "Nombre de archivo"},
+			"value": {"subtitlesOff": "Desactivados", "sponsorBlockOff": "Desactivado", "extrasNone": "Ninguno"},
+			"done": "Listo",
+			"changed": "Cambios respecto a {{profile}}: {{areas}}. Solo se aplican a esta descarga.",
+			"areas": {"format": "formato", "subtitles": "subtítulos", "sponsorBlock": "SponsorBlock", "extras": "extras", "saveTo": "carpeta", "fileName": "nombre de archivo"},
+			"saveAsProfile": "Guardar como perfil…",
+			"reset": "Restablecer",
+			"save": {
+				"title": "Guardar como perfil",
+				"description": "Guarda estos ajustes como un perfil que podrás elegir la próxima vez. Tu perfil de Descarga rápida no cambia.",
+				"nameLabel": "Nombre del perfil",
+				"action": "Guardar perfil",
+				"saved": "Guardado como perfil «{{name}}»",
+				"failed": "No se pudo guardar el perfil."
+			},
+			"fileNameHint": "Variables: {title}, {id}, {uploader}, {date}, {resolution}. La extensión se añade automáticamente.",
+			"nextTime": {"title": "Esta descarga usó ajustes editados. ¿Usarlos la próxima vez?", "action": "Guardar como perfil", "defaultName": "{{profile}} (editado)"}
 		},
 		"confirm": {
 			"readyHeadline": "¡Listo para descargar!",
@@ -714,13 +730,6 @@
 			"loginRequired": "Este video necesita una cuenta con sesión iniciada.",
 			"unknown": "La descarga falló. Mira la salida en bruto a continuación."
 		}
-	},
-	"presets": {
-		"best-quality": {"label": "Mejor calidad", "desc": "Resolución máxima + mejor audio"},
-		"balanced": {"label": "Equilibrado", "desc": "720p máx + buen audio"},
-		"audio-only": {"label": "Solo audio", "desc": "Sin vídeo, mejor audio"},
-		"small-file": {"label": "Archivo pequeño", "desc": "Resolución mínima + audio bajo"},
-		"subtitle-only": {"label": "Solo subtítulos", "desc": "Sin vídeo ni audio, solo subtítulos"}
 	},
 	"playlistPresets": {
 		"type": {"video": "Video", "audio": "Audio", "subtitles": "Subtítulos"},

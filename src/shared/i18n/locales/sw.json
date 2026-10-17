@@ -49,7 +49,7 @@
 	"theme": {"light": "Hali ya mwanga", "dark": "Hali ya giza", "system": "Chaguo-msingi la mfumo"},
 	"language": {"label": "Lugha"},
 	"wizard": {
-		"steps": {"url": "URL", "playlistItems": "Orodha ya kucheza", "playlistItemsGeneric": "Video", "playlistPresets": "Ubora", "playlistProfiles": "Wasifu", "formats": "Umbizo", "subtitles": "Manukuu", "sponsorblock": "SponsorBlock", "output": "Matokeo", "folder": "Hifadhi", "confirm": "Thibitisha"},
+		"steps": {"url": "URL", "playlistItems": "Orodha ya kucheza", "playlistItemsGeneric": "Video", "playlistPresets": "Ubora", "playlistProfiles": "Wasifu", "formats": "Umbizo", "subtitles": "Manukuu", "sponsorblock": "SponsorBlock", "output": "Matokeo", "folder": "Hifadhi", "confirm": "Thibitisha", "review": "Kagua"},
 		"playlistPresets": {"heading": "Chagua ubora wa kundi", "subhead": "Kila video inatatua kiwango kilichochaguliwa kwa kujitegemea — playlists tofauti hufanya kazi bila mshangao.", "itemCount_one": "{{count}} kipande", "itemCount_other": "{{count}} vipande"},
 		"playlistProfiles": {
 			"heading": "Weka wasifu wa upakuaji",
@@ -333,16 +333,11 @@
 		"subtitles": {
 			"autoBadge": "Otomatiki",
 			"noLanguages": "Hakuna manukuu yanayopatikana kwa video hii",
-			"skip": "Ruka",
-			"skipSubs": "Ruka kwa video hii",
-			"mascot": "Chagua sufuri, moja, au mengi — inategemea wewe kabisa ✨",
 			"searchPlaceholder": "Tafuta lugha…",
 			"noMatches": "Hakuna lugha zinazolingana",
 			"clearAll": "Futa yote",
 			"noSelected": "Hakuna manukuu yaliyochaguliwa",
 			"removeLanguage": "Ondoa {{name}}",
-			"selectedNote_one": "Manukuu {{count}} yatapakiwa",
-			"selectedNote_other": "Manukuu {{count}} yatapakiwa",
 			"sectionManual": "Ya mkono",
 			"sectionAuto": "Yaliyoundwa otomatiki",
 			"saveMode": {"heading": "Hifadhi kama", "sidecar": "Karibu na video", "embed": "Ingiza kwenye video", "subfolder": "subtitles/ saraka ndogo"},
@@ -358,7 +353,17 @@
 			"cat": {"sponsor": "Mdhamini", "intro": "Utangulizi", "outro": "Mwisho", "selfpromo": "Kujitangaza", "music_offtopic": "Music off-topic", "preview": "Muhtasari", "filler": "Kijazio"}
 		},
 		"formats": {
-			"quickPresets": "Mipangilio ya haraka",
+			"kind": {"label": "Cha kupakua", "video": "Video", "audio": "Sauti", "subtitles": "Manukuu peke yake"},
+			"profile": {"preselected": "Imechaguliwa awali kutoka", "tag": "Wasifu", "closestTag": "Karibu zaidi na wasifu", "switchTitle": "Badilisha wasifu?", "switchBody": "Mabadiliko yako kwenye upakuaji huu yatabadilishwa na mipangilio ya wasifu utakaochagua.", "switchAction": "Badilisha"},
+			"fit": {
+				"tierBelow": "Wasifu wako unaomba {{wanted}}p. Video hii inafika {{picked}}p tu, kwa hivyo {{picked}}p imechaguliwa.",
+				"tierAbove": "Wasifu wako unaomba {{wanted}}p. Video hii haina kitu kidogo hivyo, kwa hivyo {{picked}}p imechaguliwa.",
+				"mp4Unavailable": "Wasifu wako unaomba MP4 (H.264). Video hii haina, kwa hivyo mtiririko wa karibu zaidi umechaguliwa.",
+				"noVideo": "Kiungo hiki hakina video, kwa hivyo sauti imechaguliwa.",
+				"subtitlesMissing": "Wasifu wako unaomba manukuu katika {{languages}}. Video hii haina."
+			},
+			"summary": {"lead": "Pia kutoka {{profile}}:", "subtitlesOff": "manukuu yamezimwa", "subtitlesAdd_one": "Lugha {{count}} inapatikana, ongeza", "subtitlesAdd_other": "Lugha {{count}} zinapatikana, ongeza", "reviewAll": "Kagua yote"},
+			"footer": {"reviewOptions": "Kagua na chaguo", "download": "Pakua", "moreActions": "Chaguo zaidi za upakuaji", "addToQueue": "Ongeza kwenye foleni bila kuanza", "subtitlesRequired": "Chagua angalau lugha moja ya manukuu."},
 			"video": "Video",
 			"audio": "Sauti",
 			"noAudio": "Hakuna sauti",
@@ -366,8 +371,6 @@
 			"keepAudio": "Acha kama ilivyo",
 			"keepAudioMeta": "Sauti iliyojengwa ndani",
 			"audioOnly": "Sauti peke yake",
-			"audioOnlyOption": "Sauti peke yake (bila video)",
-			"mascot": "Bora + Bora = ubora wa juu zaidi. Ningechagua hivyo!",
 			"sniffing": "Natafuta maumbo bora kwako…",
 			"loadingHint": "Tafadhali subiri hadi uchunguzi ukamilike — orodha za kuimba na utafutaji vinaweza kuchukua muda.",
 			"loadingAria": "Inapakia maumbo",
@@ -376,15 +379,7 @@
 			"skipToConfirm": "Ruka hadi uthibitisho",
 			"skipToConfirmTooltip": "Inatumia mapendeleo yako yaliyohifadhiwa kwa hatua zote zilizobaki. Ili kubadilisha mipangilio, endelea hatua kwa hatua badala yake — chaguo lako litahifadhiwa kwa wakati ujao.",
 			"quality": {"high": "Ubora wa juu", "medium": "Ubora wa kati", "low": "Ubora wa chini"},
-			"convert": {
-				"label": "Badilisha",
-				"uncompressed": "Badilisha · isiyoshinikizwa",
-				"bitrate": "Kiwango cha biti",
-				"wavLabel": "WAV (uncompressed)",
-				"lossyLabel": "{{target}} {{bitrate}} kbps",
-				"requiresAudioOnly": "Ubadilishaji wa sauti unahitaji hali ya sauti peke yake (ondoa chaguo la video).",
-				"requiresLossy": "Mkondo wa asili umechaguliwa — kiwango cha biti kinatumika tu unapobadilisha kuwa mp3, m4a, au opus."
-			},
+			"convert": {"label": "Badilisha", "uncompressed": "Badilisha · isiyoshinikizwa", "bitrate": "Kiwango cha biti", "wavLabel": "WAV (uncompressed)", "lossyLabel": "{{target}} {{bitrate}} kbps", "requiresLossy": "Mkondo wa asili umechaguliwa — kiwango cha biti kinatumika tu unapobadilisha kuwa mp3, m4a, au opus."},
 			"botWall": {
 				"heading": "YouTube ilipunguza uchunguzi huu",
 				"bodyUnconfigured": "Orodha ya maumbo inaweza kuwa haikamilika. Sanidi vidakuzi katika mipangilio ya hali ya juu, au badilisha mtandao na ujaribu tena.",
@@ -441,6 +436,27 @@
 			"writeDescription": {"label": "Hifadhi maelezo", "description": "Inahifadhi maelezo ya video kama faili ya maandishi ya .description karibu na kipakuliwa."},
 			"writeThumbnail": {"label": "Hifadhi picha ndogo", "description": "Inahifadhi picha ndogo kama faili ya picha ya .jpg karibu na kipakuliwa."},
 			"writeM3u": {"label": "Tengeneza faili ya playlist .m3u", "description": "Hifadhi playlist ya .m3u pamoja na video ili zifunguke kwa mpangilio kwenye kicheza media."}
+		},
+		"review": {
+			"changeFormat": "Badilisha umbizo",
+			"rowsHeading": "Mengine yote",
+			"rows": {"subtitles": "Manukuu", "sponsorBlock": "SponsorBlock", "extras": "Vya ziada", "saveTo": "Hifadhi kwenye", "fileName": "Jina la faili"},
+			"value": {"subtitlesOff": "Zima", "sponsorBlockOff": "Zima", "extrasNone": "Hakuna"},
+			"done": "Tayari",
+			"changed": "Imebadilishwa kutoka {{profile}}: {{areas}}. Inatumika kwa upakuaji huu tu.",
+			"areas": {"format": "umbizo", "subtitles": "manukuu", "sponsorBlock": "SponsorBlock", "extras": "vya ziada", "saveTo": "folda", "fileName": "jina la faili"},
+			"saveAsProfile": "Hifadhi kama wasifu…",
+			"reset": "Weka upya",
+			"save": {
+				"title": "Hifadhi kama wasifu",
+				"description": "Huhifadhi mipangilio hii kama wasifu unaoweza kuchagua wakati ujao. Wasifu wako wa Upakuaji wa haraka hubaki vilevile.",
+				"nameLabel": "Jina la wasifu",
+				"action": "Hifadhi wasifu",
+				"saved": "Imehifadhiwa kama wasifu “{{name}}”",
+				"failed": "Imeshindwa kuhifadhi wasifu."
+			},
+			"fileNameHint": "Tokeni: {title}, {id}, {uploader}, {date}, {resolution}. Kiendelezi huongezwa kiotomatiki.",
+			"nextTime": {"title": "Upakuaji huu ulitumia mipangilio iliyohaririwa. Itumike wakati ujao?", "action": "Hifadhi kama wasifu", "defaultName": "{{profile}} (imehaririwa)"}
 		},
 		"confirm": {
 			"readyHeadline": "Iko tayari kupakua!",
@@ -712,13 +728,6 @@
 			"loginRequired": "Video hii inahitaji akaunti iliyoingia.",
 			"unknown": "Upakuaji umeshindwa. Tazama matokeo ghafi hapa chini."
 		}
-	},
-	"presets": {
-		"best-quality": {"label": "Ubora bora", "desc": "Azimio la juu zaidi + sauti bora"},
-		"balanced": {"label": "Uwiano", "desc": "720p kiwango cha juu + sauti nzuri"},
-		"audio-only": {"label": "Sauti peke yake", "desc": "Hakuna video, sauti bora"},
-		"small-file": {"label": "Faili ndogo", "desc": "Azimio la chini + sauti ya chini"},
-		"subtitle-only": {"label": "Manukuu peke yake", "desc": "Hakuna video, hakuna sauti, manukuu peke yake"}
 	},
 	"playlistPresets": {
 		"type": {"video": "Video", "audio": "Audio", "subtitles": "Manukuu"},

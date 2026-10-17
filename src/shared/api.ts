@@ -33,7 +33,6 @@ import type {
 	QueueLane,
 	QueueSnapshotPayload,
 	QueueSchedulerEventPayload,
-	SinglePrefs,
 	StartDownloadInput,
 	StartDownloadOutput,
 	StatusEvent,
@@ -48,7 +47,6 @@ import type {QueueChoice} from './schemas.js'
 
 export interface SettingsPatch {
 	common?: Partial<CommonSettings>
-	single?: Partial<SinglePrefs>
 	playlist?: Partial<PlaylistPrefs>
 	profiles?: Partial<DownloadProfilesPrefs>
 }

@@ -13,6 +13,7 @@ import {isValidSubfolder} from '@renderer/lib/path.js'
 import {VideoSummaryCard} from '../shared/VideoSummaryCard.js'
 import {SectionLabel} from '../shared/SectionLabel.js'
 import {SettingSwitch} from '../shared/SettingSwitch.js'
+import {folderSelectionInvalid} from '../../store/wizard/singleDownloadReadiness.js'
 
 interface Location {
 	id: string
@@ -31,9 +32,12 @@ function LocationOption({loc, path, full}: {loc: Location; path: string | null; 
 	return <OptionCard value={loc.id} orientation="horizontal" icon={<Icon aria-hidden />} title={loc.label} meta={path} className={cn(full && 'col-span-2')} />
 }
 
-export function StepFolderConfirm(): ReactNode {
+// Where the file lands: location cards, a custom folder, the subfolder. The
+// batch wizard's Folder step remembers the pick as the global download folder;
+// a single-video Review row (`persist` false) changes this download only.
+export function FolderFields({persist}: {persist: boolean}): ReactNode {
 	const {t} = useTranslation()
-	const {wizardOutputDir, wizardThumbnail, wizardTitle, wizardDuration, wizardWebpageUrl, commonPaths, advance, back, setWizardOutputDir, wizardSubfolderEnabled, wizardSubfolderName, setWizardSubfolderEnabled, setWizardSubfolderName} = useAppStore()
+	const {wizardOutputDir, commonPaths, setWizardOutputDir, wizardSubfolderEnabled, wizardSubfolderName, setWizardSubfolderEnabled, setWizardSubfolderName} = useAppStore()
 
 	const {presets, custom, locations} = useMemo(() => {
 		const presets: Location[] = (
@@ -56,12 +60,12 @@ export function StepFolderConfirm(): ReactNode {
 	async function handleSelect(loc: Location): Promise<void> {
 		if (loc.path !== null) {
 			setSelectedId(loc.id)
-			await setWizardOutputDir(loc.path)
+			await setWizardOutputDir(loc.path, persist)
 		} else {
 			const result = await window.appApi.dialog.chooseFolder()
 			if (!result.ok || !result.data.path) return
 			setSelectedId('custom')
-			await setWizardOutputDir(result.data.path)
+			await setWizardOutputDir(result.data.path, persist)
 		}
 	}
 
@@ -72,9 +76,7 @@ export function StepFolderConfirm(): ReactNode {
 	}
 
 	return (
-		<div className="wizard-step flex flex-col gap-4" data-testid="step-folder">
-			<VideoSummaryCard thumbnail={wizardThumbnail} title={wizardTitle} duration={wizardDuration} webpageUrl={wizardWebpageUrl} />
-
+		<div className="flex flex-col gap-4">
 			<div className="flex flex-col gap-1.5">
 				<SectionLabel>{t('wizard.folder.heading')}</SectionLabel>
 				<ToggleGroup
@@ -108,12 +110,22 @@ export function StepFolderConfirm(): ReactNode {
 				/>
 				{wizardSubfolderEnabled && wizardSubfolderName.trim() !== '' && !isValidSubfolder(wizardSubfolderName) ? <FieldError>{t('wizard.folder.subfolder.invalid')}</FieldError> : null}
 			</FieldGroup>
+		</div>
+	)
+}
 
+export function StepFolderConfirm(): ReactNode {
+	const {t} = useTranslation()
+	const {wizardOutputDir, wizardThumbnail, wizardTitle, wizardDuration, wizardWebpageUrl, advance, back, wizardSubfolderEnabled, wizardSubfolderName} = useAppStore()
+	return (
+		<div className="wizard-step flex flex-col gap-4" data-testid="step-folder">
+			<VideoSummaryCard thumbnail={wizardThumbnail} title={wizardTitle} duration={wizardDuration} webpageUrl={wizardWebpageUrl} />
+			<FolderFields persist />
 			<WizardFooter>
 				<Button variant="outline" type="button" onClick={back}>
 					{t('common.back')}
 				</Button>
-				<Button variant="glow" type="button" onClick={advance} disabled={!wizardOutputDir || (wizardSubfolderEnabled && wizardSubfolderName.trim() !== '' && !isValidSubfolder(wizardSubfolderName))}>
+				<Button variant="glow" type="button" onClick={advance} disabled={folderSelectionInvalid(wizardOutputDir, wizardSubfolderEnabled, wizardSubfolderName)}>
 					{t('common.continue')}
 				</Button>
 			</WizardFooter>

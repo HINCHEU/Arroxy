@@ -49,7 +49,20 @@
 	"theme": {"light": "Светлая тема", "dark": "Тёмная тема", "system": "Системная"},
 	"language": {"label": "Язык"},
 	"wizard": {
-		"steps": {"url": "Ссылка", "playlistItems": "Плейлист", "playlistItemsGeneric": "Видео", "playlistPresets": "Качество", "playlistProfiles": "Профили", "formats": "Формат", "subtitles": "Субтитры", "sponsorblock": "SponsorBlock", "output": "Вывод", "folder": "Сохранить", "confirm": "Подтвердить"},
+		"steps": {
+			"url": "Ссылка",
+			"playlistItems": "Плейлист",
+			"playlistItemsGeneric": "Видео",
+			"playlistPresets": "Качество",
+			"playlistProfiles": "Профили",
+			"formats": "Формат",
+			"subtitles": "Субтитры",
+			"sponsorblock": "SponsorBlock",
+			"output": "Вывод",
+			"folder": "Сохранить",
+			"confirm": "Подтвердить",
+			"review": "Просмотр"
+		},
 		"playlistPresets": {"heading": "Выбери качество для пакетной загрузки", "subhead": "Каждое видео независимо подбирает подходящий уровень качества — неоднородные плейлисты работают без сюрпризов.", "itemCount_one": "{{count}} элемент", "itemCount_other": "{{count}} элементов"},
 		"playlistProfiles": {
 			"heading": "Назначить профили загрузки",
@@ -330,16 +343,11 @@
 		"subtitles": {
 			"autoBadge": "Авто",
 			"noLanguages": "Для этого видео субтитры недоступны",
-			"skip": "Пропустить",
-			"skipSubs": "Пропустить для этого видео",
-			"mascot": "Ноль, один или несколько — решать тебе ✨",
 			"searchPlaceholder": "Поиск языков…",
 			"noMatches": "Языки не найдены",
 			"clearAll": "Очистить всё",
 			"noSelected": "Субтитры не выбраны",
 			"removeLanguage": "Удалить {{name}}",
-			"selectedNote_one": "Будет загружен {{count}} субтитр",
-			"selectedNote_other": "Будет загружено субтитров: {{count}}",
 			"sectionManual": "Ручные",
 			"sectionAuto": "Автоматические",
 			"saveMode": {"heading": "Сохранить как", "sidecar": "Рядом с видео", "embed": "Встроить в видео", "subfolder": "Подпапка subtitles/"},
@@ -355,7 +363,17 @@
 			"cat": {"sponsor": "Спонсор", "intro": "Интро", "outro": "Аутро", "selfpromo": "Самореклама", "music_offtopic": "Музыка не по теме", "preview": "Превью", "filler": "Наполнитель"}
 		},
 		"formats": {
-			"quickPresets": "Пресеты",
+			"kind": {"label": "Что загрузить", "video": "Видео", "audio": "Аудио", "subtitles": "Только субтитры"},
+			"profile": {"preselected": "Выбрано по профилю", "tag": "Профиль", "closestTag": "Ближайшее к профилю", "switchTitle": "Переключить профиль?", "switchBody": "Изменения в этой загрузке будут заменены настройками выбранного профиля.", "switchAction": "Переключить"},
+			"fit": {
+				"tierBelow": "Профиль запрашивает {{wanted}}p. Это видео доступно максимум в {{picked}}p, поэтому выбрано {{picked}}p.",
+				"tierAbove": "Профиль запрашивает {{wanted}}p. В этом видео нет такого низкого качества, поэтому выбрано {{picked}}p.",
+				"mp4Unavailable": "Профиль запрашивает MP4 (H.264). В этом видео его нет, поэтому выбран ближайший поток.",
+				"noVideo": "В этой ссылке нет видео, поэтому выбрано аудио.",
+				"subtitlesMissing": "Профиль запрашивает субтитры на языках: {{languages}}. В этом видео их нет."
+			},
+			"summary": {"lead": "Также из {{profile}}:", "subtitlesOff": "субтитры выключены", "subtitlesAdd_one": "Доступно языков: {{count}}, добавить", "subtitlesAdd_other": "Доступно языков: {{count}}, добавить", "reviewAll": "Просмотреть всё"},
+			"footer": {"reviewOptions": "Просмотр и параметры", "download": "Скачать", "moreActions": "Другие параметры загрузки", "addToQueue": "Добавить в очередь без запуска", "subtitlesRequired": "Выберите хотя бы один язык субтитров."},
 			"video": "Видео",
 			"audio": "Аудио",
 			"noAudio": "Без аудио",
@@ -363,8 +381,6 @@
 			"keepAudio": "Оставить как есть",
 			"keepAudioMeta": "Встроенное аудио",
 			"audioOnly": "Только аудио",
-			"audioOnlyOption": "Только аудио (без видео)",
-			"mascot": "Лучшее + лучшее = максимальное качество. Я бы выбрал так!",
 			"sniffing": "Ищу для тебя лучшие форматы…",
 			"loadingHint": "Подождите, пока завершится проверка — плейлисты и поиски могут занять некоторое время.",
 			"loadingAria": "Загрузка форматов",
@@ -373,15 +389,7 @@
 			"skipToConfirm": "Перейти к подтверждению",
 			"skipToConfirmTooltip": "Использует сохранённые настройки для всех оставшихся шагов. Чтобы изменить параметр, продолжайте пошагово — ваш выбор будет сохранён на следующий раз.",
 			"quality": {"high": "Высокое качество", "medium": "Среднее качество", "low": "Низкое качество"},
-			"convert": {
-				"label": "Конвертировать",
-				"uncompressed": "Конвертировать · без сжатия",
-				"bitrate": "Битрейт",
-				"wavLabel": "WAV (без сжатия)",
-				"lossyLabel": "{{target}} {{bitrate}} kbps",
-				"requiresAudioOnly": "Конвертация аудио требует режима «только аудио» (отмени выбор видео).",
-				"requiresLossy": "Выбран нативный поток — битрейт применяется только при конвертации в mp3, m4a или opus."
-			},
+			"convert": {"label": "Конвертировать", "uncompressed": "Конвертировать · без сжатия", "bitrate": "Битрейт", "wavLabel": "WAV (без сжатия)", "lossyLabel": "{{target}} {{bitrate}} kbps", "requiresLossy": "Выбран нативный поток — битрейт применяется только при конвертации в mp3, m4a или opus."},
 			"botWall": {
 				"heading": "YouTube ограничил этот запрос",
 				"bodyUnconfigured": "Список форматов может быть неполным. Настрой cookies в расширенных настройках или смени сеть и повтори попытку.",
@@ -438,6 +446,27 @@
 			"writeDescription": {"label": "Сохранить описание", "description": "Сохраняет описание видео как файл .description рядом с загрузкой."},
 			"writeThumbnail": {"label": "Сохранить превью", "description": "Сохраняет превью как файл .jpg рядом с загрузкой."},
 			"writeM3u": {"label": "Создать файл плейлиста .m3u", "description": "Сохраняет .m3u рядом с видео, чтобы медиаплеер открывал их по порядку."}
+		},
+		"review": {
+			"changeFormat": "Изменить формат",
+			"rowsHeading": "Всё остальное",
+			"rows": {"subtitles": "Субтитры", "sponsorBlock": "SponsorBlock", "extras": "Дополнения", "saveTo": "Папка", "fileName": "Имя файла"},
+			"value": {"subtitlesOff": "Выкл", "sponsorBlockOff": "Выкл", "extrasNone": "Нет"},
+			"done": "Готово",
+			"changed": "Изменено относительно {{profile}}: {{areas}}. Действует только для этой загрузки.",
+			"areas": {"format": "формат", "subtitles": "субтитры", "sponsorBlock": "SponsorBlock", "extras": "дополнения", "saveTo": "папка", "fileName": "имя файла"},
+			"saveAsProfile": "Сохранить как профиль…",
+			"reset": "Сбросить",
+			"save": {
+				"title": "Сохранить как профиль",
+				"description": "Сохраняет эти настройки как профиль, который можно выбрать в следующий раз. Профиль «Быстрая загрузка» остаётся прежним.",
+				"nameLabel": "Название профиля",
+				"action": "Сохранить профиль",
+				"saved": "Сохранено как профиль «{{name}}»",
+				"failed": "Не удалось сохранить профиль."
+			},
+			"fileNameHint": "Шаблоны: {title}, {id}, {uploader}, {date}, {resolution}. Расширение добавляется автоматически.",
+			"nextTime": {"title": "Эта загрузка использовала изменённые настройки. Использовать их в следующий раз?", "action": "Сохранить как профиль", "defaultName": "{{profile}} (изменён)"}
 		},
 		"confirm": {
 			"readyHeadline": "Готово к загрузке!",
@@ -709,13 +738,6 @@
 			"loginRequired": "Для этого видео нужен аккаунт с выполненным входом.",
 			"unknown": "Загрузка не удалась. Смотри необработанный вывод ниже."
 		}
-	},
-	"presets": {
-		"best-quality": {"label": "Лучшее качество", "desc": "Максимальное разрешение + лучшее аудио"},
-		"balanced": {"label": "Сбалансировано", "desc": "720p макс. + хорошее аудио"},
-		"audio-only": {"label": "Только аудио", "desc": "Без видео, лучшее аудио"},
-		"small-file": {"label": "Маленький файл", "desc": "Низкое разрешение + слабое аудио"},
-		"subtitle-only": {"label": "Только субтитры", "desc": "Без видео и аудио, только субтитры"}
 	},
 	"playlistPresets": {
 		"type": {"video": "Video", "audio": "Audio", "subtitles": "Субтитры"},

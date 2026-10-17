@@ -40,7 +40,7 @@
 	"theme": {"light": "लाइट मोड", "dark": "डार्क मोड", "system": "सिस्टम डिफ़ॉल्ट"},
 	"language": {"label": "भाषा"},
 	"wizard": {
-		"steps": {"url": "URL", "playlistItems": "प्लेलिस्ट", "playlistItemsGeneric": "वीडियो", "playlistPresets": "गुणवत्ता", "playlistProfiles": "प्रोफाइल", "formats": "फ़ॉर्मेट", "subtitles": "उपशीर्षक", "sponsorblock": "SponsorBlock", "output": "आउटपुट", "folder": "सेव करें", "confirm": "पुष्टि करें"},
+		"steps": {"url": "URL", "playlistItems": "प्लेलिस्ट", "playlistItemsGeneric": "वीडियो", "playlistPresets": "गुणवत्ता", "playlistProfiles": "प्रोफाइल", "formats": "फ़ॉर्मेट", "subtitles": "उपशीर्षक", "sponsorblock": "SponsorBlock", "output": "आउटपुट", "folder": "सेव करें", "confirm": "पुष्टि करें", "review": "समीक्षा"},
 		"playlistPresets": {"heading": "बैच के लिए गुणवत्ता चुनें", "subhead": "हर वीडियो चुनी गई श्रेणी के अनुसार स्वतंत्र रूप से रेज़ॉल्व होता है — मिश्रित Playlist बिना किसी परेशानी के काम करती है।", "itemCount_one": "{{count}} आइटम", "itemCount_other": "{{count}} आइटम"},
 		"playlistProfiles": {
 			"heading": "डाउनलोड प्रोफ़ाइल असाइन करें",
@@ -316,16 +316,11 @@
 		"subtitles": {
 			"autoBadge": "स्वतः",
 			"noLanguages": "इस वीडियो के लिए कोई उपशीर्षक उपलब्ध नहीं है",
-			"skip": "छोड़ें",
-			"skipSubs": "इस वीडियो के लिए छोड़ें",
-			"mascot": "शून्य, एक या कई — पूरी तरह आप पर निर्भर है ✨",
 			"searchPlaceholder": "भाषाएँ खोजें…",
 			"noMatches": "कोई भाषा नहीं मिली",
 			"clearAll": "सभी हटाएँ",
 			"noSelected": "कोई उपशीर्षक नहीं चुना",
 			"removeLanguage": "{{name}} हटाएँ",
-			"selectedNote_one": "{{count}} उपशीर्षक डाउनलोड किया जाएगा",
-			"selectedNote_other": "{{count}} उपशीर्षक डाउनलोड किए जाएंगे",
 			"sectionManual": "मैनुअल",
 			"sectionAuto": "स्वतः-जनित",
 			"saveMode": {"heading": "इस रूप में सहेजें", "sidecar": "वीडियो के साथ", "embed": "वीडियो में एम्बेड करें", "subfolder": "subtitles/ सबफ़ोल्डर"},
@@ -341,7 +336,17 @@
 			"cat": {"sponsor": "स्पॉन्सर", "intro": "परिचय", "outro": "समापन", "selfpromo": "स्वयं-प्रचार", "music_offtopic": "संगीत (विषयांतर)", "preview": "पूर्वावलोकन", "filler": "भराव"}
 		},
 		"formats": {
-			"quickPresets": "त्वरित प्रीसेट",
+			"kind": {"label": "क्या डाउनलोड करें", "video": "वीडियो", "audio": "ऑडियो", "subtitles": "केवल उपशीर्षक"},
+			"profile": {"preselected": "पहले से चुना गया", "tag": "प्रोफ़ाइल", "closestTag": "प्रोफ़ाइल के सबसे नज़दीक", "switchTitle": "प्रोफ़ाइल बदलें?", "switchBody": "इस डाउनलोड में आपके किए बदलाव, चुनी गई प्रोफ़ाइल की सेटिंग से बदल दिए जाएँगे।", "switchAction": "बदलें"},
+			"fit": {
+				"tierBelow": "आपकी प्रोफ़ाइल {{wanted}}p माँगती है। यह वीडियो केवल {{picked}}p तक जाता है, इसलिए {{picked}}p चुना गया है।",
+				"tierAbove": "आपकी प्रोफ़ाइल {{wanted}}p माँगती है। इस वीडियो में इतनी कम क्वालिटी नहीं है, इसलिए {{picked}}p चुना गया है।",
+				"mp4Unavailable": "आपकी प्रोफ़ाइल MP4 (H.264) माँगती है। यह वीडियो इसे उपलब्ध नहीं कराता, इसलिए सबसे नज़दीकी स्ट्रीम चुनी गई है।",
+				"noVideo": "इस लिंक में वीडियो नहीं है, इसलिए ऑडियो चुना गया है।",
+				"subtitlesMissing": "आपकी प्रोफ़ाइल {{languages}} में उपशीर्षक माँगती है। इस वीडियो में वे नहीं हैं।"
+			},
+			"summary": {"lead": "{{profile}} से अन्य:", "subtitlesOff": "उपशीर्षक बंद", "subtitlesAdd_one": "{{count}} भाषा उपलब्ध, जोड़ें", "subtitlesAdd_other": "{{count}} भाषाएँ उपलब्ध, जोड़ें", "reviewAll": "सभी की समीक्षा करें"},
+			"footer": {"reviewOptions": "समीक्षा और विकल्प", "download": "डाउनलोड", "moreActions": "और डाउनलोड विकल्प", "addToQueue": "शुरू किए बिना कतार में जोड़ें", "subtitlesRequired": "कम से कम एक उपशीर्षक भाषा चुनें।"},
 			"video": "वीडियो",
 			"audio": "ऑडियो",
 			"noAudio": "ऑडियो नहीं",
@@ -349,8 +354,6 @@
 			"keepAudio": "जैसा है वैसा रखें",
 			"keepAudioMeta": "बिल्ट-इन ऑडियो",
 			"audioOnly": "सिर्फ़ ऑडियो",
-			"audioOnlyOption": "सिर्फ़ ऑडियो (वीडियो नहीं)",
-			"mascot": "सबसे अच्छा + सबसे अच्छा = बेहतरीन क्वालिटी। मैं तो यही चुनूँगा!",
 			"sniffing": "आपके लिए बेहतरीन फ़ॉर्मेट ढूँढ रहा हूँ…",
 			"loadingHint": "कृपया प्रतीक्षा करें जब तक जाँच पूरी न हो जाए — playlist और खोज में थोड़ा अधिक समय लग सकता है।",
 			"loadingAria": "फ़ॉर्मेट लोड हो रहे हैं",
@@ -359,15 +362,7 @@
 			"skipToConfirm": "सीधे पुष्टि पर जाएँ",
 			"skipToConfirmTooltip": "सभी शेष चरणों के लिए आपकी सहेजी गई प्राथमिकताओं का उपयोग करता है। कोई सेटिंग बदलने के लिए, इसके बजाय चरण दर चरण आगे बढ़ें — आपकी पसंद अगली बार के लिए सहेजी जाएगी।",
 			"quality": {"high": "उच्च गुणवत्ता", "medium": "मध्यम गुणवत्ता", "low": "कम गुणवत्ता"},
-			"convert": {
-				"label": "कनवर्ट करें",
-				"uncompressed": "कनवर्ट करें · असंपीड़ित",
-				"bitrate": "बिटरेट",
-				"wavLabel": "WAV (uncompressed)",
-				"lossyLabel": "{{target}} {{bitrate}} kbps",
-				"requiresAudioOnly": "ऑडियो कनवर्शन के लिए केवल-ऑडियो मोड ज़रूरी है (वीडियो चयन हटाएं)।",
-				"requiresLossy": "एक नेटिव स्ट्रीम चुनी गई है — बिटरेट केवल mp3, m4a, या opus में कनवर्ट करते समय लागू होता है।"
-			},
+			"convert": {"label": "कनवर्ट करें", "uncompressed": "कनवर्ट करें · असंपीड़ित", "bitrate": "बिटरेट", "wavLabel": "WAV (uncompressed)", "lossyLabel": "{{target}} {{bitrate}} kbps", "requiresLossy": "एक नेटिव स्ट्रीम चुनी गई है — बिटरेट केवल mp3, m4a, या opus में कनवर्ट करते समय लागू होता है।"},
 			"botWall": {
 				"heading": "YouTube ने इस जाँच को सीमित किया",
 				"bodyUnconfigured": "फ़ॉर्मेट सूची अधूरी हो सकती है। उन्नत सेटिंग्स में कुकी सेट करें, या नेटवर्क बदलकर पुनः प्रयास करें।",
@@ -413,6 +408,20 @@
 			"writeDescription": {"label": "विवरण सहेजें", "description": "वीडियो का विवरण डाउनलोड के पास .description टेक्स्ट फ़ाइल के रूप में सहेजता है।"},
 			"writeThumbnail": {"label": "थंबनेल सहेजें", "description": "थंबनेल को डाउनलोड के पास .jpg छवि फ़ाइल के रूप में सहेजता है।"},
 			"writeM3u": {"label": ".m3u प्लेलिस्ट फ़ाइल बनाएँ", "description": "वीडियो के साथ .m3u प्लेलिस्ट सेव करता है ताकि वे मीडिया प्लेयर में क्रम से खुलें।"}
+		},
+		"review": {
+			"changeFormat": "फ़ॉर्मैट बदलें",
+			"rowsHeading": "बाकी सब",
+			"rows": {"subtitles": "उपशीर्षक", "sponsorBlock": "SponsorBlock", "extras": "अतिरिक्त", "saveTo": "स्थान", "fileName": "फ़ाइल नाम"},
+			"value": {"subtitlesOff": "बंद", "sponsorBlockOff": "बंद", "extrasNone": "कोई नहीं"},
+			"done": "पूरा",
+			"changed": "{{profile}} से बदला गया: {{areas}}। यह केवल इसी डाउनलोड पर लागू होता है।",
+			"areas": {"format": "फ़ॉर्मैट", "subtitles": "उपशीर्षक", "sponsorBlock": "SponsorBlock", "extras": "अतिरिक्त", "saveTo": "फ़ोल्डर", "fileName": "फ़ाइल नाम"},
+			"saveAsProfile": "प्रोफ़ाइल के रूप में सहेजें…",
+			"reset": "रीसेट करें",
+			"save": {"title": "प्रोफ़ाइल के रूप में सहेजें", "description": "इन सेटिंग को प्रोफ़ाइल के रूप में सहेजता है, जिसे आप अगली बार चुन सकते हैं। आपकी क्विक डाउनलोड प्रोफ़ाइल वैसी ही रहती है।", "nameLabel": "प्रोफ़ाइल नाम", "action": "प्रोफ़ाइल सहेजें", "saved": "प्रोफ़ाइल “{{name}}” के रूप में सहेजी गई", "failed": "प्रोफ़ाइल सहेजी नहीं जा सकी।"},
+			"fileNameHint": "टोकन: {title}, {id}, {uploader}, {date}, {resolution}। एक्सटेंशन अपने आप जुड़ जाता है।",
+			"nextTime": {"title": "इस डाउनलोड में बदली हुई सेटिंग इस्तेमाल हुईं। अगली बार भी इस्तेमाल करें?", "action": "प्रोफ़ाइल के रूप में सहेजें", "defaultName": "{{profile}} (संपादित)"}
 		},
 		"confirm": {
 			"readyHeadline": "डाउनलोड के लिए तैयार!",
@@ -684,13 +693,6 @@
 			"loginRequired": "इस वीडियो के लिए साइन इन किया हुआ अकाउंट चाहिए।",
 			"unknown": "डाउनलोड विफल। नीचे raw output देखें।"
 		}
-	},
-	"presets": {
-		"best-quality": {"label": "बेहतरीन क्वालिटी", "desc": "अधिकतम रिज़ॉल्यूशन + बेहतरीन ऑडियो"},
-		"balanced": {"label": "संतुलित", "desc": "720p तक + अच्छा ऑडियो"},
-		"audio-only": {"label": "सिर्फ़ ऑडियो", "desc": "वीडियो नहीं, बेहतरीन ऑडियो"},
-		"small-file": {"label": "छोटी फ़ाइल", "desc": "न्यूनतम रिज़ॉल्यूशन + कम ऑडियो"},
-		"subtitle-only": {"label": "केवल उपशीर्षक", "desc": "न वीडियो न ऑडियो, केवल उपशीर्षक"}
 	},
 	"playlistPresets": {
 		"type": {"video": "Video", "audio": "Audio", "subtitles": "उपशीर्षक"},

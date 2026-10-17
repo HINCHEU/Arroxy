@@ -49,7 +49,7 @@
 	"theme": {"light": "লাইট মোড", "dark": "ডার্ক মোড", "system": "সিস্টেম ডিফল্ট"},
 	"language": {"label": "ভাষা"},
 	"wizard": {
-		"steps": {"url": "URL", "playlistItems": "প্লেলিস্ট", "playlistItemsGeneric": "ভিডিও", "playlistPresets": "মান", "playlistProfiles": "প্রোফাইল", "formats": "ফরম্যাট", "subtitles": "সাবটাইটেল", "sponsorblock": "SponsorBlock", "output": "আউটপুট", "folder": "সেভ", "confirm": "নিশ্চিত করুন"},
+		"steps": {"url": "URL", "playlistItems": "প্লেলিস্ট", "playlistItemsGeneric": "ভিডিও", "playlistPresets": "মান", "playlistProfiles": "প্রোফাইল", "formats": "ফরম্যাট", "subtitles": "সাবটাইটেল", "sponsorblock": "SponsorBlock", "output": "আউটপুট", "folder": "সেভ", "confirm": "নিশ্চিত করুন", "review": "পর্যালোচনা"},
 		"playlistPresets": {"heading": "ব্যাচের জন্য মান বেছে নিন", "subhead": "প্রতিটি ভিডিও স্বাধীনভাবে বেছে নেওয়া স্তর অনুযায়ী রেজোলিউশন করে — বৈচিত্র্যময় playlist অবাক করা ছাড়াই কাজ করে।", "itemCount_one": "{{count}}টি আইটেম", "itemCount_other": "{{count}}টি আইটেম"},
 		"playlistProfiles": {
 			"heading": "ডাউনলোড প্রোফাইল নির্ধারণ করুন",
@@ -325,16 +325,11 @@
 		"subtitles": {
 			"autoBadge": "অটো",
 			"noLanguages": "এই ভিডিওর জন্য কোনো সাবটাইটেল নেই",
-			"skip": "বাদ দিন",
-			"skipSubs": "এই ভিডিওর জন্য বাদ দিন",
-			"mascot": "শূন্য, একটি বা অনেকগুলো বেছে নিন — সম্পূর্ণ আপনার উপর ✨",
 			"searchPlaceholder": "ভাষা খুঁজুন…",
 			"noMatches": "কোনো ভাষা মেলেনি",
 			"clearAll": "সব মুছুন",
 			"noSelected": "কোনো সাবটাইটেল নির্বাচিত হয়নি",
 			"removeLanguage": "{{name}} সরান",
-			"selectedNote_one": "{{count}}টি সাবটাইটেল ডাউনলোড হবে",
-			"selectedNote_other": "{{count}}টি সাবটাইটেল ডাউনলোড হবে",
 			"sectionManual": "ম্যানুয়াল",
 			"sectionAuto": "স্বয়ংক্রিয়ভাবে তৈরি",
 			"saveMode": {"heading": "সেভ করুন", "sidecar": "ভিডিওর পাশে", "embed": "ভিডিওতে এম্বেড করুন", "subfolder": "subtitles/ সাবফোল্ডার"},
@@ -350,7 +345,17 @@
 			"cat": {"sponsor": "স্পনসর", "intro": "ইন্ট্রো", "outro": "আউট্রো", "selfpromo": "সেলফ-প্রোমো", "music_offtopic": "অপ্রাসঙ্গিক মিউজিক", "preview": "প্রিভিউ", "filler": "ফিলার"}
 		},
 		"formats": {
-			"quickPresets": "দ্রুত প্রিসেট",
+			"kind": {"label": "কী ডাউনলোড করবেন", "video": "ভিডিও", "audio": "অডিও", "subtitles": "শুধু সাবটাইটেল"},
+			"profile": {"preselected": "আগে থেকে বাছাই করা, উৎস:", "tag": "প্রোফাইল", "closestTag": "প্রোফাইলের সবচেয়ে কাছের", "switchTitle": "প্রোফাইল বদলাবেন?", "switchBody": "এই ডাউনলোডে আপনার করা পরিবর্তনগুলো আপনার বাছাই করা প্রোফাইলের সেটিংস দিয়ে বদলে যাবে।", "switchAction": "বদলান"},
+			"fit": {
+				"tierBelow": "আপনার প্রোফাইল {{wanted}}p চায়। এই ভিডিও শুধু {{picked}}p পর্যন্ত যায়, তাই {{picked}}p বেছে নেওয়া হয়েছে।",
+				"tierAbove": "আপনার প্রোফাইল {{wanted}}p চায়। এই ভিডিওতে এত ছোট কিছু নেই, তাই {{picked}}p বেছে নেওয়া হয়েছে।",
+				"mp4Unavailable": "আপনার প্রোফাইল MP4 (H.264) চায়। এই ভিডিওতে তা নেই, তাই সবচেয়ে কাছের স্ট্রিম বেছে নেওয়া হয়েছে।",
+				"noVideo": "এই লিংকে কোনো ভিডিও নেই, তাই অডিও বেছে নেওয়া হয়েছে।",
+				"subtitlesMissing": "আপনার প্রোফাইল {{languages}} ভাষায় সাবটাইটেল চায়। এই ভিডিওতে সেগুলো নেই।"
+			},
+			"summary": {"lead": "{{profile}} থেকেও:", "subtitlesOff": "সাবটাইটেল বন্ধ", "subtitlesAdd_one": "{{count}}টি ভাষা আছে, যোগ করুন", "subtitlesAdd_other": "{{count}}টি ভাষা আছে, যোগ করুন", "reviewAll": "সব পর্যালোচনা করুন"},
+			"footer": {"reviewOptions": "পর্যালোচনা ও বিকল্প", "download": "ডাউনলোড", "moreActions": "আরও ডাউনলোড বিকল্প", "addToQueue": "শুরু না করে কিউতে যোগ করুন", "subtitlesRequired": "অন্তত একটি সাবটাইটেল ভাষা বেছে নিন।"},
 			"video": "ভিডিও",
 			"audio": "অডিও",
 			"noAudio": "অডিও নেই",
@@ -358,8 +363,6 @@
 			"keepAudio": "যেমন আছে রাখুন",
 			"keepAudioMeta": "বিল্ট-ইন অডিও",
 			"audioOnly": "শুধু অডিও",
-			"audioOnlyOption": "শুধু অডিও (ভিডিও ছাড়া)",
-			"mascot": "সেরা + সেরা = সর্বোচ্চ মান। আমি এটাই বেছে নিতাম!",
 			"sniffing": "আপনার জন্য সেরা ফরম্যাট খুঁজছি…",
 			"loadingHint": "প্রোবিং শেষ হওয়া পর্যন্ত অপেক্ষা করুন — প্লেলিস্ট ও অনুসন্ধানে একটু বেশি সময় লাগতে পারে।",
 			"loadingAria": "ফরম্যাট লোড হচ্ছে",
@@ -368,15 +371,7 @@
 			"skipToConfirm": "নিশ্চিতে যান",
 			"skipToConfirmTooltip": "বাকি সকল ধাপের জন্য আপনার সংরক্ষিত পছন্দ ব্যবহার করে। কোনো সেটিং পরিবর্তন করতে, পরিবর্তে ধাপে ধাপে এগিয়ে যান — আপনার পছন্দ পরের বার সংরক্ষিত হবে।",
 			"quality": {"high": "উচ্চ মান", "medium": "মাঝারি মান", "low": "নিম্ন মান"},
-			"convert": {
-				"label": "কনভার্ট করুন",
-				"uncompressed": "কনভার্ট · আনকম্প্রেসড",
-				"bitrate": "বিটরেট",
-				"wavLabel": "WAV (uncompressed)",
-				"lossyLabel": "{{target}} {{bitrate}} kbps",
-				"requiresAudioOnly": "অডিও কনভার্শনের জন্য শুধু অডিও মোড প্রয়োজন (ভিডিও পিক বাতিল করুন)।",
-				"requiresLossy": "একটি নেটিভ স্ট্রিম নির্বাচিত — বিটরেট শুধুমাত্র mp3, m4a, বা opus-এ কনভার্ট করার সময় প্রযোজ্য।"
-			},
+			"convert": {"label": "কনভার্ট করুন", "uncompressed": "কনভার্ট · আনকম্প্রেসড", "bitrate": "বিটরেট", "wavLabel": "WAV (uncompressed)", "lossyLabel": "{{target}} {{bitrate}} kbps", "requiresLossy": "একটি নেটিভ স্ট্রিম নির্বাচিত — বিটরেট শুধুমাত্র mp3, m4a, বা opus-এ কনভার্ট করার সময় প্রযোজ্য।"},
 			"botWall": {
 				"heading": "YouTube এই প্রোবটি সীমাবদ্ধ করেছে",
 				"bodyUnconfigured": "ফরম্যাট তালিকা অসম্পূর্ণ হতে পারে। উন্নত সেটিংসে কুকিজ সেট করুন, অথবা নেটওয়ার্ক পরিবর্তন করে আবার চেষ্টা করুন।",
@@ -422,6 +417,20 @@
 			"writeDescription": {"label": "বিবরণ সেভ করুন", "description": "ভিডিও বিবরণ ডাউনলোডের পাশে .description টেক্সট ফাইল হিসেবে সেভ করে।"},
 			"writeThumbnail": {"label": "থাম্বনেইল সেভ করুন", "description": "থাম্বনেইল ডাউনলোডের পাশে .jpg ইমেজ ফাইল হিসেবে সেভ করে।"},
 			"writeM3u": {"label": ".m3u প্লেলিস্ট ফাইল তৈরি করুন", "description": "ভিডিওগুলোর পাশে .m3u প্লেলিস্ট সংরক্ষণ করে যাতে মিডিয়া প্লেয়ারে ক্রম অনুযায়ী খোলে।"}
+		},
+		"review": {
+			"changeFormat": "ফরম্যাট বদলান",
+			"rowsHeading": "বাকি সবকিছু",
+			"rows": {"subtitles": "সাবটাইটেল", "sponsorBlock": "SponsorBlock", "extras": "অতিরিক্ত", "saveTo": "সেভ করুন", "fileName": "ফাইলের নাম"},
+			"value": {"subtitlesOff": "বন্ধ", "sponsorBlockOff": "বন্ধ", "extrasNone": "কিছু নয়"},
+			"done": "সম্পন্ন",
+			"changed": "{{profile}} থেকে পরিবর্তিত: {{areas}}। শুধু এই ডাউনলোডে প্রযোজ্য।",
+			"areas": {"format": "ফরম্যাট", "subtitles": "সাবটাইটেল", "sponsorBlock": "SponsorBlock", "extras": "অতিরিক্ত", "saveTo": "ফোল্ডার", "fileName": "ফাইলের নাম"},
+			"saveAsProfile": "প্রোফাইল হিসেবে সংরক্ষণ করুন…",
+			"reset": "রিসেট",
+			"save": {"title": "প্রোফাইল হিসেবে সংরক্ষণ", "description": "এই সেটিংস প্রোফাইল হিসেবে সংরক্ষণ করে, যা আপনি পরেরবার বেছে নিতে পারবেন। আপনার দ্রুত ডাউনলোড প্রোফাইল অপরিবর্তিত থাকবে।", "nameLabel": "প্রোফাইলের নাম", "action": "প্রোফাইল সংরক্ষণ করুন", "saved": "প্রোফাইল “{{name}}” হিসেবে সংরক্ষিত হয়েছে", "failed": "প্রোফাইল সংরক্ষণ করা যায়নি।"},
+			"fileNameHint": "টোকেন: {title}, {id}, {uploader}, {date}, {resolution}। এক্সটেনশন আপনার জন্য যোগ হয়ে যাবে।",
+			"nextTime": {"title": "এই ডাউনলোডে সম্পাদিত সেটিংস ব্যবহার হয়েছে। পরেরবার কি এগুলো ব্যবহার করবেন?", "action": "প্রোফাইল হিসেবে সংরক্ষণ করুন", "defaultName": "{{profile}} (সম্পাদিত)"}
 		},
 		"confirm": {
 			"readyHeadline": "ডাউনলোড করতে প্রস্তুত!",
@@ -688,13 +697,6 @@
 			"loginRequired": "এই ভিডিওর জন্য সাইন ইন করা অ্যাকাউন্ট লাগবে।",
 			"unknown": "ডাউনলোড ব্যর্থ। নিচে raw output দেখুন।"
 		}
-	},
-	"presets": {
-		"best-quality": {"label": "সর্বোচ্চ মান", "desc": "সর্বোচ্চ রেজোলিউশন + সেরা অডিও"},
-		"balanced": {"label": "সুষম", "desc": "720p সর্বোচ্চ + ভালো অডিও"},
-		"audio-only": {"label": "শুধু অডিও", "desc": "ভিডিও নেই, সেরা অডিও"},
-		"small-file": {"label": "ছোট ফাইল", "desc": "সর্বনিম্ন রেজোলিউশন + কম অডিও"},
-		"subtitle-only": {"label": "শুধু সাবটাইটেল", "desc": "ভিডিও নেই, অডিও নেই, শুধু সাবটাইটেল"}
 	},
 	"playlistPresets": {
 		"type": {"video": "Video", "audio": "Audio", "subtitles": "সাবটাইটেল"},

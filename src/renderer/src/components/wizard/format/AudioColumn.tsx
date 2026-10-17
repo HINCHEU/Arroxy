@@ -9,10 +9,9 @@ import {Tooltip, TooltipTrigger, TooltipContent} from '../../ui/tooltip.js'
 import {RadioGroup} from '../../ui/radio-group.js'
 import {ChoiceRow} from '../../shared/ChoiceRow.js'
 import {ScrollArea} from '../../ui/scroll-area.js'
-import {MascotBubble} from '../../shared/MascotBubble.js'
 import {cn} from '@renderer/lib/utils.js'
-import choosingImg from '../../../assets/Choosing.png'
 import {SectionLabel} from '../../shared/SectionLabel.js'
+import {ProfileTag} from './ProfileTag.js'
 
 interface AudioColumnProps {
 	view: FormatSelectionView['audio']
@@ -54,7 +53,7 @@ export function AudioColumn({view, mode, audioSelection, audioExtFilter, onAudio
 	// The radio group speaks strings; these encode and decode the three selection kinds.
 	const selectedValue = audioSelection.kind === 'none' ? 'none' : audioSelection.kind === 'native' ? `native:${audioSelection.formatId}` : `convert:${audioSelection.target}`
 	// A disabled row never reads as chosen, even though the store keeps the selection.
-	const selectedRowDisabled = audioSelection.kind === 'none' ? view.noAudioDisabled : audioSelection.kind === 'native' ? subtitleOnly : subtitleOnly || view.convertDisabled
+	const selectedRowDisabled = audioSelection.kind === 'none' ? view.noAudioDisabled : subtitleOnly
 	const selectValue = (value: string): void => {
 		if (value === 'none') return onSelect({kind: 'none'})
 		const native = view.nativeRows.find(row => `native:${row.formatId}` === value)
@@ -117,29 +116,18 @@ export function AudioColumn({view, mode, audioSelection, audioExtFilter, onAudio
 
 					{view.nativeRows.map(row => {
 						const badge = row.quality ? <QualityBadge quality={row.quality} label={t(QUALITY_LABEL_KEY[row.quality])} /> : null
-						return <ChoiceRow key={row.formatId} id={`audio-native-${row.formatId}`} value={`native:${row.formatId}`} disabled={subtitleOnly} adornment={badge} label={row.title} meta={row.meta} />
+						return <ChoiceRow key={row.formatId} id={`audio-native-${row.formatId}`} value={`native:${row.formatId}`} disabled={subtitleOnly} adornment={badge} label={row.title} tag={row.isProfilePick ? <ProfileTag /> : null} meta={row.meta} />
 					})}
 
-					{view.convertTargets.flatMap(target => {
-						const meta = target === 'wav' ? t('wizard.formats.convert.uncompressed') : t('wizard.formats.convert.label')
-						const radio = <ChoiceRow key={`convert-${target}`} id={`audio-convert-${target}`} value={`convert:${target}`} disabled={subtitleOnly || view.convertDisabled} label={target} meta={meta} />
-						return [
-							view.convertDisabled && !subtitleOnly ? (
-								<Tooltip key={`convert-${target}`}>
-									<TooltipTrigger render={props => <div {...props}>{radio}</div>} />
-									<TooltipContent>{t('wizard.formats.convert.requiresAudioOnly')}</TooltipContent>
-								</Tooltip>
-							) : (
-								radio
-							)
-						]
-					})}
+					{view.convertTargets.map(target => (
+						<ChoiceRow key={`convert-${target}`} id={`audio-convert-${target}`} value={`convert:${target}`} disabled={subtitleOnly} label={target} meta={target === 'wav' ? t('wizard.formats.convert.uncompressed') : t('wizard.formats.convert.label')} />
+					))}
 
 					{!view.selectedVideoIsMuxed && <ChoiceRow id="audio-none" value="none" disabled={view.noAudioDisabled} label={t('wizard.formats.noAudio')} meta={t('wizard.formats.videoOnly')} />}
 				</RadioGroup>
 			</ScrollArea>
 
-			{bitrateTooltipMsg ? (
+			{view.bitrateStrip.hidden ? null : bitrateTooltipMsg ? (
 				<Tooltip>
 					<TooltipTrigger render={props => <div {...props}>{bitrateStrip}</div>} />
 					<TooltipContent>{bitrateTooltipMsg}</TooltipContent>
@@ -147,8 +135,6 @@ export function AudioColumn({view, mode, audioSelection, audioExtFilter, onAudio
 			) : (
 				bitrateStrip
 			)}
-
-			<MascotBubble image={choosingImg} message={t('wizard.formats.mascot')} side="right" className="mt-3" />
 		</div>
 	)
 }

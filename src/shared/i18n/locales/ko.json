@@ -40,7 +40,7 @@
 	"theme": {"light": "라이트 모드", "dark": "다크 모드", "system": "시스템 기본값"},
 	"language": {"label": "언어"},
 	"wizard": {
-		"steps": {"url": "URL", "playlistItems": "재생목록", "playlistItemsGeneric": "동영상", "playlistPresets": "화질", "playlistProfiles": "프로필", "formats": "형식", "subtitles": "자막", "sponsorblock": "SponsorBlock", "output": "출력", "folder": "저장", "confirm": "확인"},
+		"steps": {"url": "URL", "playlistItems": "재생목록", "playlistItemsGeneric": "동영상", "playlistPresets": "화질", "playlistProfiles": "프로필", "formats": "형식", "subtitles": "자막", "sponsorblock": "SponsorBlock", "output": "출력", "folder": "저장", "confirm": "확인", "review": "검토"},
 		"playlistPresets": {"heading": "일괄 작업의 화질 선택", "subhead": "각 동영상이 선택한 등급을 독립적으로 결정하므로 다양한 재생목록도 예상대로 작동합니다.", "itemCount_one": "{{count}}개 항목", "itemCount_other": "{{count}}개 항목"},
 		"playlistProfiles": {
 			"heading": "다운로드 프로필 지정",
@@ -321,16 +321,11 @@
 		"subtitles": {
 			"autoBadge": "자동",
 			"noLanguages": "이 동영상에 사용 가능한 자막이 없습니다",
-			"skip": "건너뛰기",
-			"skipSubs": "이 동영상에서는 건너뛰기",
-			"mascot": "0개, 1개 또는 여러 개를 선택하세요. 원하는 대로 하면 됩니다 ✨",
 			"searchPlaceholder": "언어 검색…",
 			"noMatches": "일치하는 언어 없음",
 			"clearAll": "모두 지우기",
 			"noSelected": "선택한 자막 없음",
 			"removeLanguage": "{{name}} 제거",
-			"selectedNote_one": "자막 {{count}}개를 다운로드합니다",
-			"selectedNote_other": "자막 {{count}}개를 다운로드합니다",
 			"sectionManual": "수동",
 			"sectionAuto": "자동 생성",
 			"saveMode": {"heading": "저장 형식", "sidecar": "동영상 옆", "embed": "동영상에 포함", "subfolder": "subtitles/ 하위 폴더"},
@@ -346,7 +341,17 @@
 			"cat": {"sponsor": "스폰서", "intro": "인트로", "outro": "아웃트로", "selfpromo": "자기 홍보", "music_offtopic": "주제와 무관한 음악", "preview": "미리보기", "filler": "필러"}
 		},
 		"formats": {
-			"quickPresets": "빠른 프리셋",
+			"kind": {"label": "다운로드할 항목", "video": "동영상", "audio": "오디오", "subtitles": "자막만"},
+			"profile": {"preselected": "미리 선택됨:", "tag": "프로필", "closestTag": "프로필과 가장 가까움", "switchTitle": "프로필을 전환할까요?", "switchBody": "이 다운로드에서 변경한 내용은 선택한 프로필의 설정으로 바뀝니다.", "switchAction": "전환"},
+			"fit": {
+				"tierBelow": "프로필에서 {{wanted}}p를 요청했지만 이 동영상은 최대 {{picked}}p까지만 제공되어 {{picked}}p를 선택했습니다.",
+				"tierAbove": "프로필에서 {{wanted}}p를 요청했지만 이 동영상에는 그보다 낮은 화질이 없어 {{picked}}p를 선택했습니다.",
+				"mp4Unavailable": "프로필에서 MP4(H.264)를 요청했지만 이 동영상에는 없어서 가장 가까운 스트림을 선택했습니다.",
+				"noVideo": "이 링크에는 영상이 없어 오디오를 선택했습니다.",
+				"subtitlesMissing": "프로필에서 {{languages}} 자막을 요청했지만 이 동영상에는 없습니다."
+			},
+			"summary": {"lead": "{{profile}}의 다른 설정:", "subtitlesOff": "자막 끄기", "subtitlesAdd_one": "{{count}}개 언어 사용 가능, 추가", "subtitlesAdd_other": "{{count}}개 언어 사용 가능, 추가", "reviewAll": "모두 검토"},
+			"footer": {"reviewOptions": "검토 및 옵션", "download": "다운로드", "moreActions": "다운로드 옵션 더 보기", "addToQueue": "시작하지 않고 대기열에 추가", "subtitlesRequired": "자막 언어를 하나 이상 선택하세요."},
 			"video": "동영상",
 			"audio": "오디오",
 			"noAudio": "오디오 없음",
@@ -354,8 +359,6 @@
 			"keepAudio": "그대로 유지",
 			"keepAudioMeta": "내장 오디오",
 			"audioOnly": "오디오만",
-			"audioOnlyOption": "오디오만(동영상 없음)",
-			"mascot": "최상 + 최상 = 최고 품질. 이 조합을 추천합니다!",
 			"sniffing": "최적의 형식을 찾는 중…",
 			"loadingHint": "분석이 끝날 때까지 기다려 주세요. 재생목록과 검색은 시간이 걸릴 수 있습니다.",
 			"loadingAria": "형식 불러오는 중",
@@ -364,15 +367,7 @@
 			"skipToConfirm": "확인으로 건너뛰기",
 			"skipToConfirmTooltip": "남은 모든 단계에 저장된 환경설정을 사용합니다. 설정을 바꾸려면 단계별로 계속 진행하세요. 선택은 다음 사용을 위해 저장됩니다.",
 			"quality": {"high": "고품질", "medium": "중간 품질", "low": "저품질"},
-			"convert": {
-				"label": "변환",
-				"uncompressed": "변환 · 비압축",
-				"bitrate": "비트레이트",
-				"wavLabel": "WAV(비압축)",
-				"lossyLabel": "{{target}} {{bitrate}}kbps",
-				"requiresAudioOnly": "오디오 변환에는 오디오 전용 모드가 필요합니다(동영상 선택을 해제하세요).",
-				"requiresLossy": "원본 스트림이 선택되었습니다. 비트레이트는 mp3, m4a 또는 opus로 변환할 때만 적용됩니다."
-			},
+			"convert": {"label": "변환", "uncompressed": "변환 · 비압축", "bitrate": "비트레이트", "wavLabel": "WAV(비압축)", "lossyLabel": "{{target}} {{bitrate}}kbps", "requiresLossy": "원본 스트림이 선택되었습니다. 비트레이트는 mp3, m4a 또는 opus로 변환할 때만 적용됩니다."},
 			"botWall": {
 				"heading": "분석이 제한됨",
 				"bodyUnconfigured": "형식 목록이 불완전할 수 있습니다. 고급 설정에서 쿠키를 설정하거나 네트워크를 바꿔 다시 시도하세요.",
@@ -429,6 +424,20 @@
 			"writeDescription": {"label": "설명 저장", "description": "동영상 설명을 다운로드 옆에 .description 텍스트 파일로 저장합니다."},
 			"writeThumbnail": {"label": "미리보기 이미지 저장", "description": "미리보기 이미지를 다운로드 옆에 .jpg 이미지 파일로 저장합니다."},
 			"writeM3u": {"label": ".m3u 재생목록 파일 생성", "description": "동영상 옆에 .m3u 재생목록을 저장하여 미디어 플레이어에서 순서대로 열리게 합니다."}
+		},
+		"review": {
+			"changeFormat": "형식 변경",
+			"rowsHeading": "그 밖의 항목",
+			"rows": {"subtitles": "자막", "sponsorBlock": "SponsorBlock", "extras": "추가 항목", "saveTo": "저장 위치", "fileName": "파일 이름"},
+			"value": {"subtitlesOff": "끄기", "sponsorBlockOff": "끄기", "extrasNone": "없음"},
+			"done": "완료",
+			"changed": "{{profile}}에서 변경됨: {{areas}}. 이 다운로드에만 적용됩니다.",
+			"areas": {"format": "형식", "subtitles": "자막", "sponsorBlock": "SponsorBlock", "extras": "추가 항목", "saveTo": "폴더", "fileName": "파일 이름"},
+			"saveAsProfile": "프로필로 저장…",
+			"reset": "재설정",
+			"save": {"title": "프로필로 저장", "description": "이 설정을 다음에 선택할 수 있는 프로필로 저장합니다. 빠른 다운로드 프로필은 그대로 유지됩니다.", "nameLabel": "프로필 이름", "action": "프로필 저장", "saved": "프로필 “{{name}}”(으)로 저장됨", "failed": "프로필을 저장하지 못했습니다."},
+			"fileNameHint": "사용 가능한 토큰: {title}, {id}, {uploader}, {date}, {resolution}. 확장자는 자동으로 붙습니다.",
+			"nextTime": {"title": "이 다운로드는 수정한 설정을 사용했습니다. 다음에도 사용할까요?", "action": "프로필로 저장", "defaultName": "{{profile}}(수정됨)"}
 		},
 		"confirm": {
 			"readyHeadline": "다운로드할 준비가 되었습니다!",
@@ -705,13 +714,6 @@
 			"loginRequired": "이 동영상은 로그인한 계정이 필요합니다.",
 			"unknown": "다운로드에 실패했습니다. 아래 원시 출력을 확인하세요."
 		}
-	},
-	"presets": {
-		"best-quality": {"label": "최고 화질", "desc": "최고 해상도 + 최상의 오디오"},
-		"balanced": {"label": "균형", "desc": "최대 720p + 좋은 오디오"},
-		"audio-only": {"label": "오디오만", "desc": "동영상 없음, 최상의 오디오"},
-		"small-file": {"label": "작은 파일", "desc": "최저 해상도 + 낮은 오디오 품질"},
-		"subtitle-only": {"label": "자막만", "desc": "동영상과 오디오 없이 자막만"}
 	},
 	"playlistPresets": {
 		"type": {"video": "동영상", "audio": "오디오", "subtitles": "자막"},

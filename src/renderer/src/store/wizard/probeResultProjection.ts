@@ -2,12 +2,12 @@ import {DEFAULTS} from '@shared/constants.js'
 import {resolvePlaylistProbeLimit} from '@shared/networkPacing.js'
 import {DEFAULT_PLAYLIST_SELECTION} from '@shared/schemas.js'
 import {placeholderTitleFlag} from '@shared/queueTitle.js'
-import type {AppSettings, BulkMetadataStatus, PlaylistEntry, PlaylistSelection, ProbePlaylistMode, ProbeResult} from '@shared/types.js'
+import type {AppSettings, BulkMetadataStatus, FormatOption, PlaylistEntry, PlaylistSelection, ProbePlaylistMode, ProbeResult} from '@shared/types.js'
+import {resolveActiveDownloadProfile} from '@shared/downloadProfiles.js'
 import {classifyUrlIntent, deriveUrlIntentLabel, extractUrlIntentYouTubeVideoId, isObviousSingleUrlIntent} from '@shared/urlIntent.js'
-import {isYouTubeExtractor} from '@shared/ytdlp/extractorPredicates.js'
 import type {AppState, WizardStep} from '../types.js'
 import type {BulkMetadataTarget} from './bulkMetadataHydration.js'
-import {applyPreset, restoreFormatSelection, restoreSubtitleSelection} from './formatPicker.js'
+import {profilePatch, snapshotPatch, wizardSnapshot} from './wizardProfileState.js'
 
 type CommonPrefsPatch = Pick<AppState, 'wizardSponsorBlockMode' | 'wizardSponsorBlockCategories' | 'wizardEmbedChapters' | 'wizardEmbedMetadata' | 'wizardEmbedThumbnail' | 'wizardWriteDescription' | 'wizardWriteThumbnail' | 'wizardWriteM3u'>
 
@@ -96,26 +96,22 @@ export function projectProbeFailure(error: AppState['wizardError']): Partial<App
 	return {wizardStep: 'error', formatsLoading: false, playlistProbeLoading: false, playlistProbeProgress: null, wizardError: error, wizardErrorOrigin: 'formats', wizardFormatsDegraded: null}
 }
 
+// A single-video probe lands on the Format screen pre-selected from the active
+// download profile. A retry of the same run (`firstProbe` false: bot wall,
+// cookies) keeps the user's edits; only a pick the new probe no longer offers
+// falls back to the profile's.
 export function projectVideoProbeResult(probe: Extract<ProbeResult, {kind: 'video'}>, state: AppState, firstProbe: boolean): Partial<AppState> {
-	const settings = state.settings
 	const {formats, title, thumbnail, duration, subtitles, automaticCaptions, degraded} = probe
-	// Format/audio/subtitle/preset prefs are scoped to YouTube. Non-YT extractors
-	// get fresh defaults so a YT formatId / 1080p resolution doesn't leak into a
-	// Vimeo/PornHub/etc. probe. Subfolder + common prefs are global intent.
-	const persistApplies = isYouTubeExtractor(probe.extractor)
-	const scopedSettings = persistApplies ? settings : null
-	let {videoFormatId, audioSelection, preset} = restoreFormatSelection(formats, scopedSettings)
-	const {languages: subtitleLanguages} = restoreSubtitleSelection(subtitles, automaticCaptions, scopedSettings)
-	if (probe.isAudioOnlySource) {
-		const audioOnlyPick = applyPreset('audio-only', formats, scopedSettings?.common?.nativeAudioPreference ?? DEFAULTS.nativeAudioPreference)
-		videoFormatId = audioOnlyPick.videoFormatId
-		audioSelection = audioOnlyPick.audioSelection
-		preset = 'audio-only'
-	}
+	const probeFields = {wizardFormats: formats, wizardSubtitles: subtitles, wizardAutomaticCaptions: automaticCaptions, wizardIsAudioOnlySource: probe.isAudioOnlySource === true}
+	const keepEdits = !firstProbe && state.wizardProfile !== null
+	const profile = keepEdits && state.wizardProfile ? state.wizardProfile : resolveActiveDownloadProfile(state.settings?.profiles).profile
+	const applied = profilePatch(profile, {...state, ...probeFields})
+	const selection = keepEdits ? {...applied, ...snapshotPatch(wizardSnapshot(state)), ...(selectionStillOffered(state, formats) ? {} : mediaFields(applied))} : applied
 	return {
 		wizardStep: 'formats',
 		wizardMode: 'single',
-		wizardFormats: formats,
+		...probeFields,
+		...selection,
 		wizardFormatsDegraded: degraded ?? null,
 		wizardExtractor: probe.extractor,
 		wizardExtractorKey: probe.extractorKey,
@@ -128,22 +124,6 @@ export function projectVideoProbeResult(probe: Extract<ProbeResult, {kind: 'vide
 		wizardVideoId: probe.videoId ?? '',
 		wizardUploader: probe.uploader ?? '',
 		wizardUploadDate: probe.uploadDate ?? '',
-		selectedVideoFormatId: videoFormatId,
-		audioSelection,
-		activePreset: preset,
-		wizardSubtitles: subtitles,
-		wizardAutomaticCaptions: automaticCaptions,
-		wizardSubtitleLanguages: subtitleLanguages,
-		wizardSubtitleSkipped: false,
-		...(firstProbe
-			? {
-					wizardSubtitleMode: scopedSettings?.single?.lastSubtitleMode ?? DEFAULTS.subtitleMode,
-					wizardSubtitleFormat: scopedSettings?.single?.lastSubtitleFormat ?? DEFAULTS.subtitleFormat,
-					...restoreCommonWizardPrefs(settings),
-					wizardSubfolderEnabled: settings?.common?.lastSubfolderEnabled ?? false,
-					wizardSubfolderName: settings?.common?.lastSubfolder ?? ''
-				}
-			: {}),
 		formatsLoading: false,
 		playlistProbeLoading: false,
 		playlistProbeProgress: null,
@@ -153,6 +133,17 @@ export function projectVideoProbeResult(probe: Extract<ProbeResult, {kind: 'vide
 		playlistId: '',
 		playlistIsMultiVideo: false
 	}
+}
+
+function selectionStillOffered(state: AppState, formats: readonly FormatOption[]): boolean {
+	const offered = (id: string): boolean => formats.some(f => f.formatId === id)
+	const videoOk = state.wizardMediaKind !== 'video' || offered(state.selectedVideoFormatId)
+	const audioOk = state.audioSelection.kind !== 'native' || offered(state.audioSelection.formatId)
+	return videoOk && audioOk
+}
+
+function mediaFields(patch: Partial<AppState>): Partial<AppState> {
+	return {wizardMediaKind: patch.wizardMediaKind, selectedVideoFormatId: patch.selectedVideoFormatId, audioSelection: patch.audioSelection}
 }
 
 function visiblePlaylistProbeLimit(state: Pick<AppState, 'playlistScope' | 'settings'>): number {
@@ -272,11 +263,13 @@ export function projectBulkStart(urls: readonly string[], state: AppState, seeds
 			wizardFormatsDegraded: null,
 			selectedVideoFormatId: '',
 			audioSelection: {kind: 'none'},
-			activePreset: null,
+			wizardMediaKind: 'video',
+			wizardProfile: null,
+			wizardProfileBaseline: null,
+			wizardFitNotices: [],
 			wizardSubtitles: {},
 			wizardAutomaticCaptions: {},
 			wizardSubtitleLanguages: [],
-			wizardSubtitleSkipped: false,
 			wizardExtractor: allYouTubeVideos ? 'youtube' : '',
 			wizardExtractorKey: allYouTubeVideos ? 'Youtube' : '',
 			wizardWebpageUrl: '',

@@ -40,11 +40,11 @@ function pickWizardSnapshot(state: AppState): Record<string, unknown> {
 		formatsCount: state.wizardFormats.length,
 		selectedVideoFormatId: state.selectedVideoFormatId,
 		audioSelection: state.audioSelection,
-		activePreset: state.activePreset,
+		mediaKind: state.wizardMediaKind,
+		profileId: state.wizardProfile?.id ?? null,
 		subtitleLanguages: state.wizardSubtitleLanguages,
 		subtitleMode: state.wizardSubtitleMode,
 		subtitleFormat: state.wizardSubtitleFormat,
-		subtitleSkipped: state.wizardSubtitleSkipped,
 		sponsorBlockMode: state.wizardSponsorBlockMode,
 		sponsorBlockCategories: state.wizardSponsorBlockCategories,
 		embedChapters: state.wizardEmbedChapters,
@@ -63,6 +63,14 @@ function pickWizardSnapshot(state: AppState): Record<string, unknown> {
 		playlistScopeReloading: state.playlistScopeReloading,
 		playlistScopeError: state.playlistScopeError
 	}
+}
+
+// A single-video run points the wizard folder at its profile's folder. Leaving
+// the run puts the global download folder back, so the URL tab and the next
+// run don't inherit it.
+function globalOutputDir(state: AppState): Partial<AppState> {
+	const dir = state.settings?.common?.defaultOutputDir
+	return state.wizardMode === 'single' && dir ? {wizardOutputDir: dir} : {}
 }
 
 function logStep(transition: WizardTransition, fromStep: WizardStep, toStep: WizardStep, snapshot: Record<string, unknown>): void {
@@ -278,6 +286,7 @@ export function createProbeOrchestratorSlice(set: SetState, get: GetState): Prob
 		quickDownloadProgressTitle: RESET_WIZARD_STATE.quickDownloadProgressTitle,
 		quickDownloadProgressRunId: RESET_WIZARD_STATE.quickDownloadProgressRunId,
 		reviewSourceRowId: RESET_WIZARD_STATE.reviewSourceRowId,
+		wizardReviewRow: RESET_WIZARD_STATE.wizardReviewRow,
 		syncedDownloadedIds: RESET_WIZARD_STATE.syncedDownloadedIds,
 		syncScanState: RESET_WIZARD_STATE.syncScanState,
 
@@ -446,7 +455,7 @@ export function createProbeOrchestratorSlice(set: SetState, get: GetState): Prob
 			logStep('advance', wizardStep, 'playlistPresets', pickWizardSnapshot(get()))
 		},
 
-		setPlaylistSelection: s => set({playlistSelection: s, wizardSubtitleSkipped: false}),
+		setPlaylistSelection: s => set({playlistSelection: s}),
 
 		setPlaylistSortMode: mode => set({playlistSortMode: mode}),
 
@@ -536,22 +545,27 @@ export function createProbeOrchestratorSlice(set: SetState, get: GetState): Prob
 			}
 			if (target === 'url') {
 				landOnOrigin(state.wizardOrigin)
-				set({wizardOrigin: 'download', reviewSourceRowId: null})
+				set({wizardOrigin: 'download', reviewSourceRowId: null, ...globalOutputDir(state)})
 			}
-			set({wizardStep: target, ...(target === 'subtitles' && {wizardSubtitleSkipped: false})})
+			set({wizardStep: target})
 			logStep('back', state.wizardStep, target, pickWizardSnapshot(get()))
 		},
 
-		skipSubtitles: () => {
-			// Mark skipped first so WizardStepGraph treats `subtitles` as ineligible —
-			// the rest of the routing reuses the same eligibility table as
-			// advance(), so SponsorBlock + output skip rules can't drift.
-			set({wizardSubtitleSkipped: true})
+		openReview: row => {
 			const state = get()
-			const target = nextWizardStep(buildWizardStepGraph(state), 'forward')
-			if (!target) return
-			set({wizardStep: target})
-			logStep('skipSubtitles', state.wizardStep, target, pickWizardSnapshot(get()))
+			set({wizardStep: 'confirm', wizardReviewRow: row})
+			logStep('advance', state.wizardStep, 'confirm', pickWizardSnapshot(get()))
+		},
+
+		setWizardReviewRow: row => set({wizardReviewRow: row}),
+
+		goToStep: step => {
+			const state = get()
+			const graph = buildWizardStepGraph(state)
+			const targetIndex = graph.steps.indexOf(step as (typeof graph.steps)[number])
+			if (targetIndex < 0 || targetIndex >= graph.activeIndex) return
+			set({wizardStep: step})
+			logStep('back', state.wizardStep, step, pickWizardSnapshot(get()))
 		},
 
 		skipToConfirm: () => {
@@ -568,6 +582,7 @@ export function createProbeOrchestratorSlice(set: SetState, get: GetState): Prob
 			}
 			landOnOrigin(state.wizardOrigin)
 			WizardCommands.resetAll(set)
+			set(globalOutputDir(state))
 			logStep('reset', fromStep, 'url', pickWizardSnapshot(get()))
 		},
 

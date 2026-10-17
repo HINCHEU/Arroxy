@@ -74,7 +74,7 @@ export function mapFormats(formats: readonly YtDlpFormat[]): FormatOption[] {
 		const dynamicRange = item.dynamic_range && item.dynamic_range !== 'SDR' ? item.dynamic_range : undefined
 		const details = [resolution, ext, fps ? `${fps}fps` : null, dynamicRange ?? null, filesize ? humanSize(filesize) : null].filter(Boolean).join(' | ')
 
-		return [{formatId, label: details, ext, resolution, fps, filesize, isVideoOnly, isAudioOnly: false, dynamicRange} satisfies FormatOption]
+		return [{formatId, label: details, ext, resolution, fps, ...(item.vcodec ? {videoCodec: item.vcodec} : {}), filesize, isVideoOnly, isAudioOnly: false, dynamicRange} satisfies FormatOption]
 	})
 
 	return sortFormatsByQuality(mapped)

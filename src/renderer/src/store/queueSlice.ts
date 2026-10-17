@@ -6,12 +6,14 @@
 // from wizard state because the wizard data lives in the renderer; once
 // built, the items are pushed to main via queue.cmd.add.
 
-import type {QueueLane} from '@shared/types.js'
+import type {DownloadProfile, QueueLane} from '@shared/types.js'
+import {i18next} from '@shared/i18n/index.js'
 import {bulkLogger} from '@renderer/lib/bulkLogger.js'
 import {notify} from '@renderer/lib/notify.js'
 import {replaceHash} from '@renderer/lib/navigation.js'
 import type {GetState, SetState, QueueSlice} from './types.js'
 import {persistFormatPrefs} from './wizard/persistFormatPrefs.js'
+import {editedProfileDraft} from './wizard/wizardProfileState.js'
 import {configuredCookiesRetryMode} from './wizard/probeErrorExperience.js'
 import {prepareManualQueueSubmission, prepareMultiProfileQueueSubmission} from './wizard/queueSubmission.js'
 import {submitPreparedQueueSubmission} from './wizard/queueSubmissionAdapter.js'
@@ -20,6 +22,15 @@ import {forgetAllPlaceholders, forgetPlaceholder, settlePlaceholder} from './qui
 
 function errorMessage(error: unknown): string {
 	return error instanceof Error ? error.message : String(error)
+}
+
+async function saveEditedProfile(get: GetState, profile: DownloadProfile): Promise<void> {
+	try {
+		await get().saveDownloadProfile(profile, false)
+		notify.profileSaved(profile.name)
+	} catch (error) {
+		notify.profileSaveFailed(error)
+	}
 }
 
 async function submitWizardToQueue(set: SetState, get: GetState, lane: QueueLane): Promise<void> {
@@ -66,7 +77,10 @@ async function submitWizardToQueue(set: SetState, get: GetState, lane: QueueLane
 		const skippedAlreadyQueued = prepared.skippedAlreadyQueued + result.skippedAlreadyQueued
 		if (skippedAlreadyQueued > 0) notify.queueSkippedAlreadyQueued(skippedAlreadyQueued)
 		await persistFormatPrefs(set, get)
+		const state = get()
+		const edited = state.wizardProfile ? editedProfileDraft(state, i18next.t('wizard.review.nextTime.defaultName', {profile: state.wizardProfile.name})) : null
 		get().reset()
+		if (edited) notify.offerSaveEdits(() => void saveEditedProfile(get, edited))
 	} catch (error) {
 		// prepareMultiProfileQueueSubmission can throw synchronously —
 		// resolveDownloadProfileOutputDir throws for an assigned profile with no

@@ -30,21 +30,14 @@ function WizardStepFallback(): ReactNode {
 export function WizardPanel(): ReactNode {
 	const {t} = useTranslation()
 	const wizardStep = useAppStore(s => s.wizardStep)
-	const activePreset = useAppStore(s => s.activePreset)
 	const wizardMode = useAppStore(s => s.wizardMode)
 	const wizardUrl = useAppStore(s => s.wizardUrl)
 	const wizardWebpageUrl = useAppStore(s => s.wizardWebpageUrl)
 	const playlistSelection = useAppStore(s => s.playlistSelection)
 	const wizardExtractor = useAppStore(s => s.wizardExtractor)
-	const wizardSubtitles = useAppStore(s => s.wizardSubtitles)
-	const wizardAutomaticCaptions = useAppStore(s => s.wizardAutomaticCaptions)
-	const wizardSubtitleSkipped = useAppStore(s => s.wizardSubtitleSkipped)
 	const multiProfileMode = useAppStore(s => s.multiProfileMode)
 
-	const graph = useMemo(
-		() => buildWizardStepGraph({wizardStep, activePreset, wizardMode, playlistSelection, wizardExtractor, wizardSubtitles, wizardAutomaticCaptions, wizardSubtitleSkipped, multiProfileMode}),
-		[wizardStep, activePreset, wizardMode, playlistSelection, wizardExtractor, wizardSubtitles, wizardAutomaticCaptions, wizardSubtitleSkipped, multiProfileMode]
-	)
+	const graph = useMemo(() => buildWizardStepGraph({wizardStep, wizardMode, playlistSelection, wizardExtractor, multiProfileMode}), [wizardStep, wizardMode, playlistSelection, wizardExtractor, multiProfileMode])
 
 	const visibleSteps = visibleWizardSteps(graph)
 	const activeIndex = graph.activeIndex
@@ -52,6 +45,8 @@ export function WizardPanel(): ReactNode {
 	const isDownloadHome = graph.isDownloadHome
 	const collectionKind = wizardMode === 'playlist' ? collectionKindForWizardUrls(wizardUrl, wizardWebpageUrl) : null
 	const playlistItemsStepLabelKey = collectionKind === 'channel' || collectionKind === 'search' ? 'wizard.steps.playlistItemsGeneric' : 'wizard.steps.playlistItems'
+	// A single video's last step is its Review; a batch keeps Confirm.
+	const stepLabelKey = (stepKey: (typeof visibleSteps)[number]): `wizard.steps.${(typeof visibleSteps)[number] | 'review' | 'playlistItemsGeneric'}` => (stepKey === 'playlistItems' ? playlistItemsStepLabelKey : stepKey === 'confirm' && wizardMode === 'single' ? 'wizard.steps.review' : `wizard.steps.${stepKey}`)
 
 	const prevIndexRef = useRef(activeIndex)
 	const [isBackward, setIsBackward] = useState(false)
@@ -82,7 +77,7 @@ export function WizardPanel(): ReactNode {
 										>
 											{isDone ? <Check className="size-3.5" strokeWidth={3} aria-hidden /> : i + 1}
 										</div>
-										<span className={cn('text-label uppercase', isActive ? 'text-selected-foreground' : 'text-subtle-foreground')}>{t(stepKey === 'playlistItems' ? playlistItemsStepLabelKey : (`wizard.steps.${stepKey}` as const))}</span>
+										<span className={cn('text-label uppercase', isActive ? 'text-selected-foreground' : 'text-subtle-foreground')}>{t(stepLabelKey(stepKey))}</span>
 									</div>
 									{i < visibleSteps.length - 1 && <div className={cn('mx-1 mb-4 h-0.5 flex-1 rounded-full transition-all duration-500', isDone ? 'bg-primary' : 'bg-border-strong')} />}
 								</div>

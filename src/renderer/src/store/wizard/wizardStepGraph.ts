@@ -1,6 +1,5 @@
-import type {PlaylistSelection, Preset, SubtitleMap} from '@shared/types.js'
+import type {PlaylistSelection} from '@shared/types.js'
 import {playlistSelectionProducesVideo} from '@shared/mediaIntent.js'
-import {presetProducesMedia, presetProducesVideo} from '@shared/presetTraits.js'
 import {isYouTubeExtractor} from '@shared/ytdlp/extractorPredicates.js'
 import {wizardStepNameSchema} from '@shared/schemas.js'
 import type {WizardMode, WizardStep} from '../types.js'
@@ -10,13 +9,9 @@ export type WizardStepDirection = 'forward' | 'backward'
 
 export interface WizardStepGraphInput {
 	wizardStep: WizardStep
-	activePreset: Preset | null
 	wizardMode: WizardMode
 	playlistSelection: PlaylistSelection | null
 	wizardExtractor: string
-	wizardSubtitles: SubtitleMap
-	wizardAutomaticCaptions: SubtitleMap
-	wizardSubtitleSkipped: boolean
 	multiProfileMode: boolean
 }
 
@@ -25,7 +20,6 @@ export interface WizardStepGraph {
 	steps: VisibleWizardStep[]
 	activeIndex: number
 	isDownloadHome: boolean
-	hasSubtitles: boolean
 	state: WizardStepGraphInput
 }
 
@@ -38,49 +32,34 @@ function isBatchMode(mode: WizardMode): boolean {
 	return mode === 'playlist' || mode === 'bulk'
 }
 
-function hasSubtitleTracks(state: Pick<WizardStepGraphInput, 'wizardSubtitles' | 'wizardAutomaticCaptions'>): boolean {
-	return Object.keys(state.wizardSubtitles).length > 0 || Object.keys(state.wizardAutomaticCaptions).length > 0
-}
-
 function isMultiProfile(state: WizardStepGraphInput): boolean {
 	return state.multiProfileMode && isBatchMode(state.wizardMode)
 }
 
-function stepApplies(step: VisibleWizardStep, state: WizardStepGraphInput, hasSubtitles: boolean): boolean {
+function stepApplies(step: VisibleWizardStep, state: WizardStepGraphInput): boolean {
 	if (step === 'url') return true
-	if (step === 'playlistItems') return isBatchMode(state.wizardMode)
+	// A single video is two screens: Format (what to download) and Review
+	// (everything else, as rows that open in place).
+	if (!isBatchMode(state.wizardMode)) return step === 'formats' || step === 'confirm'
+	if (step === 'formats') return false
+	if (step === 'playlistItems') return true
 	if (step === 'playlistProfiles') return isMultiProfile(state)
 	// A profile carries media, subtitles, SponsorBlock, output and filename, so
 	// every step that would collect them again is redundant in this mode.
 	if (isMultiProfile(state) && step !== 'confirm') return false
-	if (step === 'playlistPresets') return isBatchMode(state.wizardMode)
-	if (step === 'formats') return !isBatchMode(state.wizardMode)
-	if (step === 'subtitles') {
-		if (state.wizardSubtitleSkipped) return false
-		if (isBatchMode(state.wizardMode) && !!state.playlistSelection) return false
-		if (!isBatchMode(state.wizardMode) && !hasSubtitles) return false
-		return true
-	}
 	if (step === 'sponsorblock') {
 		if (!isYouTubeExtractor(state.wizardExtractor)) return false
-		if (isBatchMode(state.wizardMode) && state.playlistSelection) return playlistSelectionProducesVideo(state.playlistSelection)
-		if (state.activePreset && !presetProducesVideo(state.activePreset)) return false
-		return true
+		return state.playlistSelection ? playlistSelectionProducesVideo(state.playlistSelection) : true
 	}
-	if (step === 'output') {
-		// Output collects embed/sidecar options for a media file; a subtitles
-		// batch produces none.
-		if (isBatchMode(state.wizardMode) && state.playlistSelection) return state.playlistSelection.kind !== 'subtitles'
-		if (state.activePreset && !presetProducesMedia(state.activePreset)) return false
-		return true
-	}
+	// Output collects embed/sidecar options for a media file; a subtitles
+	// batch produces none.
+	if (step === 'output') return state.playlistSelection?.kind !== 'subtitles'
 	return true
 }
 
 export function buildWizardStepGraph(state: WizardStepGraphInput): WizardStepGraph {
-	const hasSubtitles = hasSubtitleTracks(state)
-	const steps = WIZARD_STEPS.filter(step => stepApplies(step, state, hasSubtitles))
-	return {current: state.wizardStep, steps, activeIndex: state.wizardStep === 'error' ? -1 : steps.indexOf(state.wizardStep), isDownloadHome: state.wizardStep === 'url', hasSubtitles, state}
+	const steps = WIZARD_STEPS.filter(step => stepApplies(step, state))
+	return {current: state.wizardStep, steps, activeIndex: state.wizardStep === 'error' ? -1 : steps.indexOf(state.wizardStep), isDownloadHome: state.wizardStep === 'url', state}
 }
 
 export function visibleWizardSteps(graph: WizardStepGraph): readonly VisibleWizardStep[] {

@@ -779,46 +779,6 @@ msgctxt "playlistPresets.videoFormatDesc.mp4"
 msgid "Prefer H.264 video + AAC audio in MP4 when possible"
 msgstr "优先 H.264 + AAC，MP4 容器 · 尽力匹配"
 
-msgctxt "presets.audio-only.desc"
-msgid "No video, best audio"
-msgstr "不下载视频,只要最佳音频"
-
-msgctxt "presets.audio-only.label"
-msgid "Audio only"
-msgstr "仅音频"
-
-msgctxt "presets.balanced.desc"
-msgid "720p max + good audio"
-msgstr "720p 上限 + 优质音频"
-
-msgctxt "presets.balanced.label"
-msgid "Balanced"
-msgstr "均衡"
-
-msgctxt "presets.best-quality.desc"
-msgid "Highest resolution + best audio"
-msgstr "最高分辨率 + 最佳音频"
-
-msgctxt "presets.best-quality.label"
-msgid "Best quality"
-msgstr "最佳画质"
-
-msgctxt "presets.small-file.desc"
-msgid "Lowest resolution + low audio"
-msgstr "最低分辨率 + 低音质"
-
-msgctxt "presets.small-file.label"
-msgid "Small file"
-msgstr "小文件"
-
-msgctxt "presets.subtitle-only.desc"
-msgid "No video, no audio, only subtitles"
-msgstr "无视频无音频，仅字幕"
-
-msgctxt "presets.subtitle-only.label"
-msgid "Subtitles only"
-msgstr "仅字幕"
-
 msgctxt "queue.artifact.companion"
 msgid "Companion"
 msgstr "伴随文件"
@@ -1709,10 +1669,6 @@ msgctxt "wizard.formats.audioOnly"
 msgid "Audio only"
 msgstr "仅音频"
 
-msgctxt "wizard.formats.audioOnlyOption"
-msgid "Audio only (no video)"
-msgstr "仅音频(无视频)"
-
 msgctxt "wizard.formats.botWall.bodyDisabled"
 msgid "Cookies are configured but turned off. Enable them and retry to get the full list, or change network and retry."
 msgstr "Cookies 已配置但未启用。启用后重试可获取完整列表，或更换网络后重试。"
@@ -1752,10 +1708,6 @@ msgstr "转换"
 msgctxt "wizard.formats.convert.lossyLabel"
 msgid "{{target}} {{bitrate}} kbps"
 msgstr "{{target}} {{bitrate}} kbps"
-
-msgctxt "wizard.formats.convert.requiresAudioOnly"
-msgid "Audio conversion requires audio-only mode (deselect the video pick)."
-msgstr "音频转换需要仅音频模式（取消选择视频选项）。"
 
 msgctxt "wizard.formats.convert.requiresLossy"
 msgid "A native stream is selected — bitrate only applies when converting to mp3, m4a, or opus."
@@ -1893,6 +1845,46 @@ msgctxt "wizard.formats.cookiesError.otherCookiesCta"
 msgid "Use a cookies file or browser instead…"
 msgstr "改用 Cookie 文件或浏览器…"
 
+msgctxt "wizard.formats.fit.mp4Unavailable"
+msgid "Your profile asks for MP4 (H.264). This video doesn't offer it, so the closest stream is selected."
+msgstr "配置要求 MP4（H.264），但此视频不提供，已选择最接近的流。"
+
+msgctxt "wizard.formats.fit.noVideo"
+msgid "This link has no video, so audio is selected."
+msgstr "此链接没有视频，已选择音频。"
+
+msgctxt "wizard.formats.fit.subtitlesMissing"
+msgid "Your profile asks for subtitles in {{languages}}. This video doesn't have them."
+msgstr "配置要求 {{languages}} 字幕，但此视频没有。"
+
+msgctxt "wizard.formats.fit.tierAbove"
+msgid "Your profile asks for {{wanted}}p. This video has nothing that small, so {{picked}}p is selected."
+msgstr "配置要求 {{wanted}}p，但此视频没有这么低的画质，已选择 {{picked}}p。"
+
+msgctxt "wizard.formats.fit.tierBelow"
+msgid "Your profile asks for {{wanted}}p. This video only goes up to {{picked}}p, so {{picked}}p is selected."
+msgstr "配置要求 {{wanted}}p，但此视频最高只有 {{picked}}p，已选择 {{picked}}p。"
+
+msgctxt "wizard.formats.footer.addToQueue"
+msgid "Add to queue without starting"
+msgstr "加入队列但不开始"
+
+msgctxt "wizard.formats.footer.download"
+msgid "Download"
+msgstr "下载"
+
+msgctxt "wizard.formats.footer.moreActions"
+msgid "More download options"
+msgstr "更多下载选项"
+
+msgctxt "wizard.formats.footer.reviewOptions"
+msgid "Review & options"
+msgstr "查看与选项"
+
+msgctxt "wizard.formats.footer.subtitlesRequired"
+msgid "Choose at least one subtitle language."
+msgstr "请至少选择一种字幕语言。"
+
 msgctxt "wizard.formats.keepAudio"
 msgid "Keep as-is"
 msgstr "保持原样"
@@ -1900,6 +1892,22 @@ msgstr "保持原样"
 msgctxt "wizard.formats.keepAudioMeta"
 msgid "Built-in audio"
 msgstr "内置音频"
+
+msgctxt "wizard.formats.kind.audio"
+msgid "Audio"
+msgstr "音频"
+
+msgctxt "wizard.formats.kind.label"
+msgid "What to download"
+msgstr "下载内容"
+
+msgctxt "wizard.formats.kind.subtitles"
+msgid "Subtitles only"
+msgstr "仅字幕"
+
+msgctxt "wizard.formats.kind.video"
+msgid "Video"
+msgstr "视频"
 
 msgctxt "wizard.formats.loadingAria"
 msgid "Loading formats"
@@ -1909,13 +1917,33 @@ msgctxt "wizard.formats.loadingHint"
 msgid "Please wait until probing finishes — playlists and searches can take a while."
 msgstr "请等待探测完成，播放列表和搜索可能需要一些时间。"
 
-msgctxt "wizard.formats.mascot"
-msgid "Best + Best = max quality. I'd pick that!"
-msgstr "最佳画质 + 最佳音质 = 最高质量。我会选这个!"
-
 msgctxt "wizard.formats.noAudio"
 msgid "No audio"
 msgstr "无音频"
+
+msgctxt "wizard.formats.profile.closestTag"
+msgid "Closest to profile"
+msgstr "最接近配置"
+
+msgctxt "wizard.formats.profile.preselected"
+msgid "Pre-selected from"
+msgstr "预选自"
+
+msgctxt "wizard.formats.profile.switchAction"
+msgid "Switch"
+msgstr "切换"
+
+msgctxt "wizard.formats.profile.switchBody"
+msgid "Your changes to this download will be replaced by the settings of the profile you pick."
+msgstr "你对本次下载所做的更改将被所选配置的设置替换。"
+
+msgctxt "wizard.formats.profile.switchTitle"
+msgid "Switch profile?"
+msgstr "切换配置？"
+
+msgctxt "wizard.formats.profile.tag"
+msgid "Profile"
+msgstr "配置"
 
 msgctxt "wizard.formats.quality.high"
 msgid "High quality"
@@ -1928,10 +1956,6 @@ msgstr "低质量"
 msgctxt "wizard.formats.quality.medium"
 msgid "Medium quality"
 msgstr "中等质量"
-
-msgctxt "wizard.formats.quickPresets"
-msgid "Quick presets"
-msgstr "快速预设"
 
 msgctxt "wizard.formats.sizeUnknown"
 msgid "Size unknown"
@@ -1948,6 +1972,26 @@ msgstr "使用您保存的偏好设置完成所有剩余步骤。若要更改某
 msgctxt "wizard.formats.sniffing"
 msgid "Sniffing out the best formats for you…"
 msgstr "正在为你寻找最佳格式…"
+
+msgctxt "wizard.formats.summary.lead"
+msgid "Also from {{profile}}:"
+msgstr "{{profile}} 的其他设置："
+
+msgctxt "wizard.formats.summary.reviewAll"
+msgid "Review all"
+msgstr "查看全部"
+
+msgctxt "wizard.formats.summary.subtitlesAdd_one"
+msgid "{{count}} language available, add"
+msgstr "有 {{count}} 种语言可用，添加"
+
+msgctxt "wizard.formats.summary.subtitlesAdd_other"
+msgid "{{count}} languages available, add"
+msgstr "有 {{count}} 种语言可用，添加"
+
+msgctxt "wizard.formats.summary.subtitlesOff"
+msgid "subtitles off"
+msgstr "字幕已关闭"
 
 msgctxt "wizard.formats.total"
 msgid "Total"
@@ -2745,6 +2789,126 @@ msgctxt "wizard.quickProgress.waitHint"
 msgid "Keep this open while Arroxy prepares the queue."
 msgstr "Arroxy 准备队列时请保持此窗口打开。"
 
+msgctxt "wizard.review.areas.extras"
+msgid "extras"
+msgstr "附加项"
+
+msgctxt "wizard.review.areas.fileName"
+msgid "file name"
+msgstr "文件名"
+
+msgctxt "wizard.review.areas.format"
+msgid "format"
+msgstr "格式"
+
+msgctxt "wizard.review.areas.saveTo"
+msgid "folder"
+msgstr "文件夹"
+
+msgctxt "wizard.review.areas.sponsorBlock"
+msgid "SponsorBlock"
+msgstr "SponsorBlock"
+
+msgctxt "wizard.review.areas.subtitles"
+msgid "subtitles"
+msgstr "字幕"
+
+msgctxt "wizard.review.changed"
+msgid "Changed from {{profile}}: {{areas}}. Applies to this download only."
+msgstr "与 {{profile}} 相比有更改：{{areas}}。仅应用于本次下载。"
+
+msgctxt "wizard.review.changeFormat"
+msgid "Change format"
+msgstr "更改格式"
+
+msgctxt "wizard.review.done"
+msgid "Done"
+msgstr "完成"
+
+msgctxt "wizard.review.fileNameHint"
+msgid "Tokens: {title}, {id}, {uploader}, {date}, {resolution}. The extension is added for you."
+msgstr "可用标记：{title}、{id}、{uploader}、{date}、{resolution}。扩展名会自动添加。"
+
+msgctxt "wizard.review.nextTime.action"
+msgid "Save as profile"
+msgstr "另存为配置"
+
+msgctxt "wizard.review.nextTime.defaultName"
+msgid "{{profile}} (edited)"
+msgstr "{{profile}}（已编辑）"
+
+msgctxt "wizard.review.nextTime.title"
+msgid "This download used edited settings. Use them next time?"
+msgstr "本次下载使用了编辑后的设置。下次继续使用吗？"
+
+msgctxt "wizard.review.reset"
+msgid "Reset"
+msgstr "重置"
+
+msgctxt "wizard.review.rows.extras"
+msgid "Extras"
+msgstr "附加项"
+
+msgctxt "wizard.review.rows.fileName"
+msgid "File name"
+msgstr "文件名"
+
+msgctxt "wizard.review.rows.saveTo"
+msgid "Save to"
+msgstr "保存位置"
+
+msgctxt "wizard.review.rows.sponsorBlock"
+msgid "SponsorBlock"
+msgstr "SponsorBlock"
+
+msgctxt "wizard.review.rows.subtitles"
+msgid "Subtitles"
+msgstr "字幕"
+
+msgctxt "wizard.review.rowsHeading"
+msgid "Everything else"
+msgstr "其他设置"
+
+msgctxt "wizard.review.save.action"
+msgid "Save profile"
+msgstr "保存配置"
+
+msgctxt "wizard.review.save.description"
+msgid "Keeps these settings as a profile you can pick next time. Your Quick Download profile stays the same."
+msgstr "将这些设置保存为配置，下次可直接选择。快速下载配置保持不变。"
+
+msgctxt "wizard.review.save.failed"
+msgid "Couldn't save the profile."
+msgstr "无法保存配置。"
+
+msgctxt "wizard.review.save.nameLabel"
+msgid "Profile name"
+msgstr "配置名称"
+
+msgctxt "wizard.review.save.saved"
+msgid "Saved as profile “{{name}}”"
+msgstr "已保存为配置“{{name}}”"
+
+msgctxt "wizard.review.save.title"
+msgid "Save as profile"
+msgstr "另存为配置"
+
+msgctxt "wizard.review.saveAsProfile"
+msgid "Save as profile…"
+msgstr "另存为配置…"
+
+msgctxt "wizard.review.value.extrasNone"
+msgid "None"
+msgstr "无"
+
+msgctxt "wizard.review.value.sponsorBlockOff"
+msgid "Off"
+msgstr "关闭"
+
+msgctxt "wizard.review.value.subtitlesOff"
+msgid "Off"
+msgstr "关闭"
+
 msgctxt "wizard.sponsorblock.cat.filler"
 msgid "Filler"
 msgstr "填充内容"
@@ -2837,6 +3001,10 @@ msgctxt "wizard.steps.playlistProfiles"
 msgid "Profiles"
 msgstr "配置"
 
+msgctxt "wizard.steps.review"
+msgid "Review"
+msgstr "查看"
+
 msgctxt "wizard.steps.sponsorblock"
 msgid "SponsorBlock"
 msgstr "SponsorBlock"
@@ -2868,10 +3036,6 @@ msgstr "嵌入模式将输出保存为 .mkv，以便可靠地嵌入字幕轨道�
 msgctxt "wizard.subtitles.format.heading"
 msgid "Format"
 msgstr "Format"
-
-msgctxt "wizard.subtitles.mascot"
-msgid "Pick zero, one, or many — totally up to you ✨"
-msgstr "选零个、一个或多个 — 完全由你决定 ✨"
 
 msgctxt "wizard.subtitles.noLanguages"
 msgid "No subtitles available for this video"
@@ -2916,22 +3080,6 @@ msgstr "自动生成"
 msgctxt "wizard.subtitles.sectionManual"
 msgid "Manual"
 msgstr "手动"
-
-msgctxt "wizard.subtitles.selectedNote_one"
-msgid "{{count}} subtitle will be downloaded"
-msgstr "将下载 {{count}} 个字幕"
-
-msgctxt "wizard.subtitles.selectedNote_other"
-msgid "{{count}} subtitles will be downloaded"
-msgstr "将下载 {{count}} 个字幕"
-
-msgctxt "wizard.subtitles.skip"
-msgid "Skip"
-msgstr "跳过"
-
-msgctxt "wizard.subtitles.skipSubs"
-msgid "Skip for this video"
-msgstr "本视频跳过"
 
 msgctxt "wizard.tabsNavAria"
 msgid "Download profile navigation"

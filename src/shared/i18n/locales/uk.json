@@ -57,7 +57,20 @@
 	"theme": {"light": "Світла тема", "dark": "Темна тема", "system": "Системна"},
 	"language": {"label": "Мова"},
 	"wizard": {
-		"steps": {"url": "Посилання", "playlistItems": "Плейлист", "playlistItemsGeneric": "Відео", "playlistPresets": "Якість", "playlistProfiles": "Профілі", "formats": "Формат", "subtitles": "Субтитри", "sponsorblock": "SponsorBlock", "output": "Вивід", "folder": "Зберегти", "confirm": "Підтвердити"},
+		"steps": {
+			"url": "Посилання",
+			"playlistItems": "Плейлист",
+			"playlistItemsGeneric": "Відео",
+			"playlistPresets": "Якість",
+			"playlistProfiles": "Профілі",
+			"formats": "Формат",
+			"subtitles": "Субтитри",
+			"sponsorblock": "SponsorBlock",
+			"output": "Вивід",
+			"folder": "Зберегти",
+			"confirm": "Підтвердити",
+			"review": "Перегляд"
+		},
 		"playlistPresets": {"heading": "Вибери якість для пакетного завантаження", "subhead": "Кожне відео самостійно підбирає відповідний рівень якості — неоднорідні плейлисти працюють без сюрпризів.", "itemCount_one": "{{count}} елемент", "itemCount_other": "{{count}} елементів"},
 		"playlistProfiles": {
 			"heading": "Призначити профілі завантаження",
@@ -338,16 +351,11 @@
 		"subtitles": {
 			"autoBadge": "Авто",
 			"noLanguages": "Для цього відео субтитри недоступні",
-			"skip": "Пропустити",
-			"skipSubs": "Пропустити для цього відео",
-			"mascot": "Нуль, одну або кілька мов — вирішуй сам ✨",
 			"searchPlaceholder": "Пошук мов…",
 			"noMatches": "Мови не знайдено",
 			"clearAll": "Очистити все",
 			"noSelected": "Субтитри не вибрані",
 			"removeLanguage": "Видалити {{name}}",
-			"selectedNote_one": "Буде завантажено {{count}} субтитр",
-			"selectedNote_other": "Буде завантажено субтитрів: {{count}}",
 			"sectionManual": "Ручні",
 			"sectionAuto": "Автоматичні",
 			"saveMode": {"heading": "Зберегти як", "sidecar": "Поруч із відео", "embed": "Вбудувати у відео", "subfolder": "Підпапка subtitles/"},
@@ -363,7 +371,17 @@
 			"cat": {"sponsor": "Спонсор", "intro": "Інтро", "outro": "Аутро", "selfpromo": "Самореклама", "music_offtopic": "Музика не по темі", "preview": "Перегляд", "filler": "Заповнювач"}
 		},
 		"formats": {
-			"quickPresets": "Швидкі пресети",
+			"kind": {"label": "Що завантажувати", "video": "Відео", "audio": "Аудіо", "subtitles": "Тільки субтитри"},
+			"profile": {"preselected": "Попередньо вибрано з", "tag": "Профіль", "closestTag": "Найближче до профілю", "switchTitle": "Перемкнути профіль?", "switchBody": "Ваші зміни в цьому завантаженні буде замінено налаштуваннями вибраного профілю.", "switchAction": "Перемкнути"},
+			"fit": {
+				"tierBelow": "Ваш профіль запитує {{wanted}}p. Це відео доступне лише до {{picked}}p, тому вибрано {{picked}}p.",
+				"tierAbove": "Ваш профіль запитує {{wanted}}p. У цьому відео немає такої низької якості, тому вибрано {{picked}}p.",
+				"mp4Unavailable": "Ваш профіль запитує MP4 (H.264). У цьому відео його немає, тому вибрано найближчий потік.",
+				"noVideo": "У цьому посиланні немає відео, тому вибрано аудіо.",
+				"subtitlesMissing": "Ваш профіль запитує субтитри такими мовами: {{languages}}. У цьому відео їх немає."
+			},
+			"summary": {"lead": "Також із профілю {{profile}}:", "subtitlesOff": "субтитри вимкнено", "subtitlesAdd_one": "Доступна {{count}} мова, додати", "subtitlesAdd_other": "Доступно мов: {{count}}, додати", "reviewAll": "Переглянути все"},
+			"footer": {"reviewOptions": "Перегляд і параметри", "download": "Завантажити", "moreActions": "Інші параметри завантаження", "addToQueue": "Додати в чергу без запуску", "subtitlesRequired": "Виберіть принаймні одну мову субтитрів."},
 			"video": "Відео",
 			"audio": "Аудіо",
 			"noAudio": "Без аудіо",
@@ -371,8 +389,6 @@
 			"keepAudio": "Залишити як є",
 			"keepAudioMeta": "Вбудоване аудіо",
 			"audioOnly": "Тільки аудіо",
-			"audioOnlyOption": "Тільки аудіо (без відео)",
-			"mascot": "Найкраще + найкраще = максимальна якість. Я б обрав саме це!",
 			"sniffing": "Шукаю для тебе найкращі формати…",
 			"loadingHint": "Зачекайте, поки завершиться перевірка — плейлисти та пошуки можуть зайняти деякий час.",
 			"loadingAria": "Завантаження форматів",
@@ -381,15 +397,7 @@
 			"skipToConfirm": "Перейти до підтвердження",
 			"skipToConfirmTooltip": "Використовує збережені налаштування для всіх кроків, що залишились. Щоб змінити параметр, продовжуйте крок за кроком — ваш вибір буде збережено на наступний раз.",
 			"quality": {"high": "Висока якість", "medium": "Середня якість", "low": "Низька якість"},
-			"convert": {
-				"label": "Конвертувати",
-				"uncompressed": "Конвертувати · без стиснення",
-				"bitrate": "Бітрейт",
-				"wavLabel": "WAV (uncompressed)",
-				"lossyLabel": "{{target}} {{bitrate}} kbps",
-				"requiresAudioOnly": "Конвертація аудіо потребує режиму «Тільки аудіо» (зніміть вибір відео).",
-				"requiresLossy": "Вибрано нативний потік — бітрейт застосовується лише при конвертації в mp3, m4a або opus."
-			},
+			"convert": {"label": "Конвертувати", "uncompressed": "Конвертувати · без стиснення", "bitrate": "Бітрейт", "wavLabel": "WAV (uncompressed)", "lossyLabel": "{{target}} {{bitrate}} kbps", "requiresLossy": "Вибрано нативний потік — бітрейт застосовується лише при конвертації в mp3, m4a або opus."},
 			"botWall": {
 				"heading": "YouTube обмежив цей запит",
 				"bodyUnconfigured": "Список форматів може бути неповним. Налаштуй cookies у розширених налаштуваннях або зміни мережу та спробуй ще раз.",
@@ -446,6 +454,27 @@
 			"writeDescription": {"label": "Зберегти опис", "description": "Зберігає опис відео як файл .description поруч із завантаженням."},
 			"writeThumbnail": {"label": "Зберегти мініатюру", "description": "Зберігає мініатюру як файл .jpg поруч із завантаженням."},
 			"writeM3u": {"label": "Створити файл плейлиста .m3u", "description": "Зберігає .m3u поруч із відео, щоб вони відкривалися в медіаплеєрі по порядку."}
+		},
+		"review": {
+			"changeFormat": "Змінити формат",
+			"rowsHeading": "Решта налаштувань",
+			"rows": {"subtitles": "Субтитри", "sponsorBlock": "SponsorBlock", "extras": "Додатково", "saveTo": "Зберегти у", "fileName": "Назва файлу"},
+			"value": {"subtitlesOff": "Вимкнено", "sponsorBlockOff": "Вимкнено", "extrasNone": "Немає"},
+			"done": "Готово",
+			"changed": "Змінено порівняно з {{profile}}: {{areas}}. Стосується лише цього завантаження.",
+			"areas": {"format": "формат", "subtitles": "субтитри", "sponsorBlock": "SponsorBlock", "extras": "додатково", "saveTo": "папка", "fileName": "назва файлу"},
+			"saveAsProfile": "Зберегти як профіль…",
+			"reset": "Скинути",
+			"save": {
+				"title": "Зберегти як профіль",
+				"description": "Зберігає ці налаштування як профіль, який можна вибрати наступного разу. Ваш профіль «Швидке завантаження» не зміниться.",
+				"nameLabel": "Назва профілю",
+				"action": "Зберегти профіль",
+				"saved": "Збережено як профіль «{{name}}»",
+				"failed": "Не вдалося зберегти профіль."
+			},
+			"fileNameHint": "Шаблони: {title}, {id}, {uploader}, {date}, {resolution}. Розширення додається автоматично.",
+			"nextTime": {"title": "Це завантаження використало змінені налаштування. Використати їх наступного разу?", "action": "Зберегти як профіль", "defaultName": "{{profile}} (змінений)"}
 		},
 		"confirm": {
 			"readyHeadline": "Готово до завантаження!",
@@ -717,13 +746,6 @@
 			"loginRequired": "Для цього відео потрібен акаунт із виконаним входом.",
 			"unknown": "Завантаження не вдалося. Дивись необроблений вивід нижче."
 		}
-	},
-	"presets": {
-		"best-quality": {"label": "Найкраща якість", "desc": "Максимальна роздільна здатність + найкраще аудіо"},
-		"balanced": {"label": "Збалансовано", "desc": "720p макс. + гарне аудіо"},
-		"audio-only": {"label": "Тільки аудіо", "desc": "Без відео, найкраще аудіо"},
-		"small-file": {"label": "Малий файл", "desc": "Найнижча роздільна здатність + слабке аудіо"},
-		"subtitle-only": {"label": "Тільки субтитри", "desc": "Без відео та аудіо, лише субтитри"}
 	},
 	"playlistPresets": {
 		"type": {"video": "Video", "audio": "Audio", "subtitles": "Субтитри"},

@@ -8,8 +8,8 @@ import {effectiveOutputDir} from '@renderer/lib/path.js'
 import {buildDownloadProfileActionModel} from '@renderer/components/wizard/downloadProfileActions.js'
 import {orderProfileOptionsForAssignment} from '@renderer/components/wizard/playlistProfileOrder.js'
 import {resolveSubtitleLabel, SUBTITLE_MODE_I18N_KEYS} from '../../lib/subtitleLabel.js'
-import {presetLabel, resolveAudioLabel, resolveVideoResolution} from '../helpers.js'
-import type {AppState} from '../types.js'
+import {resolveAudioLabel, resolveVideoResolution} from '../helpers.js'
+import type {AppState, AudioSelection} from '../types.js'
 import {resolveOutputContainer} from './resolveContainer.js'
 import {profileAssignmentCounts} from './playlistProfileAssignments.js'
 
@@ -70,7 +70,7 @@ function playlistPresetLabel(state: AppState, t: Translate, language: string): s
 	if (!playlistSelection) return ''
 	if (playlistSelection.kind === 'subtitles') {
 		const languages = playlistSelection.languages.map(code => resolveSubtitleLabel(code, {}, {}, language)).join(', ')
-		return [t('presets.subtitle-only.label'), languages, playlistSelection.format.toUpperCase()].filter(part => part.length > 0).join(' · ')
+		return [t('wizard.formats.kind.subtitles'), languages, playlistSelection.format.toUpperCase()].filter(part => part.length > 0).join(' · ')
 	}
 	if (playlistSelection.kind === 'audio') {
 		if (playlistSelection.format === 'best') return t('playlistPresets.audioFormat.best')
@@ -140,15 +140,20 @@ export function buildDownloadReview(state: AppState, ctx: DownloadReviewLocaleCo
 	// not the heterogeneous per-item profiles this batch actually carries.
 	// Computing a single preset label from it would misrepresent the batch.
 	const inMultiProfile = inBatch && state.multiProfileMode
-	const effectiveSubtitleLanguages = state.wizardSubtitleSkipped ? [] : state.wizardSubtitleLanguages
+	const effectiveSubtitleLanguages = state.wizardSubtitleLanguages
+	const kind = state.wizardMediaKind
+	const videoId = kind === 'video' ? state.selectedVideoFormatId : ''
+	const audio: AudioSelection = kind === 'subtitles' ? {kind: 'none'} : state.audioSelection
 
 	const audioFormats = state.wizardFormats.filter(f => f.isAudioOnly)
-	const videoResolution = resolveVideoResolution(state.selectedVideoFormatId, state.wizardFormats, ctx.t('wizard.confirm.audioOnly'))
-	const audioLabel = resolveAudioLabel(state.audioSelection, audioFormats)
-	const videoSummary = state.activePreset ? presetLabel(state.activePreset) : state.selectedVideoFormatId === '' ? ctx.t('wizard.confirm.audioOnly') : videoResolution
+	const videoResolution = resolveVideoResolution(videoId, state.wizardFormats, ctx.t('wizard.confirm.audioOnly'))
+	const audioLabel = resolveAudioLabel(audio, audioFormats)
+	const videoSummary = kind === 'subtitles' ? ctx.t('wizard.formats.kind.subtitles') : kind === 'audio' ? ctx.t('wizard.confirm.audioOnly') : videoResolution
 
-	const selectedFormat = state.wizardFormats.find(f => f.formatId === state.selectedVideoFormatId)
-	const estimatedSize = selectedFormat?.filesize ? `~${humanSize(selectedFormat.filesize)}` : ctx.t('wizard.confirm.sizeUnknown')
+	const nativeAudioId = audio.kind === 'native' ? audio.formatId : null
+	const sizes = [videoId, nativeAudioId].flatMap(id => (id ? [state.wizardFormats.find(f => f.formatId === id)?.filesize] : []))
+	const totalSize = sizes.length > 0 && sizes.every((size): size is number => size !== undefined) ? sizes.reduce((a, b) => a + b, 0) : undefined
+	const estimatedSize = totalSize ? `~${humanSize(totalSize)}` : ctx.t('wizard.confirm.sizeUnknown')
 
 	const finalDir = effectiveOutputDir(state.wizardOutputDir, state.wizardSubfolderEnabled, state.wizardSubfolderName)
 	const shortPath = formatHomeRelativePath(finalDir, ctx.commonPaths)
@@ -183,13 +188,13 @@ export function buildDownloadReview(state: AppState, ctx: DownloadReviewLocaleCo
 	// Multi-profile mode never visits the presets step, so a leftover empty
 	// subtitles selection says nothing about a batch whose items carry profiles.
 	const batchHasNoLanguages = !inMultiProfile && state.playlistSelection?.kind === 'subtitles' && state.playlistSelection.languages.length === 0
-	const hasNothingSelected = inBatch ? !state.playlistSelection || batchHasNoLanguages || state.selectedPlaylistItemIds.length === 0 : state.selectedVideoFormatId === '' && state.audioSelection.kind === 'none' && effectiveSubtitleLanguages.length === 0
+	const hasNothingSelected = inBatch ? !state.playlistSelection || batchHasNoLanguages || state.selectedPlaylistItemIds.length === 0 : kind === 'subtitles' ? effectiveSubtitleLanguages.length === 0 : kind === 'audio' ? audio.kind === 'none' : videoId === ''
 
 	const allConflicts: SanitizeConflict[] = !inBatch
 		? sanitizeJobOptions({
-				isSubtitleOnly: state.activePreset === 'subtitle-only',
-				hasVideoTrack: state.selectedVideoFormatId !== '',
-				resolvedOutputContainer: resolveOutputContainer(state.selectedVideoFormatId, state.audioSelection, state.wizardSubtitleMode, state.wizardFormats, state.activePreset, state.wizardEmbedThumbnail),
+				isSubtitleOnly: kind === 'subtitles',
+				hasVideoTrack: videoId !== '',
+				resolvedOutputContainer: resolveOutputContainer(videoId, audio, state.wizardSubtitleMode, state.wizardFormats, kind, state.wizardEmbedThumbnail),
 				subtitleMode: state.wizardSubtitleMode,
 				subtitleLanguages: effectiveSubtitleLanguages,
 				embed: {chapters: state.wizardEmbedChapters, metadata: state.wizardEmbedMetadata, thumbnail: state.wizardEmbedThumbnail, description: state.wizardWriteDescription, thumbnailSidecar: state.wizardWriteThumbnail},

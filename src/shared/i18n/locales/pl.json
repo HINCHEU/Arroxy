@@ -57,7 +57,7 @@
 	"theme": {"light": "Tryb jasny", "dark": "Tryb ciemny", "system": "Domyślne ustawienie systemu"},
 	"language": {"label": "Język"},
 	"wizard": {
-		"steps": {"url": "URL", "playlistItems": "Playlista", "playlistItemsGeneric": "Filmy", "playlistPresets": "Jakość", "playlistProfiles": "Profile", "formats": "Format", "subtitles": "Napisy", "sponsorblock": "SponsorBlock", "output": "Wyjście", "folder": "Zapisz", "confirm": "Potwierdź"},
+		"steps": {"url": "URL", "playlistItems": "Playlista", "playlistItemsGeneric": "Filmy", "playlistPresets": "Jakość", "playlistProfiles": "Profile", "formats": "Format", "subtitles": "Napisy", "sponsorblock": "SponsorBlock", "output": "Wyjście", "folder": "Zapisz", "confirm": "Potwierdź", "review": "Sprawdź"},
 		"playlistPresets": {"heading": "Wybierz jakość dla partii", "subhead": "Każdy film niezależnie dobiera wybrany poziom — zróżnicowane playlisty działają bez niespodzianek.", "itemCount_one": "{{count}} element", "itemCount_other": "{{count}} elementów"},
 		"playlistProfiles": {
 			"heading": "Przypisz profile pobierania",
@@ -338,16 +338,11 @@
 		"subtitles": {
 			"autoBadge": "Automatycznie",
 			"noLanguages": "Brak napisów dla tego filmu",
-			"skip": "Pomiń",
-			"skipSubs": "Pomiń dla tego filmu",
-			"mascot": "Wybierz zero, jeden lub wiele — decyzja należy do Ciebie ✨",
 			"searchPlaceholder": "Szukaj języków…",
 			"noMatches": "Brak pasujących języków",
 			"clearAll": "Wyczyść wszystko",
 			"noSelected": "Nie wybrano napisów",
 			"removeLanguage": "Usuń {{name}}",
-			"selectedNote_one": "Zostanie pobrany {{count}} napis",
-			"selectedNote_other": "Zostaną pobrane {{count}} napisy",
 			"sectionManual": "Ręczne",
 			"sectionAuto": "Automatyczne",
 			"saveMode": {"heading": "Zapisz jako", "sidecar": "Obok filmu", "embed": "Osadź w filmie", "subfolder": "Podfolder subtitles/"},
@@ -363,7 +358,17 @@
 			"cat": {"sponsor": "Sponsor", "intro": "Wstęp", "outro": "Zakończenie", "selfpromo": "Autopromocja", "music_offtopic": "Muzyka niezwiązana z tematem", "preview": "Zapowiedź", "filler": "Wypełniacz"}
 		},
 		"formats": {
-			"quickPresets": "Szybkie ustawienia",
+			"kind": {"label": "Co pobrać", "video": "Wideo", "audio": "Dźwięk", "subtitles": "Tylko napisy"},
+			"profile": {"preselected": "Wstępnie wybrano z", "tag": "Profil", "closestTag": "Najbliższy profilowi", "switchTitle": "Przełączyć profil?", "switchBody": "Twoje zmiany w tym pobraniu zostaną zastąpione ustawieniami wybranego profilu.", "switchAction": "Przełącz"},
+			"fit": {
+				"tierBelow": "Twój profil wymaga {{wanted}}p. To wideo dochodzi tylko do {{picked}}p, więc wybrano {{picked}}p.",
+				"tierAbove": "Twój profil wymaga {{wanted}}p. To wideo nie ma niczego tak małego, więc wybrano {{picked}}p.",
+				"mp4Unavailable": "Twój profil wymaga MP4 (H.264). To wideo go nie oferuje, więc wybrano najbliższy strumień.",
+				"noVideo": "Ten link nie zawiera wideo, więc wybrano dźwięk.",
+				"subtitlesMissing": "Twój profil wymaga napisów w językach: {{languages}}. To wideo ich nie ma."
+			},
+			"summary": {"lead": "Także z {{profile}}:", "subtitlesOff": "napisy wyłączone", "subtitlesAdd_one": "Dostępny język: {{count}}, dodaj", "subtitlesAdd_other": "Dostępne języki: {{count}}, dodaj", "reviewAll": "Sprawdź wszystko"},
+			"footer": {"reviewOptions": "Sprawdź i opcje", "download": "Pobierz", "moreActions": "Więcej opcji pobierania", "addToQueue": "Dodaj do kolejki bez uruchamiania", "subtitlesRequired": "Wybierz co najmniej jeden język napisów."},
 			"video": "Wideo",
 			"audio": "Dźwięk",
 			"noAudio": "Bez dźwięku",
@@ -371,8 +376,6 @@
 			"keepAudio": "Pozostaw bez zmian",
 			"keepAudioMeta": "Wbudowany dźwięk",
 			"audioOnly": "Tylko dźwięk",
-			"audioOnlyOption": "Tylko dźwięk (bez obrazu)",
-			"mascot": "Najlepszy + Najlepszy = maksymalna jakość. To mój wybór!",
 			"sniffing": "Wyszukiwanie najlepszych formatów…",
 			"loadingHint": "Poczekaj na zakończenie sprawdzania — playlisty i wyszukiwania mogą trochę potrwać.",
 			"loadingAria": "Wczytywanie formatów",
@@ -381,15 +384,7 @@
 			"skipToConfirm": "Przejdź do potwierdzenia",
 			"skipToConfirmTooltip": "Używa zapisanych preferencji we wszystkich pozostałych krokach. Aby zmienić ustawienie, przejdź kolejne kroki — wybór zostanie zapisany na przyszłość.",
 			"quality": {"high": "Wysoka jakość", "medium": "Średnia jakość", "low": "Niska jakość"},
-			"convert": {
-				"label": "Konwertuj",
-				"uncompressed": "Konwertuj · bez kompresji",
-				"bitrate": "Przepływność",
-				"wavLabel": "WAV (bez kompresji)",
-				"lossyLabel": "{{target}} {{bitrate}} kb/s",
-				"requiresAudioOnly": "Konwersja dźwięku wymaga trybu tylko audio (odznacz wideo).",
-				"requiresLossy": "Wybrano strumień źródłowy — przepływność ma zastosowanie tylko podczas konwersji do mp3, m4a lub opus."
-			},
+			"convert": {"label": "Konwertuj", "uncompressed": "Konwertuj · bez kompresji", "bitrate": "Przepływność", "wavLabel": "WAV (bez kompresji)", "lossyLabel": "{{target}} {{bitrate}} kb/s", "requiresLossy": "Wybrano strumień źródłowy — przepływność ma zastosowanie tylko podczas konwersji do mp3, m4a lub opus."},
 			"botWall": {
 				"heading": "Sprawdzanie zostało ograniczone",
 				"bodyUnconfigured": "Lista formatów może być niepełna. Skonfiguruj pliki cookie w ustawieniach zaawansowanych albo zmień sieć i spróbuj ponownie.",
@@ -446,6 +441,27 @@
 			"writeDescription": {"label": "Zapisz opis", "description": "Zapisuje opis filmu jako plik tekstowy .description obok pobranego pliku."},
 			"writeThumbnail": {"label": "Zapisz miniaturę", "description": "Zapisuje miniaturę jako plik obrazu .jpg obok pobranego pliku."},
 			"writeM3u": {"label": "Utwórz plik playlisty .m3u", "description": "Zapisuje playlistę .m3u obok filmów, aby odtwarzacz otwierał je we właściwej kolejności."}
+		},
+		"review": {
+			"changeFormat": "Zmień format",
+			"rowsHeading": "Wszystko inne",
+			"rows": {"subtitles": "Napisy", "sponsorBlock": "SponsorBlock", "extras": "Dodatki", "saveTo": "Zapisz w", "fileName": "Nazwa pliku"},
+			"value": {"subtitlesOff": "Wyłączone", "sponsorBlockOff": "Wyłączone", "extrasNone": "Brak"},
+			"done": "Gotowe",
+			"changed": "Zmieniono względem {{profile}}: {{areas}}. Dotyczy tylko tego pobrania.",
+			"areas": {"format": "format", "subtitles": "napisy", "sponsorBlock": "SponsorBlock", "extras": "dodatki", "saveTo": "folder", "fileName": "nazwa pliku"},
+			"saveAsProfile": "Zapisz jako profil…",
+			"reset": "Resetuj",
+			"save": {
+				"title": "Zapisz jako profil",
+				"description": "Zapisuje te ustawienia jako profil, który możesz wybrać następnym razem. Twój profil Szybkie pobieranie pozostaje bez zmian.",
+				"nameLabel": "Nazwa profilu",
+				"action": "Zapisz profil",
+				"saved": "Zapisano jako profil „{{name}}”",
+				"failed": "Nie udało się zapisać profilu."
+			},
+			"fileNameHint": "Znaczniki: {title}, {id}, {uploader}, {date}, {resolution}. Rozszerzenie zostanie dodane automatycznie.",
+			"nextTime": {"title": "To pobranie użyło zmienionych ustawień. Użyć ich następnym razem?", "action": "Zapisz jako profil", "defaultName": "{{profile}} (edytowany)"}
 		},
 		"confirm": {
 			"readyHeadline": "Wszystko gotowe do pobrania!",
@@ -722,13 +738,6 @@
 			"loginRequired": "Ten film wymaga zalogowanego konta.",
 			"unknown": "Pobieranie nie powiodło się. Zobacz nieprzetworzone dane wyjściowe poniżej."
 		}
-	},
-	"presets": {
-		"best-quality": {"label": "Najlepsza jakość", "desc": "Najwyższa rozdzielczość + najlepszy dźwięk"},
-		"balanced": {"label": "Zrównoważony", "desc": "Maks. 720p + dobry dźwięk"},
-		"audio-only": {"label": "Tylko dźwięk", "desc": "Bez wideo, najlepszy dźwięk"},
-		"small-file": {"label": "Mały plik", "desc": "Najniższa rozdzielczość + niska jakość dźwięku"},
-		"subtitle-only": {"label": "Tylko napisy", "desc": "Bez obrazu i dźwięku, tylko napisy"}
 	},
 	"playlistPresets": {
 		"type": {"video": "Wideo", "audio": "Dźwięk", "subtitles": "Napisy"},

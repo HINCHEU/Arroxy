@@ -5,7 +5,7 @@ import path from 'node:path'
 import {FIXTURE_VIDEO_IDS, SPLIT_MEDIA_VIDEO_ID} from './fixtureHarness.js'
 import {COOKIE_LIMITED_VIDEO_ID, SABR_LIMITED_VIDEO_ID, fixtureMediaFileSize} from './fixtureMediaCatalog.js'
 import {withFixtureProductApp} from './fixtureProductE2E.js'
-import {clickContinue, isMediaRequestFor, openQueueTab, prepareSingleConfirm, startBulkFromClipboard} from './fixtureWorkflow.js'
+import {clickContinue, isMediaRequestFor, openQueueTab, prepareSingleReview, startBulkFromClipboard} from './fixtureWorkflow.js'
 
 // Parallel-safe: every test allocates its own temp dirs and ephemeral ports,
 // the shared runtime cache is warmed once in globalSetup, and clipboard
@@ -79,8 +79,8 @@ test('Electron media failure can be retried to a completed output file', async (
 	const videoId = FIXTURE_VIDEO_IDS[4]
 
 	await withFixtureProductApp({behavior: {mediaFailureIds: [videoId]}, userDataPrefix: 'arroxy-fixture-media-retry-user-', outputPrefix: 'arroxy-fixture-media-retry-out-'}, async ({page, fixtureServer, queue, files}) => {
-		await prepareSingleConfirm(page, videoId)
-		await page.locator('[data-testid="btn-download-now"]').click()
+		await prepareSingleReview(page, videoId)
+		await page.locator('[data-testid="btn-download"]').click()
 		await queue.expectStatus('Fixture Video 5', 'error', 90_000)
 		await expect(queue.cardByTitle('Fixture Video 5').getByTestId('queue-error-msg')).toBeVisible()
 
@@ -105,10 +105,10 @@ test('Electron download into a read-only folder fails before transfer and retrie
 	const videoId = FIXTURE_VIDEO_IDS[6]
 
 	await withFixtureProductApp({userDataPrefix: 'arroxy-fixture-readonly-user-', outputPrefix: 'arroxy-fixture-readonly-out-'}, async ({page, outputDir, fixtureServer, queue, files}) => {
-		await prepareSingleConfirm(page, videoId)
+		await prepareSingleReview(page, videoId)
 		fs.chmodSync(outputDir, 0o555)
 		try {
-			await page.locator('[data-testid="btn-download-now"]').click()
+			await page.locator('[data-testid="btn-download"]').click()
 			await queue.expectStatus('Fixture Video 7', 'error', 90_000)
 			await expect(queue.cardByTitle('Fixture Video 7').getByTestId('queue-error-msg')).toContainText("Arroxy can't write to the download folder")
 			expect(fixtureServer.telemetry().requests.some(request => isMediaRequestFor(videoId, request))).toBe(false)
@@ -129,8 +129,8 @@ test('Electron split media failure preserves temp artifacts and retries from res
 	const title = 'Fixture Video 11'
 
 	await withFixtureProductApp({behavior: {mediaFormatTruncateIds: [`${videoId}:140`]}, userDataPrefix: 'arroxy-fixture-split-resume-user-', outputPrefix: 'arroxy-fixture-split-resume-out-'}, async ({page, fixtureServer, queue, files}) => {
-		await prepareSingleConfirm(page, videoId)
-		await page.locator('[data-testid="btn-download-now"]').click()
+		await prepareSingleReview(page, videoId)
+		await page.locator('[data-testid="btn-download"]').click()
 		await queue.expectStatus(title, 'error', 120_000)
 
 		const failedItem = await page.evaluate(async itemTitle => {
@@ -173,28 +173,16 @@ test('Electron sidecar subtitle failure completes the video with a subtitle warn
 	test.setTimeout(160_000)
 	const videoId = FIXTURE_VIDEO_IDS[5]
 
-	await withFixtureProductApp(
-		{
-			behavior: {subtitleFailureIds: [videoId]},
-			userDataPrefix: 'arroxy-fixture-subtitle-soft-user-',
-			outputPrefix: 'arroxy-fixture-subtitle-soft-out-',
-			settings: settings => {
-				settings.single.lastSubtitleLanguages = ['en']
-				settings.single.lastSubtitleMode = 'sidecar'
-				settings.single.lastSubtitleFormat = 'srt'
-			}
-		},
-		async ({page, fixtureServer, queue, files}) => {
-			await prepareSingleConfirm(page, videoId, 'continue')
-			await page.locator('[data-testid="btn-download-now"]').click()
-			await queue.expectStatus('Fixture Video 6', 'done', 120_000)
-			await expect(queue.cardByTitle('Fixture Video 6').getByTestId('queue-subs-warning')).toBeVisible()
+	await withFixtureProductApp({behavior: {subtitleFailureIds: [videoId]}, userDataPrefix: 'arroxy-fixture-subtitle-soft-user-', outputPrefix: 'arroxy-fixture-subtitle-soft-out-'}, async ({page, fixtureServer, queue, files}) => {
+		await prepareSingleReview(page, videoId, 'english')
+		await page.locator('[data-testid="btn-download"]').click()
+		await queue.expectStatus('Fixture Video 6', 'done', 120_000)
+		await expect(queue.cardByTitle('Fixture Video 6').getByTestId('queue-subs-warning')).toBeVisible()
 
-			files.expectMp4Count(1)
-			const subtitleFailure = fixtureServer.telemetry().requests.find(request => request.kind === 'subtitle' && request.videoId === videoId && request.status === 503)
-			expect(subtitleFailure).toBeTruthy()
-		}
-	)
+		files.expectMp4Count(1)
+		const subtitleFailure = fixtureServer.telemetry().requests.find(request => request.kind === 'subtitle' && request.videoId === videoId && request.status === 503)
+		expect(subtitleFailure).toBeTruthy()
+	})
 })
 
 // Risk: YouTube withholds format URLs for a session, the 720p profile silently
@@ -293,8 +281,8 @@ test('Electron paused active fixture download resumes after app relaunch', async
 	const videoId = FIXTURE_VIDEO_IDS[6]
 
 	await withFixtureProductApp({behavior: {mediaSlowIds: [videoId]}, userDataPrefix: 'arroxy-fixture-restart-user-', outputPrefix: 'arroxy-fixture-restart-out-'}, async ({page, queue, files, relaunch}) => {
-		await prepareSingleConfirm(page, videoId)
-		await page.locator('[data-testid="btn-download-now"]').click()
+		await prepareSingleReview(page, videoId)
+		await page.locator('[data-testid="btn-download"]').click()
 		await queue.expectStatus('Fixture Video 7', 'running', 60_000)
 		await queue.action('Fixture Video 7', 'pause')
 		await queue.expectStatus('Fixture Video 7', 'paused-active', 60_000)

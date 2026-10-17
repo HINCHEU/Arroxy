@@ -1,0 +1,41 @@
+import type {ReactNode} from 'react'
+import {useTranslation} from 'react-i18next'
+import {TriangleAlert} from 'lucide-react'
+import type {FitNotice} from '@shared/profileSelection.js'
+import {resolveSubtitleLabel} from '../../../lib/subtitleLabel.js'
+import {useAppStore} from '../../../store/useAppStore.js'
+import {Alert, AlertDescription} from '../../ui/alert.js'
+
+// What of the profile this video can't honour, said out loud: today's presets
+// fell back silently, and this is the moment the user should look.
+export function FitNotices(): ReactNode {
+	const {t, i18n} = useTranslation()
+	const notices = useAppStore(state => state.wizardFitNotices)
+	if (notices.length === 0) return null
+
+	function message(notice: FitNotice): string {
+		switch (notice.kind) {
+			case 'video-tier-fallback':
+				return t(notice.picked < Number(notice.wanted) ? 'wizard.formats.fit.tierBelow' : 'wizard.formats.fit.tierAbove', {wanted: notice.wanted, picked: notice.picked})
+			case 'mp4-unavailable':
+				return t('wizard.formats.fit.mp4Unavailable')
+			case 'no-video':
+				return t('wizard.formats.fit.noVideo')
+			case 'subtitle-languages-missing':
+				return t('wizard.formats.fit.subtitlesMissing', {languages: notice.languages.map(code => resolveSubtitleLabel(code, {}, {}, i18n.language)).join(', ')})
+		}
+	}
+
+	return (
+		<Alert variant="warning" data-testid="fit-notices">
+			<TriangleAlert aria-hidden />
+			<AlertDescription className="flex flex-col gap-1">
+				{notices.map(notice => (
+					<p key={notice.kind} data-testid={`fit-notice-${notice.kind}`}>
+						{message(notice)}
+					</p>
+				))}
+			</AlertDescription>
+		</Alert>
+	)
+}

@@ -779,46 +779,6 @@ msgctxt "playlistPresets.videoFormatDesc.mp4"
 msgid "Prefer H.264 video + AAC audio in MP4 when possible"
 msgstr "H.264 + AAC ترجیحی، MP4 کنٹینر · بہترین کوشش"
 
-msgctxt "presets.audio-only.desc"
-msgid "No video, best audio"
-msgstr "کوئی ویڈیو نہیں، بہترین آڈیو"
-
-msgctxt "presets.audio-only.label"
-msgid "Audio only"
-msgstr "صرف آڈیو"
-
-msgctxt "presets.balanced.desc"
-msgid "720p max + good audio"
-msgstr "720p زیادہ سے زیادہ + اچھی آڈیو"
-
-msgctxt "presets.balanced.label"
-msgid "Balanced"
-msgstr "متوازن"
-
-msgctxt "presets.best-quality.desc"
-msgid "Highest resolution + best audio"
-msgstr "سب سے زیادہ ریزولوشن + بہترین آڈیو"
-
-msgctxt "presets.best-quality.label"
-msgid "Best quality"
-msgstr "بہترین کوالٹی"
-
-msgctxt "presets.small-file.desc"
-msgid "Lowest resolution + low audio"
-msgstr "سب سے کم ریزولوشن + کم آڈیو"
-
-msgctxt "presets.small-file.label"
-msgid "Small file"
-msgstr "چھوٹی فائل"
-
-msgctxt "presets.subtitle-only.desc"
-msgid "No video, no audio, only subtitles"
-msgstr "کوئی ویڈیو نہیں، کوئی آڈیو نہیں، صرف سب ٹائٹلز"
-
-msgctxt "presets.subtitle-only.label"
-msgid "Subtitles only"
-msgstr "صرف سب ٹائٹلز"
-
 msgctxt "queue.artifact.companion"
 msgid "Companion"
 msgstr "ساتھ والی فائل"
@@ -1709,10 +1669,6 @@ msgctxt "wizard.formats.audioOnly"
 msgid "Audio only"
 msgstr "صرف آڈیو"
 
-msgctxt "wizard.formats.audioOnlyOption"
-msgid "Audio only (no video)"
-msgstr "صرف آڈیو (کوئی ویڈیو نہیں)"
-
 msgctxt "wizard.formats.botWall.bodyDisabled"
 msgid "Cookies are configured but turned off. Enable them and retry to get the full list, or change network and retry."
 msgstr "Cookies ترتیب دی گئی ہیں لیکن بند ہیں۔ مکمل فہرست کے لیے انہیں فعال کریں اور دوبارہ کوشش کریں، یا نیٹ ورک تبدیل کر کے دوبارہ کوشش کریں۔"
@@ -1752,10 +1708,6 @@ msgstr "کنورٹ کریں"
 msgctxt "wizard.formats.convert.lossyLabel"
 msgid "{{target}} {{bitrate}} kbps"
 msgstr "{{target}} {{bitrate}} kbps"
-
-msgctxt "wizard.formats.convert.requiresAudioOnly"
-msgid "Audio conversion requires audio-only mode (deselect the video pick)."
-msgstr "آڈیو کنورژن کے لیے صرف آڈیو موڈ ضروری ہے (ویڈیو انتخاب ہٹائیں)۔"
 
 msgctxt "wizard.formats.convert.requiresLossy"
 msgid "A native stream is selected — bitrate only applies when converting to mp3, m4a, or opus."
@@ -1893,6 +1845,46 @@ msgctxt "wizard.formats.cookiesError.otherCookiesCta"
 msgid "Use a cookies file or browser instead…"
 msgstr "اس کے بجائے Cookies فائل یا براؤزر استعمال کریں…"
 
+msgctxt "wizard.formats.fit.mp4Unavailable"
+msgid "Your profile asks for MP4 (H.264). This video doesn't offer it, so the closest stream is selected."
+msgstr "آپ کا پروفائل MP4 (H.264) مانگتا ہے۔ یہ ویڈیو اسے فراہم نہیں کرتی، اس لیے قریب ترین اسٹریم منتخب کی گئی ہے۔"
+
+msgctxt "wizard.formats.fit.noVideo"
+msgid "This link has no video, so audio is selected."
+msgstr "اس لنک میں ویڈیو نہیں ہے، اس لیے آڈیو منتخب کی گئی ہے۔"
+
+msgctxt "wizard.formats.fit.subtitlesMissing"
+msgid "Your profile asks for subtitles in {{languages}}. This video doesn't have them."
+msgstr "آپ کا پروفائل {{languages}} میں سب ٹائٹلز مانگتا ہے۔ اس ویڈیو میں یہ موجود نہیں۔"
+
+msgctxt "wizard.formats.fit.tierAbove"
+msgid "Your profile asks for {{wanted}}p. This video has nothing that small, so {{picked}}p is selected."
+msgstr "آپ کا پروفائل {{wanted}}p مانگتا ہے۔ اس ویڈیو میں اتنا چھوٹا کچھ نہیں، اس لیے {{picked}}p منتخب کیا گیا ہے۔"
+
+msgctxt "wizard.formats.fit.tierBelow"
+msgid "Your profile asks for {{wanted}}p. This video only goes up to {{picked}}p, so {{picked}}p is selected."
+msgstr "آپ کا پروفائل {{wanted}}p مانگتا ہے۔ یہ ویڈیو صرف {{picked}}p تک جاتی ہے، اس لیے {{picked}}p منتخب کیا گیا ہے۔"
+
+msgctxt "wizard.formats.footer.addToQueue"
+msgid "Add to queue without starting"
+msgstr "شروع کیے بغیر قطار میں شامل کریں"
+
+msgctxt "wizard.formats.footer.download"
+msgid "Download"
+msgstr "ڈاؤن لوڈ"
+
+msgctxt "wizard.formats.footer.moreActions"
+msgid "More download options"
+msgstr "مزید ڈاؤن لوڈ اختیارات"
+
+msgctxt "wizard.formats.footer.reviewOptions"
+msgid "Review & options"
+msgstr "جائزہ اور اختیارات"
+
+msgctxt "wizard.formats.footer.subtitlesRequired"
+msgid "Choose at least one subtitle language."
+msgstr "کم از کم ایک سب ٹائٹل زبان منتخب کریں۔"
+
 msgctxt "wizard.formats.keepAudio"
 msgid "Keep as-is"
 msgstr "جیسا ہے ویسا رکھیں"
@@ -1900,6 +1892,22 @@ msgstr "جیسا ہے ویسا رکھیں"
 msgctxt "wizard.formats.keepAudioMeta"
 msgid "Built-in audio"
 msgstr "بلٹ اِن آڈیو"
+
+msgctxt "wizard.formats.kind.audio"
+msgid "Audio"
+msgstr "آڈیو"
+
+msgctxt "wizard.formats.kind.label"
+msgid "What to download"
+msgstr "کیا ڈاؤن لوڈ کرنا ہے"
+
+msgctxt "wizard.formats.kind.subtitles"
+msgid "Subtitles only"
+msgstr "صرف سب ٹائٹلز"
+
+msgctxt "wizard.formats.kind.video"
+msgid "Video"
+msgstr "ویڈیو"
 
 msgctxt "wizard.formats.loadingAria"
 msgid "Loading formats"
@@ -1909,13 +1917,33 @@ msgctxt "wizard.formats.loadingHint"
 msgid "Please wait until probing finishes — playlists and searches can take a while."
 msgstr "براہ کرم پروبنگ مکمل ہونے تک انتظار کریں — پلے لسٹس اور تلاش میں کچھ وقت لگ سکتا ہے۔"
 
-msgctxt "wizard.formats.mascot"
-msgid "Best + Best = max quality. I'd pick that!"
-msgstr "بیسٹ + بیسٹ = زیادہ سے زیادہ کوالٹی۔ میں یہی منتخب کروں گا!"
-
 msgctxt "wizard.formats.noAudio"
 msgid "No audio"
 msgstr "کوئی آڈیو نہیں"
+
+msgctxt "wizard.formats.profile.closestTag"
+msgid "Closest to profile"
+msgstr "پروفائل کے قریب ترین"
+
+msgctxt "wizard.formats.profile.preselected"
+msgid "Pre-selected from"
+msgstr "پہلے سے منتخب، ماخذ:"
+
+msgctxt "wizard.formats.profile.switchAction"
+msgid "Switch"
+msgstr "تبدیل کریں"
+
+msgctxt "wizard.formats.profile.switchBody"
+msgid "Your changes to this download will be replaced by the settings of the profile you pick."
+msgstr "اس ڈاؤن لوڈ میں آپ کی تبدیلیاں آپ کے منتخب کردہ پروفائل کی ترتیبات سے بدل جائیں گی۔"
+
+msgctxt "wizard.formats.profile.switchTitle"
+msgid "Switch profile?"
+msgstr "پروفائل تبدیل کریں؟"
+
+msgctxt "wizard.formats.profile.tag"
+msgid "Profile"
+msgstr "پروفائل"
 
 msgctxt "wizard.formats.quality.high"
 msgid "High quality"
@@ -1928,10 +1956,6 @@ msgstr "کم معیار"
 msgctxt "wizard.formats.quality.medium"
 msgid "Medium quality"
 msgstr "درمیانی معیار"
-
-msgctxt "wizard.formats.quickPresets"
-msgid "Quick presets"
-msgstr "فوری پری سیٹس"
 
 msgctxt "wizard.formats.sizeUnknown"
 msgid "Size unknown"
@@ -1948,6 +1972,26 @@ msgstr "باقی تمام مراحل کے لیے آپ کی محفوظ ترجیح
 msgctxt "wizard.formats.sniffing"
 msgid "Sniffing out the best formats for you…"
 msgstr "آپ کے لیے بہترین فارمیٹس ڈھونڈ رہا ہوں…"
+
+msgctxt "wizard.formats.summary.lead"
+msgid "Also from {{profile}}:"
+msgstr "{{profile}} سے مزید:"
+
+msgctxt "wizard.formats.summary.reviewAll"
+msgid "Review all"
+msgstr "سب کا جائزہ لیں"
+
+msgctxt "wizard.formats.summary.subtitlesAdd_one"
+msgid "{{count}} language available, add"
+msgstr "{{count}} زبان دستیاب ہے، شامل کریں"
+
+msgctxt "wizard.formats.summary.subtitlesAdd_other"
+msgid "{{count}} languages available, add"
+msgstr "{{count}} زبانیں دستیاب ہیں، شامل کریں"
+
+msgctxt "wizard.formats.summary.subtitlesOff"
+msgid "subtitles off"
+msgstr "سب ٹائٹلز بند"
 
 msgctxt "wizard.formats.total"
 msgid "Total"
@@ -2745,6 +2789,126 @@ msgctxt "wizard.quickProgress.waitHint"
 msgid "Keep this open while Arroxy prepares the queue."
 msgstr "Arroxy قطار تیار کرے تب تک اسے کھلا رکھیں۔"
 
+msgctxt "wizard.review.areas.extras"
+msgid "extras"
+msgstr "اضافی"
+
+msgctxt "wizard.review.areas.fileName"
+msgid "file name"
+msgstr "فائل نام"
+
+msgctxt "wizard.review.areas.format"
+msgid "format"
+msgstr "فارمیٹ"
+
+msgctxt "wizard.review.areas.saveTo"
+msgid "folder"
+msgstr "فولڈر"
+
+msgctxt "wizard.review.areas.sponsorBlock"
+msgid "SponsorBlock"
+msgstr "SponsorBlock"
+
+msgctxt "wizard.review.areas.subtitles"
+msgid "subtitles"
+msgstr "سب ٹائٹلز"
+
+msgctxt "wizard.review.changed"
+msgid "Changed from {{profile}}: {{areas}}. Applies to this download only."
+msgstr "{{profile}} سے تبدیل: {{areas}}۔ صرف اس ڈاؤن لوڈ پر لاگو ہوتا ہے۔"
+
+msgctxt "wizard.review.changeFormat"
+msgid "Change format"
+msgstr "فارمیٹ تبدیل کریں"
+
+msgctxt "wizard.review.done"
+msgid "Done"
+msgstr "ہو گیا"
+
+msgctxt "wizard.review.fileNameHint"
+msgid "Tokens: {title}, {id}, {uploader}, {date}, {resolution}. The extension is added for you."
+msgstr "ٹوکنز: {title}، {id}، {uploader}، {date}، {resolution}۔ ایکسٹینشن خود بخود شامل ہو جاتی ہے۔"
+
+msgctxt "wizard.review.nextTime.action"
+msgid "Save as profile"
+msgstr "پروفائل کے طور پر محفوظ کریں"
+
+msgctxt "wizard.review.nextTime.defaultName"
+msgid "{{profile}} (edited)"
+msgstr "{{profile}} (ترمیم شدہ)"
+
+msgctxt "wizard.review.nextTime.title"
+msgid "This download used edited settings. Use them next time?"
+msgstr "اس ڈاؤن لوڈ میں ترمیم شدہ ترتیبات استعمال ہوئیں۔ کیا اگلی بار انہیں استعمال کریں؟"
+
+msgctxt "wizard.review.reset"
+msgid "Reset"
+msgstr "ری سیٹ کریں"
+
+msgctxt "wizard.review.rows.extras"
+msgid "Extras"
+msgstr "اضافی"
+
+msgctxt "wizard.review.rows.fileName"
+msgid "File name"
+msgstr "فائل نام"
+
+msgctxt "wizard.review.rows.saveTo"
+msgid "Save to"
+msgstr "محفوظ کریں"
+
+msgctxt "wizard.review.rows.sponsorBlock"
+msgid "SponsorBlock"
+msgstr "SponsorBlock"
+
+msgctxt "wizard.review.rows.subtitles"
+msgid "Subtitles"
+msgstr "سب ٹائٹلز"
+
+msgctxt "wizard.review.rowsHeading"
+msgid "Everything else"
+msgstr "باقی سب کچھ"
+
+msgctxt "wizard.review.save.action"
+msgid "Save profile"
+msgstr "پروفائل محفوظ کریں"
+
+msgctxt "wizard.review.save.description"
+msgid "Keeps these settings as a profile you can pick next time. Your Quick Download profile stays the same."
+msgstr "ان ترتیبات کو پروفائل کے طور پر محفوظ کرتا ہے جسے آپ اگلی بار منتخب کر سکتے ہیں۔ آپ کا فوری ڈاؤن لوڈ پروفائل جوں کا توں رہتا ہے۔"
+
+msgctxt "wizard.review.save.failed"
+msgid "Couldn't save the profile."
+msgstr "پروفائل محفوظ نہیں ہو سکا۔"
+
+msgctxt "wizard.review.save.nameLabel"
+msgid "Profile name"
+msgstr "پروفائل کا نام"
+
+msgctxt "wizard.review.save.saved"
+msgid "Saved as profile “{{name}}”"
+msgstr "پروفائل “{{name}}” کے طور پر محفوظ ہو گیا"
+
+msgctxt "wizard.review.save.title"
+msgid "Save as profile"
+msgstr "پروفائل کے طور پر محفوظ کریں"
+
+msgctxt "wizard.review.saveAsProfile"
+msgid "Save as profile…"
+msgstr "پروفائل کے طور پر محفوظ کریں…"
+
+msgctxt "wizard.review.value.extrasNone"
+msgid "None"
+msgstr "کوئی نہیں"
+
+msgctxt "wizard.review.value.sponsorBlockOff"
+msgid "Off"
+msgstr "بند"
+
+msgctxt "wizard.review.value.subtitlesOff"
+msgid "Off"
+msgstr "بند"
+
 msgctxt "wizard.sponsorblock.cat.filler"
 msgid "Filler"
 msgstr "فِلر"
@@ -2837,6 +3001,10 @@ msgctxt "wizard.steps.playlistProfiles"
 msgid "Profiles"
 msgstr "پروفائلز"
 
+msgctxt "wizard.steps.review"
+msgid "Review"
+msgstr "جائزہ"
+
 msgctxt "wizard.steps.sponsorblock"
 msgid "SponsorBlock"
 msgstr "SponsorBlock"
@@ -2868,10 +3036,6 @@ msgstr "Embed موڈ آؤٹ پٹ کو .mkv کے طور پر محفوظ کرتا 
 msgctxt "wizard.subtitles.format.heading"
 msgid "Format"
 msgstr "فارمیٹ"
-
-msgctxt "wizard.subtitles.mascot"
-msgid "Pick zero, one, or many — totally up to you ✨"
-msgstr "صفر، ایک، یا کئی منتخب کریں — مکمل آپ کی مرضی ✨"
 
 msgctxt "wizard.subtitles.noLanguages"
 msgid "No subtitles available for this video"
@@ -2916,22 +3080,6 @@ msgstr "خودکار"
 msgctxt "wizard.subtitles.sectionManual"
 msgid "Manual"
 msgstr "دستی"
-
-msgctxt "wizard.subtitles.selectedNote_one"
-msgid "{{count}} subtitle will be downloaded"
-msgstr "{{count}} سب ٹائٹل ڈاؤن لوڈ کیا جائے گا"
-
-msgctxt "wizard.subtitles.selectedNote_other"
-msgid "{{count}} subtitles will be downloaded"
-msgstr "{{count}} سب ٹائٹلز ڈاؤن لوڈ کیے جائیں گے"
-
-msgctxt "wizard.subtitles.skip"
-msgid "Skip"
-msgstr "چھوڑیں"
-
-msgctxt "wizard.subtitles.skipSubs"
-msgid "Skip for this video"
-msgstr "اس ویڈیو کے لیے چھوڑیں"
 
 msgctxt "wizard.tabsNavAria"
 msgid "Download profile navigation"

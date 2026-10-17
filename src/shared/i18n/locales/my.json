@@ -40,7 +40,7 @@
 	"theme": {"light": "အလင်းမုဒ်", "dark": "အမှောင်မုဒ်", "system": "စနစ်မူရင်း"},
 	"language": {"label": "ဘာသာစကား"},
 	"wizard": {
-		"steps": {"url": "URL", "playlistItems": "ပလေးလစ်", "playlistItemsGeneric": "ဗီဒီယိုများ", "playlistPresets": "အရည်အသွေး", "playlistProfiles": "ပရိုဖိုင်များ", "formats": "ဖော်မတ်", "subtitles": "စာတန်းထိုး", "sponsorblock": "SponsorBlock", "output": "ထွက်ပေါ်မည့်ဖိုင်", "folder": "သိမ်းမည်", "confirm": "အတည်ပြုမည်"},
+		"steps": {"url": "URL", "playlistItems": "ပလေးလစ်", "playlistItemsGeneric": "ဗီဒီယိုများ", "playlistPresets": "အရည်အသွေး", "playlistProfiles": "ပရိုဖိုင်များ", "formats": "ဖော်မတ်", "subtitles": "စာတန်းထိုး", "sponsorblock": "SponsorBlock", "output": "ထွက်ပေါ်မည့်ဖိုင်", "folder": "သိမ်းမည်", "confirm": "အတည်ပြုမည်", "review": "ပြန်လည်စစ်ဆေးရန်"},
 		"playlistPresets": {"heading": "Batch အတွက် အရည်အသွေးရွေးပါ", "subhead": "ဗီဒီယိုတစ်ခုချင်းစီသည် ရွေးချယ်ထားသော tier အတိုင်း သီးခြားဖြေရှင်းသည် — မတူညီသော playlist များ အဆင်မပြေမှုမရှိဘဲ အလုပ်လုပ်သည်။", "itemCount_one": "{{count}} ခု", "itemCount_other": "{{count}} ခု"},
 		"playlistProfiles": {
 			"heading": "ဒေါင်းလုဒ်ပရိုဖိုင်များကို သတ်မှတ်ပါ",
@@ -321,16 +321,11 @@
 		"subtitles": {
 			"autoBadge": "အလိုအလျောက်",
 			"noLanguages": "ဤဗီဒီယိုအတွက် စာတန်းထိုးမရှိပါ",
-			"skip": "ကျော်သွားမည်",
-			"skipSubs": "ဤဗီဒီယိုအတွက် ကျော်သွားမည်",
-			"mascot": "သုည၊ တစ်ခု သို့ မည်မျှမဆိုရွေးနိုင်သည် — သင့်ဆန္ဒအတိုင်း ✨",
 			"searchPlaceholder": "ဘာသာစကားရှာဖွေမည်…",
 			"noMatches": "ကိုက်ညီသောဘာသာစကားမရှိပါ",
 			"clearAll": "အားလုံးဖျက်မည်",
 			"noSelected": "စာတန်းထိုးမရွေးရသေးပါ",
 			"removeLanguage": "{{name}} ဖယ်ရှားပါ",
-			"selectedNote_one": "{{count}} ခု စာတန်းထိုးကို ဒေါင်းလုဒ်လုပ်မည်",
-			"selectedNote_other": "{{count}} ခု စာတန်းထိုးများကို ဒေါင်းလုဒ်လုပ်မည်",
 			"sectionManual": "လက်ဖြင့်",
 			"sectionAuto": "အလိုအလျောက်ထုတ်လုပ်",
 			"saveMode": {"heading": "မည်သို့သိမ်းမည်", "sidecar": "ဗီဒီယိုနဘေးတွင်", "embed": "ဗီဒီယိုထဲသို့ ထည့်သွင်းမည်", "subfolder": "subtitles/ အောက်ဖိုလ်ဒါ"},
@@ -346,7 +341,17 @@
 			"cat": {"sponsor": "ပံ့ပိုးသူ", "intro": "အဝင်", "outro": "အထွက်", "selfpromo": "ကိုယ်တိုင်ကြော်ငြာ", "music_offtopic": "Music off-topic", "preview": "ကြိုတင်ကြည့်ရှုမှု", "filler": "အဖြည့်"}
 		},
 		"formats": {
-			"quickPresets": "မြန်ဆန်သောကြိုတင်သတ်မှတ်မှုများ",
+			"kind": {"label": "ဒေါင်းလုဒ်လုပ်မည့်အရာ", "video": "ဗီဒီယို", "audio": "အသံ", "subtitles": "စာတန်းထိုးသာ"},
+			"profile": {"preselected": "ကြိုတင်ရွေးထားသည့်ပရိုဖိုင်", "tag": "ပရိုဖိုင်", "closestTag": "ပရိုဖိုင်နှင့် အနီးစပ်ဆုံး", "switchTitle": "ပရိုဖိုင် ပြောင်းမလား။", "switchBody": "ဤဒေါင်းလုဒ်တွင် သင်ပြုလုပ်ထားသော ပြောင်းလဲမှုများကို သင်ရွေးသည့် ပရိုဖိုင်၏ ဆက်တင်များဖြင့် အစားထိုးပါမည်။", "switchAction": "ပြောင်းရန်"},
+			"fit": {
+				"tierBelow": "သင့်ပရိုဖိုင်က {{wanted}}p ကို တောင်းဆိုထားသော်လည်း ဤဗီဒီယိုသည် {{picked}}p အထိသာ ရှိသဖြင့် {{picked}}p ကို ရွေးထားသည်။",
+				"tierAbove": "သင့်ပရိုဖိုင်က {{wanted}}p ကို တောင်းဆိုထားသော်လည်း ဤဗီဒီယိုတွင် ထိုမျှ နိမ့်သော အရည်အသွေး မရှိသဖြင့် {{picked}}p ကို ရွေးထားသည်။",
+				"mp4Unavailable": "သင့်ပရိုဖိုင်က MP4 (H.264) ကို တောင်းဆိုထားသော်လည်း ဤဗီဒီယိုတွင် မရှိသဖြင့် အနီးစပ်ဆုံး စတ်ရီမ်ကို ရွေးထားသည်။",
+				"noVideo": "ဤလင့်ခ်တွင် ဗီဒီယို မရှိသဖြင့် အသံကို ရွေးထားသည်။",
+				"subtitlesMissing": "သင့်ပရိုဖိုင်က {{languages}} စာတန်းထိုးကို တောင်းဆိုထားသော်လည်း ဤဗီဒီယိုတွင် မရှိပါ။"
+			},
+			"summary": {"lead": "{{profile}} မှ အခြားဆက်တင်များ:", "subtitlesOff": "စာတန်းထိုး ပိတ်ထားသည်", "subtitlesAdd_one": "ဘာသာစကား {{count}} ခု ရနိုင်သည်၊ ထည့်ရန်", "subtitlesAdd_other": "ဘာသာစကား {{count}} ခု ရနိုင်သည်၊ ထည့်ရန်", "reviewAll": "အားလုံးစစ်ဆေးရန်"},
+			"footer": {"reviewOptions": "စစ်ဆေးရန်နှင့် ရွေးချယ်စရာများ", "download": "ဒေါင်းလုဒ်", "moreActions": "ဒေါင်းလုဒ် ရွေးချယ်စရာများ", "addToQueue": "မစတင်ဘဲ တန်းစီစာရင်းထဲ ထည့်ရန်", "subtitlesRequired": "စာတန်းထိုးဘာသာစကား အနည်းဆုံးတစ်ခု ရွေးပါ။"},
 			"video": "ဗီဒီယို",
 			"audio": "အသံ",
 			"noAudio": "အသံမပါ",
@@ -354,8 +359,6 @@
 			"keepAudio": "မပြောင်းဘဲ ထားမည်",
 			"keepAudioMeta": "ပါဝင်သောအသံ",
 			"audioOnly": "အသံသာ",
-			"audioOnlyOption": "အသံသာ (ဗီဒီယိုမပါ)",
-			"mascot": "အကောင်းဆုံး + အကောင်းဆုံး = အမြင့်ဆုံးအရည်အသွေး။ ကျွန်ုပ်ရွေးမည်!",
 			"sniffing": "သင့်အတွက် အကောင်းဆုံးဖော်မတ်များ ရှာနေသည်…",
 			"loadingHint": "စစ်ဆေးမှုပြီးဆုံးသည်အထိ ကျေးဇူးပြု၍ စောင့်ပါ — playlist များနှင့် ရှာဖွေမှုများ အချိန်ယူနိုင်သည်။",
 			"loadingAria": "ဖော်မတ်များဖွင့်နေသည်",
@@ -364,15 +367,7 @@
 			"skipToConfirm": "အတည်ပြုသို့ ကျော်သွားရန်",
 			"skipToConfirmTooltip": "ကျန်ရှိသော အဆင့်များအားလုံးအတွက် သင်၏ သိမ်းဆည်းထားသော နှစ်သက်မှုများကို အသုံးပြုသည်။ ဆက်တင်တစ်ခုကို ပြောင်းလဲရန်၊ ယင်းအစား အဆင့်ဆင့် ဆက်လက်သွားပါ — သင်၏ ရွေးချယ်မှုကို နောက်တစ်ကြိမ်အတွက် သိမ်းဆည်းမည်။",
 			"quality": {"high": "အရည်အသွေး မြင့်", "medium": "အရည်အသွေး အလယ်အလတ်", "low": "အရည်အသွေး နိမ့်"},
-			"convert": {
-				"label": "ပြောင်းရန်",
-				"uncompressed": "ပြောင်းရန် · ချုံ့မထားသော",
-				"bitrate": "Bitrate",
-				"wavLabel": "WAV (ချုံ့မထားသော)",
-				"lossyLabel": "{{target}} {{bitrate}} kbps",
-				"requiresAudioOnly": "အသံပြောင်းလဲမှုအတွက် အသံသာမုဒ် လိုအပ်သည် (ဗီဒီယိုရွေးချယ်မှုကို ဖြုတ်ပါ)။",
-				"requiresLossy": "Native stream ရွေးထားသည် — bitrate သည် mp3, m4a, သို့မဟုတ် opus သို့ပြောင်းရန်သာ သက်ဆိုင်သည်။"
-			},
+			"convert": {"label": "ပြောင်းရန်", "uncompressed": "ပြောင်းရန် · ချုံ့မထားသော", "bitrate": "Bitrate", "wavLabel": "WAV (ချုံ့မထားသော)", "lossyLabel": "{{target}} {{bitrate}} kbps", "requiresLossy": "Native stream ရွေးထားသည် — bitrate သည် mp3, m4a, သို့မဟုတ် opus သို့ပြောင်းရန်သာ သက်ဆိုင်သည်။"},
 			"botWall": {
 				"heading": "YouTube မှ ဤစစ်ဆေးမှုကို ကန့်သတ်ပြီ",
 				"bodyUnconfigured": "ဖော်မတ်စာရင်း မပြည့်စုံနိုင်ပါ။ အဆင့်မြင့်ဆက်တင်တွင် cookies တပ်ဆင်ပါ၊ သို့မဟုတ် network ပြောင်းပြီး ထပ်ကြိုးစားပါ။",
@@ -429,6 +424,20 @@
 			"writeDescription": {"label": "ဖော်ပြချက်သိမ်းမည်", "description": "ဗီဒီယိုဖော်ပြချက်ကို ဒေါင်းလုဒ်နဘေးတွင် .description စာသားဖိုင်အဖြစ် သိမ်းမည်။"},
 			"writeThumbnail": {"label": "Thumbnail သိမ်းမည်", "description": "Thumbnail ကို ဒေါင်းလုဒ်နဘေးတွင် .jpg ဓာတ်ပုံဖိုင်အဖြစ် သိမ်းမည်။"},
 			"writeM3u": {"label": ".m3u playlist ဖိုင် ဖန်တီးပါ", "description": "ဗီဒီယိုများကို media player တွင် အစဉ်လိုက် ဖွင့်ရန် .m3u playlist ကို အတူသိမ်းသည်။"}
+		},
+		"review": {
+			"changeFormat": "ဖော်မတ်ပြောင်းရန်",
+			"rowsHeading": "အခြားအားလုံး",
+			"rows": {"subtitles": "စာတန်းထိုး", "sponsorBlock": "SponsorBlock", "extras": "အပို", "saveTo": "ဤနေရာတွင်သိမ်းမည်", "fileName": "ဖိုင်အမည်"},
+			"value": {"subtitlesOff": "ပိတ်ထားမည်", "sponsorBlockOff": "ပိတ်ထားမည်", "extrasNone": "မရှိ"},
+			"done": "ပြီးပြီ",
+			"changed": "{{profile}} မှ ပြောင်းလဲထားသည်: {{areas}}။ ဤဒေါင်းလုဒ်တစ်ခုတည်းတွင်သာ သက်ရောက်သည်။",
+			"areas": {"format": "ဖော်မတ်", "subtitles": "စာတန်းထိုး", "sponsorBlock": "SponsorBlock", "extras": "အပို", "saveTo": "ဖိုလ်ဒါ", "fileName": "ဖိုင်အမည်"},
+			"saveAsProfile": "ပရိုဖိုင်အဖြစ် သိမ်းရန်…",
+			"reset": "ပြန်သတ်မှတ်",
+			"save": {"title": "ပရိုဖိုင်အဖြစ် သိမ်းရန်", "description": "ဤဆက်တင်များကို နောက်တစ်ကြိမ် ရွေးချယ်နိုင်သော ပရိုဖိုင်အဖြစ် သိမ်းထားသည်။ သင်၏ အမြန်ဒေါင်းလုဒ် ပရိုဖိုင်မှာ မပြောင်းလဲပါ။", "nameLabel": "ပရိုဖိုင်အမည်", "action": "ပရိုဖိုင် သိမ်းရန်", "saved": "ပရိုဖိုင် “{{name}}” အဖြစ် သိမ်းပြီးပြီ", "failed": "ပရိုဖိုင်ကို မသိမ်းနိုင်ပါ။"},
+			"fileNameHint": "အသုံးပြုနိုင်သော တိုကင်များ: {title}, {id}, {uploader}, {date}, {resolution}။ ဖိုင်အမျိုးအစားအဆုံးသတ်ကို အလိုအလျောက် ထည့်ပေးသည်။",
+			"nextTime": {"title": "ဤဒေါင်းလုဒ်သည် တည်းဖြတ်ထားသော ဆက်တင်များကို သုံးခဲ့သည်။ နောက်တစ်ကြိမ်လည်း သုံးမလား။", "action": "ပရိုဖိုင်အဖြစ် သိမ်းရန်", "defaultName": "{{profile}} (တည်းဖြတ်ပြီး)"}
 		},
 		"confirm": {
 			"readyHeadline": "ဆွဲထုတ်ရန်အဆင်သင့်ဖြစ်ပြီ!",
@@ -695,13 +704,6 @@
 			"loginRequired": "ဤဗီဒီယိုအတွက် sign in ဝင်ထားသော အကောင့် လိုအပ်သည်။",
 			"unknown": "ဒေါင်းလုဒ်မအောင်မြင်ပါ။ အောက်ပါ raw output ကို ကြည့်ပါ။"
 		}
-	},
-	"presets": {
-		"best-quality": {"label": "အကောင်းဆုံးအရည်အသွေး", "desc": "အမြင့်ဆုံး resolution + အကောင်းဆုံးအသံ"},
-		"balanced": {"label": "မျှတသော", "desc": "720p အများဆုံး + ကောင်းသောအသံ"},
-		"audio-only": {"label": "အသံသာ", "desc": "ဗီဒီယိုမပါ၊ အကောင်းဆုံးအသံ"},
-		"small-file": {"label": "ဖိုင်သေးသေး", "desc": "အနိမ့်ဆုံး resolution + နိမ့်သောအသံ"},
-		"subtitle-only": {"label": "စာတန်းထိုးသာ", "desc": "ဗီဒီယိုမပါ၊ အသံမပါ၊ စာတန်းထိုးသာ"}
 	},
 	"playlistPresets": {
 		"type": {"video": "Video", "audio": "Audio", "subtitles": "စာတန်းထိုး"},

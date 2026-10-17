@@ -40,7 +40,7 @@
 	"theme": {"light": "Light mode", "dark": "Dark mode", "system": "System default"},
 	"language": {"label": "Language"},
 	"wizard": {
-		"steps": {"url": "URL", "playlistItems": "Playlist", "playlistItemsGeneric": "Videos", "playlistPresets": "Quality", "playlistProfiles": "Profiles", "formats": "Format", "subtitles": "Subtitles", "sponsorblock": "SponsorBlock", "output": "Output", "folder": "Save", "confirm": "Confirm"},
+		"steps": {"url": "URL", "playlistItems": "Playlist", "playlistItemsGeneric": "Videos", "playlistPresets": "Quality", "playlistProfiles": "Profiles", "formats": "Format", "subtitles": "Subtitles", "sponsorblock": "SponsorBlock", "output": "Output", "folder": "Save", "confirm": "Confirm", "review": "Review"},
 		"playlistPresets": {"heading": "Pick quality for the batch", "subhead": "Each video resolves the chosen tier independently — heterogeneous playlists work without surprises.", "itemCount_one": "{{count}} item", "itemCount_other": "{{count}} items"},
 		"playlistProfiles": {
 			"heading": "Assign download profiles",
@@ -321,16 +321,11 @@
 		"subtitles": {
 			"autoBadge": "Auto",
 			"noLanguages": "No subtitles available for this video",
-			"skip": "Skip",
-			"skipSubs": "Skip for this video",
-			"mascot": "Pick zero, one, or many — totally up to you ✨",
 			"searchPlaceholder": "Search languages…",
 			"noMatches": "No languages match",
 			"clearAll": "Clear all",
 			"noSelected": "No subtitles selected",
 			"removeLanguage": "Remove {{name}}",
-			"selectedNote_one": "{{count}} subtitle will be downloaded",
-			"selectedNote_other": "{{count}} subtitles will be downloaded",
 			"sectionManual": "Manual",
 			"sectionAuto": "Auto-generated",
 			"saveMode": {"heading": "Save as", "sidecar": "Next to video", "embed": "Embed into video", "subfolder": "subtitles/ subfolder"},
@@ -346,7 +341,17 @@
 			"cat": {"sponsor": "Sponsor", "intro": "Intro", "outro": "Outro", "selfpromo": "Self-promo", "music_offtopic": "Music off-topic", "preview": "Preview", "filler": "Filler"}
 		},
 		"formats": {
-			"quickPresets": "Quick presets",
+			"kind": {"label": "What to download", "video": "Video", "audio": "Audio", "subtitles": "Subtitles only"},
+			"profile": {"preselected": "Pre-selected from", "tag": "Profile", "closestTag": "Closest to profile", "switchTitle": "Switch profile?", "switchBody": "Your changes to this download will be replaced by the settings of the profile you pick.", "switchAction": "Switch"},
+			"fit": {
+				"tierBelow": "Your profile asks for {{wanted}}p. This video only goes up to {{picked}}p, so {{picked}}p is selected.",
+				"tierAbove": "Your profile asks for {{wanted}}p. This video has nothing that small, so {{picked}}p is selected.",
+				"mp4Unavailable": "Your profile asks for MP4 (H.264). This video doesn't offer it, so the closest stream is selected.",
+				"noVideo": "This link has no video, so audio is selected.",
+				"subtitlesMissing": "Your profile asks for subtitles in {{languages}}. This video doesn't have them."
+			},
+			"summary": {"lead": "Also from {{profile}}:", "subtitlesOff": "subtitles off", "subtitlesAdd_one": "{{count}} language available, add", "subtitlesAdd_other": "{{count}} languages available, add", "reviewAll": "Review all"},
+			"footer": {"reviewOptions": "Review & options", "download": "Download", "moreActions": "More download options", "addToQueue": "Add to queue without starting", "subtitlesRequired": "Choose at least one subtitle language."},
 			"video": "Video",
 			"audio": "Audio",
 			"noAudio": "No audio",
@@ -354,8 +359,6 @@
 			"keepAudio": "Keep as-is",
 			"keepAudioMeta": "Built-in audio",
 			"audioOnly": "Audio only",
-			"audioOnlyOption": "Audio only (no video)",
-			"mascot": "Best + Best = max quality. I'd pick that!",
 			"sniffing": "Sniffing out the best formats for you…",
 			"loadingHint": "Please wait until probing finishes — playlists and searches can take a while.",
 			"loadingAria": "Loading formats",
@@ -364,15 +367,7 @@
 			"skipToConfirm": "Skip to confirm",
 			"skipToConfirmTooltip": "Uses your saved preferences for all remaining steps. To change a setting, continue step by step instead — your choice will be saved for next time.",
 			"quality": {"high": "High quality", "medium": "Medium quality", "low": "Low quality"},
-			"convert": {
-				"label": "Convert",
-				"uncompressed": "Convert · uncompressed",
-				"bitrate": "Bitrate",
-				"wavLabel": "WAV (uncompressed)",
-				"lossyLabel": "{{target}} {{bitrate}} kbps",
-				"requiresAudioOnly": "Audio conversion requires audio-only mode (deselect the video pick).",
-				"requiresLossy": "A native stream is selected — bitrate only applies when converting to mp3, m4a, or opus."
-			},
+			"convert": {"label": "Convert", "uncompressed": "Convert · uncompressed", "bitrate": "Bitrate", "wavLabel": "WAV (uncompressed)", "lossyLabel": "{{target}} {{bitrate}} kbps", "requiresLossy": "A native stream is selected — bitrate only applies when converting to mp3, m4a, or opus."},
 			"botWall": {
 				"heading": "Probe was limited",
 				"bodyUnconfigured": "The format list may be incomplete. Set up cookies in advanced settings, or change network and retry.",
@@ -429,6 +424,20 @@
 			"writeDescription": {"label": "Save description", "description": "Saves the video description as a .description text file next to the download."},
 			"writeThumbnail": {"label": "Save thumbnail", "description": "Saves the thumbnail as a .jpg image file next to the download."},
 			"writeM3u": {"label": "Generate .m3u playlist file", "description": "Save an .m3u playlist alongside the videos so they open in order in your media player."}
+		},
+		"review": {
+			"changeFormat": "Change format",
+			"rowsHeading": "Everything else",
+			"rows": {"subtitles": "Subtitles", "sponsorBlock": "SponsorBlock", "extras": "Extras", "saveTo": "Save to", "fileName": "File name"},
+			"value": {"subtitlesOff": "Off", "sponsorBlockOff": "Off", "extrasNone": "None"},
+			"done": "Done",
+			"changed": "Changed from {{profile}}: {{areas}}. Applies to this download only.",
+			"areas": {"format": "format", "subtitles": "subtitles", "sponsorBlock": "SponsorBlock", "extras": "extras", "saveTo": "folder", "fileName": "file name"},
+			"saveAsProfile": "Save as profile…",
+			"reset": "Reset",
+			"save": {"title": "Save as profile", "description": "Keeps these settings as a profile you can pick next time. Your Quick Download profile stays the same.", "nameLabel": "Profile name", "action": "Save profile", "saved": "Saved as profile “{{name}}”", "failed": "Couldn't save the profile."},
+			"fileNameHint": "Tokens: {title}, {id}, {uploader}, {date}, {resolution}. The extension is added for you.",
+			"nextTime": {"title": "This download used edited settings. Use them next time?", "action": "Save as profile", "defaultName": "{{profile}} (edited)"}
 		},
 		"confirm": {
 			"readyHeadline": "Ready to pull it in!",
@@ -700,13 +709,6 @@
 			"loginRequired": "This video needs a signed-in account.",
 			"unknown": "Download failed. See the raw output below."
 		}
-	},
-	"presets": {
-		"best-quality": {"label": "Best quality", "desc": "Highest resolution + best audio"},
-		"balanced": {"label": "Balanced", "desc": "720p max + good audio"},
-		"audio-only": {"label": "Audio only", "desc": "No video, best audio"},
-		"small-file": {"label": "Small file", "desc": "Lowest resolution + low audio"},
-		"subtitle-only": {"label": "Subtitles only", "desc": "No video, no audio, only subtitles"}
 	},
 	"playlistPresets": {
 		"type": {"video": "Video", "audio": "Audio", "subtitles": "Subtitles"},

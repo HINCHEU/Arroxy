@@ -49,7 +49,20 @@
 	"theme": {"light": "Ανοιχτόχρωμη εμφάνιση", "dark": "Σκούρα εμφάνιση", "system": "Προεπιλογή συστήματος"},
 	"language": {"label": "Γλώσσα"},
 	"wizard": {
-		"steps": {"url": "URL", "playlistItems": "Λίστα αναπαραγωγής", "playlistItemsGeneric": "Βίντεο", "playlistPresets": "Ποιότητα", "playlistProfiles": "Προφίλ", "formats": "Μορφή", "subtitles": "Υπότιτλοι", "sponsorblock": "SponsorBlock", "output": "Έξοδος", "folder": "Αποθήκευση", "confirm": "Επιβεβαίωση"},
+		"steps": {
+			"url": "URL",
+			"playlistItems": "Λίστα αναπαραγωγής",
+			"playlistItemsGeneric": "Βίντεο",
+			"playlistPresets": "Ποιότητα",
+			"playlistProfiles": "Προφίλ",
+			"formats": "Μορφή",
+			"subtitles": "Υπότιτλοι",
+			"sponsorblock": "SponsorBlock",
+			"output": "Έξοδος",
+			"folder": "Αποθήκευση",
+			"confirm": "Επιβεβαίωση",
+			"review": "Επισκόπηση"
+		},
 		"playlistPresets": {"heading": "Επιλογή ποιότητας για την ομαδική λήψη", "subhead": "Κάθε βίντεο επιλύει το επιλεγμένο επίπεδο ανεξάρτητα — οι ανομοιογενείς playlist λειτουργούν χωρίς εκπλήξεις.", "itemCount_one": "{{count}} στοιχείο", "itemCount_other": "{{count}} στοιχεία"},
 		"playlistProfiles": {
 			"heading": "Εκχώρηση προφίλ λήψης",
@@ -333,16 +346,11 @@
 		"subtitles": {
 			"autoBadge": "Αυτόματο",
 			"noLanguages": "Δεν υπάρχουν υπότιτλοι για αυτό το βίντεο",
-			"skip": "Παράλειψη",
-			"skipSubs": "Παράλειψη για αυτό το βίντεο",
-			"mascot": "Επέλεξε μηδέν, έναν ή πολλούς — εξαρτάται από σένα ✨",
 			"searchPlaceholder": "Αναζήτηση γλωσσών…",
 			"noMatches": "Δεν βρέθηκαν γλώσσες",
 			"clearAll": "Εκκαθάριση όλων",
 			"noSelected": "Δεν έχουν επιλεγεί υπότιτλοι",
 			"removeLanguage": "Αφαίρεση {{name}}",
-			"selectedNote_one": "Θα ληφθεί {{count}} υπότιτλος",
-			"selectedNote_other": "Θα ληφθούν {{count}} υπότιτλοι",
 			"sectionManual": "Χειροκίνητο",
 			"sectionAuto": "Αυτόματα δημιουργημένο",
 			"saveMode": {"heading": "Αποθήκευση ως", "sidecar": "Δίπλα στο βίντεο", "embed": "Ενσωμάτωση στο βίντεο", "subfolder": "subtitles/ υποφάκελος"},
@@ -358,7 +366,17 @@
 			"cat": {"sponsor": "Sponsor", "intro": "Intro", "outro": "Outro", "selfpromo": "Self-promo", "music_offtopic": "Music off-topic", "preview": "Preview", "filler": "Filler"}
 		},
 		"formats": {
-			"quickPresets": "Γρήγορες προεπιλογές",
+			"kind": {"label": "Τι να γίνει λήψη", "video": "Βίντεο", "audio": "Ήχος", "subtitles": "Μόνο υπότιτλοι"},
+			"profile": {"preselected": "Προεπιλεγμένο από", "tag": "Προφίλ", "closestTag": "Πλησιέστερο στο προφίλ", "switchTitle": "Αλλαγή προφίλ;", "switchBody": "Οι αλλαγές σας σε αυτή τη λήψη θα αντικατασταθούν από τις ρυθμίσεις του προφίλ που θα επιλέξετε.", "switchAction": "Αλλαγή"},
+			"fit": {
+				"tierBelow": "Το προφίλ σας ζητά {{wanted}}p. Αυτό το βίντεο φτάνει μόνο έως {{picked}}p, γι' αυτό επιλέγεται το {{picked}}p.",
+				"tierAbove": "Το προφίλ σας ζητά {{wanted}}p. Αυτό το βίντεο δεν έχει τόσο χαμηλή ποιότητα, γι' αυτό επιλέγεται το {{picked}}p.",
+				"mp4Unavailable": "Το προφίλ σας ζητά MP4 (H.264). Αυτό το βίντεο δεν το προσφέρει, γι' αυτό επιλέγεται η πλησιέστερη ροή.",
+				"noVideo": "Αυτός ο σύνδεσμος δεν έχει βίντεο, γι' αυτό επιλέγεται ήχος.",
+				"subtitlesMissing": "Το προφίλ σας ζητά υπότιτλους στις γλώσσες: {{languages}}. Αυτό το βίντεο δεν τους έχει."
+			},
+			"summary": {"lead": "Επίσης από το {{profile}}:", "subtitlesOff": "υπότιτλοι ανενεργοί", "subtitlesAdd_one": "{{count}} διαθέσιμη γλώσσα, προσθήκη", "subtitlesAdd_other": "{{count}} διαθέσιμες γλώσσες, προσθήκη", "reviewAll": "Επισκόπηση όλων"},
+			"footer": {"reviewOptions": "Επισκόπηση και επιλογές", "download": "Λήψη", "moreActions": "Περισσότερες επιλογές λήψης", "addToQueue": "Προσθήκη στην ουρά χωρίς έναρξη", "subtitlesRequired": "Επιλέξτε τουλάχιστον μία γλώσσα υποτίτλων."},
 			"video": "Βίντεο",
 			"audio": "Ήχος",
 			"noAudio": "Χωρίς ήχο",
@@ -366,8 +384,6 @@
 			"keepAudio": "Διατήρηση ως έχει",
 			"keepAudioMeta": "Ενσωματωμένος ήχος",
 			"audioOnly": "Μόνο ήχος",
-			"audioOnlyOption": "Μόνο ήχος (χωρίς βίντεο)",
-			"mascot": "Καλύτερο + Καλύτερο = μέγιστη ποιότητα. Αυτό θα διάλεγα!",
 			"sniffing": "Ανακαλύπτω τις καλύτερες μορφές για σένα…",
 			"loadingHint": "Περίμενε μέχρι να ολοκληρωθεί η ανίχνευση — οι playlist και οι αναζητήσεις μπορεί να πάρουν λίγη ώρα.",
 			"loadingAria": "Φόρτωση μορφών",
@@ -376,15 +392,7 @@
 			"skipToConfirm": "Μετάβαση στην επιβεβαίωση",
 			"skipToConfirmTooltip": "Χρησιμοποιεί τις αποθηκευμένες προτιμήσεις σας για όλα τα υπόλοιπα βήματα. Για να αλλάξετε μια ρύθμιση, συνεχίστε βήμα προς βήμα — η επιλογή σας θα αποθηκευτεί για την επόμενη φορά.",
 			"quality": {"high": "Υψηλή ποιότητα", "medium": "Μεσαία ποιότητα", "low": "Χαμηλή ποιότητα"},
-			"convert": {
-				"label": "Μετατροπή",
-				"uncompressed": "Μετατροπή · αμετάβλητο",
-				"bitrate": "Ρυθμός bit",
-				"wavLabel": "WAV (αμετάβλητο)",
-				"lossyLabel": "{{target}} {{bitrate}} kbps",
-				"requiresAudioOnly": "Η μετατροπή ήχου απαιτεί λειτουργία μόνο ήχου (αποεπίλεξε το βίντεο).",
-				"requiresLossy": "Επιλέχθηκε εγγενής ροή — ο ρυθμός bit ισχύει μόνο κατά τη μετατροπή σε mp3, m4a ή opus."
-			},
+			"convert": {"label": "Μετατροπή", "uncompressed": "Μετατροπή · αμετάβλητο", "bitrate": "Ρυθμός bit", "wavLabel": "WAV (αμετάβλητο)", "lossyLabel": "{{target}} {{bitrate}} kbps", "requiresLossy": "Επιλέχθηκε εγγενής ροή — ο ρυθμός bit ισχύει μόνο κατά τη μετατροπή σε mp3, m4a ή opus."},
 			"botWall": {
 				"heading": "Το YouTube περιόρισε αυτή την ανίχνευση",
 				"bodyUnconfigured": "Η λίστα μορφών μπορεί να είναι ελλιπής. Ρύθμισε cookies στις ρυθμίσεις για προχωρημένους, ή άλλαξε δίκτυο και δοκίμασε ξανά.",
@@ -441,6 +449,27 @@
 			"writeDescription": {"label": "Αποθήκευση περιγραφής", "description": "Αποθηκεύει την περιγραφή του βίντεο ως αρχείο κειμένου .description δίπλα στη λήψη."},
 			"writeThumbnail": {"label": "Αποθήκευση μικρογραφίας", "description": "Αποθηκεύει τη μικρογραφία ως αρχείο εικόνας .jpg δίπλα στη λήψη."},
 			"writeM3u": {"label": "Δημιουργία αρχείου playlist .m3u", "description": "Αποθηκεύει μια playlist .m3u δίπλα στα βίντεο ώστε να ανοίγουν με σειρά στο media player."}
+		},
+		"review": {
+			"changeFormat": "Αλλαγή μορφής",
+			"rowsHeading": "Όλα τα υπόλοιπα",
+			"rows": {"subtitles": "Υπότιτλοι", "sponsorBlock": "SponsorBlock", "extras": "Επιπλέον", "saveTo": "Αποθήκευση σε", "fileName": "Όνομα αρχείου"},
+			"value": {"subtitlesOff": "Απενεργοποιημένο", "sponsorBlockOff": "Απενεργοποιημένο", "extrasNone": "Κανένα"},
+			"done": "Τέλος",
+			"changed": "Αλλαγές σε σχέση με το {{profile}}: {{areas}}. Ισχύει μόνο για αυτή τη λήψη.",
+			"areas": {"format": "μορφή", "subtitles": "υπότιτλοι", "sponsorBlock": "SponsorBlock", "extras": "επιπλέον", "saveTo": "φάκελος", "fileName": "όνομα αρχείου"},
+			"saveAsProfile": "Αποθήκευση ως προφίλ…",
+			"reset": "Επαναφορά",
+			"save": {
+				"title": "Αποθήκευση ως προφίλ",
+				"description": "Αποθηκεύει αυτές τις ρυθμίσεις ως προφίλ που μπορείτε να επιλέξετε την επόμενη φορά. Το προφίλ Γρήγορης λήψης μένει ως έχει.",
+				"nameLabel": "Όνομα προφίλ",
+				"action": "Αποθήκευση προφίλ",
+				"saved": "Αποθηκεύτηκε ως προφίλ «{{name}}»",
+				"failed": "Δεν ήταν δυνατή η αποθήκευση του προφίλ."
+			},
+			"fileNameHint": "Μεταβλητές: {title}, {id}, {uploader}, {date}, {resolution}. Η επέκταση προστίθεται αυτόματα.",
+			"nextTime": {"title": "Αυτή η λήψη χρησιμοποίησε τροποποιημένες ρυθμίσεις. Να χρησιμοποιηθούν την επόμενη φορά;", "action": "Αποθήκευση ως προφίλ", "defaultName": "{{profile}} (τροποποιημένο)"}
 		},
 		"confirm": {
 			"readyHeadline": "Έτοιμο για λήψη!",
@@ -717,13 +746,6 @@
 			"loginRequired": "Αυτό το βίντεο απαιτεί λογαριασμό με σύνδεση.",
 			"unknown": "Η λήψη απέτυχε. Δες το raw output παρακάτω."
 		}
-	},
-	"presets": {
-		"best-quality": {"label": "Καλύτερη ποιότητα", "desc": "Μέγιστη ανάλυση + καλύτερος ήχος"},
-		"balanced": {"label": "Ισορροπημένο", "desc": "Μέγιστο 720p + καλός ήχος"},
-		"audio-only": {"label": "Μόνο ήχος", "desc": "Χωρίς βίντεο, καλύτερος ήχος"},
-		"small-file": {"label": "Μικρό αρχείο", "desc": "Ελάχιστη ανάλυση + χαμηλός ήχος"},
-		"subtitle-only": {"label": "Μόνο υπότιτλοι", "desc": "Χωρίς βίντεο, χωρίς ήχο, μόνο υπότιτλοι"}
 	},
 	"playlistPresets": {
 		"type": {"video": "Video", "audio": "Audio", "subtitles": "Υπότιτλοι"},

@@ -49,7 +49,7 @@
 	"theme": {"light": "لائٹ موڈ", "dark": "ڈارک موڈ", "system": "سسٹم ڈیفالٹ"},
 	"language": {"label": "زبان"},
 	"wizard": {
-		"steps": {"url": "URL", "playlistItems": "پلے لسٹ", "playlistItemsGeneric": "ویڈیوز", "playlistPresets": "معیار", "playlistProfiles": "پروفائلز", "formats": "فارمیٹ", "subtitles": "سب ٹائٹلز", "sponsorblock": "SponsorBlock", "output": "آؤٹ پٹ", "folder": "محفوظ کریں", "confirm": "تصدیق"},
+		"steps": {"url": "URL", "playlistItems": "پلے لسٹ", "playlistItemsGeneric": "ویڈیوز", "playlistPresets": "معیار", "playlistProfiles": "پروفائلز", "formats": "فارمیٹ", "subtitles": "سب ٹائٹلز", "sponsorblock": "SponsorBlock", "output": "آؤٹ پٹ", "folder": "محفوظ کریں", "confirm": "تصدیق", "review": "جائزہ"},
 		"playlistPresets": {"heading": "بیچ کے لیے کوالٹی منتخب کریں", "subhead": "ہر ویڈیو منتخب درجے کو آزادانہ طور پر حل کرتی ہے — مختلف قسم کی playlists بغیر کسی پریشانی کے کام کرتی ہیں۔", "itemCount_one": "{{count}} آئٹم", "itemCount_other": "{{count}} آئٹمز"},
 		"playlistProfiles": {
 			"heading": "ڈاؤن لوڈ پروفائلز تفویض کریں",
@@ -330,16 +330,11 @@
 		"subtitles": {
 			"autoBadge": "آٹو",
 			"noLanguages": "اس ویڈیو کے لیے کوئی سب ٹائٹلز دستیاب نہیں",
-			"skip": "چھوڑیں",
-			"skipSubs": "اس ویڈیو کے لیے چھوڑیں",
-			"mascot": "صفر، ایک، یا کئی منتخب کریں — مکمل آپ کی مرضی ✨",
 			"searchPlaceholder": "زبانیں تلاش کریں…",
 			"noMatches": "کوئی زبان میچ نہیں ہوئی",
 			"clearAll": "سب صاف کریں",
 			"noSelected": "کوئی سب ٹائٹل منتخب نہیں",
 			"removeLanguage": "{{name}} ہٹائیں",
-			"selectedNote_one": "{{count}} سب ٹائٹل ڈاؤن لوڈ کیا جائے گا",
-			"selectedNote_other": "{{count}} سب ٹائٹلز ڈاؤن لوڈ کیے جائیں گے",
 			"sectionManual": "دستی",
 			"sectionAuto": "خودکار",
 			"saveMode": {"heading": "محفوظ کریں بطور", "sidecar": "ویڈیو کے ساتھ", "embed": "ویڈیو میں شامل کریں", "subfolder": "subtitles/ سب فولڈر"},
@@ -355,7 +350,17 @@
 			"cat": {"sponsor": "سپانسر", "intro": "انٹرو", "outro": "آؤٹرو", "selfpromo": "سیلف پرومو", "music_offtopic": "موسیقی غیر متعلقہ", "preview": "پری ویو", "filler": "فِلر"}
 		},
 		"formats": {
-			"quickPresets": "فوری پری سیٹس",
+			"kind": {"label": "کیا ڈاؤن لوڈ کرنا ہے", "video": "ویڈیو", "audio": "آڈیو", "subtitles": "صرف سب ٹائٹلز"},
+			"profile": {"preselected": "پہلے سے منتخب، ماخذ:", "tag": "پروفائل", "closestTag": "پروفائل کے قریب ترین", "switchTitle": "پروفائل تبدیل کریں؟", "switchBody": "اس ڈاؤن لوڈ میں آپ کی تبدیلیاں آپ کے منتخب کردہ پروفائل کی ترتیبات سے بدل جائیں گی۔", "switchAction": "تبدیل کریں"},
+			"fit": {
+				"tierBelow": "آپ کا پروفائل {{wanted}}p مانگتا ہے۔ یہ ویڈیو صرف {{picked}}p تک جاتی ہے، اس لیے {{picked}}p منتخب کیا گیا ہے۔",
+				"tierAbove": "آپ کا پروفائل {{wanted}}p مانگتا ہے۔ اس ویڈیو میں اتنا چھوٹا کچھ نہیں، اس لیے {{picked}}p منتخب کیا گیا ہے۔",
+				"mp4Unavailable": "آپ کا پروفائل MP4 (H.264) مانگتا ہے۔ یہ ویڈیو اسے فراہم نہیں کرتی، اس لیے قریب ترین اسٹریم منتخب کی گئی ہے۔",
+				"noVideo": "اس لنک میں ویڈیو نہیں ہے، اس لیے آڈیو منتخب کی گئی ہے۔",
+				"subtitlesMissing": "آپ کا پروفائل {{languages}} میں سب ٹائٹلز مانگتا ہے۔ اس ویڈیو میں یہ موجود نہیں۔"
+			},
+			"summary": {"lead": "{{profile}} سے مزید:", "subtitlesOff": "سب ٹائٹلز بند", "subtitlesAdd_one": "{{count}} زبان دستیاب ہے، شامل کریں", "subtitlesAdd_other": "{{count}} زبانیں دستیاب ہیں، شامل کریں", "reviewAll": "سب کا جائزہ لیں"},
+			"footer": {"reviewOptions": "جائزہ اور اختیارات", "download": "ڈاؤن لوڈ", "moreActions": "مزید ڈاؤن لوڈ اختیارات", "addToQueue": "شروع کیے بغیر قطار میں شامل کریں", "subtitlesRequired": "کم از کم ایک سب ٹائٹل زبان منتخب کریں۔"},
 			"video": "ویڈیو",
 			"audio": "آڈیو",
 			"noAudio": "کوئی آڈیو نہیں",
@@ -363,8 +368,6 @@
 			"keepAudio": "جیسا ہے ویسا رکھیں",
 			"keepAudioMeta": "بلٹ اِن آڈیو",
 			"audioOnly": "صرف آڈیو",
-			"audioOnlyOption": "صرف آڈیو (کوئی ویڈیو نہیں)",
-			"mascot": "بیسٹ + بیسٹ = زیادہ سے زیادہ کوالٹی۔ میں یہی منتخب کروں گا!",
 			"sniffing": "آپ کے لیے بہترین فارمیٹس ڈھونڈ رہا ہوں…",
 			"loadingHint": "براہ کرم پروبنگ مکمل ہونے تک انتظار کریں — پلے لسٹس اور تلاش میں کچھ وقت لگ سکتا ہے۔",
 			"loadingAria": "فارمیٹس لوڈ ہو رہے ہیں",
@@ -373,15 +376,7 @@
 			"skipToConfirm": "تصدیق تک جائیں",
 			"skipToConfirmTooltip": "باقی تمام مراحل کے لیے آپ کی محفوظ ترجیحات استعمال کرتا ہے۔ کوئی ترتیب تبدیل کرنے کے لیے، قدم بہ قدم جاری رکھیں — آپ کا انتخاب اگلی بار کے لیے محفوظ ہو جائے گا۔",
 			"quality": {"high": "اعلیٰ معیار", "medium": "درمیانی معیار", "low": "کم معیار"},
-			"convert": {
-				"label": "کنورٹ کریں",
-				"uncompressed": "کنورٹ کریں · غیر کمپریسڈ",
-				"bitrate": "بٹ ریٹ",
-				"wavLabel": "WAV (uncompressed)",
-				"lossyLabel": "{{target}} {{bitrate}} kbps",
-				"requiresAudioOnly": "آڈیو کنورژن کے لیے صرف آڈیو موڈ ضروری ہے (ویڈیو انتخاب ہٹائیں)۔",
-				"requiresLossy": "ایک نیٹیو سٹریم منتخب ہے — بٹ ریٹ صرف اس وقت لاگو ہوتا ہے جب mp3، m4a، یا opus میں کنورٹ کیا جائے۔"
-			},
+			"convert": {"label": "کنورٹ کریں", "uncompressed": "کنورٹ کریں · غیر کمپریسڈ", "bitrate": "بٹ ریٹ", "wavLabel": "WAV (uncompressed)", "lossyLabel": "{{target}} {{bitrate}} kbps", "requiresLossy": "ایک نیٹیو سٹریم منتخب ہے — بٹ ریٹ صرف اس وقت لاگو ہوتا ہے جب mp3، m4a، یا opus میں کنورٹ کیا جائے۔"},
 			"botWall": {
 				"heading": "YouTube نے یہ پروب محدود کر دی",
 				"bodyUnconfigured": "فارمیٹ کی فہرست نامکمل ہو سکتی ہے۔ ایڈوانسڈ سیٹنگز میں cookies ترتیب دیں، یا نیٹ ورک تبدیل کر کے دوبارہ کوشش کریں۔",
@@ -438,6 +433,27 @@
 			"writeDescription": {"label": "تفصیل محفوظ کریں", "description": "ویڈیو کی تفصیل کو ڈاؤن لوڈ کے ساتھ .description ٹیکسٹ فائل کے طور پر محفوظ کرتا ہے۔"},
 			"writeThumbnail": {"label": "تھمب نیل محفوظ کریں", "description": "تھمب نیل کو ڈاؤن لوڈ کے ساتھ .jpg امیج فائل کے طور پر محفوظ کرتا ہے۔"},
 			"writeM3u": {"label": ".m3u پلے لسٹ فائل بنائیں", "description": "ویڈیوز کے ساتھ .m3u پلے لسٹ محفوظ کرتا ہے تاکہ وہ میڈیا پلیئر میں ترتیب سے کھلیں۔"}
+		},
+		"review": {
+			"changeFormat": "فارمیٹ تبدیل کریں",
+			"rowsHeading": "باقی سب کچھ",
+			"rows": {"subtitles": "سب ٹائٹلز", "sponsorBlock": "SponsorBlock", "extras": "اضافی", "saveTo": "محفوظ کریں", "fileName": "فائل نام"},
+			"value": {"subtitlesOff": "بند", "sponsorBlockOff": "بند", "extrasNone": "کوئی نہیں"},
+			"done": "ہو گیا",
+			"changed": "{{profile}} سے تبدیل: {{areas}}۔ صرف اس ڈاؤن لوڈ پر لاگو ہوتا ہے۔",
+			"areas": {"format": "فارمیٹ", "subtitles": "سب ٹائٹلز", "sponsorBlock": "SponsorBlock", "extras": "اضافی", "saveTo": "فولڈر", "fileName": "فائل نام"},
+			"saveAsProfile": "پروفائل کے طور پر محفوظ کریں…",
+			"reset": "ری سیٹ کریں",
+			"save": {
+				"title": "پروفائل کے طور پر محفوظ کریں",
+				"description": "ان ترتیبات کو پروفائل کے طور پر محفوظ کرتا ہے جسے آپ اگلی بار منتخب کر سکتے ہیں۔ آپ کا فوری ڈاؤن لوڈ پروفائل جوں کا توں رہتا ہے۔",
+				"nameLabel": "پروفائل کا نام",
+				"action": "پروفائل محفوظ کریں",
+				"saved": "پروفائل “{{name}}” کے طور پر محفوظ ہو گیا",
+				"failed": "پروفائل محفوظ نہیں ہو سکا۔"
+			},
+			"fileNameHint": "ٹوکنز: {title}، {id}، {uploader}، {date}، {resolution}۔ ایکسٹینشن خود بخود شامل ہو جاتی ہے۔",
+			"nextTime": {"title": "اس ڈاؤن لوڈ میں ترمیم شدہ ترتیبات استعمال ہوئیں۔ کیا اگلی بار انہیں استعمال کریں؟", "action": "پروفائل کے طور پر محفوظ کریں", "defaultName": "{{profile}} (ترمیم شدہ)"}
 		},
 		"confirm": {
 			"readyHeadline": "لانے کے لیے تیار!",
@@ -709,13 +725,6 @@
 			"loginRequired": "اس ویڈیو کے لیے سائن ان اکاؤنٹ درکار ہے۔",
 			"unknown": "ڈاؤن لوڈ ناکام ہو گیا۔ نیچے خام آؤٹ پٹ دیکھیں۔"
 		}
-	},
-	"presets": {
-		"best-quality": {"label": "بہترین کوالٹی", "desc": "سب سے زیادہ ریزولوشن + بہترین آڈیو"},
-		"balanced": {"label": "متوازن", "desc": "720p زیادہ سے زیادہ + اچھی آڈیو"},
-		"audio-only": {"label": "صرف آڈیو", "desc": "کوئی ویڈیو نہیں، بہترین آڈیو"},
-		"small-file": {"label": "چھوٹی فائل", "desc": "سب سے کم ریزولوشن + کم آڈیو"},
-		"subtitle-only": {"label": "صرف سب ٹائٹلز", "desc": "کوئی ویڈیو نہیں، کوئی آڈیو نہیں، صرف سب ٹائٹلز"}
 	},
 	"playlistPresets": {
 		"type": {"video": "Video", "audio": "Audio", "subtitles": "سب ٹائٹلز"},

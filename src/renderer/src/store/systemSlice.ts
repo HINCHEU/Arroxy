@@ -73,13 +73,7 @@ function drainOverrideRepair(get: GetState): void {
 // Mirrors main's deepMerge one level down: each section named by the patch
 // merges field by field over the current one, the rest are left alone.
 function optimisticSettings(previous: AppSettings, patch: SettingsPatch): AppSettings {
-	return {
-		...previous,
-		common: patch.common ? {...previous.common, ...patch.common} : previous.common,
-		single: patch.single ? {...previous.single, ...patch.single} : previous.single,
-		playlist: patch.playlist ? {...previous.playlist, ...patch.playlist} : previous.playlist,
-		profiles: patch.profiles ? {...previous.profiles, ...patch.profiles} : previous.profiles
-	}
+	return {...previous, common: patch.common ? {...previous.common, ...patch.common} : previous.common, playlist: patch.playlist ? {...previous.playlist, ...patch.playlist} : previous.playlist, profiles: patch.profiles ? {...previous.profiles, ...patch.profiles} : previous.profiles}
 }
 
 // Rollback target after a failed write. Restoring a snapshot taken before the

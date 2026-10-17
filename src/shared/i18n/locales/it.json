@@ -49,7 +49,7 @@
 	"theme": {"light": "Modalità chiara", "dark": "Modalità scura", "system": "Predefinito di sistema"},
 	"language": {"label": "Lingua"},
 	"wizard": {
-		"steps": {"url": "URL", "playlistItems": "Playlist", "playlistItemsGeneric": "Video", "playlistPresets": "Qualità", "playlistProfiles": "Profili", "formats": "Formato", "subtitles": "Sottotitoli", "sponsorblock": "SponsorBlock", "output": "Output", "folder": "Salva", "confirm": "Conferma"},
+		"steps": {"url": "URL", "playlistItems": "Playlist", "playlistItemsGeneric": "Video", "playlistPresets": "Qualità", "playlistProfiles": "Profili", "formats": "Formato", "subtitles": "Sottotitoli", "sponsorblock": "SponsorBlock", "output": "Output", "folder": "Salva", "confirm": "Conferma", "review": "Controlla"},
 		"playlistPresets": {"heading": "Scegli la qualità per il gruppo", "subhead": "Ogni video determina autonomamente il livello scelto: le playlist eterogenee funzionano senza sorprese.", "itemCount_one": "{{count}} elemento", "itemCount_other": "{{count}} elementi"},
 		"playlistProfiles": {
 			"heading": "Assegna profili di download",
@@ -330,16 +330,11 @@
 		"subtitles": {
 			"autoBadge": "Automatico",
 			"noLanguages": "Nessun sottotitolo disponibile per questo video",
-			"skip": "Salta",
-			"skipSubs": "Salta per questo video",
-			"mascot": "Scegline nessuna, una o più: decidi tu ✨",
 			"searchPlaceholder": "Cerca lingue…",
 			"noMatches": "Nessuna lingua corrispondente",
 			"clearAll": "Cancella tutto",
 			"noSelected": "Nessun sottotitolo selezionato",
 			"removeLanguage": "Rimuovi {{name}}",
-			"selectedNote_one": "Verrà scaricato {{count}} sottotitolo",
-			"selectedNote_other": "Verranno scaricati {{count}} sottotitoli",
 			"sectionManual": "Manuali",
 			"sectionAuto": "Generati automaticamente",
 			"saveMode": {"heading": "Salva come", "sidecar": "Accanto al video", "embed": "Incorpora nel video", "subfolder": "Sottocartella subtitles/"},
@@ -355,7 +350,17 @@
 			"cat": {"sponsor": "Sponsor", "intro": "Introduzione", "outro": "Conclusione", "selfpromo": "Autopromozione", "music_offtopic": "Musica fuori tema", "preview": "Anteprima", "filler": "Riempitivo"}
 		},
 		"formats": {
-			"quickPresets": "Preimpostazioni rapide",
+			"kind": {"label": "Cosa scaricare", "video": "Video", "audio": "Audio", "subtitles": "Solo sottotitoli"},
+			"profile": {"preselected": "Preselezionato da", "tag": "Profilo", "closestTag": "Più vicino al profilo", "switchTitle": "Cambiare profilo?", "switchBody": "Le tue modifiche a questo download saranno sostituite dalle impostazioni del profilo scelto.", "switchAction": "Cambia"},
+			"fit": {
+				"tierBelow": "Il tuo profilo richiede {{wanted}}p. Questo video arriva solo a {{picked}}p, quindi è selezionato {{picked}}p.",
+				"tierAbove": "Il tuo profilo richiede {{wanted}}p. Questo video non ha nulla di così piccolo, quindi è selezionato {{picked}}p.",
+				"mp4Unavailable": "Il tuo profilo richiede MP4 (H.264). Questo video non lo offre, quindi è selezionato lo stream più vicino.",
+				"noVideo": "Questo link non ha video, quindi è selezionato l’audio.",
+				"subtitlesMissing": "Il tuo profilo richiede sottotitoli in {{languages}}. Questo video non ne ha."
+			},
+			"summary": {"lead": "Anche da {{profile}}:", "subtitlesOff": "sottotitoli disattivati", "subtitlesAdd_one": "{{count}} lingua disponibile, aggiungi", "subtitlesAdd_other": "{{count}} lingue disponibili, aggiungi", "reviewAll": "Controlla tutto"},
+			"footer": {"reviewOptions": "Controlla e opzioni", "download": "Scarica", "moreActions": "Altre opzioni di download", "addToQueue": "Aggiungi alla coda senza avviare", "subtitlesRequired": "Scegli almeno una lingua per i sottotitoli."},
 			"video": "Video",
 			"audio": "Audio",
 			"noAudio": "Nessun audio",
@@ -363,8 +368,6 @@
 			"keepAudio": "Mantieni invariato",
 			"keepAudioMeta": "Audio incorporato",
 			"audioOnly": "Solo audio",
-			"audioOnlyOption": "Solo audio (senza video)",
-			"mascot": "Migliore + Migliore = qualità massima. È la mia scelta!",
 			"sniffing": "Ricerca dei formati migliori per te…",
 			"loadingHint": "Attendi il completamento dell'analisi: playlist e ricerche possono richiedere tempo.",
 			"loadingAria": "Caricamento formati",
@@ -373,15 +376,7 @@
 			"skipToConfirm": "Vai alla conferma",
 			"skipToConfirmTooltip": "Usa le preferenze salvate per tutti i passaggi rimanenti. Per modificare un'impostazione, procedi invece passo dopo passo: la scelta verrà salvata per la prossima volta.",
 			"quality": {"high": "Alta qualità", "medium": "Qualità media", "low": "Bassa qualità"},
-			"convert": {
-				"label": "Converti",
-				"uncompressed": "Converti · non compresso",
-				"bitrate": "Bitrate",
-				"wavLabel": "WAV (non compresso)",
-				"lossyLabel": "{{target}} {{bitrate}} kbps",
-				"requiresAudioOnly": "La conversione audio richiede la modalità solo audio (deseleziona il video).",
-				"requiresLossy": "È selezionato un flusso originale: il bitrate si applica solo durante la conversione in mp3, m4a o opus."
-			},
+			"convert": {"label": "Converti", "uncompressed": "Converti · non compresso", "bitrate": "Bitrate", "wavLabel": "WAV (non compresso)", "lossyLabel": "{{target}} {{bitrate}} kbps", "requiresLossy": "È selezionato un flusso originale: il bitrate si applica solo durante la conversione in mp3, m4a o opus."},
 			"botWall": {
 				"heading": "L'analisi è stata limitata",
 				"bodyUnconfigured": "L'elenco dei formati potrebbe essere incompleto. Configura i cookie nelle impostazioni avanzate oppure cambia rete e riprova.",
@@ -438,6 +433,27 @@
 			"writeDescription": {"label": "Salva descrizione", "description": "Salva la descrizione del video come file di testo .description accanto al download."},
 			"writeThumbnail": {"label": "Salva miniatura", "description": "Salva la miniatura come file immagine .jpg accanto al download."},
 			"writeM3u": {"label": "Genera file playlist .m3u", "description": "Salva una playlist .m3u accanto ai video, così il lettore multimediale li apre nell'ordine corretto."}
+		},
+		"review": {
+			"changeFormat": "Cambia formato",
+			"rowsHeading": "Tutto il resto",
+			"rows": {"subtitles": "Sottotitoli", "sponsorBlock": "SponsorBlock", "extras": "Extra", "saveTo": "Salva in", "fileName": "Nome file"},
+			"value": {"subtitlesOff": "Disattivati", "sponsorBlockOff": "Disattivato", "extrasNone": "Nessuno"},
+			"done": "Completato",
+			"changed": "Modificato rispetto a {{profile}}: {{areas}}. Vale solo per questo download.",
+			"areas": {"format": "formato", "subtitles": "sottotitoli", "sponsorBlock": "SponsorBlock", "extras": "extra", "saveTo": "cartella", "fileName": "nome file"},
+			"saveAsProfile": "Salva come profilo…",
+			"reset": "Reimposta",
+			"save": {
+				"title": "Salva come profilo",
+				"description": "Salva queste impostazioni come profilo da scegliere la prossima volta. Il tuo profilo Download rapido resta invariato.",
+				"nameLabel": "Nome del profilo",
+				"action": "Salva profilo",
+				"saved": "Salvato come profilo “{{name}}”",
+				"failed": "Impossibile salvare il profilo."
+			},
+			"fileNameHint": "Segnaposto: {title}, {id}, {uploader}, {date}, {resolution}. L’estensione viene aggiunta automaticamente.",
+			"nextTime": {"title": "Questo download ha usato impostazioni modificate. Usarle la prossima volta?", "action": "Salva come profilo", "defaultName": "{{profile}} (modificato)"}
 		},
 		"confirm": {
 			"readyHeadline": "Tutto pronto per il download!",
@@ -714,13 +730,6 @@
 			"loginRequired": "Questo video richiede un account con accesso effettuato.",
 			"unknown": "Download non riuscito. Consulta l'output non elaborato qui sotto."
 		}
-	},
-	"presets": {
-		"best-quality": {"label": "Qualità migliore", "desc": "Risoluzione massima + audio migliore"},
-		"balanced": {"label": "Bilanciato", "desc": "Massimo 720p + buon audio"},
-		"audio-only": {"label": "Solo audio", "desc": "Nessun video, audio migliore"},
-		"small-file": {"label": "File piccolo", "desc": "Risoluzione minima + audio di bassa qualità"},
-		"subtitle-only": {"label": "Solo sottotitoli", "desc": "Nessun video né audio, solo sottotitoli"}
 	},
 	"playlistPresets": {
 		"type": {"video": "Video", "audio": "Audio", "subtitles": "Sottotitoli"},

@@ -7,7 +7,7 @@ import {YtDlp} from '@main/services/YtDlp.js'
 import type {DownloadJob} from '@shared/types.js'
 import type {PreparedJob} from '@shared/preparedJob.js'
 
-const DEFAULT_JOB: PreparedJob = {kind: 'single-format', extractor: 'youtube', extractorKey: 'Youtube', formatId: '22', preset: 'custom', sponsorBlock: {mode: 'off'}, embed: {chapters: false, metadata: false, thumbnail: false, description: false, thumbnailSidecar: false}}
+const DEFAULT_JOB: PreparedJob = {kind: 'single-format', extractor: 'youtube', extractorKey: 'Youtube', formatId: '22', sponsorBlock: {mode: 'off'}, embed: {chapters: false, metadata: false, thumbnail: false, description: false, thumbnailSidecar: false}}
 
 function makeService() {
 	const binaryManager = {ensureYtDlp: vi.fn().mockResolvedValue('/tmp/yt-dlp'), ensureFFmpeg: vi.fn().mockResolvedValue('/tmp/ffmpeg'), ensureFFprobe: vi.fn().mockResolvedValue(null)}

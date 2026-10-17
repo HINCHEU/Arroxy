@@ -31,7 +31,7 @@ The one free, open-source, local-only downloader that is friendly enough for a n
 
 ## Capabilities and Constraints
 
-- Video up to 2160p, high frame rate and HDR preserved; audio-only as MP3, M4A/AAC, Opus, or WAV; surround/Dolby and multi-language audio track selection; quick presets (Best quality, Balanced, Small file).
+- Video up to 2160p, high frame rate and HDR preserved; audio-only as MP3, M4A/AAC, Opus, or WAV; surround/Dolby and multi-language audio track selection; Interactive Download pre-selects every stream from the active download profile and says when a video can't honour it.
 - Subtitles in SRT, VTT, or ASS (manual or auto-generated) as sidecar files, embedded in `.mkv`, or in a `Subtitles/` subfolder. Subtitle failure is soft: the video is kept and the job completes.
 - SponsorBlock skip or chapter-mark; embedded metadata, thumbnail, and chapters; playlist sync against a local folder with an `.m3u` file; bandwidth caps, request pacing presets, filename templates; URL cleaning that strips tracking parameters.
 - ffmpeg/ffprobe are bundled; yt-dlp is fetched and updated at runtime.

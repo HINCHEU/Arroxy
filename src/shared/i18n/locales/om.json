@@ -60,7 +60,8 @@
 			"sponsorblock": "SponsorBlock",
 			"output": "Ba'uu",
 			"folder": "Kuusi",
-			"confirm": "Mirkaneessi"
+			"confirm": "Mirkaneessi",
+			"review": "Sakatta'i"
 		},
 		"playlistPresets": {"heading": "Kutaa gurmuu barbaadi", "subhead": "Viidiyoon hundi sadarkaa filatame ofumaan qorata — playlist garagaraa sodaa malee hojjeta.", "itemCount_one": "{{count}} wanta", "itemCount_other": "{{count}} wantota"},
 		"playlistProfiles": {
@@ -345,16 +346,11 @@
 		"subtitles": {
 			"autoBadge": "Ofumaa",
 			"noLanguages": "Viidiyoo kanaaf axxiinni hin jiru",
-			"skip": "Irri cabi",
-			"skipSubs": "Viidiyoo kana irra cabi",
-			"mascot": "Tokko, lama ykn baay'ee filadhu — si irratti hundaa'a ✨",
 			"searchPlaceholder": "Afaanota barbaadi…",
 			"noMatches": "Afaan hin argatamne",
 			"clearAll": "Hunda qulqulleessi",
 			"noSelected": "Axxiinni hin filamine",
 			"removeLanguage": "{{name}} balleessi",
-			"selectedNote_one": "Axxiinni {{count}} ni buufama",
-			"selectedNote_other": "Axxiinnota {{count}} ni buufamu",
 			"sectionManual": "Harkaan",
 			"sectionAuto": "Ofumaan uumame",
 			"saveMode": {"heading": "Akkamitti kuusi", "sidecar": "Viidiyoo cinaa", "embed": "Viidiyoo keessatti maksi", "subfolder": "subtitles/ saab-foldarii"},
@@ -370,7 +366,17 @@
 			"cat": {"sponsor": "Sponsor", "intro": "Intro", "outro": "Outro", "selfpromo": "Self-promo", "music_offtopic": "Music off-topic", "preview": "Preview", "filler": "Filler"}
 		},
 		"formats": {
-			"quickPresets": "Qophii ariifatoo",
+			"kind": {"label": "Maal buufachuu barbaaddaa", "video": "Viidiyoo", "audio": "Sagalee", "subtitles": "Axxiinni qofa"},
+			"profile": {"preselected": "Duraan filatame, madda:", "tag": "Piroofaayilii", "closestTag": "Piroofaayiliitti dhiyoo", "switchTitle": "Piroofaayilii jijjiiruu?", "switchBody": "Jijjiirama buufata kana irratti gooteen qindaa'ina piroofaayilii filattuun bakka bu'a.", "switchAction": "Jijjiiri"},
+			"fit": {
+				"tierBelow": "Piroofaayiliin kee {{wanted}}p gaafata. Viidiyoon kun hanga {{picked}}p qofa deema, kanaaf {{picked}}p filatameera.",
+				"tierAbove": "Piroofaayiliin kee {{wanted}}p gaafata. Viidiyoon kun kan akka kanatti xiqqaate hin qabu, kanaaf {{picked}}p filatameera.",
+				"mp4Unavailable": "Piroofaayiliin kee MP4 (H.264) gaafata. Viidiyoon kun hin qabu, kanaaf isa dhiyoo filatameera.",
+				"noVideo": "Hidhaan kun viidiyoo hin qabu, kanaaf sagaleen filatameera.",
+				"subtitlesMissing": "Piroofaayiliin kee afaan {{languages}} keessaa axxiinni gaafata. Viidiyoon kun hin qabu."
+			},
+			"summary": {"lead": "{{profile}} irraa kanas:", "subtitlesOff": "axxiinni dhaabbateera", "subtitlesAdd_one": "Afaan {{count}} jira, dabali", "subtitlesAdd_other": "Afaanonni {{count}} jiru, dabali", "reviewAll": "Hunda sakatta'i"},
+			"footer": {"reviewOptions": "Sakatta'i fi filannoo", "download": "Buufata", "moreActions": "Filannoo buufataa dabalataa", "addToQueue": "Osoo hin jalqabin tarreetti dabali", "subtitlesRequired": "Yoo xiqqaate afaan axxiinnii tokko filadhu."},
 			"video": "Viidiyoo",
 			"audio": "Sagalee",
 			"noAudio": "Sagalee hin jiru",
@@ -378,8 +384,6 @@
 			"keepAudio": "Akka jirutti eegi",
 			"keepAudioMeta": "Sagalee keessoo",
 			"audioOnly": "Sagalee qofa",
-			"audioOnlyOption": "Sagalee qofa (viidiyoo hin jiru)",
-			"mascot": "Caalmaa + Caalmaa = qulqullina ol'aanaa. Sana filadha!",
 			"sniffing": "Foormaatii caalmaa si barbaachisu barbaaduun jira…",
 			"loadingHint": "Qorannoon xumuramuu hanga eegtu — playlist fi barbaacha yeroo fudhachuu danda'a.",
 			"loadingAria": "Foormaatii fe'amaa jira",
@@ -394,7 +398,6 @@
 				"bitrate": "Saaffata bitii",
 				"wavLabel": "WAV (cuqxaa hin taane)",
 				"lossyLabel": "{{target}} {{bitrate}} kbps",
-				"requiresAudioOnly": "Jijjiirraa sagalee haala sagalee-qofa (filannoo viidiyoo haqi) gaafata.",
 				"requiresLossy": "Tarreessa uumamaa filatameera — saaffatni bitii yoo mp3, m4a, ykn opus keessatti jijjiiramu qofa hojiirra oola."
 			},
 			"botWall": {
@@ -453,6 +456,27 @@
 			"writeDescription": {"label": "Ibsa kuusi", "description": "Ibsa viidiyoo .description faayilii barreeffamaa ta'ee daawniloodii cinaa ni kuusa."},
 			"writeThumbnail": {"label": "Thumbnail kuusi", "description": "Thumbnail .jpg faayilii suuraa ta'ee daawniloodii cinaa ni kuusa."},
 			"writeM3u": {"label": "Faayilii playlist .m3u uumi", "description": "Viidiyoowwan tarreen media player keessatti banamaniif .m3u isaan cinatti kuusi."}
+		},
+		"review": {
+			"changeFormat": "Foormaatii jijjiiri",
+			"rowsHeading": "Kan hafe hunda",
+			"rows": {"subtitles": "Axxiinni", "sponsorBlock": "SponsorBlock", "extras": "Dabalataalee", "saveTo": "Kuusi gara", "fileName": "Maqaa faayilii"},
+			"value": {"subtitlesOff": "Dhaabbi", "sponsorBlockOff": "Dhaabbi", "extrasNone": "Homaa"},
+			"done": "Xumurame",
+			"changed": "{{profile}} irraa jijjiirame: {{areas}}. Buufata kanaaf qofa hojiirra oola.",
+			"areas": {"format": "foormaatii", "subtitles": "axxiinni", "sponsorBlock": "SponsorBlock", "extras": "dabalataalee", "saveTo": "foldarii", "fileName": "maqaa faayilii"},
+			"saveAsProfile": "Akka piroofaayiliitti olkaa'i…",
+			"reset": "Deebisi",
+			"save": {
+				"title": "Akka piroofaayiliitti olkaa'i",
+				"description": "Qindaa'inoota kana akka piroofaayiliitti olkaa'a, yeroo itti aanu filachuu dandeessa. Piroofaayiliin Buufata saffisaa kee hin jijjiiramu.",
+				"nameLabel": "Maqaa piroofaayilii",
+				"action": "Piroofaayilii olkaa'i",
+				"saved": "Piroofaayilii “{{name}}” jedhamee olkaa'ameera",
+				"failed": "Piroofaayilii olkaa'uun hin danda'amne."
+			},
+			"fileNameHint": "Mallattoolee: {title}, {id}, {uploader}, {date}, {resolution}. Dheeraan ofumaan siif dabalama.",
+			"nextTime": {"title": "Buufanni kun qindaa'ina jijjiirame fayyadame. Yeroo itti aanu itti fayyadamtaa?", "action": "Akka piroofaayiliitti olkaa'i", "defaultName": "{{profile}} (jijjiirame)"}
 		},
 		"confirm": {
 			"readyHeadline": "Buusuuf qophii dha!",
@@ -724,13 +748,6 @@
 			"loginRequired": "Viidiyoon kun akkaawuntii seene barbaada.",
 			"unknown": "Buufannaan kufe. Bu’aa raaw’aa armaan gadii ilaali."
 		}
-	},
-	"presets": {
-		"best-quality": {"label": "Qulqullina ol'aanaa", "desc": "Firiimii ol'aanaa + sagalee caalmaa"},
-		"balanced": {"label": "Walsimu", "desc": "720p ol'aanaa + sagalee gaarii"},
-		"audio-only": {"label": "Sagalee qofa", "desc": "Viidiyoo hin jiru, sagalee caalmaa"},
-		"small-file": {"label": "Faayilii xiqqaa", "desc": "Firiimii gadi aanaa + sagalee gadi aanaa"},
-		"subtitle-only": {"label": "Axxiinni qofa", "desc": "Viidiyoo hin jiru, sagalee hin jiru, axxiinni qofa"}
 	},
 	"playlistPresets": {
 		"type": {"video": "Video", "audio": "Audio", "subtitles": "Axxiinni"},

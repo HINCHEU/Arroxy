@@ -32,7 +32,7 @@
 	"theme": {"light": "浅色模式", "dark": "深色模式", "system": "跟随系统"},
 	"language": {"label": "语言"},
 	"wizard": {
-		"steps": {"url": "链接", "playlistItems": "播放列表", "playlistItemsGeneric": "视频", "playlistPresets": "画质", "playlistProfiles": "配置", "formats": "格式", "subtitles": "字幕", "sponsorblock": "SponsorBlock", "output": "输出", "folder": "保存", "confirm": "确认"},
+		"steps": {"url": "链接", "playlistItems": "播放列表", "playlistItemsGeneric": "视频", "playlistPresets": "画质", "playlistProfiles": "配置", "formats": "格式", "subtitles": "字幕", "sponsorblock": "SponsorBlock", "output": "输出", "folder": "保存", "confirm": "确认", "review": "查看"},
 		"playlistPresets": {"heading": "选择批量下载画质", "subhead": "每个视频独立匹配所选画质档位——混合内容的播放列表也能正常处理，无意外。", "itemCount_one": "{{count}} 项", "itemCount_other": "{{count}} 项"},
 		"playlistProfiles": {
 			"heading": "分配下载配置",
@@ -308,16 +308,11 @@
 		"subtitles": {
 			"autoBadge": "自动",
 			"noLanguages": "该视频没有字幕",
-			"skip": "跳过",
-			"skipSubs": "本视频跳过",
-			"mascot": "选零个、一个或多个 — 完全由你决定 ✨",
 			"searchPlaceholder": "搜索语言…",
 			"noMatches": "没有匹配的语言",
 			"clearAll": "清除全部",
 			"noSelected": "未选择字幕",
 			"removeLanguage": "移除{{name}}",
-			"selectedNote_one": "将下载 {{count}} 个字幕",
-			"selectedNote_other": "将下载 {{count}} 个字幕",
 			"sectionManual": "手动",
 			"sectionAuto": "自动生成",
 			"saveMode": {"heading": "保存方式", "sidecar": "与视频同位置", "embed": "嵌入到视频", "subfolder": "subtitles/ 子文件夹"},
@@ -333,7 +328,17 @@
 			"cat": {"sponsor": "赞助商", "intro": "片头", "outro": "片尾", "selfpromo": "自我宣传", "music_offtopic": "与音乐无关", "preview": "预览", "filler": "填充内容"}
 		},
 		"formats": {
-			"quickPresets": "快速预设",
+			"kind": {"label": "下载内容", "video": "视频", "audio": "音频", "subtitles": "仅字幕"},
+			"profile": {"preselected": "预选自", "tag": "配置", "closestTag": "最接近配置", "switchTitle": "切换配置？", "switchBody": "你对本次下载所做的更改将被所选配置的设置替换。", "switchAction": "切换"},
+			"fit": {
+				"tierBelow": "配置要求 {{wanted}}p，但此视频最高只有 {{picked}}p，已选择 {{picked}}p。",
+				"tierAbove": "配置要求 {{wanted}}p，但此视频没有这么低的画质，已选择 {{picked}}p。",
+				"mp4Unavailable": "配置要求 MP4（H.264），但此视频不提供，已选择最接近的流。",
+				"noVideo": "此链接没有视频，已选择音频。",
+				"subtitlesMissing": "配置要求 {{languages}} 字幕，但此视频没有。"
+			},
+			"summary": {"lead": "{{profile}} 的其他设置：", "subtitlesOff": "字幕已关闭", "subtitlesAdd_one": "有 {{count}} 种语言可用，添加", "subtitlesAdd_other": "有 {{count}} 种语言可用，添加", "reviewAll": "查看全部"},
+			"footer": {"reviewOptions": "查看与选项", "download": "下载", "moreActions": "更多下载选项", "addToQueue": "加入队列但不开始", "subtitlesRequired": "请至少选择一种字幕语言。"},
 			"video": "视频",
 			"audio": "音频",
 			"noAudio": "无音频",
@@ -341,8 +346,6 @@
 			"keepAudio": "保持原样",
 			"keepAudioMeta": "内置音频",
 			"audioOnly": "仅音频",
-			"audioOnlyOption": "仅音频(无视频)",
-			"mascot": "最佳画质 + 最佳音质 = 最高质量。我会选这个!",
 			"sniffing": "正在为你寻找最佳格式…",
 			"loadingHint": "请等待探测完成，播放列表和搜索可能需要一些时间。",
 			"loadingAria": "正在加载格式",
@@ -351,7 +354,7 @@
 			"skipToConfirm": "跳至确认",
 			"skipToConfirmTooltip": "使用您保存的偏好设置完成所有剩余步骤。若要更改某项设置，请逐步继续操作——您的选择将在下次保存。",
 			"quality": {"high": "高质量", "medium": "中等质量", "low": "低质量"},
-			"convert": {"label": "转换", "uncompressed": "转换 · 无损", "bitrate": "比特率", "wavLabel": "WAV (uncompressed)", "lossyLabel": "{{target}} {{bitrate}} kbps", "requiresAudioOnly": "音频转换需要仅音频模式（取消选择视频选项）。", "requiresLossy": "已选择原生流——比特率仅在转换为 mp3、m4a 或 opus 时适用。"},
+			"convert": {"label": "转换", "uncompressed": "转换 · 无损", "bitrate": "比特率", "wavLabel": "WAV (uncompressed)", "lossyLabel": "{{target}} {{bitrate}} kbps", "requiresLossy": "已选择原生流——比特率仅在转换为 mp3、m4a 或 opus 时适用。"},
 			"botWall": {
 				"heading": "YouTube 限制了本次探测",
 				"bodyUnconfigured": "格式列表可能不完整。请在高级设置中配置 cookies，或更换网络后重试。",
@@ -397,6 +400,20 @@
 			"writeDescription": {"label": "保存描述", "description": "将视频描述保存为 .description 文本文件，放在下载文件旁边。"},
 			"writeThumbnail": {"label": "保存缩略图", "description": "将缩略图保存为 .jpg 图片文件，放在下载文件旁边。"},
 			"writeM3u": {"label": "生成 .m3u 播放列表文件", "description": "在视频旁保存 .m3u 播放列表，以便播放器按顺序打开。"}
+		},
+		"review": {
+			"changeFormat": "更改格式",
+			"rowsHeading": "其他设置",
+			"rows": {"subtitles": "字幕", "sponsorBlock": "SponsorBlock", "extras": "附加项", "saveTo": "保存位置", "fileName": "文件名"},
+			"value": {"subtitlesOff": "关闭", "sponsorBlockOff": "关闭", "extrasNone": "无"},
+			"done": "完成",
+			"changed": "与 {{profile}} 相比有更改：{{areas}}。仅应用于本次下载。",
+			"areas": {"format": "格式", "subtitles": "字幕", "sponsorBlock": "SponsorBlock", "extras": "附加项", "saveTo": "文件夹", "fileName": "文件名"},
+			"saveAsProfile": "另存为配置…",
+			"reset": "重置",
+			"save": {"title": "另存为配置", "description": "将这些设置保存为配置，下次可直接选择。快速下载配置保持不变。", "nameLabel": "配置名称", "action": "保存配置", "saved": "已保存为配置“{{name}}”", "failed": "无法保存配置。"},
+			"fileNameHint": "可用标记：{title}、{id}、{uploader}、{date}、{resolution}。扩展名会自动添加。",
+			"nextTime": {"title": "本次下载使用了编辑后的设置。下次继续使用吗？", "action": "另存为配置", "defaultName": "{{profile}}（已编辑）"}
 		},
 		"confirm": {
 			"readyHeadline": "已经准备好下载!",
@@ -663,13 +680,6 @@
 			"loginRequired": "此视频需要已登录的账号。",
 			"unknown": "下载失败。请查看下方的原始输出。"
 		}
-	},
-	"presets": {
-		"best-quality": {"label": "最佳画质", "desc": "最高分辨率 + 最佳音频"},
-		"balanced": {"label": "均衡", "desc": "720p 上限 + 优质音频"},
-		"audio-only": {"label": "仅音频", "desc": "不下载视频,只要最佳音频"},
-		"small-file": {"label": "小文件", "desc": "最低分辨率 + 低音质"},
-		"subtitle-only": {"label": "仅字幕", "desc": "无视频无音频，仅字幕"}
 	},
 	"playlistPresets": {
 		"type": {"video": "Video", "audio": "Audio", "subtitles": "字幕"},

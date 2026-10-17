@@ -23,7 +23,6 @@ import type {
 	PlaylistScope,
 	PlaylistSelection,
 	PlaylistSortMode,
-	Preset,
 	ProbeError,
 	ProbePlaylistMode,
 	ProbeProgressEvent,
@@ -48,7 +47,9 @@ import type {
 	WizardStepName
 } from '@shared/types.js'
 import type {Result} from '@shared/result.js'
-import type {AudioSelection} from '@shared/schemas.js'
+import type {AudioSelection, WizardMediaKind} from '@shared/schemas.js'
+import type {FitNotice} from '@shared/profileSelection.js'
+import type {ReviewRow, WizardSettingsSnapshot} from './wizard/profileApplication.js'
 import type {IncompleteCookiesConfigIssue} from '@shared/cookiesConfig.js'
 import type {QuickDownloadFailure} from './wizard/quickDownloadFeedback.js'
 export type {AudioSelection}
@@ -154,6 +155,8 @@ export interface ProbeOrchestratorSlice {
 	// another Review) and every exit (Back home, Start over, cookie settings,
 	// Explore sign-in) clear it and leave the row waiting.
 	reviewSourceRowId: string | null
+	// The single-video Review row that is open (one at a time), if any.
+	wizardReviewRow: ReviewRow | null
 
 	// videoIds matched on disk by the last folder scan
 	syncedDownloadedIds: string[]
@@ -192,8 +195,12 @@ export interface ProbeOrchestratorSlice {
 	applyFolderSync: () => void
 	advance: () => void
 	back: () => void
-	skipSubtitles: () => void
 	skipToConfirm: () => void
+	// Jumps to a visible step the user has already passed (the stepper).
+	goToStep: (step: WizardStep) => void
+	// Single video: goes to Review, optionally with one row open.
+	openReview: (row: ReviewRow | null) => void
+	setWizardReviewRow: (row: ReviewRow | null) => void
 	reset: () => void
 	retry: () => Promise<void>
 	retryFormatProbe: () => Promise<void>
@@ -237,7 +244,8 @@ export type InAppQuickDownloadEntry = 'url-tab' | 'explore' | 'downloads'
 // A needs-choice row's answers: all of the collection, the first N loaded, or the wizard's review.
 export type QuickDownloadRowAnswer = 'all' | 'first' | 'review'
 
-// FormatPicker — formats / audio / subtitles / preset state, post-probe.
+// FormatPicker — formats / audio / subtitles state, post-probe, plus the
+// download profile a single-video run starts from.
 export interface FormatPickerSlice {
 	wizardFormats: FormatOption[]
 	selectedVideoFormatId: string
@@ -245,22 +253,35 @@ export interface FormatPickerSlice {
 	// Preserves the user's bitrate choice when toggling between mp3/m4a/opus
 	// rows or away to wav and back. Default 192 (industry standard MP3).
 	lastConvertBitrate: AudioBitrate
-	// May be set IMPLICITLY when video='' (see setSelectedVideoFormatId).
-	// Don't treat it as "the preset the user explicitly clicked."
-	activePreset: Preset | null
+	// The Format screen's Video / Audio / Subtitles switch.
+	wizardMediaKind: WizardMediaKind
 	wizardSubtitles: SubtitleMap
 	wizardAutomaticCaptions: SubtitleMap
 	wizardSubtitleLanguages: string[]
-	wizardSubtitleSkipped: boolean
 	wizardSubtitleMode: SubtitleMode
 	wizardSubtitleFormat: SubtitleFormat
+	// Single mode: the profile this run started from, every setting it gave
+	// (the baseline the "changed from profile" diff compares against), and what
+	// of it this video can't honour.
+	wizardProfile: DownloadProfile | null
+	wizardProfileBaseline: WizardSettingsSnapshot | null
+	wizardFitNotices: FitNotice[]
+	wizardFilenameTemplate: string
+	wizardIsAudioOnlySource: boolean
 
 	setSelectedVideoFormatId: (id: string) => void
 	setAudioSelection: (sel: AudioSelection) => void
-	setPreset: (p: Preset) => void
+	setWizardMediaKind: (kind: WizardMediaKind) => void
 	toggleSubtitleLanguage: (lang: string) => void
+	clearSubtitleLanguages: () => void
 	setSubtitleMode: (mode: SubtitleMode) => void
 	setSubtitleFormat: (format: SubtitleFormat) => void
+	setWizardFilenameTemplate: (template: string) => void
+	// Re-applies a profile to every setting; edits are dropped.
+	chooseWizardProfile: (ref: DownloadProfileRef) => void
+	resetWizardToProfile: () => void
+	// Saves the current settings as a new profile. Never changes the active one.
+	saveWizardAsProfile: (name: string) => Promise<boolean>
 }
 
 // OutputConfig — output dir / subfolder / SponsorBlock / output artifact flags.

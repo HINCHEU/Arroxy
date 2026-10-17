@@ -4,21 +4,21 @@ import {humanSize} from '@shared/format.js'
 import type {FormatSelectionView} from '../../../store/formatSelectionView.js'
 import {Button} from '../../ui/button.js'
 import {WizardFooter} from '../WizardFooter.js'
+import {SingleDownloadActions} from '../SingleDownloadActions.js'
 
 interface FormatFooterProps {
-	view: Pick<FormatSelectionView, 'mode' | 'selectedFilesize' | 'canContinue'>
+	view: Pick<FormatSelectionView, 'mode' | 'selectedFilesize'>
 	onBack: () => void
-	onContinue: () => void
-	onSkipToConfirm: () => void
+	onReview: () => void
 }
 
-export function FormatFooter({view, onBack, onContinue, onSkipToConfirm}: FormatFooterProps): ReactNode {
+export function FormatFooter({view, onBack, onReview}: FormatFooterProps): ReactNode {
 	const {t} = useTranslation()
 	return (
 		<WizardFooter
 			info={
 				view.mode === 'subtitle-only' ? (
-					t('presets.subtitle-only.label')
+					t('wizard.formats.kind.subtitles')
 				) : view.selectedFilesize ? (
 					<>
 						{t('wizard.formats.total')} <span className="text-headline font-bold text-primary">~{humanSize(view.selectedFilesize)}</span>
@@ -30,15 +30,13 @@ export function FormatFooter({view, onBack, onContinue, onSkipToConfirm}: Format
 				)
 			}
 		>
-			<Button variant="outline" type="button" onClick={onBack}>
+			<Button variant="outline" type="button" onClick={onBack} data-testid="btn-back">
 				{t('common.back')}
 			</Button>
-			<Button variant="outline" type="button" onClick={onSkipToConfirm} title={t('wizard.formats.skipToConfirmTooltip')}>
-				{t('wizard.formats.skipToConfirm')}
+			<Button variant="outline" type="button" onClick={onReview} data-testid="btn-review-options">
+				{t('wizard.formats.footer.reviewOptions')}
 			</Button>
-			<Button variant="glow" type="button" onClick={onContinue} disabled={!view.canContinue}>
-				{t('common.continue')}
-			</Button>
+			<SingleDownloadActions />
 		</WizardFooter>
 	)
 }

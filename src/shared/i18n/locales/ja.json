@@ -49,7 +49,7 @@
 	"theme": {"light": "ライトモード", "dark": "ダークモード", "system": "システム設定に従う"},
 	"language": {"label": "言語"},
 	"wizard": {
-		"steps": {"url": "URL", "playlistItems": "プレイリスト", "playlistItemsGeneric": "動画", "playlistPresets": "画質", "playlistProfiles": "プロファイル", "formats": "形式", "subtitles": "字幕", "sponsorblock": "SponsorBlock", "output": "出力", "folder": "保存先", "confirm": "確認"},
+		"steps": {"url": "URL", "playlistItems": "プレイリスト", "playlistItemsGeneric": "動画", "playlistPresets": "画質", "playlistProfiles": "プロファイル", "formats": "形式", "subtitles": "字幕", "sponsorblock": "SponsorBlock", "output": "出力", "folder": "保存先", "confirm": "確認", "review": "確認"},
 		"playlistPresets": {"heading": "バッチの画質を選択", "subhead": "各動画が選択した画質ティアを独立して解決します — 異なる動画が混在するPlaylistも問題なく処理できます。", "itemCount_one": "{{count}} 件", "itemCount_other": "{{count}} 件"},
 		"playlistProfiles": {
 			"heading": "ダウンロードプロファイルを割り当て",
@@ -330,16 +330,11 @@
 		"subtitles": {
 			"autoBadge": "自動",
 			"noLanguages": "この動画には字幕がありません",
-			"skip": "スキップ",
-			"skipSubs": "この動画ではスキップ",
-			"mascot": "ゼロでも、一つでも、複数でも — お好みで ✨",
 			"searchPlaceholder": "言語を検索…",
 			"noMatches": "言語が見つかりません",
 			"clearAll": "すべて削除",
 			"noSelected": "字幕が選択されていません",
 			"removeLanguage": "{{name}}を削除",
-			"selectedNote_one": "字幕 {{count}} 件をダウンロードします",
-			"selectedNote_other": "字幕 {{count}} 件をダウンロードします",
 			"sectionManual": "手動",
 			"sectionAuto": "自動生成",
 			"saveMode": {"heading": "保存方法", "sidecar": "動画と同じ場所", "embed": "動画に埋め込む", "subfolder": "subtitles/ サブフォルダー"},
@@ -355,7 +350,17 @@
 			"cat": {"sponsor": "スポンサー", "intro": "イントロ", "outro": "アウトロ", "selfpromo": "自己宣伝", "music_offtopic": "音楽（無関係）", "preview": "プレビュー", "filler": "フィラー"}
 		},
 		"formats": {
-			"quickPresets": "クイックプリセット",
+			"kind": {"label": "ダウンロードする内容", "video": "動画", "audio": "音声", "subtitles": "字幕のみ"},
+			"profile": {"preselected": "事前選択元:", "tag": "プロフィール", "closestTag": "プロフィールに最も近い", "switchTitle": "プロフィールを切り替えますか?", "switchBody": "このダウンロードに加えた変更は、選んだプロフィールの設定で置き換えられます。", "switchAction": "切り替え"},
+			"fit": {
+				"tierBelow": "プロフィールでは {{wanted}}p が指定されていますが、この動画は最大 {{picked}}p のため、{{picked}}p を選択しました。",
+				"tierAbove": "プロフィールでは {{wanted}}p が指定されていますが、この動画にはそれより小さいものがないため、{{picked}}p を選択しました。",
+				"mp4Unavailable": "プロフィールでは MP4（H.264）が指定されていますが、この動画にはありません。最も近いストリームを選択しました。",
+				"noVideo": "このリンクには映像がないため、音声を選択しました。",
+				"subtitlesMissing": "プロフィールでは {{languages}} の字幕が指定されていますが、この動画にはありません。"
+			},
+			"summary": {"lead": "{{profile}} のその他の設定:", "subtitlesOff": "字幕オフ", "subtitlesAdd_one": "{{count}} 言語から追加できます", "subtitlesAdd_other": "{{count}} 言語から追加できます", "reviewAll": "すべて確認"},
+			"footer": {"reviewOptions": "確認とオプション", "download": "ダウンロード", "moreActions": "その他のダウンロードオプション", "addToQueue": "開始せずにキューに追加", "subtitlesRequired": "字幕の言語を1つ以上選択してください。"},
 			"video": "動画",
 			"audio": "音声",
 			"noAudio": "音声なし",
@@ -363,8 +368,6 @@
 			"keepAudio": "そのまま保持",
 			"keepAudioMeta": "内蔵音声",
 			"audioOnly": "音声のみ",
-			"audioOnlyOption": "音声のみ (動画なし)",
-			"mascot": "最高 + 最高 = 最高画質。これを選ぶよ!",
 			"sniffing": "あなたに最適な形式を探しています…",
 			"loadingHint": "解析が完了するまでお待ちください。プレイリストや検索には時間がかかる場合があります。",
 			"loadingAria": "形式を読み込み中",
@@ -373,15 +376,7 @@
 			"skipToConfirm": "確認へスキップ",
 			"skipToConfirmTooltip": "残りのすべてのステップに保存済みの設定を使用します。設定を変更するには、ステップごとに進んでください — 選択内容は次回のために保存されます。",
 			"quality": {"high": "高品質", "medium": "中品質", "low": "低品質"},
-			"convert": {
-				"label": "変換",
-				"uncompressed": "変換 · 非圧縮",
-				"bitrate": "ビットレート",
-				"wavLabel": "WAV (uncompressed)",
-				"lossyLabel": "{{target}} {{bitrate}} kbps",
-				"requiresAudioOnly": "音声変換には音声のみモードが必要です（動画の選択を解除してください）。",
-				"requiresLossy": "ネイティブストリームが選択されています — ビットレートは mp3、m4a、または opus に変換する場合にのみ適用されます。"
-			},
+			"convert": {"label": "変換", "uncompressed": "変換 · 非圧縮", "bitrate": "ビットレート", "wavLabel": "WAV (uncompressed)", "lossyLabel": "{{target}} {{bitrate}} kbps", "requiresLossy": "ネイティブストリームが選択されています — ビットレートは mp3、m4a、または opus に変換する場合にのみ適用されます。"},
 			"botWall": {
 				"heading": "YouTubeがこの取得を制限しました",
 				"bodyUnconfigured": "フォーマット一覧が不完全な可能性があります。詳細設定でCookieを設定するか、ネットワークを変えて再試行してください。",
@@ -438,6 +433,27 @@
 			"writeDescription": {"label": "説明を保存", "description": "動画の説明を .description テキストファイルとしてダウンロードの隣に保存します。"},
 			"writeThumbnail": {"label": "サムネイルを保存", "description": "サムネイルを .jpg 画像ファイルとしてダウンロードの隣に保存します。"},
 			"writeM3u": {"label": ".m3u プレイリストファイルを生成", "description": "動画の横に .m3u プレイリストを保存し、メディアプレーヤーで順番に開けるようにします。"}
+		},
+		"review": {
+			"changeFormat": "形式を変更",
+			"rowsHeading": "その他すべて",
+			"rows": {"subtitles": "字幕", "sponsorBlock": "SponsorBlock", "extras": "追加項目", "saveTo": "保存先", "fileName": "ファイル名"},
+			"value": {"subtitlesOff": "オフ", "sponsorBlockOff": "オフ", "extrasNone": "なし"},
+			"done": "完了",
+			"changed": "{{profile}} からの変更: {{areas}}。このダウンロードにのみ適用されます。",
+			"areas": {"format": "形式", "subtitles": "字幕", "sponsorBlock": "SponsorBlock", "extras": "追加項目", "saveTo": "フォルダー", "fileName": "ファイル名"},
+			"saveAsProfile": "プロフィールとして保存…",
+			"reset": "リセット",
+			"save": {
+				"title": "プロフィールとして保存",
+				"description": "この設定を、次回選べるプロフィールとして保存します。クイックダウンロードのプロフィールは変わりません。",
+				"nameLabel": "プロフィール名",
+				"action": "プロフィールを保存",
+				"saved": "プロフィール「{{name}}」として保存しました",
+				"failed": "プロフィールを保存できませんでした。"
+			},
+			"fileNameHint": "使えるトークン: {title}、{id}、{uploader}、{date}、{resolution}。拡張子は自動で付きます。",
+			"nextTime": {"title": "このダウンロードでは編集した設定を使いました。次回も使いますか?", "action": "プロフィールとして保存", "defaultName": "{{profile}}（編集済み）"}
 		},
 		"confirm": {
 			"readyHeadline": "ダウンロード準備完了!",
@@ -714,13 +730,6 @@
 			"loginRequired": "この動画にはサインイン済みのアカウントが必要です。",
 			"unknown": "ダウンロードに失敗しました。下の生の出力を確認してください。"
 		}
-	},
-	"presets": {
-		"best-quality": {"label": "最高画質", "desc": "最高解像度 + 最高音質"},
-		"balanced": {"label": "バランス", "desc": "720p最大 + 良好な音質"},
-		"audio-only": {"label": "音声のみ", "desc": "動画なし、最高音質"},
-		"small-file": {"label": "小サイズ", "desc": "最低解像度 + 低音質"},
-		"subtitle-only": {"label": "字幕のみ", "desc": "動画・音声なし、字幕のみ"}
 	},
 	"playlistPresets": {
 		"type": {"video": "Video", "audio": "Audio", "subtitles": "字幕"},

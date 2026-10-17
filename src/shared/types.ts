@@ -7,7 +7,7 @@ export type {PreparedJob} from './preparedJob.js'
 // (where they're z.enum schemas). Importing from `@shared/types` continues to
 // work for callers that don't care about the schema vs type distinction.
 export type {
-	Preset,
+	WizardMediaKind,
 	PlaylistSelection,
 	PlaylistScope,
 	PlaylistVideoCodec,
@@ -67,14 +67,10 @@ export type {HotkeyAccelerator, HotkeyOutcome, HotkeyOutcomeEvent, HotkeyOutcome
 export type {LocalizedError, YtDlpErrorKind} from './i18n/types.js'
 
 import type {
-	AudioSelection,
 	AudioTrackQuality,
 	CloseBehavior,
 	HotkeyAccelerator,
-	Preset,
 	PlaylistScope,
-	SubtitleMode,
-	SubtitleFormat,
 	SponsorBlockMode,
 	SponsorBlockCategory,
 	SupportedLang,
@@ -182,18 +178,6 @@ export interface BinaryOverrides {
 	ffprobe?: string
 }
 
-// Single-video flow prefs. Restored when the user enters the format-probe path.
-// All fields are `?:` only — see singlePrefsPatchSchema in schemas.ts for why
-// patch shapes never use null (no third state beyond present/absent).
-export interface SinglePrefs {
-	lastPreset?: Preset
-	lastVideoResolution?: string
-	lastAudioSelection?: AudioSelection
-	lastSubtitleLanguages?: string[]
-	lastSubtitleMode?: SubtitleMode
-	lastSubtitleFormat?: SubtitleFormat
-}
-
 // Playlist flow prefs.
 export interface PlaylistPrefs {
 	lastPlaylistSelection?: import('./schemas.js').PlaylistSelection
@@ -201,7 +185,6 @@ export interface PlaylistPrefs {
 
 export interface AppSettings {
 	common: CommonSettings
-	single: SinglePrefs
 	playlist: PlaylistPrefs
 	profiles: DownloadProfilesPrefs
 }
@@ -219,6 +202,8 @@ export interface FormatOption {
 	ext: string
 	resolution: string
 	fps?: number
+	// yt-dlp vcodec (e.g. avc1.640028, vp9, av01…); lets MP4 profiles prefer H.264.
+	videoCodec?: string
 	abr?: number
 	audioCodec?: string
 	isDrc?: boolean
@@ -651,7 +636,7 @@ export interface UpdateAvailablePayload {
 
 export type UpdateInstallResult = {ok: true} | {ok: false; error: string}
 
-export type WizardTransition = 'submitUrl' | 'advance' | 'back' | 'skipSubtitles' | 'skipToConfirm' | 'retry' | 'reset' | 'playlistScopeReloadStart' | 'playlistScopeReloadSuccess' | 'playlistScopeReloadFailure' | 'playlistScopeReloadIgnored'
+export type WizardTransition = 'submitUrl' | 'advance' | 'back' | 'skipToConfirm' | 'retry' | 'reset' | 'playlistScopeReloadStart' | 'playlistScopeReloadSuccess' | 'playlistScopeReloadFailure' | 'playlistScopeReloadIgnored'
 
 export interface WizardStepSnapshot {
 	transition: WizardTransition

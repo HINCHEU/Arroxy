@@ -78,7 +78,6 @@ export function defaultAppSettings(downloadsDir: string): AppSettings {
 			backdropRenderMode: DEFAULTS.backdropRenderMode,
 			nativeAudioPreference: DEFAULTS.nativeAudioPreference
 		},
-		single: {},
 		playlist: {},
 		profiles: {active: {kind: 'builtin', id: 'balanced'}, custom: [], overrides: [], enabledOverrides: {}}
 	}

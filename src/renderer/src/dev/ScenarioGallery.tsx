@@ -176,7 +176,19 @@ export function ScenarioGallery(): ReactNode {
 		void applyScenarioWorkbenchState({
 			scenario,
 			params: {playlistCount: urlParams.playlistCount, probeErrorKind: urlParams.probeErrorKind, probeErrorTarget: urlParams.probeErrorTarget, mockStep: urlParams.mockStep},
-			store: {reset: store.reset, setWizardUrl: store.setWizardUrl, submitUrl: store.submitUrl, quickDownload: store.quickDownload, showQueueItem: store.showQueueItem, retryQuickDownloadRow: store.retryQuickDownloadRow, openExploreSignIn: store.openExploreSignIn, setState: setScenarioState}
+			store: {
+				reset: store.reset,
+				setWizardUrl: store.setWizardUrl,
+				submitUrl: store.submitUrl,
+				quickDownload: store.quickDownload,
+				showQueueItem: store.showQueueItem,
+				retryQuickDownloadRow: store.retryQuickDownloadRow,
+				openExploreSignIn: store.openExploreSignIn,
+				openReview: store.openReview,
+				setWizardMediaKind: store.setWizardMediaKind,
+				getState: useAppStore.getState,
+				setState: setScenarioState
+			}
 		})
 	}, [initialized, scenario, scenario.id, scenario.kind, urlParams.mockStep, urlParams.playlistCount, urlParams.probeErrorKind, urlParams.probeErrorTarget])
 

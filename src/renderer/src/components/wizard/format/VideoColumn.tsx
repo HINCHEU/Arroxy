@@ -6,6 +6,7 @@ import {RadioGroup} from '../../ui/radio-group.js'
 import {ChoiceRow} from '../../shared/ChoiceRow.js'
 import {ScrollArea} from '../../ui/scroll-area.js'
 import {SectionLabel} from '../../shared/SectionLabel.js'
+import {ProfileTag} from './ProfileTag.js'
 
 interface VideoColumnProps {
 	view: FormatSelectionView['video']
@@ -50,7 +51,7 @@ export function VideoColumn({view, selectedVideoFormatId, videoExtFilter, dynami
 				{/* A disabled column shows nothing as chosen, even though the store keeps a selection. */}
 				<RadioGroup value={view.disabled ? null : selectedVideoFormatId} onValueChange={value => onSelect(String(value))} disabled={view.disabled} aria-label={t('wizard.formats.video')} className="gap-1">
 					{view.rows.map(row => (
-						<ChoiceRow key={row.formatId || 'audio-only'} id={`video-format-${row.formatId || 'audio-only'}`} value={row.formatId} label={row.resolution} meta={row.meta} disabled={view.disabled} />
+						<ChoiceRow key={row.formatId} id={`video-format-${row.formatId}`} value={row.formatId} label={row.resolution} tag={row.isProfilePick ? <ProfileTag closest={view.profilePickIsFallback} /> : null} meta={row.meta} disabled={view.disabled} />
 					))}
 				</RadioGroup>
 			</ScrollArea>

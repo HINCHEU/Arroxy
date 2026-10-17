@@ -30,4 +30,4 @@ watchExploreRetryTargets(useAppStore)
 // Re-export pure helpers so existing import paths
 // (`import { foo } from '../store/useAppStore.js'`) keep working without churn
 // in component files.
-export {presetOptions, formatStatus, formatLocalizedError, formatProbeError} from './helpers.js'
+export {formatStatus, formatLocalizedError, formatProbeError} from './helpers.js'
