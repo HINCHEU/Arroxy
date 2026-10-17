@@ -87,6 +87,17 @@ export const notify = {
 		console.error('[dialog] folder selection failed', error)
 		emit('error', i18next.t('notifications.folderSelectFailed'), 'folder-select')
 	},
+	// After a single-video download with edits: keeping them is one click away.
+	offerSaveEdits(onSave: () => void): void {
+		emit('info', i18next.t('wizard.review.nextTime.title'), 'save-edits', [{label: i18next.t('wizard.review.nextTime.action'), onClick: onSave}])
+	},
+	profileSaved(name: string): void {
+		emit('info', i18next.t('wizard.review.save.saved', {name}), 'profile-saved')
+	},
+	profileSaveFailed(error: unknown): void {
+		console.error('[profiles] save failed', error)
+		emit('error', i18next.t('wizard.review.save.failed'), 'profile-saved')
+	},
 	playlistFolderRejected(dir: string): void {
 		console.warn('[playlist] picked folder is not usable as base + subfolder', dir)
 		emit('warning', i18next.t('notifications.playlistFolderRejected'), 'playlist-folder')

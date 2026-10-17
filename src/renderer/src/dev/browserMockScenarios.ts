@@ -11,6 +11,8 @@ import {buildUpdate} from './scenarios/updateScenarios.js'
 import {buildWarmUp} from './scenarios/diagnosticScenarios.js'
 import {buildExploreView, exploreProfilesPatch, exploreSettingsPatch} from './scenarios/exploreScenarios.js'
 import {replaceHash} from '@renderer/lib/navigation.js'
+import {BUILTIN_DOWNLOAD_PROFILES} from '@shared/downloadProfiles.js'
+import {profilePatch} from '../store/wizard/wizardProfileState.js'
 import {notify} from '@renderer/lib/notify.js'
 
 export const BROWSER_MOCK_LAUNCH_MODES = ['ready', 'cold-loading', 'cold-error'] as const
@@ -19,6 +21,9 @@ export type BrowserMockLaunchMode = (typeof BROWSER_MOCK_LAUNCH_MODES)[number]
 export const BROWSER_MOCK_SCENARIO_IDS = [
 	'default',
 	'single-normal',
+	'single-review-subtitles',
+	'single-subtitles-kind',
+	'single-profile-misfit',
 	'playlist-normal',
 	'playlist-loading',
 	'playlist-multi-profile',
@@ -88,12 +93,22 @@ export const BROWSER_MOCK_SCENARIO_IDS = [
 ] as const
 
 export type BrowserMockScenarioId = (typeof BROWSER_MOCK_SCENARIO_IDS)[number]
+
+// The single-video screens that need more than a probe to show.
+function applySingleScenario(id: string, store: ScenarioWorkbenchStore): void {
+	if (id === 'single-review-subtitles') store.openReview('subtitles')
+	if (id === 'single-subtitles-kind') store.setWizardMediaKind('subtitles')
+	if (id === 'single-profile-misfit') {
+		const fullHd = BUILTIN_DOWNLOAD_PROFILES.find(profile => profile.id === 'hd-1080')
+		if (fullHd) store.setState(profilePatch({...fullHd, name: 'Full HD + English subs', subtitles: {...fullHd.subtitles, enabled: true, languages: ['en']}}, store.getState()))
+	}
+}
 export type BrowserMockScenarioGroup = 'General' | 'Playlist' | 'Profiles' | 'Probe Results' | 'Probe Errors' | 'Dialogs' | 'Updates' | 'Queue' | 'Diagnostics' | 'Explore'
 type ScenarioKind = 'default' | 'probe' | 'bulk' | 'profile' | 'queue' | 'update' | 'diagnostics' | 'dialog' | 'state' | 'explore'
 const PROBE_ERROR_TARGETS = ['wizard', 'quick-download'] as const
 export type ProbeErrorTarget = (typeof PROBE_ERROR_TARGETS)[number]
 
-const SINGLE_NORMAL_MOCK_STEPS = ['formats', 'subtitles', 'sponsorblock', 'output', 'folder', 'confirm'] as const
+const SINGLE_NORMAL_MOCK_STEPS = ['formats', 'confirm'] as const
 const PLAYLIST_NORMAL_MOCK_STEPS = ['playlistItems', 'playlistPresets', 'sponsorblock', 'output', 'folder', 'confirm'] as const
 const BROWSER_MOCK_STEPS = [...new Set([...SINGLE_NORMAL_MOCK_STEPS, ...PLAYLIST_NORMAL_MOCK_STEPS])] as const
 export type BrowserMockStep = (typeof BROWSER_MOCK_STEPS)[number]
@@ -135,6 +150,9 @@ export interface ScenarioWorkbenchStore {
 	showQueueItem: AppState['showQueueItem']
 	retryQuickDownloadRow: AppState['retryQuickDownloadRow']
 	openExploreSignIn: AppState['openExploreSignIn']
+	openReview: AppState['openReview']
+	setWizardMediaKind: AppState['setWizardMediaKind']
+	getState: () => AppState
 	// Scenarios only ever merge plain patches into the store.
 	setState: (patch: Partial<AppState>) => void
 }
@@ -164,7 +182,10 @@ const WIN_COMMON_PATHS = {downloads: 'C:\\Users\\User\\Downloads', videos: 'C:\\
 
 export const BROWSER_MOCK_SCENARIOS: readonly BrowserMockScenario[] = [
 	{id: 'default', group: 'General', title: 'Default app', description: 'Standard mock video flow and clean queue.', kind: 'default'},
-	{id: 'single-normal', group: 'General', title: 'Single video normal', description: 'Screen preset for a YouTube video with formats, subtitles, and SponsorBlock steps.', kind: 'probe'},
+	{id: 'single-normal', group: 'General', title: 'Single video normal', description: 'A YouTube video on the Format screen, pre-selected from the active profile; mockStep=confirm opens the Review.', kind: 'probe'},
+	{id: 'single-review-subtitles', group: 'General', title: 'Review: subtitles row open', description: 'Review screen with the Subtitles row open in place: search, uploaded and auto-generated languages.', kind: 'probe'},
+	{id: 'single-subtitles-kind', group: 'General', title: 'Subtitles only', description: 'Format screen switched to Subtitles: the language picker replaces the stream lists.', kind: 'probe'},
+	{id: 'single-profile-misfit', group: 'General', title: 'Profile does not fit', description: 'A Full HD profile with English subtitles on a 480p video without subtitles: the fit notices and "Closest to profile" pick.', kind: 'probe'},
 	{id: 'playlist-normal', group: 'Playlist', title: 'Playlist normal', description: 'Screen preset for a playlist with thumbnails, durations, and default preset selection.', kind: 'probe'},
 	{id: 'playlist-loading', group: 'Playlist', title: 'Playlist loading scaffold', description: 'Playlist loading state with the final controls and full-width row skeletons visible.', kind: 'state'},
 	{id: 'playlist-multi-profile', group: 'Playlist', title: 'Playlist multi-profile', description: 'Playlist profiles step landing directly, with 17 items already split across the baseline, audio-only, and Full HD 1080p profiles.', kind: 'state'},
@@ -431,6 +452,7 @@ export async function applyScenarioWorkbenchState(input: {scenario: BrowserMockS
 		await store.submitUrl()
 		const targetStep = mockStepForScenario(scenario, params.mockStep)
 		if (targetStep !== null) store.setState({wizardStep: targetStep})
+		applySingleScenario(scenario.id, store)
 		return
 	}
 	if (scenario.kind === 'bulk') {

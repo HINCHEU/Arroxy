@@ -57,7 +57,20 @@
 	"theme": {"light": "Yorug' rejim", "dark": "Qorong'i rejim", "system": "Tizim standart"},
 	"language": {"label": "Til"},
 	"wizard": {
-		"steps": {"url": "URL", "playlistItems": "Ijro roʻyxati", "playlistItemsGeneric": "Videolar", "playlistPresets": "Sifat", "playlistProfiles": "Profillar", "formats": "Format", "subtitles": "Subtitrlar", "sponsorblock": "SponsorBlock", "output": "Chiqish", "folder": "Saqlash", "confirm": "Tasdiqlash"},
+		"steps": {
+			"url": "URL",
+			"playlistItems": "Ijro roʻyxati",
+			"playlistItemsGeneric": "Videolar",
+			"playlistPresets": "Sifat",
+			"playlistProfiles": "Profillar",
+			"formats": "Format",
+			"subtitles": "Subtitrlar",
+			"sponsorblock": "SponsorBlock",
+			"output": "Chiqish",
+			"folder": "Saqlash",
+			"confirm": "Tasdiqlash",
+			"review": "Ko'rib chiqish"
+		},
 		"playlistPresets": {"heading": "Paket uchun sifatni tanlang", "subhead": "Har bir video tanlangan darajani mustaqil ravishda hal qiladi — turli xil playlistlar muammosiz ishlaydi.", "itemCount_one": "{{count}} ta element", "itemCount_other": "{{count}} ta element"},
 		"playlistProfiles": {
 			"heading": "Yuklab olish profillarini belgilash",
@@ -338,16 +351,11 @@
 		"subtitles": {
 			"autoBadge": "Avto",
 			"noLanguages": "Bu video uchun subtitrlar mavjud emas",
-			"skip": "O'tkazib yuborish",
-			"skipSubs": "Bu video uchun o'tkazib yuborish",
-			"mascot": "Nol, bir yoki ko'p tanlang — bu sizga bog'liq ✨",
 			"searchPlaceholder": "Tillarni qidirish…",
 			"noMatches": "Mos til topilmadi",
 			"clearAll": "Hammasini tozalash",
 			"noSelected": "Hech qanday subtitrl tanlanmagan",
 			"removeLanguage": "{{name}}ni olib tashlash",
-			"selectedNote_one": "{{count}} ta subtitrl yuklanadi",
-			"selectedNote_other": "{{count}} ta subtitrl yuklanadi",
 			"sectionManual": "Qo'lda",
 			"sectionAuto": "Avtomatik yaratilgan",
 			"saveMode": {"heading": "Saqlash turi", "sidecar": "Videoning yoniga", "embed": "Videoga joylash", "subfolder": "subtitles/ papkachasi"},
@@ -363,7 +371,17 @@
 			"cat": {"sponsor": "Homiy", "intro": "Kirish", "outro": "Chiqish", "selfpromo": "O'z reklamasi", "music_offtopic": "Mavzudan tashqari musiqa", "preview": "Ko'rib chiqish", "filler": "To'ldiruvchi"}
 		},
 		"formats": {
-			"quickPresets": "Tezkor sozlamalar",
+			"kind": {"label": "Nimani yuklab olish", "video": "Video", "audio": "Audio", "subtitles": "Faqat subtitrlar"},
+			"profile": {"preselected": "Oldindan tanlangan:", "tag": "Profil", "closestTag": "Profilga eng yaqin", "switchTitle": "Profil almashtirilsinmi?", "switchBody": "Ushbu yuklab olish uchun qilgan o'zgarishlaringiz tanlagan profilingiz sozlamalari bilan almashtiriladi.", "switchAction": "Almashtirish"},
+			"fit": {
+				"tierBelow": "Profilingiz {{wanted}}p so'raydi. Bu video faqat {{picked}}p gacha, shuning uchun {{picked}}p tanlandi.",
+				"tierAbove": "Profilingiz {{wanted}}p so'raydi. Bu videoda bunchalik past sifat yo'q, shuning uchun {{picked}}p tanlandi.",
+				"mp4Unavailable": "Profilingiz MP4 (H.264) so'raydi. Bu videoda u yo'q, shuning uchun eng yaqin oqim tanlandi.",
+				"noVideo": "Bu havolada video yo'q, shuning uchun audio tanlandi.",
+				"subtitlesMissing": "Profilingiz quyidagi tillarda subtitr so'raydi: {{languages}}. Bu videoda ular yo'q."
+			},
+			"summary": {"lead": "Shuningdek, {{profile}} profilidan:", "subtitlesOff": "subtitrlar o'chiq", "subtitlesAdd_one": "{{count}} ta til mavjud, qo'shish", "subtitlesAdd_other": "{{count}} ta til mavjud, qo'shish", "reviewAll": "Hammasini ko'rib chiqish"},
+			"footer": {"reviewOptions": "Ko'rib chiqish va sozlamalar", "download": "Yuklab olish", "moreActions": "Yuklab olishning boshqa variantlari", "addToQueue": "Boshlamasdan navbatga qo'shish", "subtitlesRequired": "Kamida bitta subtitr tilini tanlang."},
 			"video": "Video",
 			"audio": "Audio",
 			"noAudio": "Audio yo'q",
@@ -371,8 +389,6 @@
 			"keepAudio": "O'zgartirishsiz saqlash",
 			"keepAudioMeta": "Ichki audio",
 			"audioOnly": "Faqat audio",
-			"audioOnlyOption": "Faqat audio (video yo'q)",
-			"mascot": "Eng yaxshi + Eng yaxshi = maksimal sifat. Men shuni tanlardim!",
 			"sniffing": "Siz uchun eng yaxshi formatlarni qidiryapman…",
 			"loadingHint": "Tekshiruv tugaguncha kuting — pleylistlar va qidiruv natijalari biroz vaqt olishi mumkin.",
 			"loadingAria": "Formatlar yuklanmoqda",
@@ -387,7 +403,6 @@
 				"bitrate": "Bit tezligi",
 				"wavLabel": "WAV (uncompressed)",
 				"lossyLabel": "{{target}} {{bitrate}} kbps",
-				"requiresAudioOnly": "Audio konvertatsiyasi faqat audio rejimini talab qiladi (video tanlovini bekor qiling).",
 				"requiresLossy": "Mahalliy oqim tanlangan — bit tezligi faqat mp3, m4a yoki opus ga konvertatsiya qilishda qo'llaniladi."
 			},
 			"botWall": {
@@ -446,6 +461,27 @@
 			"writeDescription": {"label": "Tavsifni saqlash", "description": "Video tavsifini yuklamaning yoniga .description matn fayli sifatida saqlaydi."},
 			"writeThumbnail": {"label": "Muqovani saqlash", "description": "Muqovani yuklamaning yoniga .jpg rasm fayli sifatida saqlaydi."},
 			"writeM3u": {"label": ".m3u pleylist faylini yaratish", "description": "Videolar media pleerda tartib bilan ochilishi uchun yoniga .m3u pleylistini saqlaydi."}
+		},
+		"review": {
+			"changeFormat": "Formatni o'zgartirish",
+			"rowsHeading": "Qolgan hamma narsa",
+			"rows": {"subtitles": "Subtitrlar", "sponsorBlock": "SponsorBlock", "extras": "Qo'shimchalar", "saveTo": "Saqlash joyi", "fileName": "Fayl nomi"},
+			"value": {"subtitlesOff": "O'chirilgan", "sponsorBlockOff": "O'chirilgan", "extrasNone": "Yo'q"},
+			"done": "Tayyor",
+			"changed": "{{profile}} dan o'zgartirilgan: {{areas}}. Faqat shu yuklab olish uchun amal qiladi.",
+			"areas": {"format": "format", "subtitles": "subtitrlar", "sponsorBlock": "SponsorBlock", "extras": "qo'shimchalar", "saveTo": "papka", "fileName": "fayl nomi"},
+			"saveAsProfile": "Profil sifatida saqlash…",
+			"reset": "Qayta tiklash",
+			"save": {
+				"title": "Profil sifatida saqlash",
+				"description": "Bu sozlamalarni keyingi safar tanlash mumkin bo'lgan profil sifatida saqlaydi. Tez yuklab olish profilingiz o'zgarmaydi.",
+				"nameLabel": "Profil nomi",
+				"action": "Profilni saqlash",
+				"saved": "“{{name}}” profili sifatida saqlandi",
+				"failed": "Profilni saqlab bo'lmadi."
+			},
+			"fileNameHint": "Teglar: {title}, {id}, {uploader}, {date}, {resolution}. Kengaytma avtomatik qo'shiladi.",
+			"nextTime": {"title": "Bu yuklab olishda tahrirlangan sozlamalar ishlatildi. Keyingi safar ham ishlatilsinmi?", "action": "Profil sifatida saqlash", "defaultName": "{{profile}} (tahrirlangan)"}
 		},
 		"confirm": {
 			"readyHeadline": "Yuklab olishga tayyor!",
@@ -717,13 +753,6 @@
 			"loginRequired": "Bu video uchun tizimga kirgan hisob kerak.",
 			"unknown": "Yuklab olish muvaffaqiyatsiz tugadi. Quyidagi xom natijani ko'ring."
 		}
-	},
-	"presets": {
-		"best-quality": {"label": "Eng yuqori sifat", "desc": "Eng yuqori o'lcham + eng yaxshi audio"},
-		"balanced": {"label": "Muvozanatli", "desc": "720p maksimal + yaxshi audio"},
-		"audio-only": {"label": "Faqat audio", "desc": "Video yo'q, eng yaxshi audio"},
-		"small-file": {"label": "Kichik fayl", "desc": "Eng past o'lcham + past audio"},
-		"subtitle-only": {"label": "Faqat subtitrlar", "desc": "Video yo'q, audio yo'q, faqat subtitrlar"}
 	},
 	"playlistPresets": {
 		"type": {"video": "Video", "audio": "Audio", "subtitles": "Subtitrlar"},

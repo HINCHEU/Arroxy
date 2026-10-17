@@ -49,7 +49,20 @@
 	"theme": {"light": "Açık mod", "dark": "Koyu mod", "system": "Sistem varsayılanı"},
 	"language": {"label": "Dil"},
 	"wizard": {
-		"steps": {"url": "URL", "playlistItems": "Oynatma listesi", "playlistItemsGeneric": "Videolar", "playlistPresets": "Kalite", "playlistProfiles": "Profiller", "formats": "Biçim", "subtitles": "Altyazılar", "sponsorblock": "SponsorBlock", "output": "Çıktı", "folder": "Kaydet", "confirm": "Onayla"},
+		"steps": {
+			"url": "URL",
+			"playlistItems": "Oynatma listesi",
+			"playlistItemsGeneric": "Videolar",
+			"playlistPresets": "Kalite",
+			"playlistProfiles": "Profiller",
+			"formats": "Biçim",
+			"subtitles": "Altyazılar",
+			"sponsorblock": "SponsorBlock",
+			"output": "Çıktı",
+			"folder": "Kaydet",
+			"confirm": "Onayla",
+			"review": "Gözden geçir"
+		},
 		"playlistPresets": {"heading": "Toplu indirme için kalite seç", "subhead": "Her video seçilen kalite düzeyini bağımsız çözer — karışık oynatma listeleri sorunsuz çalışır.", "itemCount_one": "{{count}} öğe", "itemCount_other": "{{count}} öğe"},
 		"playlistProfiles": {
 			"heading": "İndirme profillerini ata",
@@ -330,16 +343,11 @@
 		"subtitles": {
 			"autoBadge": "Otomatik",
 			"noLanguages": "Bu video için altyazı yok",
-			"skip": "Atla",
-			"skipSubs": "Bu video için atla",
-			"mascot": "Sıfır, bir veya çok seç — tamamen sana kalmış ✨",
 			"searchPlaceholder": "Dillerde ara…",
 			"noMatches": "Eşleşen dil yok",
 			"clearAll": "Tümünü temizle",
 			"noSelected": "Altyazı seçilmedi",
 			"removeLanguage": "{{name}} kaldır",
-			"selectedNote_one": "{{count}} altyazı indirilecek",
-			"selectedNote_other": "{{count}} altyazı indirilecek",
 			"sectionManual": "Manuel",
 			"sectionAuto": "Otomatik oluşturulan",
 			"saveMode": {"heading": "Kaydetme biçimi", "sidecar": "Videonun yanına", "embed": "Videoya göm", "subfolder": "subtitles/ alt klasörü"},
@@ -355,7 +363,17 @@
 			"cat": {"sponsor": "Sponsor", "intro": "Giriş", "outro": "Çıkış", "selfpromo": "Öz tanıtım", "music_offtopic": "Konu dışı müzik", "preview": "Önizleme", "filler": "Dolgu"}
 		},
 		"formats": {
-			"quickPresets": "Hızlı ön ayarlar",
+			"kind": {"label": "Ne indirilsin", "video": "Video", "audio": "Ses", "subtitles": "Yalnızca altyazılar"},
+			"profile": {"preselected": "Şuradan önceden seçildi:", "tag": "Profil", "closestTag": "Profile en yakın", "switchTitle": "Profil değiştirilsin mi?", "switchBody": "Bu indirmede yaptığınız değişiklikler, seçeceğiniz profilin ayarlarıyla değiştirilecek.", "switchAction": "Değiştir"},
+			"fit": {
+				"tierBelow": "Profiliniz {{wanted}}p istiyor. Bu video en fazla {{picked}}p sunuyor, bu yüzden {{picked}}p seçildi.",
+				"tierAbove": "Profiliniz {{wanted}}p istiyor. Bu videoda bu kadar düşük çözünürlük yok, bu yüzden {{picked}}p seçildi.",
+				"mp4Unavailable": "Profiliniz MP4 (H.264) istiyor. Bu video bunu sunmuyor, bu yüzden en yakın akış seçildi.",
+				"noVideo": "Bu bağlantıda video yok, bu yüzden ses seçildi.",
+				"subtitlesMissing": "Profiliniz şu dillerde altyazı istiyor: {{languages}}. Bu videoda bunlar yok."
+			},
+			"summary": {"lead": "Ayrıca bu profilden ({{profile}}):", "subtitlesOff": "altyazılar kapalı", "subtitlesAdd_one": "{{count}} dil mevcut, ekle", "subtitlesAdd_other": "{{count}} dil mevcut, ekle", "reviewAll": "Tümünü gözden geçir"},
+			"footer": {"reviewOptions": "Gözden geçir ve seçenekler", "download": "İndir", "moreActions": "Diğer indirme seçenekleri", "addToQueue": "Başlatmadan kuyruğa ekle", "subtitlesRequired": "En az bir altyazı dili seçin."},
 			"video": "Video",
 			"audio": "Ses",
 			"noAudio": "Ses yok",
@@ -363,8 +381,6 @@
 			"keepAudio": "Olduğu gibi tut",
 			"keepAudioMeta": "Yerleşik ses",
 			"audioOnly": "Yalnızca ses",
-			"audioOnlyOption": "Yalnızca ses (video yok)",
-			"mascot": "En iyi + En iyi = en yüksek kalite. Ben bunu seçerdim!",
 			"sniffing": "Senin için en iyi biçimler aranıyor…",
 			"loadingHint": "Lütfen denetim bitene kadar bekle — oynatma listeleri ve aramalar biraz sürebilir.",
 			"loadingAria": "Biçimler yükleniyor",
@@ -373,15 +389,7 @@
 			"skipToConfirm": "Onaya atla",
 			"skipToConfirmTooltip": "Kalan tüm adımlar için kayıtlı tercihlerini kullanır. Bir ayarı değiştirmek için adım adım devam et — seçimin bir sonraki sefer için kaydedilir.",
 			"quality": {"high": "Yüksek kalite", "medium": "Orta kalite", "low": "Düşük kalite"},
-			"convert": {
-				"label": "Dönüştür",
-				"uncompressed": "Dönüştür · sıkıştırılmamış",
-				"bitrate": "Bit hızı",
-				"wavLabel": "WAV (sıkıştırılmamış)",
-				"lossyLabel": "{{target}} {{bitrate}} kb/sn",
-				"requiresAudioOnly": "Ses dönüştürme için yalnızca ses modu gerekir (video seçimini kaldır).",
-				"requiresLossy": "Yerel bir akış seçili — bit hızı yalnızca mp3, m4a veya opus’a dönüştürürken uygulanır."
-			},
+			"convert": {"label": "Dönüştür", "uncompressed": "Dönüştür · sıkıştırılmamış", "bitrate": "Bit hızı", "wavLabel": "WAV (sıkıştırılmamış)", "lossyLabel": "{{target}} {{bitrate}} kb/sn", "requiresLossy": "Yerel bir akış seçili — bit hızı yalnızca mp3, m4a veya opus’a dönüştürürken uygulanır."},
 			"botWall": {
 				"heading": "Denetim sınırlandı",
 				"bodyUnconfigured": "Biçim listesi eksik olabilir. Gelişmiş ayarlarda çerezleri kur veya ağı değiştirip tekrar dene.",
@@ -438,6 +446,20 @@
 			"writeDescription": {"label": "Açıklamayı kaydet", "description": "Video açıklamasını indirmenin yanına .description metin dosyası olarak kaydeder."},
 			"writeThumbnail": {"label": "Küçük resmi kaydet", "description": "Küçük resmi indirmenin yanına .jpg görüntü dosyası olarak kaydeder."},
 			"writeM3u": {"label": ".m3u oynatma listesi dosyası oluştur", "description": "Videoların medya oynatıcında sırayla açılması için yanlarına bir .m3u oynatma listesi kaydet."}
+		},
+		"review": {
+			"changeFormat": "Biçimi değiştir",
+			"rowsHeading": "Diğer her şey",
+			"rows": {"subtitles": "Altyazılar", "sponsorBlock": "SponsorBlock", "extras": "Ekstralar", "saveTo": "Şuraya kaydet", "fileName": "Dosya adı"},
+			"value": {"subtitlesOff": "Kapalı", "sponsorBlockOff": "Kapalı", "extrasNone": "Yok"},
+			"done": "Tamam",
+			"changed": "Değişenler ({{profile}} profiline göre): {{areas}}. Yalnızca bu indirme için geçerli.",
+			"areas": {"format": "biçim", "subtitles": "altyazılar", "sponsorBlock": "SponsorBlock", "extras": "ekstralar", "saveTo": "klasör", "fileName": "dosya adı"},
+			"saveAsProfile": "Profil olarak kaydet…",
+			"reset": "Sıfırla",
+			"save": {"title": "Profil olarak kaydet", "description": "Bu ayarları bir dahaki sefere seçebileceğiniz bir profil olarak kaydeder. Hızlı İndirme profiliniz aynı kalır.", "nameLabel": "Profil adı", "action": "Profili kaydet", "saved": "“{{name}}” profili olarak kaydedildi", "failed": "Profil kaydedilemedi."},
+			"fileNameHint": "Değişkenler: {title}, {id}, {uploader}, {date}, {resolution}. Uzantı otomatik eklenir.",
+			"nextTime": {"title": "Bu indirme düzenlenmiş ayarları kullandı. Bir dahaki sefere de kullanılsın mı?", "action": "Profil olarak kaydet", "defaultName": "{{profile}} (düzenlendi)"}
 		},
 		"confirm": {
 			"readyHeadline": "Çekmeye hazır!",
@@ -709,13 +731,6 @@
 			"loginRequired": "Bu video, oturum açılmış bir hesap gerektiriyor.",
 			"unknown": "İndirme başarısız oldu. Aşağıdaki ham çıktıya bak."
 		}
-	},
-	"presets": {
-		"best-quality": {"label": "En iyi kalite", "desc": "En yüksek çözünürlük + en iyi ses"},
-		"balanced": {"label": "Dengeli", "desc": "En fazla 720p + iyi ses"},
-		"audio-only": {"label": "Yalnızca ses", "desc": "Video yok, en iyi ses"},
-		"small-file": {"label": "Küçük dosya", "desc": "En düşük çözünürlük + düşük ses"},
-		"subtitle-only": {"label": "Yalnızca altyazılar", "desc": "Video yok, ses yok, yalnızca altyazılar"}
 	},
 	"playlistPresets": {
 		"type": {"video": "Video", "audio": "Ses", "subtitles": "Altyazılar"},

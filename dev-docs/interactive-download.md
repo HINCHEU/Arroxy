@@ -1,6 +1,6 @@
 # Interactive Download: Format + Review, profile-first, with clips
 
-**Status: decided 2026-10-17, not built.** The single-video Interactive
+**Status: Format + Review built (PR 1); part of video not built yet.** The single-video Interactive
 Download flow goes from up to seven screens to two, starts from a download
 profile instead of the preset strip, and gains "part of video" downloads.
 Workflow context: [download-workflows.md](download-workflows.md). Clip
@@ -66,7 +66,8 @@ URL ─► 1 Format ─► 2 Review
          └─ Download ─┴─ Download / Add to queue
 ```
 
-The stepper shows URL, Format, Review; finished steps are clickable.
+The stepper shows URL, Format, Review. Review's Back and "Change format"
+return to Format.
 Back on Format returns to URL (or to Explore when the run started there).
 Error and loading screens stay as they are.
 
@@ -129,9 +130,8 @@ the profile and the probe, return the selection plus the fit notices.
 - SponsorBlock, embed options, folder, subfolder and filename come straight
   from the profile (`resolveDownloadProfile`, `resolveDownloadProfileOutputDir`).
 - The resolved selection uses concrete format ids, so sizes and the review
-  are exact. Unit tests compare its picks with what the profile's format
-  selector picks for the same fixture formats, so Interactive and Quick
-  Download agree.
+  are exact. A Fixture Product E2E checks that Download from the Format
+  screen fetches the same stream as Quick Download with the same profile.
 
 "Changed from profile" is the diff between the current selection and the
 resolver's output. It drives the Review bar and the after-download toast.

@@ -779,46 +779,6 @@ msgctxt "playlistPresets.videoFormatDesc.mp4"
 msgid "Prefer H.264 video + AAC audio in MP4 when possible"
 msgstr "Перевага H.264 + AAC, контейнер MP4 · наскільки можливо"
 
-msgctxt "presets.audio-only.desc"
-msgid "No video, best audio"
-msgstr "Без відео, найкраще аудіо"
-
-msgctxt "presets.audio-only.label"
-msgid "Audio only"
-msgstr "Тільки аудіо"
-
-msgctxt "presets.balanced.desc"
-msgid "720p max + good audio"
-msgstr "720p макс. + гарне аудіо"
-
-msgctxt "presets.balanced.label"
-msgid "Balanced"
-msgstr "Збалансовано"
-
-msgctxt "presets.best-quality.desc"
-msgid "Highest resolution + best audio"
-msgstr "Максимальна роздільна здатність + найкраще аудіо"
-
-msgctxt "presets.best-quality.label"
-msgid "Best quality"
-msgstr "Найкраща якість"
-
-msgctxt "presets.small-file.desc"
-msgid "Lowest resolution + low audio"
-msgstr "Найнижча роздільна здатність + слабке аудіо"
-
-msgctxt "presets.small-file.label"
-msgid "Small file"
-msgstr "Малий файл"
-
-msgctxt "presets.subtitle-only.desc"
-msgid "No video, no audio, only subtitles"
-msgstr "Без відео та аудіо, лише субтитри"
-
-msgctxt "presets.subtitle-only.label"
-msgid "Subtitles only"
-msgstr "Тільки субтитри"
-
 msgctxt "queue.artifact.companion"
 msgid "Companion"
 msgstr "Супровідний файл"
@@ -1709,10 +1669,6 @@ msgctxt "wizard.formats.audioOnly"
 msgid "Audio only"
 msgstr "Тільки аудіо"
 
-msgctxt "wizard.formats.audioOnlyOption"
-msgid "Audio only (no video)"
-msgstr "Тільки аудіо (без відео)"
-
 msgctxt "wizard.formats.botWall.bodyDisabled"
 msgid "Cookies are configured but turned off. Enable them and retry to get the full list, or change network and retry."
 msgstr "Cookies налаштовані, але вимкнені. Увімкни їх і спробуй ще раз, щоб отримати повний список, або зміни мережу та повтори."
@@ -1752,10 +1708,6 @@ msgstr "Конвертувати"
 msgctxt "wizard.formats.convert.lossyLabel"
 msgid "{{target}} {{bitrate}} kbps"
 msgstr "{{target}} {{bitrate}} kbps"
-
-msgctxt "wizard.formats.convert.requiresAudioOnly"
-msgid "Audio conversion requires audio-only mode (deselect the video pick)."
-msgstr "Конвертація аудіо потребує режиму «Тільки аудіо» (зніміть вибір відео)."
 
 msgctxt "wizard.formats.convert.requiresLossy"
 msgid "A native stream is selected — bitrate only applies when converting to mp3, m4a, or opus."
@@ -1893,6 +1845,46 @@ msgctxt "wizard.formats.cookiesError.otherCookiesCta"
 msgid "Use a cookies file or browser instead…"
 msgstr "Використати файл cookies або браузер…"
 
+msgctxt "wizard.formats.fit.mp4Unavailable"
+msgid "Your profile asks for MP4 (H.264). This video doesn't offer it, so the closest stream is selected."
+msgstr "Ваш профіль запитує MP4 (H.264). У цьому відео його немає, тому вибрано найближчий потік."
+
+msgctxt "wizard.formats.fit.noVideo"
+msgid "This link has no video, so audio is selected."
+msgstr "У цьому посиланні немає відео, тому вибрано аудіо."
+
+msgctxt "wizard.formats.fit.subtitlesMissing"
+msgid "Your profile asks for subtitles in {{languages}}. This video doesn't have them."
+msgstr "Ваш профіль запитує субтитри такими мовами: {{languages}}. У цьому відео їх немає."
+
+msgctxt "wizard.formats.fit.tierAbove"
+msgid "Your profile asks for {{wanted}}p. This video has nothing that small, so {{picked}}p is selected."
+msgstr "Ваш профіль запитує {{wanted}}p. У цьому відео немає такої низької якості, тому вибрано {{picked}}p."
+
+msgctxt "wizard.formats.fit.tierBelow"
+msgid "Your profile asks for {{wanted}}p. This video only goes up to {{picked}}p, so {{picked}}p is selected."
+msgstr "Ваш профіль запитує {{wanted}}p. Це відео доступне лише до {{picked}}p, тому вибрано {{picked}}p."
+
+msgctxt "wizard.formats.footer.addToQueue"
+msgid "Add to queue without starting"
+msgstr "Додати в чергу без запуску"
+
+msgctxt "wizard.formats.footer.download"
+msgid "Download"
+msgstr "Завантажити"
+
+msgctxt "wizard.formats.footer.moreActions"
+msgid "More download options"
+msgstr "Інші параметри завантаження"
+
+msgctxt "wizard.formats.footer.reviewOptions"
+msgid "Review & options"
+msgstr "Перегляд і параметри"
+
+msgctxt "wizard.formats.footer.subtitlesRequired"
+msgid "Choose at least one subtitle language."
+msgstr "Виберіть принаймні одну мову субтитрів."
+
 msgctxt "wizard.formats.keepAudio"
 msgid "Keep as-is"
 msgstr "Залишити як є"
@@ -1900,6 +1892,22 @@ msgstr "Залишити як є"
 msgctxt "wizard.formats.keepAudioMeta"
 msgid "Built-in audio"
 msgstr "Вбудоване аудіо"
+
+msgctxt "wizard.formats.kind.audio"
+msgid "Audio"
+msgstr "Аудіо"
+
+msgctxt "wizard.formats.kind.label"
+msgid "What to download"
+msgstr "Що завантажувати"
+
+msgctxt "wizard.formats.kind.subtitles"
+msgid "Subtitles only"
+msgstr "Тільки субтитри"
+
+msgctxt "wizard.formats.kind.video"
+msgid "Video"
+msgstr "Відео"
 
 msgctxt "wizard.formats.loadingAria"
 msgid "Loading formats"
@@ -1909,13 +1917,33 @@ msgctxt "wizard.formats.loadingHint"
 msgid "Please wait until probing finishes — playlists and searches can take a while."
 msgstr "Зачекайте, поки завершиться перевірка — плейлисти та пошуки можуть зайняти деякий час."
 
-msgctxt "wizard.formats.mascot"
-msgid "Best + Best = max quality. I'd pick that!"
-msgstr "Найкраще + найкраще = максимальна якість. Я б обрав саме це!"
-
 msgctxt "wizard.formats.noAudio"
 msgid "No audio"
 msgstr "Без аудіо"
+
+msgctxt "wizard.formats.profile.closestTag"
+msgid "Closest to profile"
+msgstr "Найближче до профілю"
+
+msgctxt "wizard.formats.profile.preselected"
+msgid "Pre-selected from"
+msgstr "Попередньо вибрано з"
+
+msgctxt "wizard.formats.profile.switchAction"
+msgid "Switch"
+msgstr "Перемкнути"
+
+msgctxt "wizard.formats.profile.switchBody"
+msgid "Your changes to this download will be replaced by the settings of the profile you pick."
+msgstr "Ваші зміни в цьому завантаженні буде замінено налаштуваннями вибраного профілю."
+
+msgctxt "wizard.formats.profile.switchTitle"
+msgid "Switch profile?"
+msgstr "Перемкнути профіль?"
+
+msgctxt "wizard.formats.profile.tag"
+msgid "Profile"
+msgstr "Профіль"
 
 msgctxt "wizard.formats.quality.high"
 msgid "High quality"
@@ -1928,10 +1956,6 @@ msgstr "Низька якість"
 msgctxt "wizard.formats.quality.medium"
 msgid "Medium quality"
 msgstr "Середня якість"
-
-msgctxt "wizard.formats.quickPresets"
-msgid "Quick presets"
-msgstr "Швидкі пресети"
 
 msgctxt "wizard.formats.sizeUnknown"
 msgid "Size unknown"
@@ -1948,6 +1972,26 @@ msgstr "Використовує збережені налаштування д�
 msgctxt "wizard.formats.sniffing"
 msgid "Sniffing out the best formats for you…"
 msgstr "Шукаю для тебе найкращі формати…"
+
+msgctxt "wizard.formats.summary.lead"
+msgid "Also from {{profile}}:"
+msgstr "Також із профілю {{profile}}:"
+
+msgctxt "wizard.formats.summary.reviewAll"
+msgid "Review all"
+msgstr "Переглянути все"
+
+msgctxt "wizard.formats.summary.subtitlesAdd_one"
+msgid "{{count}} language available, add"
+msgstr "Доступна {{count}} мова, додати"
+
+msgctxt "wizard.formats.summary.subtitlesAdd_other"
+msgid "{{count}} languages available, add"
+msgstr "Доступно мов: {{count}}, додати"
+
+msgctxt "wizard.formats.summary.subtitlesOff"
+msgid "subtitles off"
+msgstr "субтитри вимкнено"
 
 msgctxt "wizard.formats.total"
 msgid "Total"
@@ -2745,6 +2789,126 @@ msgctxt "wizard.quickProgress.waitHint"
 msgid "Keep this open while Arroxy prepares the queue."
 msgstr "Залиште це вікно відкритим, поки Arroxy готує чергу."
 
+msgctxt "wizard.review.areas.extras"
+msgid "extras"
+msgstr "додатково"
+
+msgctxt "wizard.review.areas.fileName"
+msgid "file name"
+msgstr "назва файлу"
+
+msgctxt "wizard.review.areas.format"
+msgid "format"
+msgstr "формат"
+
+msgctxt "wizard.review.areas.saveTo"
+msgid "folder"
+msgstr "папка"
+
+msgctxt "wizard.review.areas.sponsorBlock"
+msgid "SponsorBlock"
+msgstr "SponsorBlock"
+
+msgctxt "wizard.review.areas.subtitles"
+msgid "subtitles"
+msgstr "субтитри"
+
+msgctxt "wizard.review.changed"
+msgid "Changed from {{profile}}: {{areas}}. Applies to this download only."
+msgstr "Змінено порівняно з {{profile}}: {{areas}}. Стосується лише цього завантаження."
+
+msgctxt "wizard.review.changeFormat"
+msgid "Change format"
+msgstr "Змінити формат"
+
+msgctxt "wizard.review.done"
+msgid "Done"
+msgstr "Готово"
+
+msgctxt "wizard.review.fileNameHint"
+msgid "Tokens: {title}, {id}, {uploader}, {date}, {resolution}. The extension is added for you."
+msgstr "Шаблони: {title}, {id}, {uploader}, {date}, {resolution}. Розширення додається автоматично."
+
+msgctxt "wizard.review.nextTime.action"
+msgid "Save as profile"
+msgstr "Зберегти як профіль"
+
+msgctxt "wizard.review.nextTime.defaultName"
+msgid "{{profile}} (edited)"
+msgstr "{{profile}} (змінений)"
+
+msgctxt "wizard.review.nextTime.title"
+msgid "This download used edited settings. Use them next time?"
+msgstr "Це завантаження використало змінені налаштування. Використати їх наступного разу?"
+
+msgctxt "wizard.review.reset"
+msgid "Reset"
+msgstr "Скинути"
+
+msgctxt "wizard.review.rows.extras"
+msgid "Extras"
+msgstr "Додатково"
+
+msgctxt "wizard.review.rows.fileName"
+msgid "File name"
+msgstr "Назва файлу"
+
+msgctxt "wizard.review.rows.saveTo"
+msgid "Save to"
+msgstr "Зберегти у"
+
+msgctxt "wizard.review.rows.sponsorBlock"
+msgid "SponsorBlock"
+msgstr "SponsorBlock"
+
+msgctxt "wizard.review.rows.subtitles"
+msgid "Subtitles"
+msgstr "Субтитри"
+
+msgctxt "wizard.review.rowsHeading"
+msgid "Everything else"
+msgstr "Решта налаштувань"
+
+msgctxt "wizard.review.save.action"
+msgid "Save profile"
+msgstr "Зберегти профіль"
+
+msgctxt "wizard.review.save.description"
+msgid "Keeps these settings as a profile you can pick next time. Your Quick Download profile stays the same."
+msgstr "Зберігає ці налаштування як профіль, який можна вибрати наступного разу. Ваш профіль «Швидке завантаження» не зміниться."
+
+msgctxt "wizard.review.save.failed"
+msgid "Couldn't save the profile."
+msgstr "Не вдалося зберегти профіль."
+
+msgctxt "wizard.review.save.nameLabel"
+msgid "Profile name"
+msgstr "Назва профілю"
+
+msgctxt "wizard.review.save.saved"
+msgid "Saved as profile “{{name}}”"
+msgstr "Збережено як профіль «{{name}}»"
+
+msgctxt "wizard.review.save.title"
+msgid "Save as profile"
+msgstr "Зберегти як профіль"
+
+msgctxt "wizard.review.saveAsProfile"
+msgid "Save as profile…"
+msgstr "Зберегти як профіль…"
+
+msgctxt "wizard.review.value.extrasNone"
+msgid "None"
+msgstr "Немає"
+
+msgctxt "wizard.review.value.sponsorBlockOff"
+msgid "Off"
+msgstr "Вимкнено"
+
+msgctxt "wizard.review.value.subtitlesOff"
+msgid "Off"
+msgstr "Вимкнено"
+
 msgctxt "wizard.sponsorblock.cat.filler"
 msgid "Filler"
 msgstr "Заповнювач"
@@ -2837,6 +3001,10 @@ msgctxt "wizard.steps.playlistProfiles"
 msgid "Profiles"
 msgstr "Профілі"
 
+msgctxt "wizard.steps.review"
+msgid "Review"
+msgstr "Перегляд"
+
 msgctxt "wizard.steps.sponsorblock"
 msgid "SponsorBlock"
 msgstr "SponsorBlock"
@@ -2868,10 +3036,6 @@ msgstr "Режим вбудовування зберігає файл як .mkv,
 msgctxt "wizard.subtitles.format.heading"
 msgid "Format"
 msgstr "Format"
-
-msgctxt "wizard.subtitles.mascot"
-msgid "Pick zero, one, or many — totally up to you ✨"
-msgstr "Нуль, одну або кілька мов — вирішуй сам ✨"
 
 msgctxt "wizard.subtitles.noLanguages"
 msgid "No subtitles available for this video"
@@ -2916,22 +3080,6 @@ msgstr "Автоматичні"
 msgctxt "wizard.subtitles.sectionManual"
 msgid "Manual"
 msgstr "Ручні"
-
-msgctxt "wizard.subtitles.selectedNote_one"
-msgid "{{count}} subtitle will be downloaded"
-msgstr "Буде завантажено {{count}} субтитр"
-
-msgctxt "wizard.subtitles.selectedNote_other"
-msgid "{{count}} subtitles will be downloaded"
-msgstr "Буде завантажено субтитрів: {{count}}"
-
-msgctxt "wizard.subtitles.skip"
-msgid "Skip"
-msgstr "Пропустити"
-
-msgctxt "wizard.subtitles.skipSubs"
-msgid "Skip for this video"
-msgstr "Пропустити для цього відео"
 
 msgctxt "wizard.tabsNavAria"
 msgid "Download profile navigation"

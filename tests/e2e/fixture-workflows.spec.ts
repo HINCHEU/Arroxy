@@ -5,7 +5,7 @@ import {BUILTIN_DOWNLOAD_PROFILES} from '../../src/shared/downloadProfiles.js'
 import type {AppSettings} from '../../src/shared/types.js'
 import {AWKWARD_TITLE_VIDEO_ID, FIXTURE_OVERLAP_PLAYLIST_TITLE, FIXTURE_OVERLAP_PLAYLIST_VIDEO_IDS, FIXTURE_PLAYLIST_VIDEO_IDS, FIXTURE_REPEATED_PLAYLIST_TITLE, FIXTURE_REPEATED_PLAYLIST_UNIQUE_VIDEO_IDS, FIXTURE_REPEATED_PLAYLIST_VIDEO_IDS, FIXTURE_VIDEO_IDS} from './fixtureHarness.js'
 import {withFixtureProductApp} from './fixtureProductE2E.js'
-import {clickContinue, openQueueTab, preparePlaylistConfirm, prepareSingleConfirm, startBulkFromClipboard} from './fixtureWorkflow.js'
+import {clickContinue, openQueueTab, preparePlaylistConfirm, prepareSingleReview, startBulkFromClipboard} from './fixtureWorkflow.js'
 
 // Parallel-safe: every test allocates its own temp dirs and ephemeral ports,
 // the shared runtime cache is warmed once in globalSetup, and clipboard
@@ -61,6 +61,59 @@ test('Electron quick download applies the active Download Profile to a fixture v
 			expect(mediaRequest).toMatchObject({kind: 'media', videoId, formatId: '18', status: 200})
 		}
 	)
+})
+
+// Risk: Interactive Download drifts from Quick Download. Pressing Download on
+// the Format screen without changes must fetch exactly what the same profile's
+// Quick Download fetches (format 18 above), into the profile's folder.
+test('Electron Interactive Download from the Format screen matches the profile Quick Download', async () => {
+	test.setTimeout(140_000)
+	const videoId = FIXTURE_VIDEO_IDS[7]
+
+	await withFixtureProductApp({userDataPrefix: 'arroxy-fixture-format-download-user-', outputPrefix: 'arroxy-fixture-format-download-out-', settings: configureSmallFileQuickProfile}, async ({page, outputDir, fixtureServer, urls, queue, files}) => {
+		await page.locator('[data-testid="profiles-main-input"]').fill(urls.video(videoId))
+		await page.locator('[data-testid="profiles-interactive-download"]').click()
+		await expect(page.locator('[data-testid="step-formats"]')).toBeVisible({timeout: 60_000})
+		await expect(page.locator('[data-testid="wizard-profile-trigger"]')).toContainText('Small file 480p')
+		await expect(page.locator('[data-testid="profile-pick-tag"]').first()).toBeVisible()
+		await page.locator('[data-testid="btn-download"]').click()
+		await queue.expectStatus('Fixture Video 8', 'done', 120_000)
+
+		files.expectMp4Count(1, smallFileProfileDir(outputDir))
+		const mediaRequest = fixtureServer.telemetry().requests.find(request => request.kind === 'media' && request.videoId === videoId && request.status === 200)
+		expect(mediaRequest).toMatchObject({kind: 'media', videoId, formatId: '18', status: 200})
+	})
+})
+
+// Risk: edits on Review leak into later downloads, or "Save as profile" loses
+// them. A file-name edit applies to this download, and saving it creates a new
+// profile without changing the active one.
+test('Electron Review edits apply to one download and can be saved as a profile', async () => {
+	test.setTimeout(160_000)
+	const videoId = FIXTURE_VIDEO_IDS[6]
+
+	await withFixtureProductApp({userDataPrefix: 'arroxy-fixture-review-save-user-', outputPrefix: 'arroxy-fixture-review-save-out-'}, async ({page, userDataDir, queue, files}) => {
+		await prepareSingleReview(page, videoId)
+		await page.locator('[data-testid="review-row-fileName-toggle"]').click()
+		await page.locator('[data-testid="review-filename-input"]').fill('{title} edited')
+		await page.locator('[data-testid="review-row-fileName-done"]').click()
+		await expect(page.locator('[data-testid="review-changed-bar"]')).toContainText('file name')
+
+		await page.locator('[data-testid="review-save-as-profile"]').click()
+		await page.locator('[data-testid="save-as-profile-name"]').fill('Fixture edited')
+		await page.locator('[data-testid="save-as-profile-confirm"]').click()
+		await expect(page.locator('[data-testid="save-as-profile-dialog"]')).toBeHidden()
+		await expect(page.locator('[data-testid="review-changed-bar"]')).toBeHidden()
+
+		await page.locator('[data-testid="btn-download"]').click()
+		await queue.expectStatus('Fixture Video 7', 'done', 120_000)
+		await expect.poll(() => files.mediaFiles('mp4').map(file => path.basename(file))).toEqual(['Fixture Video 7 edited.mp4'])
+
+		const settings = JSON.parse(fs.readFileSync(path.join(userDataDir, 'settings.json'), 'utf8')) as AppSettings
+		expect(settings.profiles.custom.map(profile => profile.name)).toContain('Fixture edited')
+		expect(settings.profiles.custom.find(profile => profile.name === 'Fixture edited')?.filename).toEqual({kind: 'custom', template: '{title} edited'})
+		expect(settings.profiles.active).toEqual({kind: 'builtin', id: 'balanced'})
+	})
 })
 
 test('Electron Quick Download playlist queues entries and writes an ordered M3U', async () => {
@@ -182,29 +235,18 @@ test('Electron full single-video wizard completes media and sidecar subtitles', 
 	test.setTimeout(180_000)
 	const videoId = FIXTURE_VIDEO_IDS[8]
 
-	await withFixtureProductApp(
-		{
-			userDataPrefix: 'arroxy-fixture-full-single-user-',
-			outputPrefix: 'arroxy-fixture-full-single-out-',
-			settings: settings => {
-				settings.single.lastSubtitleLanguages = ['en']
-				settings.single.lastSubtitleMode = 'sidecar'
-				settings.single.lastSubtitleFormat = 'srt'
-			}
-		},
-		async ({page, fixtureServer, queue, files}) => {
-			await prepareSingleConfirm(page, videoId, 'continue')
-			await page.locator('[data-testid="btn-download-now"]').click()
-			await queue.expectStatus('Fixture Video 9', 'done', 140_000)
+	await withFixtureProductApp({userDataPrefix: 'arroxy-fixture-full-single-user-', outputPrefix: 'arroxy-fixture-full-single-out-'}, async ({page, fixtureServer, queue, files}) => {
+		await prepareSingleReview(page, videoId, 'english')
+		await page.locator('[data-testid="btn-download"]').click()
+		await queue.expectStatus('Fixture Video 9', 'done', 140_000)
 
-			files.expectMp4Count(1)
-			const subtitleFiles = files.mediaFiles('.en.srt')
-			expect(subtitleFiles).toHaveLength(1)
-			expect(fs.readFileSync(subtitleFiles[0], 'utf8')).toContain(`Fixture subtitle for ${videoId}`)
-			const subtitleRequest = fixtureServer.telemetry().requests.find(request => request.kind === 'subtitle' && request.videoId === videoId && request.status === 200)
-			expect(subtitleRequest).toBeTruthy()
-		}
-	)
+		files.expectMp4Count(1)
+		const subtitleFiles = files.mediaFiles('.en.srt')
+		expect(subtitleFiles).toHaveLength(1)
+		expect(fs.readFileSync(subtitleFiles[0], 'utf8')).toContain(`Fixture subtitle for ${videoId}`)
+		const subtitleRequest = fixtureServer.telemetry().requests.find(request => request.kind === 'subtitle' && request.videoId === videoId && request.status === 200)
+		expect(subtitleRequest).toBeTruthy()
+	})
 })
 
 test('Electron true playlist URL queues entries and writes an ordered M3U', async () => {

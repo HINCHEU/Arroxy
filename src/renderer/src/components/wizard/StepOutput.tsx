@@ -7,9 +7,11 @@ import {Separator} from '../ui/separator.js'
 import {SettingSwitch} from '../shared/SettingSwitch.js'
 import {WizardStepFooterActions} from './WizardStepFooterActions.js'
 
-export function StepOutput(): ReactNode {
+// The embed and sidecar switches: the batch wizard's Output step and the
+// single-video Review's Extras row.
+export function OutputFields(): ReactNode {
 	const {t} = useTranslation()
-	const {wizardMode, wizardEmbedChapters, wizardEmbedMetadata, wizardEmbedThumbnail, wizardWriteDescription, wizardWriteThumbnail, wizardWriteM3u, playlistSelection, setEmbedChapters, setEmbedMetadata, setEmbedThumbnail, setWriteDescription, setWriteThumbnail, setWriteM3u, advance, back, settings} = useAppStore()
+	const {wizardMode, wizardEmbedChapters, wizardEmbedMetadata, wizardEmbedThumbnail, wizardWriteDescription, wizardWriteThumbnail, wizardWriteM3u, playlistSelection, setEmbedChapters, setEmbedMetadata, setEmbedThumbnail, setWriteDescription, setWriteThumbnail, setWriteM3u, settings} = useAppStore()
 	// Playlist files are located by matching `[videoId]`; without {id} in the
 	// filename template an M3U would list names that never appear on disk.
 	// Gated on both reasons M3U can be impossible: no {id} to match files by, and
@@ -22,7 +24,7 @@ export function StepOutput(): ReactNode {
 	const showEmbedThumbnail = batchIntent === null || canEmbedThumbnail(mediaIntentSpec(batchIntent))
 
 	return (
-		<div className="wizard-step flex flex-col gap-1.5" data-testid="step-output">
+		<div className="flex flex-col gap-1.5">
 			<div className="flex flex-col gap-3 py-1">
 				<SettingSwitch id="output-embed-chapters" label={t('wizard.output.embedChapters.label')} description={t('wizard.output.embedChapters.description')} checked={wizardEmbedChapters} onCheckedChange={setEmbedChapters} testId="embed-chapters-toggle" />
 				<SettingSwitch id="output-embed-metadata" label={t('wizard.output.embedMetadata.label')} description={t('wizard.output.embedMetadata.description')} checked={wizardEmbedMetadata} onCheckedChange={setEmbedMetadata} testId="embed-metadata-toggle" />
@@ -44,7 +46,15 @@ export function StepOutput(): ReactNode {
 					</div>
 				</>
 			)}
+		</div>
+	)
+}
 
+export function StepOutput(): ReactNode {
+	const {advance, back} = useAppStore()
+	return (
+		<div className="wizard-step flex flex-col gap-1.5" data-testid="step-output">
+			<OutputFields />
 			<WizardStepFooterActions onBack={back} onContinue={advance} />
 		</div>
 	)

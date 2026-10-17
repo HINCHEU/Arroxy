@@ -8,7 +8,7 @@ function normalizedCodec(format: Pick<FormatOption, 'audioCodec'>): string {
 	return format.audioCodec?.toLowerCase() ?? ''
 }
 
-export function isDolbyNativeAudio(format: Pick<FormatOption, 'audioCodec'>): boolean {
+function isDolbyNativeAudio(format: Pick<FormatOption, 'audioCodec'>): boolean {
 	return DOLBY_CODECS.has(normalizedCodec(format))
 }
 
@@ -20,7 +20,7 @@ function isAc3NativeAudio(format: Pick<FormatOption, 'audioCodec'>): boolean {
 	return AC3_CODECS.has(normalizedCodec(format))
 }
 
-export function isDrcNativeAudio(format: Pick<FormatOption, 'isDrc'>): boolean {
+function isDrcNativeAudio(format: Pick<FormatOption, 'isDrc'>): boolean {
 	return format.isDrc === true
 }
 

@@ -779,46 +779,6 @@ msgctxt "playlistPresets.videoFormatDesc.mp4"
 msgid "Prefer H.264 video + AAC audio in MP4 when possible"
 msgstr "H.264 + AAC ကို ဦးစားပေး၊ MP4 container · အကောင်းဆုံးကြိုးစားမှု"
 
-msgctxt "presets.audio-only.desc"
-msgid "No video, best audio"
-msgstr "ဗီဒီယိုမပါ၊ အကောင်းဆုံးအသံ"
-
-msgctxt "presets.audio-only.label"
-msgid "Audio only"
-msgstr "အသံသာ"
-
-msgctxt "presets.balanced.desc"
-msgid "720p max + good audio"
-msgstr "720p အများဆုံး + ကောင်းသောအသံ"
-
-msgctxt "presets.balanced.label"
-msgid "Balanced"
-msgstr "မျှတသော"
-
-msgctxt "presets.best-quality.desc"
-msgid "Highest resolution + best audio"
-msgstr "အမြင့်ဆုံး resolution + အကောင်းဆုံးအသံ"
-
-msgctxt "presets.best-quality.label"
-msgid "Best quality"
-msgstr "အကောင်းဆုံးအရည်အသွေး"
-
-msgctxt "presets.small-file.desc"
-msgid "Lowest resolution + low audio"
-msgstr "အနိမ့်ဆုံး resolution + နိမ့်သောအသံ"
-
-msgctxt "presets.small-file.label"
-msgid "Small file"
-msgstr "ဖိုင်သေးသေး"
-
-msgctxt "presets.subtitle-only.desc"
-msgid "No video, no audio, only subtitles"
-msgstr "ဗီဒီယိုမပါ၊ အသံမပါ၊ စာတန်းထိုးသာ"
-
-msgctxt "presets.subtitle-only.label"
-msgid "Subtitles only"
-msgstr "စာတန်းထိုးသာ"
-
 msgctxt "queue.artifact.companion"
 msgid "Companion"
 msgstr "တွဲဖိုင်"
@@ -1709,10 +1669,6 @@ msgctxt "wizard.formats.audioOnly"
 msgid "Audio only"
 msgstr "အသံသာ"
 
-msgctxt "wizard.formats.audioOnlyOption"
-msgid "Audio only (no video)"
-msgstr "အသံသာ (ဗီဒီယိုမပါ)"
-
 msgctxt "wizard.formats.botWall.bodyDisabled"
 msgid "Cookies are configured but turned off. Enable them and retry to get the full list, or change network and retry."
 msgstr "Cookies တပ်ဆင်ထားသော်လည်း ပိတ်ထားသည်။ ပြည့်စုံသောစာရင်းရရှိရန် ဖွင့်ပြီး ထပ်ကြိုးစားပါ၊ သို့မဟုတ် network ပြောင်းပြီး ထပ်ကြိုးစားပါ။"
@@ -1752,10 +1708,6 @@ msgstr "ပြောင်းရန်"
 msgctxt "wizard.formats.convert.lossyLabel"
 msgid "{{target}} {{bitrate}} kbps"
 msgstr "{{target}} {{bitrate}} kbps"
-
-msgctxt "wizard.formats.convert.requiresAudioOnly"
-msgid "Audio conversion requires audio-only mode (deselect the video pick)."
-msgstr "အသံပြောင်းလဲမှုအတွက် အသံသာမုဒ် လိုအပ်သည် (ဗီဒီယိုရွေးချယ်မှုကို ဖြုတ်ပါ)။"
 
 msgctxt "wizard.formats.convert.requiresLossy"
 msgid "A native stream is selected — bitrate only applies when converting to mp3, m4a, or opus."
@@ -1893,6 +1845,46 @@ msgctxt "wizard.formats.cookiesError.otherCookiesCta"
 msgid "Use a cookies file or browser instead…"
 msgstr "၎င်းအစား cookie ဖိုင် သို့မဟုတ် browser ကို သုံးပါ…"
 
+msgctxt "wizard.formats.fit.mp4Unavailable"
+msgid "Your profile asks for MP4 (H.264). This video doesn't offer it, so the closest stream is selected."
+msgstr "သင့်ပရိုဖိုင်က MP4 (H.264) ကို တောင်းဆိုထားသော်လည်း ဤဗီဒီယိုတွင် မရှိသဖြင့် အနီးစပ်ဆုံး စတ်ရီမ်ကို ရွေးထားသည်။"
+
+msgctxt "wizard.formats.fit.noVideo"
+msgid "This link has no video, so audio is selected."
+msgstr "ဤလင့်ခ်တွင် ဗီဒီယို မရှိသဖြင့် အသံကို ရွေးထားသည်။"
+
+msgctxt "wizard.formats.fit.subtitlesMissing"
+msgid "Your profile asks for subtitles in {{languages}}. This video doesn't have them."
+msgstr "သင့်ပရိုဖိုင်က {{languages}} စာတန်းထိုးကို တောင်းဆိုထားသော်လည်း ဤဗီဒီယိုတွင် မရှိပါ။"
+
+msgctxt "wizard.formats.fit.tierAbove"
+msgid "Your profile asks for {{wanted}}p. This video has nothing that small, so {{picked}}p is selected."
+msgstr "သင့်ပရိုဖိုင်က {{wanted}}p ကို တောင်းဆိုထားသော်လည်း ဤဗီဒီယိုတွင် ထိုမျှ နိမ့်သော အရည်အသွေး မရှိသဖြင့် {{picked}}p ကို ရွေးထားသည်။"
+
+msgctxt "wizard.formats.fit.tierBelow"
+msgid "Your profile asks for {{wanted}}p. This video only goes up to {{picked}}p, so {{picked}}p is selected."
+msgstr "သင့်ပရိုဖိုင်က {{wanted}}p ကို တောင်းဆိုထားသော်လည်း ဤဗီဒီယိုသည် {{picked}}p အထိသာ ရှိသဖြင့် {{picked}}p ကို ရွေးထားသည်။"
+
+msgctxt "wizard.formats.footer.addToQueue"
+msgid "Add to queue without starting"
+msgstr "မစတင်ဘဲ တန်းစီစာရင်းထဲ ထည့်ရန်"
+
+msgctxt "wizard.formats.footer.download"
+msgid "Download"
+msgstr "ဒေါင်းလုဒ်"
+
+msgctxt "wizard.formats.footer.moreActions"
+msgid "More download options"
+msgstr "ဒေါင်းလုဒ် ရွေးချယ်စရာများ"
+
+msgctxt "wizard.formats.footer.reviewOptions"
+msgid "Review & options"
+msgstr "စစ်ဆေးရန်နှင့် ရွေးချယ်စရာများ"
+
+msgctxt "wizard.formats.footer.subtitlesRequired"
+msgid "Choose at least one subtitle language."
+msgstr "စာတန်းထိုးဘာသာစကား အနည်းဆုံးတစ်ခု ရွေးပါ။"
+
 msgctxt "wizard.formats.keepAudio"
 msgid "Keep as-is"
 msgstr "မပြောင်းဘဲ ထားမည်"
@@ -1900,6 +1892,22 @@ msgstr "မပြောင်းဘဲ ထားမည်"
 msgctxt "wizard.formats.keepAudioMeta"
 msgid "Built-in audio"
 msgstr "ပါဝင်သောအသံ"
+
+msgctxt "wizard.formats.kind.audio"
+msgid "Audio"
+msgstr "အသံ"
+
+msgctxt "wizard.formats.kind.label"
+msgid "What to download"
+msgstr "ဒေါင်းလုဒ်လုပ်မည့်အရာ"
+
+msgctxt "wizard.formats.kind.subtitles"
+msgid "Subtitles only"
+msgstr "စာတန်းထိုးသာ"
+
+msgctxt "wizard.formats.kind.video"
+msgid "Video"
+msgstr "ဗီဒီယို"
 
 msgctxt "wizard.formats.loadingAria"
 msgid "Loading formats"
@@ -1909,13 +1917,33 @@ msgctxt "wizard.formats.loadingHint"
 msgid "Please wait until probing finishes — playlists and searches can take a while."
 msgstr "စစ်ဆေးမှုပြီးဆုံးသည်အထိ ကျေးဇူးပြု၍ စောင့်ပါ — playlist များနှင့် ရှာဖွေမှုများ အချိန်ယူနိုင်သည်။"
 
-msgctxt "wizard.formats.mascot"
-msgid "Best + Best = max quality. I'd pick that!"
-msgstr "အကောင်းဆုံး + အကောင်းဆုံး = အမြင့်ဆုံးအရည်အသွေး။ ကျွန်ုပ်ရွေးမည်!"
-
 msgctxt "wizard.formats.noAudio"
 msgid "No audio"
 msgstr "အသံမပါ"
+
+msgctxt "wizard.formats.profile.closestTag"
+msgid "Closest to profile"
+msgstr "ပရိုဖိုင်နှင့် အနီးစပ်ဆုံး"
+
+msgctxt "wizard.formats.profile.preselected"
+msgid "Pre-selected from"
+msgstr "ကြိုတင်ရွေးထားသည့်ပရိုဖိုင်"
+
+msgctxt "wizard.formats.profile.switchAction"
+msgid "Switch"
+msgstr "ပြောင်းရန်"
+
+msgctxt "wizard.formats.profile.switchBody"
+msgid "Your changes to this download will be replaced by the settings of the profile you pick."
+msgstr "ဤဒေါင်းလုဒ်တွင် သင်ပြုလုပ်ထားသော ပြောင်းလဲမှုများကို သင်ရွေးသည့် ပရိုဖိုင်၏ ဆက်တင်များဖြင့် အစားထိုးပါမည်။"
+
+msgctxt "wizard.formats.profile.switchTitle"
+msgid "Switch profile?"
+msgstr "ပရိုဖိုင် ပြောင်းမလား။"
+
+msgctxt "wizard.formats.profile.tag"
+msgid "Profile"
+msgstr "ပရိုဖိုင်"
 
 msgctxt "wizard.formats.quality.high"
 msgid "High quality"
@@ -1928,10 +1956,6 @@ msgstr "အရည်အသွေး နိမ့်"
 msgctxt "wizard.formats.quality.medium"
 msgid "Medium quality"
 msgstr "အရည်အသွေး အလယ်အလတ်"
-
-msgctxt "wizard.formats.quickPresets"
-msgid "Quick presets"
-msgstr "မြန်ဆန်သောကြိုတင်သတ်မှတ်မှုများ"
 
 msgctxt "wizard.formats.sizeUnknown"
 msgid "Size unknown"
@@ -1948,6 +1972,26 @@ msgstr "ကျန်ရှိသော အဆင့်များအားလ�
 msgctxt "wizard.formats.sniffing"
 msgid "Sniffing out the best formats for you…"
 msgstr "သင့်အတွက် အကောင်းဆုံးဖော်မတ်များ ရှာနေသည်…"
+
+msgctxt "wizard.formats.summary.lead"
+msgid "Also from {{profile}}:"
+msgstr "{{profile}} မှ အခြားဆက်တင်များ:"
+
+msgctxt "wizard.formats.summary.reviewAll"
+msgid "Review all"
+msgstr "အားလုံးစစ်ဆေးရန်"
+
+msgctxt "wizard.formats.summary.subtitlesAdd_one"
+msgid "{{count}} language available, add"
+msgstr "ဘာသာစကား {{count}} ခု ရနိုင်သည်၊ ထည့်ရန်"
+
+msgctxt "wizard.formats.summary.subtitlesAdd_other"
+msgid "{{count}} languages available, add"
+msgstr "ဘာသာစကား {{count}} ခု ရနိုင်သည်၊ ထည့်ရန်"
+
+msgctxt "wizard.formats.summary.subtitlesOff"
+msgid "subtitles off"
+msgstr "စာတန်းထိုး ပိတ်ထားသည်"
 
 msgctxt "wizard.formats.total"
 msgid "Total"
@@ -2745,6 +2789,126 @@ msgctxt "wizard.quickProgress.waitHint"
 msgid "Keep this open while Arroxy prepares the queue."
 msgstr "Arroxy က တန်းစီစာရင်းကို ပြင်ဆင်နေစဉ် ဤနေရာကို ဖွင့်ထားပါ။"
 
+msgctxt "wizard.review.areas.extras"
+msgid "extras"
+msgstr "အပို"
+
+msgctxt "wizard.review.areas.fileName"
+msgid "file name"
+msgstr "ဖိုင်အမည်"
+
+msgctxt "wizard.review.areas.format"
+msgid "format"
+msgstr "ဖော်မတ်"
+
+msgctxt "wizard.review.areas.saveTo"
+msgid "folder"
+msgstr "ဖိုလ်ဒါ"
+
+msgctxt "wizard.review.areas.sponsorBlock"
+msgid "SponsorBlock"
+msgstr "SponsorBlock"
+
+msgctxt "wizard.review.areas.subtitles"
+msgid "subtitles"
+msgstr "စာတန်းထိုး"
+
+msgctxt "wizard.review.changed"
+msgid "Changed from {{profile}}: {{areas}}. Applies to this download only."
+msgstr "{{profile}} မှ ပြောင်းလဲထားသည်: {{areas}}။ ဤဒေါင်းလုဒ်တစ်ခုတည်းတွင်သာ သက်ရောက်သည်။"
+
+msgctxt "wizard.review.changeFormat"
+msgid "Change format"
+msgstr "ဖော်မတ်ပြောင်းရန်"
+
+msgctxt "wizard.review.done"
+msgid "Done"
+msgstr "ပြီးပြီ"
+
+msgctxt "wizard.review.fileNameHint"
+msgid "Tokens: {title}, {id}, {uploader}, {date}, {resolution}. The extension is added for you."
+msgstr "အသုံးပြုနိုင်သော တိုကင်များ: {title}, {id}, {uploader}, {date}, {resolution}။ ဖိုင်အမျိုးအစားအဆုံးသတ်ကို အလိုအလျောက် ထည့်ပေးသည်။"
+
+msgctxt "wizard.review.nextTime.action"
+msgid "Save as profile"
+msgstr "ပရိုဖိုင်အဖြစ် သိမ်းရန်"
+
+msgctxt "wizard.review.nextTime.defaultName"
+msgid "{{profile}} (edited)"
+msgstr "{{profile}} (တည်းဖြတ်ပြီး)"
+
+msgctxt "wizard.review.nextTime.title"
+msgid "This download used edited settings. Use them next time?"
+msgstr "ဤဒေါင်းလုဒ်သည် တည်းဖြတ်ထားသော ဆက်တင်များကို သုံးခဲ့သည်။ နောက်တစ်ကြိမ်လည်း သုံးမလား။"
+
+msgctxt "wizard.review.reset"
+msgid "Reset"
+msgstr "ပြန်သတ်မှတ်"
+
+msgctxt "wizard.review.rows.extras"
+msgid "Extras"
+msgstr "အပို"
+
+msgctxt "wizard.review.rows.fileName"
+msgid "File name"
+msgstr "ဖိုင်အမည်"
+
+msgctxt "wizard.review.rows.saveTo"
+msgid "Save to"
+msgstr "ဤနေရာတွင်သိမ်းမည်"
+
+msgctxt "wizard.review.rows.sponsorBlock"
+msgid "SponsorBlock"
+msgstr "SponsorBlock"
+
+msgctxt "wizard.review.rows.subtitles"
+msgid "Subtitles"
+msgstr "စာတန်းထိုး"
+
+msgctxt "wizard.review.rowsHeading"
+msgid "Everything else"
+msgstr "အခြားအားလုံး"
+
+msgctxt "wizard.review.save.action"
+msgid "Save profile"
+msgstr "ပရိုဖိုင် သိမ်းရန်"
+
+msgctxt "wizard.review.save.description"
+msgid "Keeps these settings as a profile you can pick next time. Your Quick Download profile stays the same."
+msgstr "ဤဆက်တင်များကို နောက်တစ်ကြိမ် ရွေးချယ်နိုင်သော ပရိုဖိုင်အဖြစ် သိမ်းထားသည်။ သင်၏ အမြန်ဒေါင်းလုဒ် ပရိုဖိုင်မှာ မပြောင်းလဲပါ။"
+
+msgctxt "wizard.review.save.failed"
+msgid "Couldn't save the profile."
+msgstr "ပရိုဖိုင်ကို မသိမ်းနိုင်ပါ။"
+
+msgctxt "wizard.review.save.nameLabel"
+msgid "Profile name"
+msgstr "ပရိုဖိုင်အမည်"
+
+msgctxt "wizard.review.save.saved"
+msgid "Saved as profile “{{name}}”"
+msgstr "ပရိုဖိုင် “{{name}}” အဖြစ် သိမ်းပြီးပြီ"
+
+msgctxt "wizard.review.save.title"
+msgid "Save as profile"
+msgstr "ပရိုဖိုင်အဖြစ် သိမ်းရန်"
+
+msgctxt "wizard.review.saveAsProfile"
+msgid "Save as profile…"
+msgstr "ပရိုဖိုင်အဖြစ် သိမ်းရန်…"
+
+msgctxt "wizard.review.value.extrasNone"
+msgid "None"
+msgstr "မရှိ"
+
+msgctxt "wizard.review.value.sponsorBlockOff"
+msgid "Off"
+msgstr "ပိတ်ထားမည်"
+
+msgctxt "wizard.review.value.subtitlesOff"
+msgid "Off"
+msgstr "ပိတ်ထားမည်"
+
 msgctxt "wizard.sponsorblock.cat.filler"
 msgid "Filler"
 msgstr "အဖြည့်"
@@ -2837,6 +3001,10 @@ msgctxt "wizard.steps.playlistProfiles"
 msgid "Profiles"
 msgstr "ပရိုဖိုင်များ"
 
+msgctxt "wizard.steps.review"
+msgid "Review"
+msgstr "ပြန်လည်စစ်ဆေးရန်"
+
 msgctxt "wizard.steps.sponsorblock"
 msgid "SponsorBlock"
 msgstr "SponsorBlock"
@@ -2868,10 +3036,6 @@ msgstr "Embed မုဒ်တွင် စာတန်းထိုးမျာ�
 msgctxt "wizard.subtitles.format.heading"
 msgid "Format"
 msgstr "ဖော်မတ်"
-
-msgctxt "wizard.subtitles.mascot"
-msgid "Pick zero, one, or many — totally up to you ✨"
-msgstr "သုည၊ တစ်ခု သို့ မည်မျှမဆိုရွေးနိုင်သည် — သင့်ဆန္ဒအတိုင်း ✨"
 
 msgctxt "wizard.subtitles.noLanguages"
 msgid "No subtitles available for this video"
@@ -2916,22 +3080,6 @@ msgstr "အလိုအလျောက်ထုတ်လုပ်"
 msgctxt "wizard.subtitles.sectionManual"
 msgid "Manual"
 msgstr "လက်ဖြင့်"
-
-msgctxt "wizard.subtitles.selectedNote_one"
-msgid "{{count}} subtitle will be downloaded"
-msgstr "{{count}} ခု စာတန်းထိုးကို ဒေါင်းလုဒ်လုပ်မည်"
-
-msgctxt "wizard.subtitles.selectedNote_other"
-msgid "{{count}} subtitles will be downloaded"
-msgstr "{{count}} ခု စာတန်းထိုးများကို ဒေါင်းလုဒ်လုပ်မည်"
-
-msgctxt "wizard.subtitles.skip"
-msgid "Skip"
-msgstr "ကျော်သွားမည်"
-
-msgctxt "wizard.subtitles.skipSubs"
-msgid "Skip for this video"
-msgstr "ဤဗီဒီယိုအတွက် ကျော်သွားမည်"
 
 msgctxt "wizard.tabsNavAria"
 msgid "Download profile navigation"

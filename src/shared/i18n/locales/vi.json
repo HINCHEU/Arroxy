@@ -49,7 +49,7 @@
 	"theme": {"light": "Chế độ sáng", "dark": "Chế độ tối", "system": "Mặc định hệ thống"},
 	"language": {"label": "Ngôn ngữ"},
 	"wizard": {
-		"steps": {"url": "URL", "playlistItems": "Danh sách phát", "playlistItemsGeneric": "Video", "playlistPresets": "Chất lượng", "playlistProfiles": "Hồ sơ", "formats": "Định dạng", "subtitles": "Phụ đề", "sponsorblock": "SponsorBlock", "output": "Đầu ra", "folder": "Lưu", "confirm": "Xác nhận"},
+		"steps": {"url": "URL", "playlistItems": "Danh sách phát", "playlistItemsGeneric": "Video", "playlistPresets": "Chất lượng", "playlistProfiles": "Hồ sơ", "formats": "Định dạng", "subtitles": "Phụ đề", "sponsorblock": "SponsorBlock", "output": "Đầu ra", "folder": "Lưu", "confirm": "Xác nhận", "review": "Xem lại"},
 		"playlistPresets": {"heading": "Chọn chất lượng cho lô", "subhead": "Mỗi video tự xử lý cấp độ đã chọn một cách độc lập — danh sách phát không đồng nhất hoạt động mượt mà.", "itemCount_one": "{{count}} mục", "itemCount_other": "{{count}} mục"},
 		"playlistProfiles": {
 			"heading": "Gán hồ sơ tải xuống",
@@ -330,16 +330,11 @@
 		"subtitles": {
 			"autoBadge": "Tự động",
 			"noLanguages": "Không có phụ đề nào cho video này",
-			"skip": "Bỏ qua",
-			"skipSubs": "Bỏ qua cho video này",
-			"mascot": "Chọn không, một hay nhiều — hoàn toàn tùy bạn ✨",
 			"searchPlaceholder": "Tìm ngôn ngữ…",
 			"noMatches": "Không tìm thấy ngôn ngữ nào",
 			"clearAll": "Xóa tất cả",
 			"noSelected": "Chưa chọn phụ đề nào",
 			"removeLanguage": "Xóa {{name}}",
-			"selectedNote_one": "{{count}} phụ đề sẽ được tải xuống",
-			"selectedNote_other": "{{count}} phụ đề sẽ được tải xuống",
 			"sectionManual": "Thủ công",
 			"sectionAuto": "Tự động tạo",
 			"saveMode": {"heading": "Lưu dưới dạng", "sidecar": "Cạnh video", "embed": "Nhúng vào video", "subfolder": "Thư mục con subtitles/"},
@@ -355,7 +350,17 @@
 			"cat": {"sponsor": "Nhà tài trợ", "intro": "Mở đầu", "outro": "Kết thúc", "selfpromo": "Tự quảng cáo", "music_offtopic": "Nhạc ngoài chủ đề", "preview": "Xem trước", "filler": "Nội dung phụ"}
 		},
 		"formats": {
-			"quickPresets": "Cài đặt nhanh",
+			"kind": {"label": "Tải gì", "video": "Video", "audio": "Âm thanh", "subtitles": "Chỉ phụ đề"},
+			"profile": {"preselected": "Chọn sẵn từ", "tag": "Hồ sơ", "closestTag": "Gần nhất với hồ sơ", "switchTitle": "Đổi hồ sơ?", "switchBody": "Các thay đổi của bạn cho lượt tải này sẽ được thay bằng cài đặt của hồ sơ bạn chọn.", "switchAction": "Đổi"},
+			"fit": {
+				"tierBelow": "Hồ sơ của bạn yêu cầu {{wanted}}p. Video này chỉ có tối đa {{picked}}p nên {{picked}}p được chọn.",
+				"tierAbove": "Hồ sơ của bạn yêu cầu {{wanted}}p. Video này không có độ phân giải thấp như vậy nên {{picked}}p được chọn.",
+				"mp4Unavailable": "Hồ sơ của bạn yêu cầu MP4 (H.264). Video này không có định dạng đó nên luồng gần nhất được chọn.",
+				"noVideo": "Liên kết này không có video nên âm thanh được chọn.",
+				"subtitlesMissing": "Hồ sơ của bạn yêu cầu phụ đề bằng: {{languages}}. Video này không có phụ đề đó."
+			},
+			"summary": {"lead": "Cũng từ {{profile}}:", "subtitlesOff": "tắt phụ đề", "subtitlesAdd_one": "Có {{count}} ngôn ngữ, thêm", "subtitlesAdd_other": "Có {{count}} ngôn ngữ, thêm", "reviewAll": "Xem lại tất cả"},
+			"footer": {"reviewOptions": "Xem lại & tùy chọn", "download": "Tải xuống", "moreActions": "Thêm tùy chọn tải xuống", "addToQueue": "Thêm vào hàng đợi mà không bắt đầu", "subtitlesRequired": "Chọn ít nhất một ngôn ngữ phụ đề."},
 			"video": "Video",
 			"audio": "Âm thanh",
 			"noAudio": "Không có âm thanh",
@@ -363,8 +368,6 @@
 			"keepAudio": "Giữ nguyên",
 			"keepAudioMeta": "Âm thanh tích hợp",
 			"audioOnly": "Chỉ âm thanh",
-			"audioOnlyOption": "Chỉ âm thanh (không có video)",
-			"mascot": "Tốt nhất + Tốt nhất = chất lượng cao nhất. Tôi sẽ chọn cái đó!",
 			"sniffing": "Đang tìm định dạng tốt nhất cho bạn…",
 			"loadingHint": "Vui lòng chờ cho đến khi quá trình kiểm tra hoàn tất — playlist và tìm kiếm có thể mất một lúc.",
 			"loadingAria": "Đang tải định dạng",
@@ -373,15 +376,7 @@
 			"skipToConfirm": "Bỏ qua đến xác nhận",
 			"skipToConfirmTooltip": "Sử dụng tùy chọn đã lưu của bạn cho tất cả các bước còn lại. Để thay đổi một cài đặt, hãy tiếp tục từng bước — lựa chọn của bạn sẽ được lưu cho lần sau.",
 			"quality": {"high": "Chất lượng cao", "medium": "Chất lượng trung bình", "low": "Chất lượng thấp"},
-			"convert": {
-				"label": "Chuyển đổi",
-				"uncompressed": "Chuyển đổi · không nén",
-				"bitrate": "Tốc độ bit",
-				"wavLabel": "WAV (không nén)",
-				"lossyLabel": "{{target}} {{bitrate}} kbps",
-				"requiresAudioOnly": "Chuyển đổi âm thanh yêu cầu chế độ chỉ âm thanh (bỏ chọn lựa chọn video).",
-				"requiresLossy": "Đang chọn luồng gốc — tốc độ bit chỉ áp dụng khi chuyển đổi sang mp3, m4a hoặc opus."
-			},
+			"convert": {"label": "Chuyển đổi", "uncompressed": "Chuyển đổi · không nén", "bitrate": "Tốc độ bit", "wavLabel": "WAV (không nén)", "lossyLabel": "{{target}} {{bitrate}} kbps", "requiresLossy": "Đang chọn luồng gốc — tốc độ bit chỉ áp dụng khi chuyển đổi sang mp3, m4a hoặc opus."},
 			"botWall": {
 				"heading": "YouTube đã giới hạn lần kiểm tra này",
 				"bodyUnconfigured": "Danh sách định dạng có thể không đầy đủ. Thiết lập cookies trong cài đặt nâng cao, hoặc đổi mạng và thử lại.",
@@ -438,6 +433,20 @@
 			"writeDescription": {"label": "Lưu mô tả", "description": "Lưu mô tả video dưới dạng tệp văn bản .description cạnh tệp tải xuống."},
 			"writeThumbnail": {"label": "Lưu hình thu nhỏ", "description": "Lưu hình thu nhỏ dưới dạng tệp ảnh .jpg cạnh tệp tải xuống."},
 			"writeM3u": {"label": "Tạo tệp playlist .m3u", "description": "Lưu playlist .m3u cạnh các video để mở đúng thứ tự trong trình phát."}
+		},
+		"review": {
+			"changeFormat": "Đổi định dạng",
+			"rowsHeading": "Mọi thứ khác",
+			"rows": {"subtitles": "Phụ đề", "sponsorBlock": "SponsorBlock", "extras": "Bổ sung", "saveTo": "Lưu vào", "fileName": "Tên tệp"},
+			"value": {"subtitlesOff": "Tắt", "sponsorBlockOff": "Tắt", "extrasNone": "Không có"},
+			"done": "Xong",
+			"changed": "Khác với {{profile}}: {{areas}}. Chỉ áp dụng cho lượt tải này.",
+			"areas": {"format": "định dạng", "subtitles": "phụ đề", "sponsorBlock": "SponsorBlock", "extras": "bổ sung", "saveTo": "thư mục", "fileName": "tên tệp"},
+			"saveAsProfile": "Lưu thành hồ sơ…",
+			"reset": "Đặt lại",
+			"save": {"title": "Lưu thành hồ sơ", "description": "Lưu các cài đặt này thành hồ sơ để bạn chọn lần sau. Hồ sơ Tải nhanh của bạn không thay đổi.", "nameLabel": "Tên hồ sơ", "action": "Lưu hồ sơ", "saved": "Đã lưu thành hồ sơ “{{name}}”", "failed": "Không thể lưu hồ sơ."},
+			"fileNameHint": "Mã thay thế: {title}, {id}, {uploader}, {date}, {resolution}. Phần mở rộng được thêm tự động.",
+			"nextTime": {"title": "Lượt tải này dùng cài đặt đã chỉnh sửa. Dùng chúng cho lần sau?", "action": "Lưu thành hồ sơ", "defaultName": "{{profile}} (đã sửa)"}
 		},
 		"confirm": {
 			"readyHeadline": "Sẵn sàng tải về!",
@@ -709,13 +718,6 @@
 			"loginRequired": "Video này cần một tài khoản đã đăng nhập.",
 			"unknown": "Tải xuống thất bại. Xem đầu ra thô bên dưới."
 		}
-	},
-	"presets": {
-		"best-quality": {"label": "Chất lượng tốt nhất", "desc": "Độ phân giải cao nhất + âm thanh tốt nhất"},
-		"balanced": {"label": "Cân bằng", "desc": "Tối đa 720p + âm thanh tốt"},
-		"audio-only": {"label": "Chỉ âm thanh", "desc": "Không có video, âm thanh tốt nhất"},
-		"small-file": {"label": "Tệp nhỏ", "desc": "Độ phân giải thấp nhất + âm thanh thấp"},
-		"subtitle-only": {"label": "Chỉ phụ đề", "desc": "Không có video, không có âm thanh, chỉ phụ đề"}
 	},
 	"playlistPresets": {
 		"type": {"video": "Video", "audio": "Audio", "subtitles": "Phụ đề"},

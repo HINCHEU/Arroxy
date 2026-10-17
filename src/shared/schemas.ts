@@ -12,14 +12,16 @@ export {YT_DLP_ERROR_KINDS}
 // Enum schemas — single source of truth. Types below are inferred so adding
 // or removing a value never requires hand-editing a parallel union.
 
-export const presetSchema = z.enum(['best-quality', 'balanced', 'small-file', 'audio-only', 'subtitle-only'])
-export type Preset = z.infer<typeof presetSchema>
-export const PRESETS = presetSchema.options
+// What a single-video interactive download produces: the Format screen's
+// Video / Audio / Subtitles switch.
+export const wizardMediaKindSchema = z.enum(['video', 'audio', 'subtitles'])
+export type WizardMediaKind = z.infer<typeof wizardMediaKindSchema>
+export const WIZARD_MEDIA_KINDS = wizardMediaKindSchema.options
 
 // Single source for the wizard step list — previously duplicated by hand as
 // `WizardStep` (renderer store/types.ts), `WizardStepName` (shared/types.ts,
 // crosses the logStep IPC boundary) and `WIZARD_STEPS` (wizardStepGraph.ts).
-export const wizardStepNameSchema = z.enum(['url', 'playlistItems', 'playlistPresets', 'playlistProfiles', 'formats', 'subtitles', 'sponsorblock', 'output', 'folder', 'confirm', 'error'])
+export const wizardStepNameSchema = z.enum(['url', 'playlistItems', 'playlistPresets', 'playlistProfiles', 'formats', 'sponsorblock', 'output', 'folder', 'confirm', 'error'])
 export type WizardStepName = z.infer<typeof wizardStepNameSchema>
 
 const PLAYLIST_VIDEO_TIER_VALUES = ['best', '2160', '1440', '1080', '720', '480', '360', '240', '144'] as const
@@ -190,8 +192,6 @@ export const downloadProfilesPrefsSchema = z.object({
 export type DownloadProfilesPrefs = z.infer<typeof downloadProfilesPrefsSchema>
 
 // Renderer's audio-column selection. Three convert kinds + native + none.
-// Defined here (not in renderer/store/types.ts) because it's persisted in
-// `SinglePrefs.lastAudioSelection`, so the IPC patch schema needs to validate it.
 export const audioSelectionSchema = z.discriminatedUnion('kind', [
 	z.object({kind: z.literal('none')}),
 	z.object({kind: z.literal('native'), formatId: z.string().min(1)}),
@@ -541,26 +541,14 @@ const sponsorBlockOptionsSchema = z.discriminatedUnion('mode', [z.object({mode: 
 
 const embedOptionsSchema = z.object({chapters: z.boolean(), metadata: z.boolean(), thumbnail: z.boolean(), description: z.boolean(), thumbnailSidecar: z.boolean()})
 
-const presetOrCustomSchema = z.union([presetSchema, z.literal('custom')])
-
 // Each variant carries the yt-dlp `extractor` + `extractor_key` strings that
 // were observed at probe time. These plumb through to download jobs so the
 // download path can branch on extractor without re-probing.
 const extractorIdentitySchema = {extractor: z.string(), extractorKey: z.string()}
 
 export const preparedJobSchema = z.discriminatedUnion('kind', [
-	z.object({
-		kind: z.literal('single-format'),
-		...extractorIdentitySchema,
-		formatId: z.string().min(1),
-		preset: presetOrCustomSchema,
-		filenameTemplate: z.string().min(1).optional(),
-		subtitles: subtitleOptionsSchema.optional(),
-		sponsorBlock: sponsorBlockOptionsSchema,
-		embed: embedOptionsSchema,
-		expectedBytes: z.number().positive().optional()
-	}),
-	z.object({kind: z.literal('audio-convert'), ...extractorIdentitySchema, audioConvert: audioConvertSchema, preset: presetOrCustomSchema, filenameTemplate: z.string().min(1).optional(), subtitles: subtitleOptionsSchema.optional(), sponsorBlock: sponsorBlockOptionsSchema, embed: embedOptionsSchema}),
+	z.object({kind: z.literal('single-format'), ...extractorIdentitySchema, formatId: z.string().min(1), filenameTemplate: z.string().min(1).optional(), subtitles: subtitleOptionsSchema.optional(), sponsorBlock: sponsorBlockOptionsSchema, embed: embedOptionsSchema, expectedBytes: z.number().positive().optional()}),
+	z.object({kind: z.literal('audio-convert'), ...extractorIdentitySchema, audioConvert: audioConvertSchema, filenameTemplate: z.string().min(1).optional(), subtitles: subtitleOptionsSchema.optional(), sponsorBlock: sponsorBlockOptionsSchema, embed: embedOptionsSchema}),
 	z.object({
 		kind: z.literal('ranged-format'),
 		...extractorIdentitySchema,
@@ -660,18 +648,9 @@ const commonSettingsSchema = z.object({
 	multiProfileHintDismissed: z.boolean().optional()
 })
 
-const singlePrefsSchema = z.object({
-	lastPreset: presetSchema.optional(),
-	lastVideoResolution: z.string().optional(),
-	lastAudioSelection: audioSelectionSchema.optional(),
-	lastSubtitleLanguages: z.array(z.string()).optional(),
-	lastSubtitleMode: subtitleModeSchema.optional(),
-	lastSubtitleFormat: subtitleFormatSchema.optional()
-})
-
 const playlistPrefsSchema = z.object({lastPlaylistSelection: playlistSelectionSchema.optional()})
 
-export const appSettingsSchema = z.object({common: commonSettingsSchema, single: singlePrefsSchema, playlist: playlistPrefsSchema, profiles: downloadProfilesPrefsSchema})
+export const appSettingsSchema = z.object({common: commonSettingsSchema, playlist: playlistPrefsSchema, profiles: downloadProfilesPrefsSchema})
 
 // Common paths are derived from the OS, the heartbeat day is internal, and the last
 // Explore page is the view host's; none is accepted from renderer settings
@@ -695,25 +674,15 @@ const commonSettingsPatchSchema = commonSettingsSchema
 // `.nullable()`. A patch is "fields the caller wants to change"; "absent" is
 // the same signal as "no change", so adding `.nullable()` introduces a third
 // state ("explicitly clear") that the merge logic in SettingsStore.deepMerge
-// doesn't actually distinguish from undefined. Stay in lockstep with
-// commonSettingsPatchSchema and playlistPrefsPatchSchema.
-const singlePrefsPatchSchema = z.object({
-	lastPreset: presetSchema.optional(),
-	lastVideoResolution: z.string().optional(),
-	lastAudioSelection: audioSelectionSchema.optional(),
-	lastSubtitleLanguages: z.array(z.string()).optional(),
-	lastSubtitleMode: subtitleModeSchema.optional(),
-	lastSubtitleFormat: subtitleFormatSchema.optional()
-})
-
+// doesn't actually distinguish from undefined.
 const playlistPrefsPatchSchema = z.object({lastPlaylistSelection: playlistSelectionSchema.optional()})
 
 const downloadProfilesPrefsPatchSchema = z.object({active: downloadProfileRefSchema.optional(), custom: z.array(downloadProfileSchema).optional(), overrides: z.array(downloadProfileSchema).optional(), enabledOverrides: z.record(z.string(), z.boolean()).optional()})
 
-export const updateSettingsSchema = z.object({common: commonSettingsPatchSchema.optional(), single: singlePrefsPatchSchema.optional(), playlist: playlistPrefsPatchSchema.optional(), profiles: downloadProfilesPrefsPatchSchema.optional()}).refine(
+export const updateSettingsSchema = z.object({common: commonSettingsPatchSchema.optional(), playlist: playlistPrefsPatchSchema.optional(), profiles: downloadProfilesPrefsPatchSchema.optional()}).refine(
 	patch => {
 		const hasField = (sub: Record<string, unknown> | undefined): boolean => sub !== undefined && Object.values(sub).some(v => v !== undefined)
-		return hasField(patch.common) || hasField(patch.single) || hasField(patch.playlist) || hasField(patch.profiles)
+		return hasField(patch.common) || hasField(patch.playlist) || hasField(patch.profiles)
 	},
 	{message: 'settings:update payload must contain at least one defined field'}
 )

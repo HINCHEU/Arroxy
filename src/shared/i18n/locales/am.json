@@ -40,7 +40,7 @@
 	"theme": {"light": "ብርሃን ሁነታ", "dark": "ጨለማ ሁነታ", "system": "የስርዓት ነባሪ"},
 	"language": {"label": "ቋንቋ"},
 	"wizard": {
-		"steps": {"url": "URL", "playlistItems": "የቪዲዮ ዝርዝር", "playlistItemsGeneric": "ቪዲዮዎች", "playlistPresets": "ጥራት", "playlistProfiles": "መገለጫዎች", "formats": "ቅርጸት", "subtitles": "ንዑስ ርዕሶች", "sponsorblock": "SponsorBlock", "output": "ውፅዓት", "folder": "አስቀምጥ", "confirm": "አረጋግጥ"},
+		"steps": {"url": "URL", "playlistItems": "የቪዲዮ ዝርዝር", "playlistItemsGeneric": "ቪዲዮዎች", "playlistPresets": "ጥራት", "playlistProfiles": "መገለጫዎች", "formats": "ቅርጸት", "subtitles": "ንዑስ ርዕሶች", "sponsorblock": "SponsorBlock", "output": "ውፅዓት", "folder": "አስቀምጥ", "confirm": "አረጋግጥ", "review": "ግምገማ"},
 		"playlistPresets": {"heading": "ለቡድኑ ጥራት ይምረጡ", "subhead": "እያንዳንዱ ቪዲዮ የተመረጠውን ደረጃ ራሱን ችሎ ይፈታል — የተለያዩ playlists ያለ ችግር ይሰራሉ።", "itemCount_one": "{{count}} ንጥል", "itemCount_other": "{{count}} ንጥሎች"},
 		"playlistProfiles": {
 			"heading": "የማውረድ መገለጫዎችን መድብ",
@@ -316,16 +316,11 @@
 		"subtitles": {
 			"autoBadge": "ራስ-ሰር",
 			"noLanguages": "ለዚህ ቪዲዮ ምንም ንዑስ ርዕሶች የሉም",
-			"skip": "ዝለለ",
-			"skipSubs": "ለዚህ ቪዲዮ ዝለለ",
-			"mascot": "ዜሮ፣ አንድ ወይም ብዙ ምረጥ — ፈጽሞ ለእርስዎ ✨",
 			"searchPlaceholder": "ቋንቋዎችን ፈልግ…",
 			"noMatches": "ምንም ቋንቋ አልተዛመደም",
 			"clearAll": "ሁሉ አጽዳ",
 			"noSelected": "ምንም ንዑስ ርዕስ አልተመረጠም",
 			"removeLanguage": "{{name}} አስወግድ",
-			"selectedNote_one": "{{count}} ንዑስ ርዕስ ዳውንሎድ ይደረጋል",
-			"selectedNote_other": "{{count}} ንዑስ ርዕሶች ዳውንሎድ ይደረጋሉ",
 			"sectionManual": "እጅ ሰራ",
 			"sectionAuto": "ራስ-ሰር ተፈጠረ",
 			"saveMode": {"heading": "እንደ አስቀምጥ", "sidecar": "ከቪዲዮው ጎን", "embed": "ወደ ቪዲዮ ክተት", "subfolder": "subtitles/ ንዑስ አቃፊ"},
@@ -341,7 +336,17 @@
 			"cat": {"sponsor": "Sponsor", "intro": "Intro", "outro": "Outro", "selfpromo": "Self-promo", "music_offtopic": "Music off-topic", "preview": "Preview", "filler": "Filler"}
 		},
 		"formats": {
-			"quickPresets": "ፈጣን ቅድመ-ቅንብሮች",
+			"kind": {"label": "ምን ማውረድ ይፈልጋሉ", "video": "ቪዲዮ", "audio": "ድምጽ", "subtitles": "ንዑስ ርዕሶች ብቻ"},
+			"profile": {"preselected": "አስቀድሞ የተመረጠ፣ ምንጭ፦", "tag": "መገለጫ", "closestTag": "ለመገለጫው ቅርብ", "switchTitle": "መገለጫ ይቀየር?", "switchBody": "በዚህ ማውረድ ላይ ያደረጉት ለውጦች በሚመርጡት መገለጫ ቅንብሮች ይተካሉ።", "switchAction": "ቀይር"},
+			"fit": {
+				"tierBelow": "መገለጫዎ {{wanted}}p ይጠይቃል። ይህ ቪዲዮ እስከ {{picked}}p ብቻ ነው የሚደርሰው፣ ስለዚህ {{picked}}p ተመርጧል።",
+				"tierAbove": "መገለጫዎ {{wanted}}p ይጠይቃል። ይህ ቪዲዮ ይህን ያህል ትንሽ ነገር የለውም፣ ስለዚህ {{picked}}p ተመርጧል።",
+				"mp4Unavailable": "መገለጫዎ MP4 (H.264) ይጠይቃል። ይህ ቪዲዮ አይሰጥም፣ ስለዚህ በጣም ቅርብ የሆነው ዥረት ተመርጧል።",
+				"noVideo": "ይህ አገናኝ ቪዲዮ የለውም፣ ስለዚህ ድምጽ ተመርጧል።",
+				"subtitlesMissing": "መገለጫዎ በ{{languages}} ንዑስ ርዕሶችን ይጠይቃል። ይህ ቪዲዮ የለውም።"
+			},
+			"summary": {"lead": "ከ{{profile}} ደግሞ፦", "subtitlesOff": "ንዑስ ርዕሶች ጠፍተዋል", "subtitlesAdd_one": "{{count}} ቋንቋ አለ፣ ጨምር", "subtitlesAdd_other": "{{count}} ቋንቋዎች አሉ፣ ጨምር", "reviewAll": "ሁሉንም ገምግም"},
+			"footer": {"reviewOptions": "ግምገማ እና አማራጮች", "download": "ማውረድ", "moreActions": "ተጨማሪ የማውረድ አማራጮች", "addToQueue": "ሳይጀምር ወደ ወረፋ ጨምር", "subtitlesRequired": "ቢያንስ አንድ የንዑስ ርዕስ ቋንቋ ይምረጡ።"},
 			"video": "ቪዲዮ",
 			"audio": "ድምጽ",
 			"noAudio": "ምንም ድምጽ የለም",
@@ -349,8 +354,6 @@
 			"keepAudio": "እንዳለ ቀጥል",
 			"keepAudioMeta": "ቀደም ሲል የተካተተ ድምጽ",
 			"audioOnly": "ድምጽ ብቻ",
-			"audioOnlyOption": "ድምጽ ብቻ (ቪዲዮ የለም)",
-			"mascot": "ምርጥ + ምርጥ = ከፍተኛ ጥራት። ያንኑ ይምረጡ!",
 			"sniffing": "ምርጥ ቅርጸቶችን ለእርስዎ እየፈለጉ…",
 			"loadingHint": "ምርምሩ እስኪጠናቀቅ ይጠብቁ — playlist ዎች እና ፍለጋዎች ጊዜ ሊወስዱ ይችላሉ።",
 			"loadingAria": "ቅርጸቶችን በመጫን ላይ",
@@ -359,7 +362,7 @@
 			"skipToConfirm": "ወደ ማረጋገጫ ዝለል",
 			"skipToConfirmTooltip": "ለቀሩት ሁሉም ደረጃዎች የተቀመጡ ምርጫዎችዎን ይጠቀማል። አንድ ቅንብር ለመለወጥ ደረጃ በደረጃ ቀጥሉ — ምርጫዎ ለሚቀጥለው ጊዜ ይቀመጣል።",
 			"quality": {"high": "ከፍተኛ ጥራት", "medium": "መካከለኛ ጥራት", "low": "ዝቅተኛ ጥራት"},
-			"convert": {"label": "ቀይር", "uncompressed": "ቀይር · ያልተጨመቀ", "bitrate": "ቢትሬት", "wavLabel": "WAV (ያልተጨመቀ)", "lossyLabel": "{{target}} {{bitrate}} kbps", "requiresAudioOnly": "የድምጽ ቅርጸት ለወጥ ድምጽ-ብቻ ሁነታ ያስፈልጋል (የቪዲዮ ምርጫውን ሰርዝ)።", "requiresLossy": "የቀጥታ ዥረት ተመርጧል — ቢትሬት የሚሰራው ወደ mp3፣ m4a፣ ወይም opus ሲቀይሩ ብቻ ነው።"},
+			"convert": {"label": "ቀይር", "uncompressed": "ቀይር · ያልተጨመቀ", "bitrate": "ቢትሬት", "wavLabel": "WAV (ያልተጨመቀ)", "lossyLabel": "{{target}} {{bitrate}} kbps", "requiresLossy": "የቀጥታ ዥረት ተመርጧል — ቢትሬት የሚሰራው ወደ mp3፣ m4a፣ ወይም opus ሲቀይሩ ብቻ ነው።"},
 			"botWall": {
 				"heading": "YouTube ይህን ምርምር ገደበ",
 				"bodyUnconfigured": "የቅርጸት ዝርዝሩ ሙሉ ላይሆን ይችላል። Cookies በከፍተኛ ቅንብሮች ያዘጋጁ፣ ወይም አውታረ መረብ ቀይሩ እና እንደገና ሞክሩ።",
@@ -405,6 +408,20 @@
 			"writeDescription": {"label": "መግለጫ አስቀምጥ", "description": "የቪዲዮ መግለጫን እንደ .description የጽሑፍ ፋይል ከዳውንሎዱ ጎን ያስቀምጣል።"},
 			"writeThumbnail": {"label": "ድንክ ምስል አስቀምጥ", "description": "ድንክ ምስሉን እንደ .jpg ምስል ፋይል ከዳውንሎዱ ጎን ያስቀምጣል።"},
 			"writeM3u": {"label": ".m3u playlist ፋይል ፍጠር", "description": "ቪዲዮዎች በሚዲያ አጫዋች በቅደም ተከተል እንዲከፈቱ .m3u playlist ከእነሱ ጋር ያስቀምጣል።"}
+		},
+		"review": {
+			"changeFormat": "ቅርጸት ቀይር",
+			"rowsHeading": "ሌላው ሁሉ",
+			"rows": {"subtitles": "ንዑስ ርዕሶች", "sponsorBlock": "SponsorBlock", "extras": "ተጨማሪዎች", "saveTo": "አስቀምጥ ወደ", "fileName": "የፋይል ስም"},
+			"value": {"subtitlesOff": "ጠፍ", "sponsorBlockOff": "ጠፍ", "extrasNone": "ምንም"},
+			"done": "ተጠናቋል",
+			"changed": "ከ{{profile}} ተቀይሯል፦ {{areas}}። ለዚህ ማውረድ ብቻ ይሠራል።",
+			"areas": {"format": "ቅርጸት", "subtitles": "ንዑስ ርዕሶች", "sponsorBlock": "SponsorBlock", "extras": "ተጨማሪዎች", "saveTo": "አቃፊ", "fileName": "የፋይል ስም"},
+			"saveAsProfile": "እንደ መገለጫ አስቀምጥ…",
+			"reset": "ዳግም አስጀምር",
+			"save": {"title": "እንደ መገለጫ አስቀምጥ", "description": "እነዚህን ቅንብሮች በሚቀጥለው ጊዜ መምረጥ የሚችሉት መገለጫ አድርጎ ያስቀምጣል። የፈጣን ማውረድ መገለጫዎ እንዳለ ይቆያል።", "nameLabel": "የመገለጫ ስም", "action": "መገለጫ አስቀምጥ", "saved": "እንደ መገለጫ “{{name}}” ተቀምጧል", "failed": "መገለጫውን ማስቀመጥ አልተቻለም።"},
+			"fileNameHint": "ምልክቶች፦ {title}፣ {id}፣ {uploader}፣ {date}፣ {resolution}። ቅጥያው በራስ-ሰር ይታከላል።",
+			"nextTime": {"title": "ይህ ማውረድ የተስተካከሉ ቅንብሮችን ተጠቅሟል። ለሚቀጥለው ጊዜ ይጠቀሙባቸው?", "action": "እንደ መገለጫ አስቀምጥ", "defaultName": "{{profile}} (የተስተካከለ)"}
 		},
 		"confirm": {
 			"readyHeadline": "ለመሳብ ዝግጁ!",
@@ -671,13 +688,6 @@
 			"loginRequired": "ይህ ቪዲዮ የገባ መለያ ያስፈልገዋል።",
 			"unknown": "ማውረድ አልተሳካም። ከታች ያለውን raw output ይመልከቱ።"
 		}
-	},
-	"presets": {
-		"best-quality": {"label": "ምርጥ ጥራት", "desc": "ከፍተኛ ጥራት + ምርጥ ድምጽ"},
-		"balanced": {"label": "ሚዛናዊ", "desc": "720p ከፍ + ጥሩ ድምጽ"},
-		"audio-only": {"label": "ድምጽ ብቻ", "desc": "ቪዲዮ የለም፣ ምርጥ ድምጽ"},
-		"small-file": {"label": "ትንሽ ፋይል", "desc": "ዝቅተኛ ጥራት + ዝቅ ድምጽ"},
-		"subtitle-only": {"label": "ንዑስ ርዕሶች ብቻ", "desc": "ቪዲዮ የለም፣ ድምጽ የለም፣ ንዑስ ርዕሶች ብቻ"}
 	},
 	"playlistPresets": {
 		"type": {"video": "Video", "audio": "Audio", "subtitles": "ንዑስ ርዕሶች"},

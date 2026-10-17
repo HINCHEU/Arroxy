@@ -779,46 +779,6 @@ msgctxt "playlistPresets.videoFormatDesc.mp4"
 msgid "Prefer H.264 video + AAC audio in MP4 when possible"
 msgstr "H.264 + AAC filatama, konteenera MP4 · carraa gaarii"
 
-msgctxt "presets.audio-only.desc"
-msgid "No video, best audio"
-msgstr "Viidiyoo hin jiru, sagalee caalmaa"
-
-msgctxt "presets.audio-only.label"
-msgid "Audio only"
-msgstr "Sagalee qofa"
-
-msgctxt "presets.balanced.desc"
-msgid "720p max + good audio"
-msgstr "720p ol'aanaa + sagalee gaarii"
-
-msgctxt "presets.balanced.label"
-msgid "Balanced"
-msgstr "Walsimu"
-
-msgctxt "presets.best-quality.desc"
-msgid "Highest resolution + best audio"
-msgstr "Firiimii ol'aanaa + sagalee caalmaa"
-
-msgctxt "presets.best-quality.label"
-msgid "Best quality"
-msgstr "Qulqullina ol'aanaa"
-
-msgctxt "presets.small-file.desc"
-msgid "Lowest resolution + low audio"
-msgstr "Firiimii gadi aanaa + sagalee gadi aanaa"
-
-msgctxt "presets.small-file.label"
-msgid "Small file"
-msgstr "Faayilii xiqqaa"
-
-msgctxt "presets.subtitle-only.desc"
-msgid "No video, no audio, only subtitles"
-msgstr "Viidiyoo hin jiru, sagalee hin jiru, axxiinni qofa"
-
-msgctxt "presets.subtitle-only.label"
-msgid "Subtitles only"
-msgstr "Axxiinni qofa"
-
 msgctxt "queue.artifact.companion"
 msgid "Companion"
 msgstr "Faayilii dabalataa"
@@ -1709,10 +1669,6 @@ msgctxt "wizard.formats.audioOnly"
 msgid "Audio only"
 msgstr "Sagalee qofa"
 
-msgctxt "wizard.formats.audioOnlyOption"
-msgid "Audio only (no video)"
-msgstr "Sagalee qofa (viidiyoo hin jiru)"
-
 msgctxt "wizard.formats.botWall.bodyDisabled"
 msgid "Cookies are configured but turned off. Enable them and retry to get the full list, or change network and retry."
 msgstr "Cookies qindaa'eera garuu dhaabbe jira. Tarreessa guutuu argachuuf cookies dandeessii achiin irra deebi'i, ykn netwoorkii jijjiiri achiin irra deebi'i."
@@ -1752,10 +1708,6 @@ msgstr "Jijjiiri"
 msgctxt "wizard.formats.convert.lossyLabel"
 msgid "{{target}} {{bitrate}} kbps"
 msgstr "{{target}} {{bitrate}} kbps"
-
-msgctxt "wizard.formats.convert.requiresAudioOnly"
-msgid "Audio conversion requires audio-only mode (deselect the video pick)."
-msgstr "Jijjiirraa sagalee haala sagalee-qofa (filannoo viidiyoo haqi) gaafata."
 
 msgctxt "wizard.formats.convert.requiresLossy"
 msgid "A native stream is selected — bitrate only applies when converting to mp3, m4a, or opus."
@@ -1893,6 +1845,46 @@ msgctxt "wizard.formats.cookiesError.otherCookiesCta"
 msgid "Use a cookies file or browser instead…"
 msgstr "Faayilii cookies ykn browser fayyadami…"
 
+msgctxt "wizard.formats.fit.mp4Unavailable"
+msgid "Your profile asks for MP4 (H.264). This video doesn't offer it, so the closest stream is selected."
+msgstr "Piroofaayiliin kee MP4 (H.264) gaafata. Viidiyoon kun hin qabu, kanaaf isa dhiyoo filatameera."
+
+msgctxt "wizard.formats.fit.noVideo"
+msgid "This link has no video, so audio is selected."
+msgstr "Hidhaan kun viidiyoo hin qabu, kanaaf sagaleen filatameera."
+
+msgctxt "wizard.formats.fit.subtitlesMissing"
+msgid "Your profile asks for subtitles in {{languages}}. This video doesn't have them."
+msgstr "Piroofaayiliin kee afaan {{languages}} keessaa axxiinni gaafata. Viidiyoon kun hin qabu."
+
+msgctxt "wizard.formats.fit.tierAbove"
+msgid "Your profile asks for {{wanted}}p. This video has nothing that small, so {{picked}}p is selected."
+msgstr "Piroofaayiliin kee {{wanted}}p gaafata. Viidiyoon kun kan akka kanatti xiqqaate hin qabu, kanaaf {{picked}}p filatameera."
+
+msgctxt "wizard.formats.fit.tierBelow"
+msgid "Your profile asks for {{wanted}}p. This video only goes up to {{picked}}p, so {{picked}}p is selected."
+msgstr "Piroofaayiliin kee {{wanted}}p gaafata. Viidiyoon kun hanga {{picked}}p qofa deema, kanaaf {{picked}}p filatameera."
+
+msgctxt "wizard.formats.footer.addToQueue"
+msgid "Add to queue without starting"
+msgstr "Osoo hin jalqabin tarreetti dabali"
+
+msgctxt "wizard.formats.footer.download"
+msgid "Download"
+msgstr "Buufata"
+
+msgctxt "wizard.formats.footer.moreActions"
+msgid "More download options"
+msgstr "Filannoo buufataa dabalataa"
+
+msgctxt "wizard.formats.footer.reviewOptions"
+msgid "Review & options"
+msgstr "Sakatta'i fi filannoo"
+
+msgctxt "wizard.formats.footer.subtitlesRequired"
+msgid "Choose at least one subtitle language."
+msgstr "Yoo xiqqaate afaan axxiinnii tokko filadhu."
+
 msgctxt "wizard.formats.keepAudio"
 msgid "Keep as-is"
 msgstr "Akka jirutti eegi"
@@ -1900,6 +1892,22 @@ msgstr "Akka jirutti eegi"
 msgctxt "wizard.formats.keepAudioMeta"
 msgid "Built-in audio"
 msgstr "Sagalee keessoo"
+
+msgctxt "wizard.formats.kind.audio"
+msgid "Audio"
+msgstr "Sagalee"
+
+msgctxt "wizard.formats.kind.label"
+msgid "What to download"
+msgstr "Maal buufachuu barbaaddaa"
+
+msgctxt "wizard.formats.kind.subtitles"
+msgid "Subtitles only"
+msgstr "Axxiinni qofa"
+
+msgctxt "wizard.formats.kind.video"
+msgid "Video"
+msgstr "Viidiyoo"
 
 msgctxt "wizard.formats.loadingAria"
 msgid "Loading formats"
@@ -1909,13 +1917,33 @@ msgctxt "wizard.formats.loadingHint"
 msgid "Please wait until probing finishes — playlists and searches can take a while."
 msgstr "Qorannoon xumuramuu hanga eegtu — playlist fi barbaacha yeroo fudhachuu danda'a."
 
-msgctxt "wizard.formats.mascot"
-msgid "Best + Best = max quality. I'd pick that!"
-msgstr "Caalmaa + Caalmaa = qulqullina ol'aanaa. Sana filadha!"
-
 msgctxt "wizard.formats.noAudio"
 msgid "No audio"
 msgstr "Sagalee hin jiru"
+
+msgctxt "wizard.formats.profile.closestTag"
+msgid "Closest to profile"
+msgstr "Piroofaayiliitti dhiyoo"
+
+msgctxt "wizard.formats.profile.preselected"
+msgid "Pre-selected from"
+msgstr "Duraan filatame, madda:"
+
+msgctxt "wizard.formats.profile.switchAction"
+msgid "Switch"
+msgstr "Jijjiiri"
+
+msgctxt "wizard.formats.profile.switchBody"
+msgid "Your changes to this download will be replaced by the settings of the profile you pick."
+msgstr "Jijjiirama buufata kana irratti gooteen qindaa'ina piroofaayilii filattuun bakka bu'a."
+
+msgctxt "wizard.formats.profile.switchTitle"
+msgid "Switch profile?"
+msgstr "Piroofaayilii jijjiiruu?"
+
+msgctxt "wizard.formats.profile.tag"
+msgid "Profile"
+msgstr "Piroofaayilii"
 
 msgctxt "wizard.formats.quality.high"
 msgid "High quality"
@@ -1928,10 +1956,6 @@ msgstr "Qulqullina gadi aanaa"
 msgctxt "wizard.formats.quality.medium"
 msgid "Medium quality"
 msgstr "Qulqullina giddugaleessaa"
-
-msgctxt "wizard.formats.quickPresets"
-msgid "Quick presets"
-msgstr "Qophii ariifatoo"
 
 msgctxt "wizard.formats.sizeUnknown"
 msgid "Size unknown"
@@ -1948,6 +1972,26 @@ msgstr "Filannoowwan kee kan olkaawaman tarkaanfiiwwan hafan hundaaf fayyadama. 
 msgctxt "wizard.formats.sniffing"
 msgid "Sniffing out the best formats for you…"
 msgstr "Foormaatii caalmaa si barbaachisu barbaaduun jira…"
+
+msgctxt "wizard.formats.summary.lead"
+msgid "Also from {{profile}}:"
+msgstr "{{profile}} irraa kanas:"
+
+msgctxt "wizard.formats.summary.reviewAll"
+msgid "Review all"
+msgstr "Hunda sakatta'i"
+
+msgctxt "wizard.formats.summary.subtitlesAdd_one"
+msgid "{{count}} language available, add"
+msgstr "Afaan {{count}} jira, dabali"
+
+msgctxt "wizard.formats.summary.subtitlesAdd_other"
+msgid "{{count}} languages available, add"
+msgstr "Afaanonni {{count}} jiru, dabali"
+
+msgctxt "wizard.formats.summary.subtitlesOff"
+msgid "subtitles off"
+msgstr "axxiinni dhaabbateera"
 
 msgctxt "wizard.formats.total"
 msgid "Total"
@@ -2745,6 +2789,126 @@ msgctxt "wizard.quickProgress.waitHint"
 msgid "Keep this open while Arroxy prepares the queue."
 msgstr "Arroxy tarree qopheessaa jiru kana banaa dhiisi."
 
+msgctxt "wizard.review.areas.extras"
+msgid "extras"
+msgstr "dabalataalee"
+
+msgctxt "wizard.review.areas.fileName"
+msgid "file name"
+msgstr "maqaa faayilii"
+
+msgctxt "wizard.review.areas.format"
+msgid "format"
+msgstr "foormaatii"
+
+msgctxt "wizard.review.areas.saveTo"
+msgid "folder"
+msgstr "foldarii"
+
+msgctxt "wizard.review.areas.sponsorBlock"
+msgid "SponsorBlock"
+msgstr "SponsorBlock"
+
+msgctxt "wizard.review.areas.subtitles"
+msgid "subtitles"
+msgstr "axxiinni"
+
+msgctxt "wizard.review.changed"
+msgid "Changed from {{profile}}: {{areas}}. Applies to this download only."
+msgstr "{{profile}} irraa jijjiirame: {{areas}}. Buufata kanaaf qofa hojiirra oola."
+
+msgctxt "wizard.review.changeFormat"
+msgid "Change format"
+msgstr "Foormaatii jijjiiri"
+
+msgctxt "wizard.review.done"
+msgid "Done"
+msgstr "Xumurame"
+
+msgctxt "wizard.review.fileNameHint"
+msgid "Tokens: {title}, {id}, {uploader}, {date}, {resolution}. The extension is added for you."
+msgstr "Mallattoolee: {title}, {id}, {uploader}, {date}, {resolution}. Dheeraan ofumaan siif dabalama."
+
+msgctxt "wizard.review.nextTime.action"
+msgid "Save as profile"
+msgstr "Akka piroofaayiliitti olkaa'i"
+
+msgctxt "wizard.review.nextTime.defaultName"
+msgid "{{profile}} (edited)"
+msgstr "{{profile}} (jijjiirame)"
+
+msgctxt "wizard.review.nextTime.title"
+msgid "This download used edited settings. Use them next time?"
+msgstr "Buufanni kun qindaa'ina jijjiirame fayyadame. Yeroo itti aanu itti fayyadamtaa?"
+
+msgctxt "wizard.review.reset"
+msgid "Reset"
+msgstr "Deebisi"
+
+msgctxt "wizard.review.rows.extras"
+msgid "Extras"
+msgstr "Dabalataalee"
+
+msgctxt "wizard.review.rows.fileName"
+msgid "File name"
+msgstr "Maqaa faayilii"
+
+msgctxt "wizard.review.rows.saveTo"
+msgid "Save to"
+msgstr "Kuusi gara"
+
+msgctxt "wizard.review.rows.sponsorBlock"
+msgid "SponsorBlock"
+msgstr "SponsorBlock"
+
+msgctxt "wizard.review.rows.subtitles"
+msgid "Subtitles"
+msgstr "Axxiinni"
+
+msgctxt "wizard.review.rowsHeading"
+msgid "Everything else"
+msgstr "Kan hafe hunda"
+
+msgctxt "wizard.review.save.action"
+msgid "Save profile"
+msgstr "Piroofaayilii olkaa'i"
+
+msgctxt "wizard.review.save.description"
+msgid "Keeps these settings as a profile you can pick next time. Your Quick Download profile stays the same."
+msgstr "Qindaa'inoota kana akka piroofaayiliitti olkaa'a, yeroo itti aanu filachuu dandeessa. Piroofaayiliin Buufata saffisaa kee hin jijjiiramu."
+
+msgctxt "wizard.review.save.failed"
+msgid "Couldn't save the profile."
+msgstr "Piroofaayilii olkaa'uun hin danda'amne."
+
+msgctxt "wizard.review.save.nameLabel"
+msgid "Profile name"
+msgstr "Maqaa piroofaayilii"
+
+msgctxt "wizard.review.save.saved"
+msgid "Saved as profile “{{name}}”"
+msgstr "Piroofaayilii “{{name}}” jedhamee olkaa'ameera"
+
+msgctxt "wizard.review.save.title"
+msgid "Save as profile"
+msgstr "Akka piroofaayiliitti olkaa'i"
+
+msgctxt "wizard.review.saveAsProfile"
+msgid "Save as profile…"
+msgstr "Akka piroofaayiliitti olkaa'i…"
+
+msgctxt "wizard.review.value.extrasNone"
+msgid "None"
+msgstr "Homaa"
+
+msgctxt "wizard.review.value.sponsorBlockOff"
+msgid "Off"
+msgstr "Dhaabbi"
+
+msgctxt "wizard.review.value.subtitlesOff"
+msgid "Off"
+msgstr "Dhaabbi"
+
 msgctxt "wizard.sponsorblock.cat.filler"
 msgid "Filler"
 msgstr "Filler"
@@ -2837,6 +3001,10 @@ msgctxt "wizard.steps.playlistProfiles"
 msgid "Profiles"
 msgstr "Profaayilota"
 
+msgctxt "wizard.steps.review"
+msgid "Review"
+msgstr "Sakatta'i"
+
 msgctxt "wizard.steps.sponsorblock"
 msgid "SponsorBlock"
 msgstr "SponsorBlock"
@@ -2868,10 +3036,6 @@ msgstr "Haalli makuun ba'insa .mkv ta'ee kuusaa fi kuunni sirnaan makama."
 msgctxt "wizard.subtitles.format.heading"
 msgid "Format"
 msgstr "Foormaatii"
-
-msgctxt "wizard.subtitles.mascot"
-msgid "Pick zero, one, or many — totally up to you ✨"
-msgstr "Tokko, lama ykn baay'ee filadhu — si irratti hundaa'a ✨"
 
 msgctxt "wizard.subtitles.noLanguages"
 msgid "No subtitles available for this video"
@@ -2916,22 +3080,6 @@ msgstr "Ofumaan uumame"
 msgctxt "wizard.subtitles.sectionManual"
 msgid "Manual"
 msgstr "Harkaan"
-
-msgctxt "wizard.subtitles.selectedNote_one"
-msgid "{{count}} subtitle will be downloaded"
-msgstr "Axxiinni {{count}} ni buufama"
-
-msgctxt "wizard.subtitles.selectedNote_other"
-msgid "{{count}} subtitles will be downloaded"
-msgstr "Axxiinnota {{count}} ni buufamu"
-
-msgctxt "wizard.subtitles.skip"
-msgid "Skip"
-msgstr "Irri cabi"
-
-msgctxt "wizard.subtitles.skipSubs"
-msgid "Skip for this video"
-msgstr "Viidiyoo kana irra cabi"
 
 msgctxt "wizard.tabsNavAria"
 msgid "Download profile navigation"

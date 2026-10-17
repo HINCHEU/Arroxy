@@ -49,7 +49,20 @@
 	"theme": {"light": "الوضع الفاتح", "dark": "الوضع الداكن", "system": "إعداد النظام الافتراضي"},
 	"language": {"label": "اللغة"},
 	"wizard": {
-		"steps": {"url": "URL", "playlistItems": "قائمة التشغيل", "playlistItemsGeneric": "فيديوهات", "playlistPresets": "الجودة", "playlistProfiles": "الملفات الشخصية", "formats": "الصيغة", "subtitles": "الترجمات", "sponsorblock": "SponsorBlock", "output": "الإخراج", "folder": "حفظ", "confirm": "تأكيد"},
+		"steps": {
+			"url": "URL",
+			"playlistItems": "قائمة التشغيل",
+			"playlistItemsGeneric": "فيديوهات",
+			"playlistPresets": "الجودة",
+			"playlistProfiles": "الملفات الشخصية",
+			"formats": "الصيغة",
+			"subtitles": "الترجمات",
+			"sponsorblock": "SponsorBlock",
+			"output": "الإخراج",
+			"folder": "حفظ",
+			"confirm": "تأكيد",
+			"review": "مراجعة"
+		},
 		"playlistPresets": {"heading": "اختر الجودة للدفعة", "subhead": "يحل كل فيديو المستوى المختار بشكل مستقل — قوائم التشغيل غير المتجانسة تعمل بدون مفاجآت.", "itemCount_one": "{{count}} عنصر", "itemCount_other": "{{count}} عناصر"},
 		"playlistProfiles": {
 			"heading": "تعيين ملفات تنزيل",
@@ -330,16 +343,11 @@
 		"subtitles": {
 			"autoBadge": "تلقائي",
 			"noLanguages": "لا توجد ترجمات متاحة لهذا الفيديو",
-			"skip": "تخطي",
-			"skipSubs": "تخطي لهذا الفيديو",
-			"mascot": "اختر صفراً أو واحداً أو أكثر — الأمر يعود لك تماماً ✨",
 			"searchPlaceholder": "البحث عن لغات…",
 			"noMatches": "لا توجد لغات مطابقة",
 			"clearAll": "مسح الكل",
 			"noSelected": "لم يتم اختيار أي ترجمة",
 			"removeLanguage": "إزالة {{name}}",
-			"selectedNote_one": "سيتم تنزيل {{count}} ترجمة",
-			"selectedNote_other": "سيتم تنزيل {{count}} ترجمات",
 			"sectionManual": "يدوي",
 			"sectionAuto": "مولّد تلقائياً",
 			"saveMode": {"heading": "حفظ بصيغة", "sidecar": "بجانب الفيديو", "embed": "تضمين في الفيديو", "subfolder": "مجلد فرعي subtitles/"},
@@ -355,7 +363,17 @@
 			"cat": {"sponsor": "رعاية", "intro": "مقدمة", "outro": "خاتمة", "selfpromo": "ترويج ذاتي", "music_offtopic": "موسيقى خارج الموضوع", "preview": "معاينة", "filler": "حشو"}
 		},
 		"formats": {
-			"quickPresets": "إعدادات سريعة",
+			"kind": {"label": "ما الذي تريد تنزيله", "video": "فيديو", "audio": "صوت", "subtitles": "ترجمات فقط"},
+			"profile": {"preselected": "محدد مسبقًا من", "tag": "ملف التعريف", "closestTag": "الأقرب إلى ملف التعريف", "switchTitle": "تبديل ملف التعريف؟", "switchBody": "ستُستبدل تغييراتك على هذا التنزيل بإعدادات ملف التعريف الذي تختاره.", "switchAction": "تبديل"},
+			"fit": {
+				"tierBelow": "يطلب ملف التعريف الخاص بك {{wanted}}p. يصل هذا الفيديو إلى {{picked}}p فقط، لذا تم اختيار {{picked}}p.",
+				"tierAbove": "يطلب ملف التعريف الخاص بك {{wanted}}p. لا يوجد في هذا الفيديو ما هو بهذا الحجم الصغير، لذا تم اختيار {{picked}}p.",
+				"mp4Unavailable": "يطلب ملف التعريف الخاص بك MP4 (H.264). هذا الفيديو لا يوفره، لذا تم اختيار أقرب صيغة.",
+				"noVideo": "لا يحتوي هذا الرابط على فيديو، لذا تم اختيار الصوت.",
+				"subtitlesMissing": "يطلب ملف التعريف الخاص بك ترجمات بلغة {{languages}}. هذا الفيديو لا يحتويها."
+			},
+			"summary": {"lead": "أيضًا من {{profile}}:", "subtitlesOff": "الترجمات متوقفة", "subtitlesAdd_one": "{{count}} لغة متاحة، أضِف", "subtitlesAdd_other": "{{count}} لغات متاحة، أضِف", "reviewAll": "مراجعة الكل"},
+			"footer": {"reviewOptions": "المراجعة والخيارات", "download": "تنزيل", "moreActions": "المزيد من خيارات التنزيل", "addToQueue": "إضافة إلى قائمة الانتظار دون بدء", "subtitlesRequired": "اختر لغة ترجمة واحدة على الأقل."},
 			"video": "فيديو",
 			"audio": "صوت",
 			"noAudio": "بدون صوت",
@@ -363,8 +381,6 @@
 			"keepAudio": "إبقاؤه كما هو",
 			"keepAudioMeta": "الصوت المضمّن",
 			"audioOnly": "صوت فقط",
-			"audioOnlyOption": "صوت فقط (بدون فيديو)",
-			"mascot": "الأفضل + الأفضل = أقصى جودة. هذا ما كنت سأختاره!",
 			"sniffing": "جارٍ البحث عن أفضل الصيغ لك…",
 			"loadingHint": "يُرجى الانتظار حتى تنتهي عملية الفحص — قوائم التشغيل والبحث قد تستغرق بعض الوقت.",
 			"loadingAria": "جارٍ تحميل الصيغ",
@@ -373,15 +389,7 @@
 			"skipToConfirm": "تخطَّ إلى التأكيد",
 			"skipToConfirmTooltip": "يستخدم تفضيلاتك المحفوظة لجميع الخطوات المتبقية. لتغيير إعداد ما، تابع خطوةً بخطوة — وسيُحفظ اختيارك للمرة القادمة.",
 			"quality": {"high": "جودة عالية", "medium": "جودة متوسطة", "low": "جودة منخفضة"},
-			"convert": {
-				"label": "تحويل",
-				"uncompressed": "تحويل · غير مضغوط",
-				"bitrate": "معدل البت",
-				"wavLabel": "WAV (غير مضغوط)",
-				"lossyLabel": "{{target}} {{bitrate}} kbps",
-				"requiresAudioOnly": "يتطلب تحويل الصوت وضع الصوت فقط (قم بإلغاء تحديد الفيديو).",
-				"requiresLossy": "تم اختيار مقطع صوتي أصلي — معدل البت لا ينطبق إلا عند التحويل إلى mp3 أو m4a أو opus."
-			},
+			"convert": {"label": "تحويل", "uncompressed": "تحويل · غير مضغوط", "bitrate": "معدل البت", "wavLabel": "WAV (غير مضغوط)", "lossyLabel": "{{target}} {{bitrate}} kbps", "requiresLossy": "تم اختيار مقطع صوتي أصلي — معدل البت لا ينطبق إلا عند التحويل إلى mp3 أو m4a أو opus."},
 			"botWall": {
 				"heading": "YouTube قيّد هذا الفحص",
 				"bodyUnconfigured": "قائمة الصيغ قد تكون غير مكتملة. أعدّ الكوكيز في الإعدادات المتقدمة، أو غيّر الشبكة وأعد المحاولة.",
@@ -438,6 +446,20 @@
 			"writeDescription": {"label": "حفظ الوصف", "description": "يحفظ وصف الفيديو كملف نصي .description بجانب التنزيل."},
 			"writeThumbnail": {"label": "حفظ الصورة المصغرة", "description": "يحفظ الصورة المصغرة كملف صورة .jpg بجانب التنزيل."},
 			"writeM3u": {"label": "إنشاء ملف قائمة تشغيل .m3u", "description": "يحفظ قائمة .m3u بجانب الفيديوهات كي تفتح بالترتيب في مشغل الوسائط."}
+		},
+		"review": {
+			"changeFormat": "تغيير الصيغة",
+			"rowsHeading": "كل شيء آخر",
+			"rows": {"subtitles": "الترجمات", "sponsorBlock": "SponsorBlock", "extras": "الإضافات", "saveTo": "الحفظ في", "fileName": "اسم الملف"},
+			"value": {"subtitlesOff": "إيقاف", "sponsorBlockOff": "إيقاف", "extrasNone": "لا شيء"},
+			"done": "تم",
+			"changed": "تغيّر عن {{profile}}: {{areas}}. ينطبق على هذا التنزيل فقط.",
+			"areas": {"format": "الصيغة", "subtitles": "الترجمات", "sponsorBlock": "SponsorBlock", "extras": "الإضافات", "saveTo": "المجلد", "fileName": "اسم الملف"},
+			"saveAsProfile": "حفظ كملف تعريف…",
+			"reset": "إعادة ضبط",
+			"save": {"title": "حفظ كملف تعريف", "description": "يحفظ هذه الإعدادات كملف تعريف يمكنك اختياره في المرة القادمة. يبقى ملف التعريف الخاص بالتنزيل السريع كما هو.", "nameLabel": "اسم ملف التعريف", "action": "حفظ ملف التعريف", "saved": "تم الحفظ كملف تعريف “{{name}}”", "failed": "تعذّر حفظ ملف التعريف."},
+			"fileNameHint": "الرموز: {title}، {id}، {uploader}، {date}، {resolution}. تتم إضافة الامتداد تلقائيًا.",
+			"nextTime": {"title": "استخدم هذا التنزيل إعدادات معدّلة. هل تريد استخدامها في المرة القادمة؟", "action": "حفظ كملف تعريف", "defaultName": "{{profile}} (معدّل)"}
 		},
 		"confirm": {
 			"readyHeadline": "جاهز للتنزيل!",
@@ -704,13 +726,6 @@
 			"loginRequired": "يحتاج هذا الفيديو إلى حساب مسجَّل الدخول.",
 			"unknown": "فشل التنزيل. راجع الإخراج الخام أدناه."
 		}
-	},
-	"presets": {
-		"best-quality": {"label": "أفضل جودة", "desc": "أعلى دقة + أفضل صوت"},
-		"balanced": {"label": "متوازن", "desc": "720p كحد أقصى + صوت جيد"},
-		"audio-only": {"label": "صوت فقط", "desc": "بدون فيديو، أفضل صوت"},
-		"small-file": {"label": "ملف صغير", "desc": "أدنى دقة + صوت منخفض"},
-		"subtitle-only": {"label": "ترجمات فقط", "desc": "بدون فيديو، بدون صوت، ترجمات فقط"}
 	},
 	"playlistPresets": {
 		"type": {"video": "Video", "audio": "Audio", "subtitles": "الترجمات"},

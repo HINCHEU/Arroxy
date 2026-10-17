@@ -779,46 +779,6 @@ msgctxt "playlistPresets.videoFormatDesc.mp4"
 msgid "Prefer H.264 video + AAC audio in MP4 when possible"
 msgstr "Prednost H.264 + AAC, MP4 kontejner · najbolji pokušaj"
 
-msgctxt "presets.audio-only.desc"
-msgid "No video, best audio"
-msgstr "Без видеа, најбољи звук"
-
-msgctxt "presets.audio-only.label"
-msgid "Audio only"
-msgstr "Само звук"
-
-msgctxt "presets.balanced.desc"
-msgid "720p max + good audio"
-msgstr "Максимум 720p + добар звук"
-
-msgctxt "presets.balanced.label"
-msgid "Balanced"
-msgstr "Уравнотежено"
-
-msgctxt "presets.best-quality.desc"
-msgid "Highest resolution + best audio"
-msgstr "Највиша резолуција + најбољи звук"
-
-msgctxt "presets.best-quality.label"
-msgid "Best quality"
-msgstr "Најбољи квалитет"
-
-msgctxt "presets.small-file.desc"
-msgid "Lowest resolution + low audio"
-msgstr "Најнижа резолуција + низак квалитет звука"
-
-msgctxt "presets.small-file.label"
-msgid "Small file"
-msgstr "Мала датотека"
-
-msgctxt "presets.subtitle-only.desc"
-msgid "No video, no audio, only subtitles"
-msgstr "Без видеа, без звука, само титлови"
-
-msgctxt "presets.subtitle-only.label"
-msgid "Subtitles only"
-msgstr "Само титлови"
-
 msgctxt "queue.artifact.companion"
 msgid "Companion"
 msgstr "Пратећа датотека"
@@ -1709,10 +1669,6 @@ msgctxt "wizard.formats.audioOnly"
 msgid "Audio only"
 msgstr "Само звук"
 
-msgctxt "wizard.formats.audioOnlyOption"
-msgid "Audio only (no video)"
-msgstr "Само звук (без видеа)"
-
 msgctxt "wizard.formats.botWall.bodyDisabled"
 msgid "Cookies are configured but turned off. Enable them and retry to get the full list, or change network and retry."
 msgstr "Cookies су подешени али искључени. Укључи их и покушај поново за потпун списак, или промени мрежу и покушај поново."
@@ -1752,10 +1708,6 @@ msgstr "Конвертуј"
 msgctxt "wizard.formats.convert.lossyLabel"
 msgid "{{target}} {{bitrate}} kbps"
 msgstr "{{target}} {{bitrate}} kbps"
-
-msgctxt "wizard.formats.convert.requiresAudioOnly"
-msgid "Audio conversion requires audio-only mode (deselect the video pick)."
-msgstr "Конверзија звука захтева режим само-звука (поништи избор видеа)."
 
 msgctxt "wizard.formats.convert.requiresLossy"
 msgid "A native stream is selected — bitrate only applies when converting to mp3, m4a, or opus."
@@ -1893,6 +1845,46 @@ msgctxt "wizard.formats.cookiesError.otherCookiesCta"
 msgid "Use a cookies file or browser instead…"
 msgstr "Користи cookies датотеку или прегледач…"
 
+msgctxt "wizard.formats.fit.mp4Unavailable"
+msgid "Your profile asks for MP4 (H.264). This video doesn't offer it, so the closest stream is selected."
+msgstr "Ваш профил тражи MP4 (H.264). Овај видео то не нуди, па је изабран најближи ток."
+
+msgctxt "wizard.formats.fit.noVideo"
+msgid "This link has no video, so audio is selected."
+msgstr "Ова веза нема видео, па је изабран звук."
+
+msgctxt "wizard.formats.fit.subtitlesMissing"
+msgid "Your profile asks for subtitles in {{languages}}. This video doesn't have them."
+msgstr "Ваш профил тражи титлове на језицима: {{languages}}. Овај видео их нема."
+
+msgctxt "wizard.formats.fit.tierAbove"
+msgid "Your profile asks for {{wanted}}p. This video has nothing that small, so {{picked}}p is selected."
+msgstr "Ваш профил тражи {{wanted}}p. Овај видео нема тако низак квалитет, па је изабрано {{picked}}p."
+
+msgctxt "wizard.formats.fit.tierBelow"
+msgid "Your profile asks for {{wanted}}p. This video only goes up to {{picked}}p, so {{picked}}p is selected."
+msgstr "Ваш профил тражи {{wanted}}p. Овај видео иде само до {{picked}}p, па је изабрано {{picked}}p."
+
+msgctxt "wizard.formats.footer.addToQueue"
+msgid "Add to queue without starting"
+msgstr "Додај у ред без покретања"
+
+msgctxt "wizard.formats.footer.download"
+msgid "Download"
+msgstr "Преузми"
+
+msgctxt "wizard.formats.footer.moreActions"
+msgid "More download options"
+msgstr "Више опција преузимања"
+
+msgctxt "wizard.formats.footer.reviewOptions"
+msgid "Review & options"
+msgstr "Преглед и опције"
+
+msgctxt "wizard.formats.footer.subtitlesRequired"
+msgid "Choose at least one subtitle language."
+msgstr "Изаберите бар један језик титлова."
+
 msgctxt "wizard.formats.keepAudio"
 msgid "Keep as-is"
 msgstr "Задржи као јесте"
@@ -1900,6 +1892,22 @@ msgstr "Задржи као јесте"
 msgctxt "wizard.formats.keepAudioMeta"
 msgid "Built-in audio"
 msgstr "Уграђени звук"
+
+msgctxt "wizard.formats.kind.audio"
+msgid "Audio"
+msgstr "Аудио"
+
+msgctxt "wizard.formats.kind.label"
+msgid "What to download"
+msgstr "Шта преузети"
+
+msgctxt "wizard.formats.kind.subtitles"
+msgid "Subtitles only"
+msgstr "Само титлови"
+
+msgctxt "wizard.formats.kind.video"
+msgid "Video"
+msgstr "Видео"
 
 msgctxt "wizard.formats.loadingAria"
 msgid "Loading formats"
@@ -1909,13 +1917,33 @@ msgctxt "wizard.formats.loadingHint"
 msgid "Please wait until probing finishes — playlists and searches can take a while."
 msgstr "Сачекајте да провера заврши — листе за репродукцију и претраге могу потрајати."
 
-msgctxt "wizard.formats.mascot"
-msgid "Best + Best = max quality. I'd pick that!"
-msgstr "Најбоље + Најбоље = максималан квалитет. То бих ја изабрао!"
-
 msgctxt "wizard.formats.noAudio"
 msgid "No audio"
 msgstr "Без звука"
+
+msgctxt "wizard.formats.profile.closestTag"
+msgid "Closest to profile"
+msgstr "Најближе профилу"
+
+msgctxt "wizard.formats.profile.preselected"
+msgid "Pre-selected from"
+msgstr "Унапред изабрано из"
+
+msgctxt "wizard.formats.profile.switchAction"
+msgid "Switch"
+msgstr "Промени"
+
+msgctxt "wizard.formats.profile.switchBody"
+msgid "Your changes to this download will be replaced by the settings of the profile you pick."
+msgstr "Ваше измене за ово преузимање биће замењене подешавањима изабраног профила."
+
+msgctxt "wizard.formats.profile.switchTitle"
+msgid "Switch profile?"
+msgstr "Променити профил?"
+
+msgctxt "wizard.formats.profile.tag"
+msgid "Profile"
+msgstr "Профил"
 
 msgctxt "wizard.formats.quality.high"
 msgid "High quality"
@@ -1928,10 +1956,6 @@ msgstr "Низак квалитет"
 msgctxt "wizard.formats.quality.medium"
 msgid "Medium quality"
 msgstr "Средњи квалитет"
-
-msgctxt "wizard.formats.quickPresets"
-msgid "Quick presets"
-msgstr "Брзе поставке"
 
 msgctxt "wizard.formats.sizeUnknown"
 msgid "Size unknown"
@@ -1948,6 +1972,26 @@ msgstr "Користи твоја сачувана подешавања за с�
 msgctxt "wizard.formats.sniffing"
 msgid "Sniffing out the best formats for you…"
 msgstr "Тражим најбоље формате за тебе…"
+
+msgctxt "wizard.formats.summary.lead"
+msgid "Also from {{profile}}:"
+msgstr "Такође из профила {{profile}}:"
+
+msgctxt "wizard.formats.summary.reviewAll"
+msgid "Review all"
+msgstr "Прегледај све"
+
+msgctxt "wizard.formats.summary.subtitlesAdd_one"
+msgid "{{count}} language available, add"
+msgstr "{{count}} језик доступан, додај"
+
+msgctxt "wizard.formats.summary.subtitlesAdd_other"
+msgid "{{count}} languages available, add"
+msgstr "Доступно језика: {{count}}, додај"
+
+msgctxt "wizard.formats.summary.subtitlesOff"
+msgid "subtitles off"
+msgstr "титлови искључени"
 
 msgctxt "wizard.formats.total"
 msgid "Total"
@@ -2745,6 +2789,126 @@ msgctxt "wizard.quickProgress.waitHint"
 msgid "Keep this open while Arroxy prepares the queue."
 msgstr "Остави ово отворено док Arroxy припрема ред."
 
+msgctxt "wizard.review.areas.extras"
+msgid "extras"
+msgstr "додатно"
+
+msgctxt "wizard.review.areas.fileName"
+msgid "file name"
+msgstr "назив фајла"
+
+msgctxt "wizard.review.areas.format"
+msgid "format"
+msgstr "формат"
+
+msgctxt "wizard.review.areas.saveTo"
+msgid "folder"
+msgstr "фасцикла"
+
+msgctxt "wizard.review.areas.sponsorBlock"
+msgid "SponsorBlock"
+msgstr "SponsorBlock"
+
+msgctxt "wizard.review.areas.subtitles"
+msgid "subtitles"
+msgstr "титлови"
+
+msgctxt "wizard.review.changed"
+msgid "Changed from {{profile}}: {{areas}}. Applies to this download only."
+msgstr "Измењено у односу на {{profile}}: {{areas}}. Важи само за ово преузимање."
+
+msgctxt "wizard.review.changeFormat"
+msgid "Change format"
+msgstr "Промени формат"
+
+msgctxt "wizard.review.done"
+msgid "Done"
+msgstr "Готово"
+
+msgctxt "wizard.review.fileNameHint"
+msgid "Tokens: {title}, {id}, {uploader}, {date}, {resolution}. The extension is added for you."
+msgstr "Ознаке: {title}, {id}, {uploader}, {date}, {resolution}. Екстензија се додаје аутоматски."
+
+msgctxt "wizard.review.nextTime.action"
+msgid "Save as profile"
+msgstr "Сачувај као профил"
+
+msgctxt "wizard.review.nextTime.defaultName"
+msgid "{{profile}} (edited)"
+msgstr "{{profile}} (измењено)"
+
+msgctxt "wizard.review.nextTime.title"
+msgid "This download used edited settings. Use them next time?"
+msgstr "Ово преузимање је користило измењена подешавања. Користити их следећи пут?"
+
+msgctxt "wizard.review.reset"
+msgid "Reset"
+msgstr "Ресетуј"
+
+msgctxt "wizard.review.rows.extras"
+msgid "Extras"
+msgstr "Додатно"
+
+msgctxt "wizard.review.rows.fileName"
+msgid "File name"
+msgstr "Назив фајла"
+
+msgctxt "wizard.review.rows.saveTo"
+msgid "Save to"
+msgstr "Сачувај у"
+
+msgctxt "wizard.review.rows.sponsorBlock"
+msgid "SponsorBlock"
+msgstr "SponsorBlock"
+
+msgctxt "wizard.review.rows.subtitles"
+msgid "Subtitles"
+msgstr "Титлови"
+
+msgctxt "wizard.review.rowsHeading"
+msgid "Everything else"
+msgstr "Остало"
+
+msgctxt "wizard.review.save.action"
+msgid "Save profile"
+msgstr "Сачувај профил"
+
+msgctxt "wizard.review.save.description"
+msgid "Keeps these settings as a profile you can pick next time. Your Quick Download profile stays the same."
+msgstr "Чува ова подешавања као профил који можете изабрати следећи пут. Ваш профил „Брзо преузимање” остаје исти."
+
+msgctxt "wizard.review.save.failed"
+msgid "Couldn't save the profile."
+msgstr "Чување профила није успело."
+
+msgctxt "wizard.review.save.nameLabel"
+msgid "Profile name"
+msgstr "Назив профила"
+
+msgctxt "wizard.review.save.saved"
+msgid "Saved as profile “{{name}}”"
+msgstr "Сачувано као профил „{{name}}”"
+
+msgctxt "wizard.review.save.title"
+msgid "Save as profile"
+msgstr "Сачувај као профил"
+
+msgctxt "wizard.review.saveAsProfile"
+msgid "Save as profile…"
+msgstr "Сачувај као профил…"
+
+msgctxt "wizard.review.value.extrasNone"
+msgid "None"
+msgstr "Ништа"
+
+msgctxt "wizard.review.value.sponsorBlockOff"
+msgid "Off"
+msgstr "Искључено"
+
+msgctxt "wizard.review.value.subtitlesOff"
+msgid "Off"
+msgstr "Искључено"
+
 msgctxt "wizard.sponsorblock.cat.filler"
 msgid "Filler"
 msgstr "Filler"
@@ -2837,6 +3001,10 @@ msgctxt "wizard.steps.playlistProfiles"
 msgid "Profiles"
 msgstr "Профили"
 
+msgctxt "wizard.steps.review"
+msgid "Review"
+msgstr "Преглед"
+
 msgctxt "wizard.steps.sponsorblock"
 msgid "SponsorBlock"
 msgstr "SponsorBlock"
@@ -2868,10 +3036,6 @@ msgstr "Режим уградње чува излаз као .mkv тако да 
 msgctxt "wizard.subtitles.format.heading"
 msgid "Format"
 msgstr "Формат"
-
-msgctxt "wizard.subtitles.mascot"
-msgid "Pick zero, one, or many — totally up to you ✨"
-msgstr "Изабери нула, један или много — потпуно је на теби ✨"
 
 msgctxt "wizard.subtitles.noLanguages"
 msgid "No subtitles available for this video"
@@ -2916,22 +3080,6 @@ msgstr "Аутоматски генерисано"
 msgctxt "wizard.subtitles.sectionManual"
 msgid "Manual"
 msgstr "Ручно"
-
-msgctxt "wizard.subtitles.selectedNote_one"
-msgid "{{count}} subtitle will be downloaded"
-msgstr "{{count}} титл ће бити преузет"
-
-msgctxt "wizard.subtitles.selectedNote_other"
-msgid "{{count}} subtitles will be downloaded"
-msgstr "{{count}} титлова ће бити преузето"
-
-msgctxt "wizard.subtitles.skip"
-msgid "Skip"
-msgstr "Прескочи"
-
-msgctxt "wizard.subtitles.skipSubs"
-msgid "Skip for this video"
-msgstr "Прескочи за овај видео"
 
 msgctxt "wizard.tabsNavAria"
 msgid "Download profile navigation"

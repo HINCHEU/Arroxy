@@ -1,4 +1,4 @@
-import type {AudioSelection, Preset, SubtitleMode} from '@shared/schemas.js'
+import type {AudioSelection, SubtitleMode, WizardMediaKind} from '@shared/schemas.js'
 import type {FormatOption} from '@shared/types.js'
 
 /**
@@ -14,8 +14,8 @@ import type {FormatOption} from '@shared/types.js'
  *   embeds a thumbnail, which yt-dlp switches to mkv to hold the cover art
  * - video + mixed-container audio → mkv (yt-dlp default merge)
  */
-export function resolveOutputContainer(selectedVideoFormatId: string, audioSelection: AudioSelection, subtitleMode: SubtitleMode, wizardFormats: FormatOption[], activePreset: Preset | null, embedThumbnail = false): string {
-	if (activePreset === 'subtitle-only') return 'subtitle-only'
+export function resolveOutputContainer(selectedVideoFormatId: string, audioSelection: AudioSelection, subtitleMode: SubtitleMode, wizardFormats: FormatOption[], mediaKind: WizardMediaKind, embedThumbnail = false): string {
+	if (mediaKind === 'subtitles') return 'subtitle-only'
 
 	if (audioSelection.kind === 'convert-lossless') return 'wav'
 	if (audioSelection.kind === 'convert-lossy') return audioSelection.target

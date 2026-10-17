@@ -44,14 +44,15 @@ graph TD
   BQ --> CAP[Cap dialog] --> APS2
   BULK --> BW[Bulk review wizard] --> WP
   WAND --> SU[submitUrl probe]
-  SU --> WS[Single: formats + presets]
+  SU --> WS[Single: Format, pre-selected from the profile]
+  WS --> RVW[Single: Review rows]
+  WS -.-> SUB
+  RVW --> SUB
   SU --> WP[Playlist: pick items]
   WP --> PP[Playlist selection]
   WP --> MPM[Per-item profiles]
-  WS --> OPT[Subs, SponsorBlock, output]
-  PP --> OPT
+  PP --> OPT[SponsorBlock, output]
   OPT --> FLD[Folder] --> CNF[Confirm]
-  WS -.-> CNF
   PP -.-> CNF
   MPM --> CNF
   CNF --> SUB[submitWizardToQueue] --> ADD[Main add or replace]
@@ -61,8 +62,9 @@ graph TD
   BOOT[Startup queue restore] --> MAIN
 ```
 
-Dotted edges into Confirm are `skipToConfirm`. The dotted Profile picker edge
-sets the active profile that Quick Download uses.
+The dotted edge from Format is Download pressed on the Format screen, which
+skips Review. Dotted edges into Confirm are `skipToConfirm`. The dotted Profile
+picker edge sets the active profile that Quick Download uses.
 
 ## Entry points
 
@@ -86,12 +88,14 @@ No queue row can be reopened in the wizard except a needs-choice row's Review.
 Step list: `wizardStepNameSchema` in `src/shared/schemas.ts`. Visibility:
 `stepApplies` in `src/renderer/src/store/wizard/wizardStepGraph.ts`.
 
-- **Single:** url → formats (preset strip) → subtitles (if the video has
-  tracks) → sponsorblock (YouTube, preset makes video) → output (preset makes
-  media) → folder → confirm. Up to six Continue clicks after the URL.
+- **Single:** url → formats (the Format screen) → confirm (rendered as the
+  Review screen). Format lists every stream the probe found, pre-selected from
+  the active download profile, with the Video / Audio / Subtitles switch;
+  Review holds subtitles, SponsorBlock, extras, folder and file name as rows
+  that open in place. Download works from both. Spec:
+  [interactive-download.md](interactive-download.md).
 - **Playlist / bulk:** url → playlistItems → playlistPresets (subtitles are
-  picked inside it; the separate subtitles step never shows in batch modes) →
-  sponsorblock → output → folder → confirm.
+  picked inside it) → sponsorblock → output → folder → confirm.
 - **Multi-profile (batch only):** url → playlistItems → playlistProfiles →
   confirm.
 
@@ -103,20 +107,22 @@ Five sources feed jobs, and which one applies depends on the path:
 2. **Pinned profile:** the active profile captured on a placeholder row at
    intake, so switching profiles later doesn't change queued work.
 3. **Per-item profiles:** multi-profile playlist mode.
-4. **Wizard selections:** single formats/subtitles/SponsorBlock/output/folder;
-   playlist selection seeded from `settings.playlist.lastPlaylistSelection`.
-5. **Presets** (`presetSchema`: best-quality, balanced, small-file,
-   audio-only, subtitle-only): only the single-mode formats step. All five
-   also exist as built-in download profiles with the same ids
-   (`BUILTIN_DOWNLOAD_PROFILES`), so presets are a narrower duplicate.
+4. **Profile pick, then wizard edits (single video):** the active profile
+   resolved against the probe (`resolveProfileSelection`,
+   `applyProfileToWizard`); edits apply to that download only and nothing is
+   remembered afterwards. "Save as profile" turns them into a new profile.
+5. **Wizard selections (batch):** playlist selection and SponsorBlock, embed
+   and subfolder choices, remembered in `settings.playlist` and the
+   `common.last*` fields.
 
 ## Where settings become job options
 
 - **Profile path:** `resolveDownloadProfile` (`src/shared/downloadProfiles.ts`)
   → `prepareActiveProfileQueueSubmission` / `prepareMultiProfileQueueSubmission`
   → `profileJob` → `prepareJob` (`queueSubmission.ts`).
-- **Wizard path:** `buildSingleQueueItemFromState` (single, via
-  `sanitizeJobOptions`) and `buildPlaylistQueueItem` (playlist/bulk, via
+- **Wizard path:** `buildSingleQueueItemFromState` (single, exact format ids
+  from the profile pick or the user's edits, via `sanitizeJobOptions`) and
+  `buildPlaylistQueueItem` (playlist/bulk, via
   `playlistSelectionToMediaIntent`), both from `prepareManualQueueSubmission`.
 
 Known duplication between the two:
@@ -146,10 +152,8 @@ the field added to the caller request first. `section-download.md`'s note
 that the bridge "already supports `downloadSections`, no argv plumbing
 needed" is true only for the managed planner.
 
-## Decided direction
+## Next
 
-Decided 2026-10-17; the spec is [interactive-download.md](interactive-download.md).
-Single-video Interactive Download becomes two screens, Format and Review,
-pre-selected from the active download profile; presets are retired; "part
-of video" is added on the Format screen. Playlist and bulk modes keep their
-steps for now; moving `playlistPresets` to profiles is a follow-up.
+Spec: [interactive-download.md](interactive-download.md). The single-video
+Format + Review flow is built; "part of video" is the next piece, and moving
+the batch `playlistPresets` step to profiles is a follow-up.

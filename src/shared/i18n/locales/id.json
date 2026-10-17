@@ -49,7 +49,20 @@
 	"theme": {"light": "Modus ringan", "dark": "Mode gelap", "system": "Bawaan sistem"},
 	"language": {"label": "Bahasa"},
 	"wizard": {
-		"steps": {"url": "URL", "playlistItems": "Daftar putar", "playlistItemsGeneric": "Video", "playlistPresets": "Kualitas", "playlistProfiles": "Profil", "formats": "Format", "subtitles": "Subtitle", "sponsorblock": "SponsorBlock", "output": "Keluaran", "folder": "Menyimpan", "confirm": "Mengonfirmasi"},
+		"steps": {
+			"url": "URL",
+			"playlistItems": "Daftar putar",
+			"playlistItemsGeneric": "Video",
+			"playlistPresets": "Kualitas",
+			"playlistProfiles": "Profil",
+			"formats": "Format",
+			"subtitles": "Subtitle",
+			"sponsorblock": "SponsorBlock",
+			"output": "Keluaran",
+			"folder": "Menyimpan",
+			"confirm": "Mengonfirmasi",
+			"review": "Tinjau"
+		},
 		"playlistPresets": {"heading": "Pilih kualitas untuk batch tersebut", "subhead": "Setiap video menyelesaikan tingkatan yang dipilih secara independen — daftar putar yang heterogen berfungsi tanpa kejutan.", "itemCount_one": "item {{count}}", "itemCount_other": "item {{count}}"},
 		"playlistProfiles": {
 			"heading": "Tetapkan profil unduhan",
@@ -330,16 +343,11 @@
 		"subtitles": {
 			"autoBadge": "Otomatis",
 			"noLanguages": "Tidak ada subtitle yang tersedia untuk video ini",
-			"skip": "Melewati",
-			"skipSubs": "Lewati untuk video ini",
-			"mascot": "Pilih nol, satu, atau banyak — terserah Anda ✨",
 			"searchPlaceholder": "Cari bahasa…",
 			"noMatches": "Tidak ada bahasa yang cocok",
 			"clearAll": "Hapus semuanya",
 			"noSelected": "Tidak ada subtitle yang dipilih",
 			"removeLanguage": "Hapus {{name}}",
-			"selectedNote_one": "Subtitle {{count}} akan diunduh",
-			"selectedNote_other": "Subtitle {{count}} akan diunduh",
 			"sectionManual": "Manual",
 			"sectionAuto": "Dibuat secara otomatis",
 			"saveMode": {"heading": "Simpan sebagai", "sidecar": "Di sebelah video", "embed": "Sematkan ke dalam video", "subfolder": "subtitle/subfolder"},
@@ -355,7 +363,17 @@
 			"cat": {"sponsor": "Sponsor", "intro": "Pendahuluan", "outro": "luar", "selfpromo": "Promosi diri", "music_offtopic": "Musik di luar topik", "preview": "Pratinjau", "filler": "Pengisi"}
 		},
 		"formats": {
-			"quickPresets": "Preset cepat",
+			"kind": {"label": "Yang diunduh", "video": "Video", "audio": "Audio", "subtitles": "Hanya subtitle"},
+			"profile": {"preselected": "Dipilih sebelumnya dari", "tag": "Profil", "closestTag": "Terdekat dengan profil", "switchTitle": "Ganti profil?", "switchBody": "Perubahan Anda pada unduhan ini akan diganti dengan pengaturan profil yang Anda pilih.", "switchAction": "Ganti"},
+			"fit": {
+				"tierBelow": "Profil Anda meminta {{wanted}}p. Video ini hanya sampai {{picked}}p, jadi {{picked}}p dipilih.",
+				"tierAbove": "Profil Anda meminta {{wanted}}p. Video ini tidak punya yang sekecil itu, jadi {{picked}}p dipilih.",
+				"mp4Unavailable": "Profil Anda meminta MP4 (H.264). Video ini tidak menyediakannya, jadi aliran terdekat dipilih.",
+				"noVideo": "Tautan ini tidak memiliki video, jadi audio dipilih.",
+				"subtitlesMissing": "Profil Anda meminta subtitle dalam bahasa {{languages}}. Video ini tidak memilikinya."
+			},
+			"summary": {"lead": "Juga dari {{profile}}:", "subtitlesOff": "subtitle mati", "subtitlesAdd_one": "{{count}} bahasa tersedia, tambahkan", "subtitlesAdd_other": "{{count}} bahasa tersedia, tambahkan", "reviewAll": "Tinjau semua"},
+			"footer": {"reviewOptions": "Tinjau & opsi", "download": "Unduh", "moreActions": "Opsi unduhan lainnya", "addToQueue": "Tambahkan ke antrean tanpa memulai", "subtitlesRequired": "Pilih setidaknya satu bahasa subtitle."},
 			"video": "Video",
 			"audio": "Audio",
 			"noAudio": "Tidak ada audio",
@@ -363,8 +381,6 @@
 			"keepAudio": "Tetap apa adanya",
 			"keepAudioMeta": "Audio bawaan",
 			"audioOnly": "Hanya audio",
-			"audioOnlyOption": "Hanya audio (tidak ada video)",
-			"mascot": "Terbaik + Terbaik = kualitas maksimal. Saya akan memilih itu!",
 			"sniffing": "Menemukan format terbaik untuk Anda…",
 			"loadingHint": "Harap tunggu hingga pemeriksaan selesai — daftar putar dan penelusuran dapat memakan waktu cukup lama.",
 			"loadingAria": "Memuat format",
@@ -373,15 +389,7 @@
 			"skipToConfirm": "Lewati untuk mengonfirmasi",
 			"skipToConfirmTooltip": "Menggunakan preferensi tersimpan Anda untuk semua langkah selanjutnya. Untuk mengubah pengaturan, lanjutkan langkah demi langkah — pilihan Anda akan disimpan untuk waktu berikutnya.",
 			"quality": {"high": "Kualitas tinggi", "medium": "Kualitas sedang", "low": "Kualitas rendah"},
-			"convert": {
-				"label": "Mengubah",
-				"uncompressed": "Konversi · tidak terkompresi",
-				"bitrate": "Kecepatan bit",
-				"wavLabel": "WAV (tidak terkompresi)",
-				"lossyLabel": "{{target}} {{bitrate}} kbps",
-				"requiresAudioOnly": "Konversi audio memerlukan mode audio saja (batalkan pilihan video).",
-				"requiresLossy": "Aliran asli dipilih — kecepatan bit hanya berlaku saat mengonversi ke mp3, m4a, atau karya."
-			},
+			"convert": {"label": "Mengubah", "uncompressed": "Konversi · tidak terkompresi", "bitrate": "Kecepatan bit", "wavLabel": "WAV (tidak terkompresi)", "lossyLabel": "{{target}} {{bitrate}} kbps", "requiresLossy": "Aliran asli dipilih — kecepatan bit hanya berlaku saat mengonversi ke mp3, m4a, atau karya."},
 			"botWall": {
 				"heading": "Penyelidikan terbatas",
 				"bodyUnconfigured": "Daftar format mungkin tidak lengkap. Siapkan cookie di pengaturan lanjutan, atau ubah jaringan dan coba lagi.",
@@ -438,6 +446,27 @@
 			"writeDescription": {"label": "Simpan deskripsi", "description": "Menyimpan deskripsi video sebagai file teks .description di sebelah unduhan."},
 			"writeThumbnail": {"label": "Simpan gambar kecil", "description": "Menyimpan thumbnail sebagai file gambar .jpg di sebelah unduhan."},
 			"writeM3u": {"label": "Hasilkan file daftar putar .m3u", "description": "Simpan daftar putar .m3u di samping video agar dapat dibuka secara berurutan di pemutar media Anda."}
+		},
+		"review": {
+			"changeFormat": "Ubah format",
+			"rowsHeading": "Lainnya",
+			"rows": {"subtitles": "Subtitle", "sponsorBlock": "SponsorBlock", "extras": "Tambahan", "saveTo": "Simpan ke", "fileName": "Nama file"},
+			"value": {"subtitlesOff": "Mati", "sponsorBlockOff": "Mati", "extrasNone": "Tidak ada"},
+			"done": "Selesai",
+			"changed": "Diubah dari {{profile}}: {{areas}}. Hanya berlaku untuk unduhan ini.",
+			"areas": {"format": "format", "subtitles": "subtitle", "sponsorBlock": "SponsorBlock", "extras": "tambahan", "saveTo": "folder", "fileName": "nama file"},
+			"saveAsProfile": "Simpan sebagai profil…",
+			"reset": "Atur ulang",
+			"save": {
+				"title": "Simpan sebagai profil",
+				"description": "Menyimpan pengaturan ini sebagai profil yang bisa Anda pilih lain kali. Profil Unduh Cepat Anda tidak berubah.",
+				"nameLabel": "Nama profil",
+				"action": "Simpan profil",
+				"saved": "Disimpan sebagai profil “{{name}}”",
+				"failed": "Tidak dapat menyimpan profil."
+			},
+			"fileNameHint": "Token: {title}, {id}, {uploader}, {date}, {resolution}. Ekstensi ditambahkan otomatis.",
+			"nextTime": {"title": "Unduhan ini memakai pengaturan yang diedit. Pakai lagi lain kali?", "action": "Simpan sebagai profil", "defaultName": "{{profile}} (diedit)"}
 		},
 		"confirm": {
 			"readyHeadline": "Siap untuk menariknya!",
@@ -709,13 +738,6 @@
 			"loginRequired": "Video ini memerlukan akun yang sudah masuk.",
 			"unknown": "Pengunduhan gagal. Lihat keluaran mentahnya di bawah."
 		}
-	},
-	"presets": {
-		"best-quality": {"label": "Kualitas terbaik", "desc": "Resolusi tertinggi + audio terbaik"},
-		"balanced": {"label": "Seimbang", "desc": "Maks 720p + audio bagus"},
-		"audio-only": {"label": "Hanya audio", "desc": "Tidak ada video, audio terbaik"},
-		"small-file": {"label": "Berkas kecil", "desc": "Resolusi terendah + audio rendah"},
-		"subtitle-only": {"label": "Hanya subtitle", "desc": "Tidak ada video, tidak ada audio, hanya subtitle"}
 	},
 	"playlistPresets": {
 		"type": {"video": "Video", "audio": "Audio", "subtitles": "Subtitle"},

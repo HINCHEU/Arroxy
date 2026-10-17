@@ -448,7 +448,7 @@ export function installBrowserMock(): void {
 			},
 			update: patch => {
 				if (patch.common?.exploreAdBlock !== undefined) exploreMock.setAdBlock(patch.common.exploreAdBlock)
-				settings = {common: {...settings.common, ...(patch.common ?? {})}, single: {...settings.single, ...(patch.single ?? {})}, playlist: {...settings.playlist, ...(patch.playlist ?? {})}, profiles: {...settings.profiles, ...(patch.profiles ?? {})}}
+				settings = {common: {...settings.common, ...(patch.common ?? {})}, playlist: {...settings.playlist, ...(patch.playlist ?? {})}, profiles: {...settings.profiles, ...(patch.profiles ?? {})}}
 				return Promise.resolve({ok: true, data: {...settings}} as const)
 			}
 		},

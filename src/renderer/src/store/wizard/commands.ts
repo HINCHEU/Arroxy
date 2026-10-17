@@ -6,7 +6,9 @@
 import {DEFAULTS} from '@shared/constants.js'
 import {resolveActiveDownloadProfile} from '@shared/downloadProfiles.js'
 import {DEFAULT_AUDIO_BITRATE} from '@shared/schemas.js'
-import type {BulkMetadataItemStatus, BulkMetadataStatus, DownloadProfileRef, FormatOption, PlaylistEntry, PlaylistScope, PlaylistSelection, SubtitleMap, WizardMode} from '@shared/types.js'
+import type {FitNotice} from '@shared/profileSelection.js'
+import type {ReviewRow, WizardSettingsSnapshot} from './profileApplication.js'
+import type {BulkMetadataItemStatus, BulkMetadataStatus, DownloadProfile, DownloadProfileRef, FormatOption, PlaylistEntry, PlaylistScope, PlaylistSelection, SubtitleMap, WizardMode} from '@shared/types.js'
 import type {GetState, SetState, WizardOrigin, WizardStep} from '../types.js'
 import {assignProfileToItems, clearAssignmentsForItems} from './playlistProfileAssignments.js'
 import {QUICK_DOWNLOAD_FEEDBACK_INITIAL} from './quickDownloadFeedback.js'
@@ -21,6 +23,7 @@ export const RESET_WIZARD_STATE = {
 	wizardMode: 'single' as WizardMode,
 	wizardUrl: '',
 	reviewSourceRowId: null as string | null,
+	wizardReviewRow: null as ReviewRow | null,
 	wizardTitle: '',
 	wizardThumbnail: '',
 	wizardDuration: undefined as number | undefined,
@@ -63,11 +66,15 @@ export const RESET_WIZARD_STATE = {
 	selectedVideoFormatId: '',
 	audioSelection: {kind: 'none' as const},
 	lastConvertBitrate: DEFAULT_AUDIO_BITRATE,
-	activePreset: null,
+	wizardMediaKind: 'video' as const,
 	wizardSubtitles: {} as SubtitleMap,
 	wizardAutomaticCaptions: {} as SubtitleMap,
 	wizardSubtitleLanguages: [] as string[],
-	wizardSubtitleSkipped: false,
+	wizardProfile: null as DownloadProfile | null,
+	wizardProfileBaseline: null as WizardSettingsSnapshot | null,
+	wizardFitNotices: [] as FitNotice[],
+	wizardFilenameTemplate: DEFAULTS.filenameTemplate,
+	wizardIsAudioOnlySource: false,
 	wizardSubtitleMode: DEFAULTS.subtitleMode,
 	wizardSubtitleFormat: DEFAULTS.subtitleFormat,
 	// outputConfig

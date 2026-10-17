@@ -17,14 +17,15 @@ function isSponsorBlockMode(value: string | undefined): value is SponsorBlockMod
 	return value !== undefined && (SPONSORBLOCK_MODES as readonly string[]).includes(value)
 }
 
-export function StepSponsorBlock(): ReactNode {
+// The SponsorBlock controls: the batch wizard's step and a Review row.
+export function SponsorBlockFields(): ReactNode {
 	const {t} = useTranslation()
-	const {wizardSponsorBlockMode, wizardSponsorBlockCategories, setSponsorBlockMode, toggleSponsorBlockCategory, advance, back} = useAppStore()
+	const {wizardSponsorBlockMode, wizardSponsorBlockCategories, setSponsorBlockMode, toggleSponsorBlockCategory} = useAppStore()
 
 	const showCategories = wizardSponsorBlockMode !== 'off'
 
 	return (
-		<div className="wizard-step flex flex-col gap-1.5" data-testid="step-sponsorblock">
+		<div className="flex flex-col gap-1.5">
 			{/* ── Mode ───────────────────────────────────────── */}
 			<div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-2.5 items-center -mx-1">
 				<SectionLabel render={<span />} className="px-1 shrink-0">
@@ -68,7 +69,15 @@ export function StepSponsorBlock(): ReactNode {
 					</div>
 				</>
 			)}
+		</div>
+	)
+}
 
+export function StepSponsorBlock(): ReactNode {
+	const {advance, back} = useAppStore()
+	return (
+		<div className="wizard-step flex flex-col gap-1.5" data-testid="step-sponsorblock">
+			<SponsorBlockFields />
 			<WizardStepFooterActions onBack={back} onContinue={advance} />
 		</div>
 	)

@@ -95,16 +95,24 @@ _Avoid_: live pause, running pause
 ### Wizard
 
 **Wizard**:
-The guided step flow that takes a user from a URL, through format choice and save location, to a final confirmation.
+The guided step flow behind Interactive Download. For a single video it is two screens, Format and Review; a playlist or batch walks its own steps to a final confirmation.
 _Avoid_: flow, stepper, form
 
 **Probe**:
 Inspecting a URL to discover its title, available formats, and metadata before any download starts.
 _Avoid_: fetch, inspect, scan, lookup
 
-**Preset**:
-A named quality choice for a single download — best quality, balanced, small file, audio-only, subtitle-only.
-_Avoid_: quality, mode, profile
+**Media kind**:
+What a single-video download produces: video, audio, or subtitles only. Picked on the Format screen.
+_Avoid_: preset, mode, type
+
+**Profile pick**:
+The streams and settings a download profile gives one particular video, shown pre-selected in the wizard. Changing anything is a per-download edit; keeping it is Save as profile.
+_Avoid_: default, preset, remembered choice
+
+**Fit notice**:
+A warning that a video can't honour part of the download profile (a resolution, MP4, subtitle languages), naming what was picked instead.
+_Avoid_: fallback, mismatch error
 
 **URL intent**:
 The classification of a pasted URL as a single video, a playlist, a mix of both, or unknown.

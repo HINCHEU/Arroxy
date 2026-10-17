@@ -779,46 +779,6 @@ msgctxt "playlistPresets.videoFormatDesc.mp4"
 msgid "Prefer H.264 video + AAC audio in MP4 when possible"
 msgstr "Lebih suka video H.264 + audio AAC dalam MP4 jika memungkinkan"
 
-msgctxt "presets.audio-only.desc"
-msgid "No video, best audio"
-msgstr "Tidak ada video, audio terbaik"
-
-msgctxt "presets.audio-only.label"
-msgid "Audio only"
-msgstr "Hanya audio"
-
-msgctxt "presets.balanced.desc"
-msgid "720p max + good audio"
-msgstr "Maks 720p + audio bagus"
-
-msgctxt "presets.balanced.label"
-msgid "Balanced"
-msgstr "Seimbang"
-
-msgctxt "presets.best-quality.desc"
-msgid "Highest resolution + best audio"
-msgstr "Resolusi tertinggi + audio terbaik"
-
-msgctxt "presets.best-quality.label"
-msgid "Best quality"
-msgstr "Kualitas terbaik"
-
-msgctxt "presets.small-file.desc"
-msgid "Lowest resolution + low audio"
-msgstr "Resolusi terendah + audio rendah"
-
-msgctxt "presets.small-file.label"
-msgid "Small file"
-msgstr "Berkas kecil"
-
-msgctxt "presets.subtitle-only.desc"
-msgid "No video, no audio, only subtitles"
-msgstr "Tidak ada video, tidak ada audio, hanya subtitle"
-
-msgctxt "presets.subtitle-only.label"
-msgid "Subtitles only"
-msgstr "Hanya subtitle"
-
 msgctxt "queue.artifact.companion"
 msgid "Companion"
 msgstr "Pendamping"
@@ -1709,10 +1669,6 @@ msgctxt "wizard.formats.audioOnly"
 msgid "Audio only"
 msgstr "Hanya audio"
 
-msgctxt "wizard.formats.audioOnlyOption"
-msgid "Audio only (no video)"
-msgstr "Hanya audio (tidak ada video)"
-
 msgctxt "wizard.formats.botWall.bodyDisabled"
 msgid "Cookies are configured but turned off. Enable them and retry to get the full list, or change network and retry."
 msgstr "Cookie dikonfigurasikan tetapi dimatikan. Aktifkan dan coba lagi untuk mendapatkan daftar lengkap, atau ubah jaringan dan coba lagi."
@@ -1752,10 +1708,6 @@ msgstr "Mengubah"
 msgctxt "wizard.formats.convert.lossyLabel"
 msgid "{{target}} {{bitrate}} kbps"
 msgstr "{{target}} {{bitrate}} kbps"
-
-msgctxt "wizard.formats.convert.requiresAudioOnly"
-msgid "Audio conversion requires audio-only mode (deselect the video pick)."
-msgstr "Konversi audio memerlukan mode audio saja (batalkan pilihan video)."
 
 msgctxt "wizard.formats.convert.requiresLossy"
 msgid "A native stream is selected — bitrate only applies when converting to mp3, m4a, or opus."
@@ -1893,6 +1845,46 @@ msgctxt "wizard.formats.cookiesError.otherCookiesCta"
 msgid "Use a cookies file or browser instead…"
 msgstr "Gunakan file cookie atau peramban sebagai gantinya…"
 
+msgctxt "wizard.formats.fit.mp4Unavailable"
+msgid "Your profile asks for MP4 (H.264). This video doesn't offer it, so the closest stream is selected."
+msgstr "Profil Anda meminta MP4 (H.264). Video ini tidak menyediakannya, jadi aliran terdekat dipilih."
+
+msgctxt "wizard.formats.fit.noVideo"
+msgid "This link has no video, so audio is selected."
+msgstr "Tautan ini tidak memiliki video, jadi audio dipilih."
+
+msgctxt "wizard.formats.fit.subtitlesMissing"
+msgid "Your profile asks for subtitles in {{languages}}. This video doesn't have them."
+msgstr "Profil Anda meminta subtitle dalam bahasa {{languages}}. Video ini tidak memilikinya."
+
+msgctxt "wizard.formats.fit.tierAbove"
+msgid "Your profile asks for {{wanted}}p. This video has nothing that small, so {{picked}}p is selected."
+msgstr "Profil Anda meminta {{wanted}}p. Video ini tidak punya yang sekecil itu, jadi {{picked}}p dipilih."
+
+msgctxt "wizard.formats.fit.tierBelow"
+msgid "Your profile asks for {{wanted}}p. This video only goes up to {{picked}}p, so {{picked}}p is selected."
+msgstr "Profil Anda meminta {{wanted}}p. Video ini hanya sampai {{picked}}p, jadi {{picked}}p dipilih."
+
+msgctxt "wizard.formats.footer.addToQueue"
+msgid "Add to queue without starting"
+msgstr "Tambahkan ke antrean tanpa memulai"
+
+msgctxt "wizard.formats.footer.download"
+msgid "Download"
+msgstr "Unduh"
+
+msgctxt "wizard.formats.footer.moreActions"
+msgid "More download options"
+msgstr "Opsi unduhan lainnya"
+
+msgctxt "wizard.formats.footer.reviewOptions"
+msgid "Review & options"
+msgstr "Tinjau & opsi"
+
+msgctxt "wizard.formats.footer.subtitlesRequired"
+msgid "Choose at least one subtitle language."
+msgstr "Pilih setidaknya satu bahasa subtitle."
+
 msgctxt "wizard.formats.keepAudio"
 msgid "Keep as-is"
 msgstr "Tetap apa adanya"
@@ -1900,6 +1892,22 @@ msgstr "Tetap apa adanya"
 msgctxt "wizard.formats.keepAudioMeta"
 msgid "Built-in audio"
 msgstr "Audio bawaan"
+
+msgctxt "wizard.formats.kind.audio"
+msgid "Audio"
+msgstr "Audio"
+
+msgctxt "wizard.formats.kind.label"
+msgid "What to download"
+msgstr "Yang diunduh"
+
+msgctxt "wizard.formats.kind.subtitles"
+msgid "Subtitles only"
+msgstr "Hanya subtitle"
+
+msgctxt "wizard.formats.kind.video"
+msgid "Video"
+msgstr "Video"
 
 msgctxt "wizard.formats.loadingAria"
 msgid "Loading formats"
@@ -1909,13 +1917,33 @@ msgctxt "wizard.formats.loadingHint"
 msgid "Please wait until probing finishes — playlists and searches can take a while."
 msgstr "Harap tunggu hingga pemeriksaan selesai — daftar putar dan penelusuran dapat memakan waktu cukup lama."
 
-msgctxt "wizard.formats.mascot"
-msgid "Best + Best = max quality. I'd pick that!"
-msgstr "Terbaik + Terbaik = kualitas maksimal. Saya akan memilih itu!"
-
 msgctxt "wizard.formats.noAudio"
 msgid "No audio"
 msgstr "Tidak ada audio"
+
+msgctxt "wizard.formats.profile.closestTag"
+msgid "Closest to profile"
+msgstr "Terdekat dengan profil"
+
+msgctxt "wizard.formats.profile.preselected"
+msgid "Pre-selected from"
+msgstr "Dipilih sebelumnya dari"
+
+msgctxt "wizard.formats.profile.switchAction"
+msgid "Switch"
+msgstr "Ganti"
+
+msgctxt "wizard.formats.profile.switchBody"
+msgid "Your changes to this download will be replaced by the settings of the profile you pick."
+msgstr "Perubahan Anda pada unduhan ini akan diganti dengan pengaturan profil yang Anda pilih."
+
+msgctxt "wizard.formats.profile.switchTitle"
+msgid "Switch profile?"
+msgstr "Ganti profil?"
+
+msgctxt "wizard.formats.profile.tag"
+msgid "Profile"
+msgstr "Profil"
 
 msgctxt "wizard.formats.quality.high"
 msgid "High quality"
@@ -1928,10 +1956,6 @@ msgstr "Kualitas rendah"
 msgctxt "wizard.formats.quality.medium"
 msgid "Medium quality"
 msgstr "Kualitas sedang"
-
-msgctxt "wizard.formats.quickPresets"
-msgid "Quick presets"
-msgstr "Preset cepat"
 
 msgctxt "wizard.formats.sizeUnknown"
 msgid "Size unknown"
@@ -1948,6 +1972,26 @@ msgstr "Menggunakan preferensi tersimpan Anda untuk semua langkah selanjutnya. U
 msgctxt "wizard.formats.sniffing"
 msgid "Sniffing out the best formats for you…"
 msgstr "Menemukan format terbaik untuk Anda…"
+
+msgctxt "wizard.formats.summary.lead"
+msgid "Also from {{profile}}:"
+msgstr "Juga dari {{profile}}:"
+
+msgctxt "wizard.formats.summary.reviewAll"
+msgid "Review all"
+msgstr "Tinjau semua"
+
+msgctxt "wizard.formats.summary.subtitlesAdd_one"
+msgid "{{count}} language available, add"
+msgstr "{{count}} bahasa tersedia, tambahkan"
+
+msgctxt "wizard.formats.summary.subtitlesAdd_other"
+msgid "{{count}} languages available, add"
+msgstr "{{count}} bahasa tersedia, tambahkan"
+
+msgctxt "wizard.formats.summary.subtitlesOff"
+msgid "subtitles off"
+msgstr "subtitle mati"
 
 msgctxt "wizard.formats.total"
 msgid "Total"
@@ -2745,6 +2789,126 @@ msgctxt "wizard.quickProgress.waitHint"
 msgid "Keep this open while Arroxy prepares the queue."
 msgstr "Biarkan ini tetap terbuka sementara Arroxy menyiapkan antrian."
 
+msgctxt "wizard.review.areas.extras"
+msgid "extras"
+msgstr "tambahan"
+
+msgctxt "wizard.review.areas.fileName"
+msgid "file name"
+msgstr "nama file"
+
+msgctxt "wizard.review.areas.format"
+msgid "format"
+msgstr "format"
+
+msgctxt "wizard.review.areas.saveTo"
+msgid "folder"
+msgstr "folder"
+
+msgctxt "wizard.review.areas.sponsorBlock"
+msgid "SponsorBlock"
+msgstr "SponsorBlock"
+
+msgctxt "wizard.review.areas.subtitles"
+msgid "subtitles"
+msgstr "subtitle"
+
+msgctxt "wizard.review.changed"
+msgid "Changed from {{profile}}: {{areas}}. Applies to this download only."
+msgstr "Diubah dari {{profile}}: {{areas}}. Hanya berlaku untuk unduhan ini."
+
+msgctxt "wizard.review.changeFormat"
+msgid "Change format"
+msgstr "Ubah format"
+
+msgctxt "wizard.review.done"
+msgid "Done"
+msgstr "Selesai"
+
+msgctxt "wizard.review.fileNameHint"
+msgid "Tokens: {title}, {id}, {uploader}, {date}, {resolution}. The extension is added for you."
+msgstr "Token: {title}, {id}, {uploader}, {date}, {resolution}. Ekstensi ditambahkan otomatis."
+
+msgctxt "wizard.review.nextTime.action"
+msgid "Save as profile"
+msgstr "Simpan sebagai profil"
+
+msgctxt "wizard.review.nextTime.defaultName"
+msgid "{{profile}} (edited)"
+msgstr "{{profile}} (diedit)"
+
+msgctxt "wizard.review.nextTime.title"
+msgid "This download used edited settings. Use them next time?"
+msgstr "Unduhan ini memakai pengaturan yang diedit. Pakai lagi lain kali?"
+
+msgctxt "wizard.review.reset"
+msgid "Reset"
+msgstr "Atur ulang"
+
+msgctxt "wizard.review.rows.extras"
+msgid "Extras"
+msgstr "Tambahan"
+
+msgctxt "wizard.review.rows.fileName"
+msgid "File name"
+msgstr "Nama file"
+
+msgctxt "wizard.review.rows.saveTo"
+msgid "Save to"
+msgstr "Simpan ke"
+
+msgctxt "wizard.review.rows.sponsorBlock"
+msgid "SponsorBlock"
+msgstr "SponsorBlock"
+
+msgctxt "wizard.review.rows.subtitles"
+msgid "Subtitles"
+msgstr "Subtitle"
+
+msgctxt "wizard.review.rowsHeading"
+msgid "Everything else"
+msgstr "Lainnya"
+
+msgctxt "wizard.review.save.action"
+msgid "Save profile"
+msgstr "Simpan profil"
+
+msgctxt "wizard.review.save.description"
+msgid "Keeps these settings as a profile you can pick next time. Your Quick Download profile stays the same."
+msgstr "Menyimpan pengaturan ini sebagai profil yang bisa Anda pilih lain kali. Profil Unduh Cepat Anda tidak berubah."
+
+msgctxt "wizard.review.save.failed"
+msgid "Couldn't save the profile."
+msgstr "Tidak dapat menyimpan profil."
+
+msgctxt "wizard.review.save.nameLabel"
+msgid "Profile name"
+msgstr "Nama profil"
+
+msgctxt "wizard.review.save.saved"
+msgid "Saved as profile “{{name}}”"
+msgstr "Disimpan sebagai profil “{{name}}”"
+
+msgctxt "wizard.review.save.title"
+msgid "Save as profile"
+msgstr "Simpan sebagai profil"
+
+msgctxt "wizard.review.saveAsProfile"
+msgid "Save as profile…"
+msgstr "Simpan sebagai profil…"
+
+msgctxt "wizard.review.value.extrasNone"
+msgid "None"
+msgstr "Tidak ada"
+
+msgctxt "wizard.review.value.sponsorBlockOff"
+msgid "Off"
+msgstr "Mati"
+
+msgctxt "wizard.review.value.subtitlesOff"
+msgid "Off"
+msgstr "Mati"
+
 msgctxt "wizard.sponsorblock.cat.filler"
 msgid "Filler"
 msgstr "Pengisi"
@@ -2837,6 +3001,10 @@ msgctxt "wizard.steps.playlistProfiles"
 msgid "Profiles"
 msgstr "Profil"
 
+msgctxt "wizard.steps.review"
+msgid "Review"
+msgstr "Tinjau"
+
 msgctxt "wizard.steps.sponsorblock"
 msgid "SponsorBlock"
 msgstr "SponsorBlock"
@@ -2868,10 +3036,6 @@ msgstr "Mode penyematan menyimpan keluaran sebagai .mkv sehingga trek subtitle d
 msgctxt "wizard.subtitles.format.heading"
 msgid "Format"
 msgstr "Format"
-
-msgctxt "wizard.subtitles.mascot"
-msgid "Pick zero, one, or many — totally up to you ✨"
-msgstr "Pilih nol, satu, atau banyak — terserah Anda ✨"
 
 msgctxt "wizard.subtitles.noLanguages"
 msgid "No subtitles available for this video"
@@ -2916,22 +3080,6 @@ msgstr "Dibuat secara otomatis"
 msgctxt "wizard.subtitles.sectionManual"
 msgid "Manual"
 msgstr "Manual"
-
-msgctxt "wizard.subtitles.selectedNote_one"
-msgid "{{count}} subtitle will be downloaded"
-msgstr "Subtitle {{count}} akan diunduh"
-
-msgctxt "wizard.subtitles.selectedNote_other"
-msgid "{{count}} subtitles will be downloaded"
-msgstr "Subtitle {{count}} akan diunduh"
-
-msgctxt "wizard.subtitles.skip"
-msgid "Skip"
-msgstr "Melewati"
-
-msgctxt "wizard.subtitles.skipSubs"
-msgid "Skip for this video"
-msgstr "Lewati untuk video ini"
 
 msgctxt "wizard.tabsNavAria"
 msgid "Download profile navigation"

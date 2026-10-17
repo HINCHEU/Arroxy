@@ -779,46 +779,6 @@ msgctxt "playlistPresets.videoFormatDesc.mp4"
 msgid "Prefer H.264 video + AAC audio in MP4 when possible"
 msgstr "H.264 + AAC bevorzugt, MP4-Container · bestmöglich"
 
-msgctxt "presets.audio-only.desc"
-msgid "No video, best audio"
-msgstr "Kein Video, bestes Audio"
-
-msgctxt "presets.audio-only.label"
-msgid "Audio only"
-msgstr "Nur Audio"
-
-msgctxt "presets.balanced.desc"
-msgid "720p max + good audio"
-msgstr "720p max + gutes Audio"
-
-msgctxt "presets.balanced.label"
-msgid "Balanced"
-msgstr "Ausgewogen"
-
-msgctxt "presets.best-quality.desc"
-msgid "Highest resolution + best audio"
-msgstr "Höchste Auflösung + bestes Audio"
-
-msgctxt "presets.best-quality.label"
-msgid "Best quality"
-msgstr "Beste Qualität"
-
-msgctxt "presets.small-file.desc"
-msgid "Lowest resolution + low audio"
-msgstr "Niedrigste Auflösung + niedriges Audio"
-
-msgctxt "presets.small-file.label"
-msgid "Small file"
-msgstr "Kleine Datei"
-
-msgctxt "presets.subtitle-only.desc"
-msgid "No video, no audio, only subtitles"
-msgstr "Kein Video, kein Audio, nur Untertitel"
-
-msgctxt "presets.subtitle-only.label"
-msgid "Subtitles only"
-msgstr "Nur Untertitel"
-
 msgctxt "queue.artifact.companion"
 msgid "Companion"
 msgstr "Begleitdatei"
@@ -1709,10 +1669,6 @@ msgctxt "wizard.formats.audioOnly"
 msgid "Audio only"
 msgstr "Nur Audio"
 
-msgctxt "wizard.formats.audioOnlyOption"
-msgid "Audio only (no video)"
-msgstr "Nur Audio (kein Video)"
-
 msgctxt "wizard.formats.botWall.bodyDisabled"
 msgid "Cookies are configured but turned off. Enable them and retry to get the full list, or change network and retry."
 msgstr "Cookies sind konfiguriert, aber deaktiviert. Aktiviere sie und versuche es erneut für die vollständige Liste, oder wechsle das Netzwerk."
@@ -1752,10 +1708,6 @@ msgstr "Konvertieren"
 msgctxt "wizard.formats.convert.lossyLabel"
 msgid "{{target}} {{bitrate}} kbps"
 msgstr "{{target}} {{bitrate}} kbps"
-
-msgctxt "wizard.formats.convert.requiresAudioOnly"
-msgid "Audio conversion requires audio-only mode (deselect the video pick)."
-msgstr "Die Audiokonvertierung erfordert den Nur-Audio-Modus (Videoauswahl aufheben)."
 
 msgctxt "wizard.formats.convert.requiresLossy"
 msgid "A native stream is selected — bitrate only applies when converting to mp3, m4a, or opus."
@@ -1893,6 +1845,46 @@ msgctxt "wizard.formats.cookiesError.otherCookiesCta"
 msgid "Use a cookies file or browser instead…"
 msgstr "Stattdessen eine Cookies-Datei oder einen Browser verwenden…"
 
+msgctxt "wizard.formats.fit.mp4Unavailable"
+msgid "Your profile asks for MP4 (H.264). This video doesn't offer it, so the closest stream is selected."
+msgstr "Ihr Profil verlangt MP4 (H.264). Dieses Video bietet es nicht an, deshalb wurde der ähnlichste Stream gewählt."
+
+msgctxt "wizard.formats.fit.noVideo"
+msgid "This link has no video, so audio is selected."
+msgstr "Dieser Link enthält kein Video, deshalb wurde Audio gewählt."
+
+msgctxt "wizard.formats.fit.subtitlesMissing"
+msgid "Your profile asks for subtitles in {{languages}}. This video doesn't have them."
+msgstr "Ihr Profil verlangt Untertitel in {{languages}}. Dieses Video hat keine."
+
+msgctxt "wizard.formats.fit.tierAbove"
+msgid "Your profile asks for {{wanted}}p. This video has nothing that small, so {{picked}}p is selected."
+msgstr "Ihr Profil verlangt {{wanted}}p. So niedrig ist dieses Video nicht verfügbar, deshalb wurde {{picked}}p gewählt."
+
+msgctxt "wizard.formats.fit.tierBelow"
+msgid "Your profile asks for {{wanted}}p. This video only goes up to {{picked}}p, so {{picked}}p is selected."
+msgstr "Ihr Profil verlangt {{wanted}}p. Dieses Video geht nur bis {{picked}}p, deshalb wurde {{picked}}p gewählt."
+
+msgctxt "wizard.formats.footer.addToQueue"
+msgid "Add to queue without starting"
+msgstr "Zur Warteschlange hinzufügen, ohne zu starten"
+
+msgctxt "wizard.formats.footer.download"
+msgid "Download"
+msgstr "Download"
+
+msgctxt "wizard.formats.footer.moreActions"
+msgid "More download options"
+msgstr "Weitere Download-Optionen"
+
+msgctxt "wizard.formats.footer.reviewOptions"
+msgid "Review & options"
+msgstr "Prüfen & Optionen"
+
+msgctxt "wizard.formats.footer.subtitlesRequired"
+msgid "Choose at least one subtitle language."
+msgstr "Wählen Sie mindestens eine Untertitelsprache aus."
+
 msgctxt "wizard.formats.keepAudio"
 msgid "Keep as-is"
 msgstr "So belassen"
@@ -1900,6 +1892,22 @@ msgstr "So belassen"
 msgctxt "wizard.formats.keepAudioMeta"
 msgid "Built-in audio"
 msgstr "Integriertes Audio"
+
+msgctxt "wizard.formats.kind.audio"
+msgid "Audio"
+msgstr "Audio"
+
+msgctxt "wizard.formats.kind.label"
+msgid "What to download"
+msgstr "Was herunterladen"
+
+msgctxt "wizard.formats.kind.subtitles"
+msgid "Subtitles only"
+msgstr "Nur Untertitel"
+
+msgctxt "wizard.formats.kind.video"
+msgid "Video"
+msgstr "Video"
 
 msgctxt "wizard.formats.loadingAria"
 msgid "Loading formats"
@@ -1909,13 +1917,33 @@ msgctxt "wizard.formats.loadingHint"
 msgid "Please wait until probing finishes — playlists and searches can take a while."
 msgstr "Bitte warten, bis die Analyse abgeschlossen ist — Playlists und Suchen können etwas dauern."
 
-msgctxt "wizard.formats.mascot"
-msgid "Best + Best = max quality. I'd pick that!"
-msgstr "Beste + beste = maximale Qualität. Das würde ich nehmen!"
-
 msgctxt "wizard.formats.noAudio"
 msgid "No audio"
 msgstr "Kein Audio"
+
+msgctxt "wizard.formats.profile.closestTag"
+msgid "Closest to profile"
+msgstr "Dem Profil am nächsten"
+
+msgctxt "wizard.formats.profile.preselected"
+msgid "Pre-selected from"
+msgstr "Vorausgewählt aus"
+
+msgctxt "wizard.formats.profile.switchAction"
+msgid "Switch"
+msgstr "Wechseln"
+
+msgctxt "wizard.formats.profile.switchBody"
+msgid "Your changes to this download will be replaced by the settings of the profile you pick."
+msgstr "Ihre Änderungen an diesem Download werden durch die Einstellungen des gewählten Profils ersetzt."
+
+msgctxt "wizard.formats.profile.switchTitle"
+msgid "Switch profile?"
+msgstr "Profil wechseln?"
+
+msgctxt "wizard.formats.profile.tag"
+msgid "Profile"
+msgstr "Profil"
 
 msgctxt "wizard.formats.quality.high"
 msgid "High quality"
@@ -1928,10 +1956,6 @@ msgstr "Niedrige Qualität"
 msgctxt "wizard.formats.quality.medium"
 msgid "Medium quality"
 msgstr "Mittlere Qualität"
-
-msgctxt "wizard.formats.quickPresets"
-msgid "Quick presets"
-msgstr "Schnelleinstellungen"
 
 msgctxt "wizard.formats.sizeUnknown"
 msgid "Size unknown"
@@ -1948,6 +1972,26 @@ msgstr "Verwendet deine gespeicherten Einstellungen für alle verbleibenden Schr
 msgctxt "wizard.formats.sniffing"
 msgid "Sniffing out the best formats for you…"
 msgstr "Suche die besten Formate für dich…"
+
+msgctxt "wizard.formats.summary.lead"
+msgid "Also from {{profile}}:"
+msgstr "Auch aus {{profile}}:"
+
+msgctxt "wizard.formats.summary.reviewAll"
+msgid "Review all"
+msgstr "Alle prüfen"
+
+msgctxt "wizard.formats.summary.subtitlesAdd_one"
+msgid "{{count}} language available, add"
+msgstr "{{count}} Sprache verfügbar, hinzufügen"
+
+msgctxt "wizard.formats.summary.subtitlesAdd_other"
+msgid "{{count}} languages available, add"
+msgstr "{{count}} Sprachen verfügbar, hinzufügen"
+
+msgctxt "wizard.formats.summary.subtitlesOff"
+msgid "subtitles off"
+msgstr "Untertitel aus"
 
 msgctxt "wizard.formats.total"
 msgid "Total"
@@ -2745,6 +2789,126 @@ msgctxt "wizard.quickProgress.waitHint"
 msgid "Keep this open while Arroxy prepares the queue."
 msgstr "Lass dies geöffnet, während Arroxy die Warteschlange vorbereitet."
 
+msgctxt "wizard.review.areas.extras"
+msgid "extras"
+msgstr "Extras"
+
+msgctxt "wizard.review.areas.fileName"
+msgid "file name"
+msgstr "Dateiname"
+
+msgctxt "wizard.review.areas.format"
+msgid "format"
+msgstr "Format"
+
+msgctxt "wizard.review.areas.saveTo"
+msgid "folder"
+msgstr "Ordner"
+
+msgctxt "wizard.review.areas.sponsorBlock"
+msgid "SponsorBlock"
+msgstr "SponsorBlock"
+
+msgctxt "wizard.review.areas.subtitles"
+msgid "subtitles"
+msgstr "Untertitel"
+
+msgctxt "wizard.review.changed"
+msgid "Changed from {{profile}}: {{areas}}. Applies to this download only."
+msgstr "Geändert gegenüber {{profile}}: {{areas}}. Gilt nur für diesen Download."
+
+msgctxt "wizard.review.changeFormat"
+msgid "Change format"
+msgstr "Format ändern"
+
+msgctxt "wizard.review.done"
+msgid "Done"
+msgstr "Fertig"
+
+msgctxt "wizard.review.fileNameHint"
+msgid "Tokens: {title}, {id}, {uploader}, {date}, {resolution}. The extension is added for you."
+msgstr "Platzhalter: {title}, {id}, {uploader}, {date}, {resolution}. Die Dateiendung wird automatisch ergänzt."
+
+msgctxt "wizard.review.nextTime.action"
+msgid "Save as profile"
+msgstr "Als Profil speichern"
+
+msgctxt "wizard.review.nextTime.defaultName"
+msgid "{{profile}} (edited)"
+msgstr "{{profile}} (bearbeitet)"
+
+msgctxt "wizard.review.nextTime.title"
+msgid "This download used edited settings. Use them next time?"
+msgstr "Dieser Download verwendete geänderte Einstellungen. Nächstes Mal verwenden?"
+
+msgctxt "wizard.review.reset"
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+msgctxt "wizard.review.rows.extras"
+msgid "Extras"
+msgstr "Extras"
+
+msgctxt "wizard.review.rows.fileName"
+msgid "File name"
+msgstr "Dateiname"
+
+msgctxt "wizard.review.rows.saveTo"
+msgid "Save to"
+msgstr "Speicherort"
+
+msgctxt "wizard.review.rows.sponsorBlock"
+msgid "SponsorBlock"
+msgstr "SponsorBlock"
+
+msgctxt "wizard.review.rows.subtitles"
+msgid "Subtitles"
+msgstr "Untertitel"
+
+msgctxt "wizard.review.rowsHeading"
+msgid "Everything else"
+msgstr "Alles andere"
+
+msgctxt "wizard.review.save.action"
+msgid "Save profile"
+msgstr "Profil speichern"
+
+msgctxt "wizard.review.save.description"
+msgid "Keeps these settings as a profile you can pick next time. Your Quick Download profile stays the same."
+msgstr "Speichert diese Einstellungen als Profil, das Sie nächstes Mal wählen können. Ihr Profil „Schnelldownload“ bleibt unverändert."
+
+msgctxt "wizard.review.save.failed"
+msgid "Couldn't save the profile."
+msgstr "Das Profil konnte nicht gespeichert werden."
+
+msgctxt "wizard.review.save.nameLabel"
+msgid "Profile name"
+msgstr "Profilname"
+
+msgctxt "wizard.review.save.saved"
+msgid "Saved as profile “{{name}}”"
+msgstr "Als Profil „{{name}}“ gespeichert"
+
+msgctxt "wizard.review.save.title"
+msgid "Save as profile"
+msgstr "Als Profil speichern"
+
+msgctxt "wizard.review.saveAsProfile"
+msgid "Save as profile…"
+msgstr "Als Profil speichern…"
+
+msgctxt "wizard.review.value.extrasNone"
+msgid "None"
+msgstr "Keine"
+
+msgctxt "wizard.review.value.sponsorBlockOff"
+msgid "Off"
+msgstr "Aus"
+
+msgctxt "wizard.review.value.subtitlesOff"
+msgid "Off"
+msgstr "Aus"
+
 msgctxt "wizard.sponsorblock.cat.filler"
 msgid "Filler"
 msgstr "Füllmaterial"
@@ -2837,6 +3001,10 @@ msgctxt "wizard.steps.playlistProfiles"
 msgid "Profiles"
 msgstr "Profile"
 
+msgctxt "wizard.steps.review"
+msgid "Review"
+msgstr "Prüfen"
+
 msgctxt "wizard.steps.sponsorblock"
 msgid "SponsorBlock"
 msgstr "SponsorBlock"
@@ -2868,10 +3036,6 @@ msgstr "Im Einbettungsmodus wird die Ausgabe als .mkv gespeichert, damit Unterti
 msgctxt "wizard.subtitles.format.heading"
 msgid "Format"
 msgstr "Format"
-
-msgctxt "wizard.subtitles.mascot"
-msgid "Pick zero, one, or many — totally up to you ✨"
-msgstr "Wähle null, einen oder mehrere — ganz wie du möchtest ✨"
 
 msgctxt "wizard.subtitles.noLanguages"
 msgid "No subtitles available for this video"
@@ -2916,22 +3080,6 @@ msgstr "Automatisch generiert"
 msgctxt "wizard.subtitles.sectionManual"
 msgid "Manual"
 msgstr "Manuell"
-
-msgctxt "wizard.subtitles.selectedNote_one"
-msgid "{{count}} subtitle will be downloaded"
-msgstr "{{count}} Untertitel wird heruntergeladen"
-
-msgctxt "wizard.subtitles.selectedNote_other"
-msgid "{{count}} subtitles will be downloaded"
-msgstr "{{count}} Untertitel werden heruntergeladen"
-
-msgctxt "wizard.subtitles.skip"
-msgid "Skip"
-msgstr "Überspringen"
-
-msgctxt "wizard.subtitles.skipSubs"
-msgid "Skip for this video"
-msgstr "Für dieses Video überspringen"
 
 msgctxt "wizard.tabsNavAria"
 msgid "Download profile navigation"

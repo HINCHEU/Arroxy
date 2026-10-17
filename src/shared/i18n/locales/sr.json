@@ -57,7 +57,7 @@
 	"theme": {"light": "Светла тема", "dark": "Тамна тема", "system": "Подразумевана системска"},
 	"language": {"label": "Језик"},
 	"wizard": {
-		"steps": {"url": "URL", "playlistItems": "Плејлиста", "playlistItemsGeneric": "Видео", "playlistPresets": "Квалитет", "playlistProfiles": "Профили", "formats": "Формат", "subtitles": "Титлови", "sponsorblock": "SponsorBlock", "output": "Излаз", "folder": "Сачувај", "confirm": "Потврди"},
+		"steps": {"url": "URL", "playlistItems": "Плејлиста", "playlistItemsGeneric": "Видео", "playlistPresets": "Квалитет", "playlistProfiles": "Профили", "formats": "Формат", "subtitles": "Титлови", "sponsorblock": "SponsorBlock", "output": "Излаз", "folder": "Сачувај", "confirm": "Потврди", "review": "Преглед"},
 		"playlistPresets": {"heading": "Изабери квалитет за групно преузимање", "subhead": "Свaki видео самостално проналази одговарајући ниво квалитета — хетерогене плејлисте раде без изненађења.", "itemCount_one": "{{count}} ставка", "itemCount_other": "{{count}} ставки"},
 		"playlistProfiles": {
 			"heading": "Додели профиле преузимања",
@@ -338,16 +338,11 @@
 		"subtitles": {
 			"autoBadge": "Аутоматски",
 			"noLanguages": "Нема доступних титлова за овај видео",
-			"skip": "Прескочи",
-			"skipSubs": "Прескочи за овај видео",
-			"mascot": "Изабери нула, један или много — потпуно је на теби ✨",
 			"searchPlaceholder": "Претражи језике…",
 			"noMatches": "Нема пронађених језика",
 			"clearAll": "Обриши све",
 			"noSelected": "Нема изабраних титлова",
 			"removeLanguage": "Ukloni {{name}}",
-			"selectedNote_one": "{{count}} титл ће бити преузет",
-			"selectedNote_other": "{{count}} титлова ће бити преузето",
 			"sectionManual": "Ручно",
 			"sectionAuto": "Аутоматски генерисано",
 			"saveMode": {"heading": "Сачувај као", "sidecar": "Поред видеа", "embed": "Уграђено у видео", "subfolder": "subtitles/ поддиректоријум"},
@@ -363,7 +358,17 @@
 			"cat": {"sponsor": "Sponsor", "intro": "Intro", "outro": "Outro", "selfpromo": "Self-promo", "music_offtopic": "Music off-topic", "preview": "Preview", "filler": "Filler"}
 		},
 		"formats": {
-			"quickPresets": "Брзе поставке",
+			"kind": {"label": "Шта преузети", "video": "Видео", "audio": "Аудио", "subtitles": "Само титлови"},
+			"profile": {"preselected": "Унапред изабрано из", "tag": "Профил", "closestTag": "Најближе профилу", "switchTitle": "Променити профил?", "switchBody": "Ваше измене за ово преузимање биће замењене подешавањима изабраног профила.", "switchAction": "Промени"},
+			"fit": {
+				"tierBelow": "Ваш профил тражи {{wanted}}p. Овај видео иде само до {{picked}}p, па је изабрано {{picked}}p.",
+				"tierAbove": "Ваш профил тражи {{wanted}}p. Овај видео нема тако низак квалитет, па је изабрано {{picked}}p.",
+				"mp4Unavailable": "Ваш профил тражи MP4 (H.264). Овај видео то не нуди, па је изабран најближи ток.",
+				"noVideo": "Ова веза нема видео, па је изабран звук.",
+				"subtitlesMissing": "Ваш профил тражи титлове на језицима: {{languages}}. Овај видео их нема."
+			},
+			"summary": {"lead": "Такође из профила {{profile}}:", "subtitlesOff": "титлови искључени", "subtitlesAdd_one": "{{count}} језик доступан, додај", "subtitlesAdd_other": "Доступно језика: {{count}}, додај", "reviewAll": "Прегледај све"},
+			"footer": {"reviewOptions": "Преглед и опције", "download": "Преузми", "moreActions": "Више опција преузимања", "addToQueue": "Додај у ред без покретања", "subtitlesRequired": "Изаберите бар један језик титлова."},
 			"video": "Видео",
 			"audio": "Звук",
 			"noAudio": "Без звука",
@@ -371,8 +376,6 @@
 			"keepAudio": "Задржи као јесте",
 			"keepAudioMeta": "Уграђени звук",
 			"audioOnly": "Само звук",
-			"audioOnlyOption": "Само звук (без видеа)",
-			"mascot": "Најбоље + Најбоље = максималан квалитет. То бих ја изабрао!",
 			"sniffing": "Тражим најбоље формате за тебе…",
 			"loadingHint": "Сачекајте да провера заврши — листе за репродукцију и претраге могу потрајати.",
 			"loadingAria": "Учитавање формата",
@@ -381,15 +384,7 @@
 			"skipToConfirm": "Прескочи до потврде",
 			"skipToConfirmTooltip": "Користи твоја сачувана подешавања за све преостале кораке. Да бисте променили поставку, наставите корак по корак — твој избор ће бити сачуван за следећи пут.",
 			"quality": {"high": "Висок квалитет", "medium": "Средњи квалитет", "low": "Низак квалитет"},
-			"convert": {
-				"label": "Конвертуј",
-				"uncompressed": "Конвертуј · некомпресовано",
-				"bitrate": "Битрејт",
-				"wavLabel": "WAV (uncompressed)",
-				"lossyLabel": "{{target}} {{bitrate}} kbps",
-				"requiresAudioOnly": "Конверзија звука захтева режим само-звука (поништи избор видеа).",
-				"requiresLossy": "Изабран је нативни стрим — битрејт се примењује само при конверзији у mp3, m4a или opus."
-			},
+			"convert": {"label": "Конвертуј", "uncompressed": "Конвертуј · некомпресовано", "bitrate": "Битрејт", "wavLabel": "WAV (uncompressed)", "lossyLabel": "{{target}} {{bitrate}} kbps", "requiresLossy": "Изабран је нативни стрим — битрејт се примењује само при конверзији у mp3, m4a или opus."},
 			"botWall": {
 				"heading": "YouTube је ограничио ову проверу",
 				"bodyUnconfigured": "Списак формата можда није потпун. Подеси cookies у напредним подешавањима или промени мрежу и покушај поново.",
@@ -446,6 +441,20 @@
 			"writeDescription": {"label": "Сачувај опис", "description": "Чува опис видеа као .description текстуалну датотеку поред преузимања."},
 			"writeThumbnail": {"label": "Сачувај сличицу", "description": "Чува сличицу као .jpg датотеку слике поред преузимања."},
 			"writeM3u": {"label": "Создать файл плейлиста .m3u", "description": "Сохраняет .m3u рядом с видео, чтобы медиаплеер открывал их по порядку."}
+		},
+		"review": {
+			"changeFormat": "Промени формат",
+			"rowsHeading": "Остало",
+			"rows": {"subtitles": "Титлови", "sponsorBlock": "SponsorBlock", "extras": "Додатно", "saveTo": "Сачувај у", "fileName": "Назив фајла"},
+			"value": {"subtitlesOff": "Искључено", "sponsorBlockOff": "Искључено", "extrasNone": "Ништа"},
+			"done": "Готово",
+			"changed": "Измењено у односу на {{profile}}: {{areas}}. Важи само за ово преузимање.",
+			"areas": {"format": "формат", "subtitles": "титлови", "sponsorBlock": "SponsorBlock", "extras": "додатно", "saveTo": "фасцикла", "fileName": "назив фајла"},
+			"saveAsProfile": "Сачувај као профил…",
+			"reset": "Ресетуј",
+			"save": {"title": "Сачувај као профил", "description": "Чува ова подешавања као профил који можете изабрати следећи пут. Ваш профил „Брзо преузимање” остаје исти.", "nameLabel": "Назив профила", "action": "Сачувај профил", "saved": "Сачувано као профил „{{name}}”", "failed": "Чување профила није успело."},
+			"fileNameHint": "Ознаке: {title}, {id}, {uploader}, {date}, {resolution}. Екстензија се додаје аутоматски.",
+			"nextTime": {"title": "Ово преузимање је користило измењена подешавања. Користити их следећи пут?", "action": "Сачувај као профил", "defaultName": "{{profile}} (измењено)"}
 		},
 		"confirm": {
 			"readyHeadline": "Спремно за преузимање!",
@@ -717,13 +726,6 @@
 			"loginRequired": "За овај видео је потребан пријављен налог.",
 			"unknown": "Преузимање није успело. Погледај сирови излаз испод."
 		}
-	},
-	"presets": {
-		"best-quality": {"label": "Најбољи квалитет", "desc": "Највиша резолуција + најбољи звук"},
-		"balanced": {"label": "Уравнотежено", "desc": "Максимум 720p + добар звук"},
-		"audio-only": {"label": "Само звук", "desc": "Без видеа, најбољи звук"},
-		"small-file": {"label": "Мала датотека", "desc": "Најнижа резолуција + низак квалитет звука"},
-		"subtitle-only": {"label": "Само титлови", "desc": "Без видеа, без звука, само титлови"}
 	},
 	"playlistPresets": {
 		"type": {"video": "Video", "audio": "Audio", "subtitles": "Титлови"},

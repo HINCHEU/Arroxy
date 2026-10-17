@@ -1,7 +1,7 @@
 import {DEFAULTS} from './constants.js'
 import {canEmbedThumbnail, mediaIntentSpec, playlistSelectionToMediaIntent, playlistSubtitleOptions} from './mediaIntent.js'
 import type {EmbedOptions, ExtractorIdentity, PreparedJob, SponsorBlockOptions, SubtitleOptions} from './preparedJob.js'
-import type {AudioConvert, MediaIntent, NativeAudioPreference, PlaylistSelection, Preset, SponsorBlockCategory, SponsorBlockMode} from './schemas.js'
+import type {AudioConvert, MediaIntent, NativeAudioPreference, PlaylistSelection, SponsorBlockCategory, SponsorBlockMode} from './schemas.js'
 
 // Pure builder. Lives in `src/shared/` (not renderer) so future QueueStore
 // migrations in main can synthesize jobs without a renderer dependency.
@@ -15,7 +15,8 @@ export interface PrepareJobInput extends ExtractorIdentity {
 	// single-mode inputs (set when mode === 'single')
 	formatId?: string
 	audioConvert?: AudioConvert
-	activePreset?: Preset | null
+	// The single-video Subtitles kind: subtitle files only, no media.
+	subtitleOnly?: boolean
 	expectedBytes?: number
 	// playlist-mode inputs (set when mode === 'playlist')
 	playlistSelection?: PlaylistSelection | null
@@ -60,20 +61,20 @@ export function prepareJob(input: PrepareJobInput): PreparedJob {
 		}
 	}
 
-	const hasMedia = !!input.formatId || !!input.audioConvert || (!!input.activePreset && input.activePreset !== 'subtitle-only')
+	const hasMedia = !!input.formatId || !!input.audioConvert
 	const hasSubs = !!subtitles
 
-	if (input.activePreset === 'subtitle-only' || (!hasMedia && hasSubs)) {
+	if (input.subtitleOnly === true || (!hasMedia && hasSubs)) {
 		if (!subtitles) throw new Error('prepareJob: subtitle-only requires non-empty subtitle languages')
 		return {kind: 'subtitle-only', ...identity, ...filenameTemplate, subtitles}
 	}
 
 	if (input.audioConvert) {
-		return {kind: 'audio-convert', ...identity, audioConvert: input.audioConvert, preset: input.activePreset ?? 'custom', ...filenameTemplate, subtitles, sponsorBlock, embed: input.embed}
+		return {kind: 'audio-convert', ...identity, audioConvert: input.audioConvert, ...filenameTemplate, subtitles, sponsorBlock, embed: input.embed}
 	}
 
 	if (!input.formatId) throw new Error('prepareJob: single-format requires formatId')
-	return {kind: 'single-format', ...identity, formatId: input.formatId, preset: input.activePreset ?? 'custom', ...filenameTemplate, subtitles, sponsorBlock, embed: input.embed, expectedBytes: input.expectedBytes}
+	return {kind: 'single-format', ...identity, formatId: input.formatId, ...filenameTemplate, subtitles, sponsorBlock, embed: input.embed, expectedBytes: input.expectedBytes}
 }
 
 function toSponsorBlockOptions(mode: SponsorBlockMode, categories: SponsorBlockCategory[]): SponsorBlockOptions {

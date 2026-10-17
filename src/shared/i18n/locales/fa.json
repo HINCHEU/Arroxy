@@ -49,7 +49,7 @@
 	"theme": {"light": "حالت روشن", "dark": "حالت تیره", "system": "پیش‌فرض سیستم"},
 	"language": {"label": "زبان"},
 	"wizard": {
-		"steps": {"url": "URL", "playlistItems": "فهرست پخش", "playlistItemsGeneric": "ویدیوها", "playlistPresets": "کیفیت", "playlistProfiles": "نمایه‌ها", "formats": "قالب", "subtitles": "زیرنویس‌ها", "sponsorblock": "SponsorBlock", "output": "خروجی", "folder": "ذخیره", "confirm": "تأیید"},
+		"steps": {"url": "URL", "playlistItems": "فهرست پخش", "playlistItemsGeneric": "ویدیوها", "playlistPresets": "کیفیت", "playlistProfiles": "نمایه‌ها", "formats": "قالب", "subtitles": "زیرنویس‌ها", "sponsorblock": "SponsorBlock", "output": "خروجی", "folder": "ذخیره", "confirm": "تأیید", "review": "مرور"},
 		"playlistPresets": {"heading": "انتخاب کیفیت برای گروه", "subhead": "هر ویدیو سطح انتخابی را جداگانه تعیین می‌کند — فهرست‌های پخش ناهمگون بدون غافلگیری کار می‌کنند.", "itemCount_one": "{{count}} مورد", "itemCount_other": "{{count}} مورد"},
 		"playlistProfiles": {
 			"heading": "اختصاص نمایه‌های دانلود",
@@ -330,16 +330,11 @@
 		"subtitles": {
 			"autoBadge": "خودکار",
 			"noLanguages": "برای این ویدیو زیرنویسی در دسترس نیست",
-			"skip": "رد کردن",
-			"skipSubs": "رد کردن برای این ویدیو",
-			"mascot": "هیچ، یک یا چند مورد را انتخاب کنید — کاملاً به انتخاب شماست ✨",
 			"searchPlaceholder": "جستجوی زبان‌ها…",
 			"noMatches": "هیچ زبان مطابقی نیست",
 			"clearAll": "پاک کردن همه",
 			"noSelected": "هیچ زیرنویسی انتخاب نشده",
 			"removeLanguage": "حذف {{name}}",
-			"selectedNote_one": "{{count}} زیرنویس دانلود می‌شود",
-			"selectedNote_other": "{{count}} زیرنویس دانلود می‌شود",
 			"sectionManual": "دستی",
 			"sectionAuto": "تولیدشدهٔ خودکار",
 			"saveMode": {"heading": "ذخیره با قالب", "sidecar": "کنار ویدیو", "embed": "جاسازی در ویدیو", "subfolder": "زیرپوشهٔ subtitles/"},
@@ -355,7 +350,17 @@
 			"cat": {"sponsor": "اسپانسر", "intro": "مقدمه", "outro": "پایان‌بندی", "selfpromo": "خودتبلیغی", "music_offtopic": "موسیقی نامرتبط", "preview": "پیش‌نمایش", "filler": "محتوای پرکننده"}
 		},
 		"formats": {
-			"quickPresets": "پیش‌تنظیم‌های سریع",
+			"kind": {"label": "چه چیزی دانلود شود", "video": "ویدیو", "audio": "صدا", "subtitles": "فقط زیرنویس"},
+			"profile": {"preselected": "پیش‌انتخاب‌شده از", "tag": "نمایه", "closestTag": "نزدیک‌ترین به نمایه", "switchTitle": "تغییر نمایه؟", "switchBody": "تغییرات شما در این دانلود با تنظیمات نمایه‌ای که انتخاب می‌کنید جایگزین می‌شود.", "switchAction": "تغییر"},
+			"fit": {
+				"tierBelow": "نمایهٔ شما {{wanted}}p را می‌خواهد. این ویدیو فقط تا {{picked}}p می‌رسد، پس {{picked}}p انتخاب شد.",
+				"tierAbove": "نمایهٔ شما {{wanted}}p را می‌خواهد. این ویدیو چیزی به این کوچکی ندارد، پس {{picked}}p انتخاب شد.",
+				"mp4Unavailable": "نمایهٔ شما MP4 (H.264) را می‌خواهد. این ویدیو آن را ندارد، پس نزدیک‌ترین گزینه انتخاب شد.",
+				"noVideo": "این پیوند ویدیو ندارد، پس صدا انتخاب شد.",
+				"subtitlesMissing": "نمایهٔ شما زیرنویس را به زبان {{languages}} می‌خواهد. این ویدیو آن را ندارد."
+			},
+			"summary": {"lead": "همچنین از {{profile}}:", "subtitlesOff": "زیرنویس خاموش", "subtitlesAdd_one": "{{count}} زبان موجود است، افزودن", "subtitlesAdd_other": "{{count}} زبان موجود است، افزودن", "reviewAll": "مرور همه"},
+			"footer": {"reviewOptions": "مرور و گزینه‌ها", "download": "دانلود", "moreActions": "گزینه‌های بیشتر دانلود", "addToQueue": "افزودن به صف بدون شروع", "subtitlesRequired": "حداقل یک زبان زیرنویس انتخاب کنید."},
 			"video": "ویدیو",
 			"audio": "صدا",
 			"noAudio": "بدون صدا",
@@ -363,8 +368,6 @@
 			"keepAudio": "بدون تغییر نگه‌دار",
 			"keepAudioMeta": "صدای داخلی",
 			"audioOnly": "فقط صدا",
-			"audioOnlyOption": "فقط صدا (بدون ویدیو)",
-			"mascot": "بهترین + بهترین = بالاترین کیفیت. پیشنهاد من همین است!",
 			"sniffing": "در حال یافتن بهترین قالب‌ها برای شما…",
 			"loadingHint": "تا پایان بررسی صبر کنید — فهرست‌های پخش و جستجوها ممکن است زمان ببرند.",
 			"loadingAria": "در حال بارگیری قالب‌ها",
@@ -373,15 +376,7 @@
 			"skipToConfirm": "رفتن به تأیید",
 			"skipToConfirmTooltip": "برای همهٔ مرحله‌های باقی‌مانده از ترجیحات ذخیره‌شده استفاده می‌کند. برای تغییر یک تنظیم، مرحله‌به‌مرحله ادامه دهید — انتخاب شما برای دفعهٔ بعد ذخیره می‌شود.",
 			"quality": {"high": "کیفیت بالا", "medium": "کیفیت متوسط", "low": "کیفیت پایین"},
-			"convert": {
-				"label": "تبدیل",
-				"uncompressed": "تبدیل · بدون فشرده‌سازی",
-				"bitrate": "نرخ بیت",
-				"wavLabel": "WAV (بدون فشرده‌سازی)",
-				"lossyLabel": "{{target}} {{bitrate}} کیلوبیت‌برثانیه",
-				"requiresAudioOnly": "تبدیل صدا به حالت فقط صدا نیاز دارد (انتخاب ویدیو را بردارید).",
-				"requiresLossy": "یک جریان اصلی انتخاب شده است — نرخ بیت فقط هنگام تبدیل به mp3، m4a یا opus اعمال می‌شود."
-			},
+			"convert": {"label": "تبدیل", "uncompressed": "تبدیل · بدون فشرده‌سازی", "bitrate": "نرخ بیت", "wavLabel": "WAV (بدون فشرده‌سازی)", "lossyLabel": "{{target}} {{bitrate}} کیلوبیت‌برثانیه", "requiresLossy": "یک جریان اصلی انتخاب شده است — نرخ بیت فقط هنگام تبدیل به mp3، m4a یا opus اعمال می‌شود."},
 			"botWall": {
 				"heading": "بررسی محدود شد",
 				"bodyUnconfigured": "ممکن است فهرست قالب‌ها ناقص باشد. در تنظیمات پیشرفته کوکی‌ها را تنظیم کنید یا شبکه را تغییر دهید و دوباره تلاش کنید.",
@@ -438,6 +433,20 @@
 			"writeDescription": {"label": "ذخیرهٔ توضیحات", "description": "توضیحات ویدیو را به‌صورت فایل متنی .description کنار دانلود ذخیره می‌کند."},
 			"writeThumbnail": {"label": "ذخیرهٔ تصویر بندانگشتی", "description": "تصویر بندانگشتی را به‌صورت فایل .jpg کنار دانلود ذخیره می‌کند."},
 			"writeM3u": {"label": "ساخت فایل فهرست پخش .m3u", "description": "یک فهرست پخش .m3u کنار ویدیوها ذخیره می‌کند تا در پخش‌کننده به‌ترتیب باز شوند."}
+		},
+		"review": {
+			"changeFormat": "تغییر قالب",
+			"rowsHeading": "سایر موارد",
+			"rows": {"subtitles": "زیرنویس‌ها", "sponsorBlock": "SponsorBlock", "extras": "موارد اضافی", "saveTo": "ذخیره در", "fileName": "نام فایل"},
+			"value": {"subtitlesOff": "خاموش", "sponsorBlockOff": "خاموش", "extrasNone": "هیچ‌کدام"},
+			"done": "انجام شد",
+			"changed": "تغییر نسبت به {{profile}}: {{areas}}. فقط برای این دانلود اعمال می‌شود.",
+			"areas": {"format": "قالب", "subtitles": "زیرنویس‌ها", "sponsorBlock": "SponsorBlock", "extras": "موارد اضافی", "saveTo": "پوشه", "fileName": "نام فایل"},
+			"saveAsProfile": "ذخیره به‌عنوان نمایه…",
+			"reset": "بازنشانی",
+			"save": {"title": "ذخیره به‌عنوان نمایه", "description": "این تنظیمات را به‌عنوان نمایه‌ای ذخیره می‌کند که دفعهٔ بعد می‌توانید انتخاب کنید. نمایهٔ دانلود سریع شما بدون تغییر می‌ماند.", "nameLabel": "نام نمایه", "action": "ذخیرهٔ نمایه", "saved": "به‌عنوان نمایهٔ «{{name}}» ذخیره شد", "failed": "نمایه ذخیره نشد."},
+			"fileNameHint": "نشانه‌ها: {title}، {id}، {uploader}، {date}، {resolution}. پسوند خودکار اضافه می‌شود.",
+			"nextTime": {"title": "این دانلود از تنظیمات ویرایش‌شده استفاده کرد. دفعهٔ بعد هم از آن‌ها استفاده شود؟", "action": "ذخیره به‌عنوان نمایه", "defaultName": "{{profile}} (ویرایش‌شده)"}
 		},
 		"confirm": {
 			"readyHeadline": "برای دانلود آماده است!",
@@ -714,13 +723,6 @@
 			"loginRequired": "این ویدیو به یک حساب واردشده نیاز دارد.",
 			"unknown": "دانلود ناموفق بود. خروجی خام زیر را ببینید."
 		}
-	},
-	"presets": {
-		"best-quality": {"label": "بهترین کیفیت", "desc": "بالاترین وضوح + بهترین صدا"},
-		"balanced": {"label": "متعادل", "desc": "حداکثر 720p + صدای خوب"},
-		"audio-only": {"label": "فقط صدا", "desc": "بدون ویدیو، بهترین صدا"},
-		"small-file": {"label": "فایل کوچک", "desc": "کمترین وضوح + صدای کم‌کیفیت"},
-		"subtitle-only": {"label": "فقط زیرنویس", "desc": "بدون ویدیو و صدا، فقط زیرنویس"}
 	},
 	"playlistPresets": {
 		"type": {"video": "ویدیو", "audio": "صدا", "subtitles": "زیرنویس‌ها"},
